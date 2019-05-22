@@ -4,21 +4,20 @@
 
 #include <string>
 
-#include "AWindowBase.h"
-#include "GlutMouseAdapter.h"
+#include "AWindow.h"
+#include "MouseAdapter.h"
 
-class GlutWindow : public AWindowBase
+class GlutWindow : public AWindow
 {
 public:
 	GlutWindow(string title, int X, int Y, int width, int height);
 
 	//Implements functionality for mouse button click an mouse motion
-	void addEventListener(string event)
-	{
-		if (event == GlutMouseEvent::MOUSE_PRESSED)
-			glutMouseFunc(&GlutMouseAdapter::mouseClicked);
-		else if (event == GlutMouseEvent::MOUSE_MOVED)
-			glutMotionFunc(&GlutMouseAdapter::mouseMoved);
+	void addEventListener(string event){
+		if (event == MouseEvent::MOUSE_PRESSED)
+			glutMouseFunc(&MouseAdapter::mouseClicked);
+		else if (event == MouseEvent::MOUSE_MOVED)
+			glutMotionFunc(&MouseAdapter::mouseMoved);
 	}
 
 	//Starts OpenGL Window
@@ -31,21 +30,17 @@ public:
 	string getTitle() override;
 
 	//Position
-	//MATH::Vector2<int> getPosition();
-
 	int getX() override;
 	int getY() override;
 
-	////Size
-	//MATH::Vector2<int> getDimensions();
-
+	//Size
 	int getWidth() override;
 	int getHeight() override;
 
 	void print();
 
 private:
-	string title = "unset";
+	string title;
 
 	//Initializes Display
 	//Optional Implementation

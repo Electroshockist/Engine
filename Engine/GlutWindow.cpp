@@ -22,10 +22,6 @@ string GlutWindow::getTitle() {
 	return title;
 }
 
-//MATH::Vector2<int> GlutWindow::getPosition() {
-//	return MATH::Vector2<int>(getX(), getY());
-//}
-
 int GlutWindow::getX() {
 	return glutGet(GLUT_WINDOW_X);
 }
@@ -33,10 +29,6 @@ int GlutWindow::getX() {
 int GlutWindow::getY() {
 	return glutGet(GLUT_WINDOW_Y);
 }
-
-//MATH::Vector2<int> GlutWindow::getDimensions() {
-//	return MATH::Vector2<int>(getWidth(), getHeight());
-//}
 
 int GlutWindow::getWidth() {
 	return glutGet(GLUT_WINDOW_WIDTH);
@@ -47,6 +39,6 @@ int GlutWindow::getHeight() {
 }
 
 void GlutWindow::print() {
-	std::cout << "Title: " << getTitle() << "\nPosition: [" << getX() << ", " << getY() << "]\nSize: [" << getWidth() << ", " <<getHeight() << "] ";
+	std::cout << "Title: " << getTitle() << "\nPosition: [" << getX() << ", " << getY() << "]\nSize: [" << getWidth() << ", " <<getHeight() << "]\n";
 }
 

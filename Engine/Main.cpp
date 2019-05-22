@@ -5,19 +5,17 @@
 #include <iostream>
 
 #include "GlutWindow.h"
-
+#include "Singleton.h"
 
 using namespace std;
 
-int main()
-{
-
+int main() {
 	GlutWindow *w = new GlutWindow("Test", 500, 500, 1080, 720);
 
 	w->print();
 
-	w->addEventListener(GlutMouseEvent::MOUSE_PRESSED);
-	w->addEventListener(GlutMouseEvent::MOUSE_MOVED);
+	w->addEventListener(MouseAdapter::MOUSE_PRESSED);
+	w->addEventListener(MouseAdapter::MOUSE_MOVED);
 
 	w->draw();
 

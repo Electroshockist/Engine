@@ -319,6 +319,7 @@ namespace  MATH {
 	//	typename T, //real type
 	//	typename = typename std::enable_if<std::is_arithmetic<T>::value, T>::type
 	//>
+
 	struct Vector4 : public Vector3 {
 		///T  x;	///
 		///T  y;	///  
@@ -462,9 +463,8 @@ namespace  MATH {
 			return static_cast<float*>(&x);
 		}
 
-		typedef Vector4 Quaternion;
-
 	};
+	typedef Vector4 Quaternion;
 
 	/// Ability to call Vector4 Quaternion
 

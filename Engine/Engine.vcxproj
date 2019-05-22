@@ -155,19 +155,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\Desktop\sssssss\Engine\Decorator.h" />
+    <ClInclude Include="..\..\..\Desktop\sssssss\Engine\Singleton.h" />
     <ClInclude Include="AEvent.h" />
-    <ClInclude Include="AMouseAdapter.h" />
-    <ClInclude Include="AMouseEvent.h" />
-    <ClInclude Include="AWindowBase.h" />
-    <ClInclude Include="GlutMouseAdapter.h" />
+    <ClInclude Include="MouseAdapter.h" />
+    <ClInclude Include="MouseEvent.h" />
+    <ClInclude Include="AWindow.h" />
+    <ClInclude Include="CircularDynamicList.h" />
     <ClInclude Include="GlutWindow.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="MathPrimitives.h" />
-    <ClInclude Include="GlutMouseEvent.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="VMath.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GlutMouseEvent.cpp" />
     <ClCompile Include="GlutWindow.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

@@ -19,11 +19,14 @@
     <Filter Include="Header Files\Events">
       <UniqueIdentifier>{754ca10b-fb72-4dad-b077-8c617ad290d9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Events\Glut">
-      <UniqueIdentifier>{8e879eb0-f23e-4ab4-bab7-36506179136e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Math">
       <UniqueIdentifier>{d198e904-c1db-4aa7-aee5-eb1951cd616e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Data Structures">
+      <UniqueIdentifier>{82fcd6fe-4ee4-40ac-b420-d15f599ea11b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Resource">
+      <UniqueIdentifier>{bb4e02f2-5a80-446a-9059-cacda6b1f02c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -33,29 +36,35 @@
     <ClInclude Include="GlutWindow.h">
       <Filter>Header Files\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="AWindowBase.h">
-      <Filter>Header Files\Windows</Filter>
-    </ClInclude>
     <ClInclude Include="AEvent.h">
       <Filter>Header Files\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="AMouseEvent.h">
-      <Filter>Header Files\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="AMouseAdapter.h">
-      <Filter>Header Files\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="GlutMouseEvent.h">
-      <Filter>Header Files\Events\Glut</Filter>
-    </ClInclude>
-    <ClInclude Include="GlutMouseAdapter.h">
-      <Filter>Header Files\Events\Glut</Filter>
     </ClInclude>
     <ClInclude Include="VMath.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
     <ClInclude Include="MathPrimitives.h">
       <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="AWindow.h">
+      <Filter>Header Files\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="CircularDynamicList.h">
+      <Filter>Header Files\Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Desktop\sssssss\Engine\Decorator.h">
+      <Filter>Header Files\Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Desktop\sssssss\Engine\Singleton.h">
+      <Filter>Header Files\Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseEvent.h">
+      <Filter>Header Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseAdapter.h">
+      <Filter>Header Files\Events</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -69,9 +78,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GlutWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GlutMouseEvent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
