@@ -28,6 +28,9 @@
     <Filter Include="Header Files\Resource">
       <UniqueIdentifier>{bb4e02f2-5a80-446a-9059-cacda6b1f02c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Test">
+      <UniqueIdentifier>{250fdb25-5064-4fc4-84b2-51bf7ad6d5e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -51,12 +54,6 @@
     <ClInclude Include="CircularDynamicList.h">
       <Filter>Header Files\Data Structures</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Desktop\sssssss\Engine\Decorator.h">
-      <Filter>Header Files\Data Structures</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Desktop\sssssss\Engine\Singleton.h">
-      <Filter>Header Files\Data Structures</Filter>
-    </ClInclude>
     <ClInclude Include="Input.h">
       <Filter>Header Files\Resource</Filter>
     </ClInclude>
@@ -65,6 +62,18 @@
     </ClInclude>
     <ClInclude Include="MouseAdapter.h">
       <Filter>Header Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Decorator.h">
+      <Filter>Header Files\Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="Test.h">
+      <Filter>Header Files\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="DataManager.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Set.h">
+      <Filter>Header Files\Data Structures</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

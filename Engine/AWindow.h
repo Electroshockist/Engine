@@ -6,15 +6,14 @@
 
 using namespace std;
 
-class AWindow {
-public:
+struct AWindow {
 	//Title
 	virtual void setTitle(string n) = 0;
 	virtual string getTitle() = 0;
 
 	//Position
 	///position can only be set initially, therefore there are no setters for position
-	virtual MATH::Vector2 getPosition() {
+	MATH::Vector2 getPosition() {
 		return  MATH::Vector2(getX(), getY());
 	};
 
@@ -23,7 +22,7 @@ public:
 
 	//Size
 	///Size can only be set initially, therefore there are no setters for size
-	virtual MATH::Vector2 getDimensions() {
+	MATH::Vector2 getDimensions() {
 		return  MATH::Vector2(getWidth(), getHeight());
 	};
 

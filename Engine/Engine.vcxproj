@@ -155,9 +155,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Desktop\sssssss\Engine\Decorator.h" />
-    <ClInclude Include="..\..\..\Desktop\sssssss\Engine\Singleton.h" />
     <ClInclude Include="AEvent.h" />
+    <ClInclude Include="DataManager.h" />
+    <ClInclude Include="Decorator.h" />
     <ClInclude Include="MouseAdapter.h" />
     <ClInclude Include="MouseEvent.h" />
     <ClInclude Include="AWindow.h" />
@@ -166,6 +166,8 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="MathPrimitives.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Set.h" />
+    <ClInclude Include="Test.h" />
     <ClInclude Include="VMath.h" />
   </ItemGroup>
   <ItemGroup>

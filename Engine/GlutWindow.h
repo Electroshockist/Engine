@@ -7,9 +7,7 @@
 #include "AWindow.h"
 #include "MouseAdapter.h"
 
-class GlutWindow : public AWindow
-{
-public:
+struct GlutWindow : public AWindow {
 	GlutWindow(string title, int X, int Y, int width, int height);
 
 	//Implements functionality for mouse button click an mouse motion
@@ -38,6 +36,8 @@ public:
 	int getHeight() override;
 
 	void print();
+
+	virtual ~GlutWindow() {}
 
 private:
 	string title;

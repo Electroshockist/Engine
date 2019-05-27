@@ -5,11 +5,22 @@
 #include <iostream>
 
 #include "GlutWindow.h"
-#include "Singleton.h"
+#ifdef _DEBUG
+#include "Test.h"
+#endif
 
 using namespace std;
 
 int main() {
+	#ifdef _DEBUG
+	Test a = Test("one");
+	Test b = Test("two");
+
+	a.addChild(&b); 
+
+	cout << "a name: " << a.name << endl;
+	#endif // DEBUG
+
 	GlutWindow *w = new GlutWindow("Test", 500, 500, 1080, 720);
 
 	w->print();
