@@ -1,5 +1,10 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Test.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  GlutWindow.cpp
+c:\users\erico\files\engine\engine\awindow.h(17): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\erico\files\engine\engine\awindow.h(26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Main.cpp
 c:\users\erico\files\engine\engine\awindow.h(17): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\erico\files\engine\engine\awindow.h(26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+c:\users\erico\files\engine\engine\mouseevent.h(43): warning C4715: 'MouseEvent::getState': not all control paths return a value
   Engine.vcxproj -> C:\Users\erico\Files\Engine\Debug\Engine.exe

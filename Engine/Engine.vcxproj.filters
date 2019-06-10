@@ -72,9 +72,6 @@
     <ClInclude Include="DataManager.h">
       <Filter>Header Files\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="Set.h">
-      <Filter>Header Files\Data Structures</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

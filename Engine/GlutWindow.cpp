@@ -1,7 +1,6 @@
 #include "pch.h"
 
 #include <iostream>
-
 #include "GlutWindow.h"
 
 GlutWindow::GlutWindow(string _title, int X, int Y, int width, int height) {

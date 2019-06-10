@@ -1,7 +1,7 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-#include <Dependancies\include\glut.h>
+#include <glut.h>
 #include <string>
 
 using namespace std;
