@@ -1,84 +1,96 @@
 #pragma once
 #include "CircularDynamicList.h"
 
-using namespace DataStructures;
-class Decorator {
-	friend Decorator;
-	Decorator* parent;
-	CircularDynamicList<Decorator*> children;
 
-	//adds self as child to other decorator
-	inline void addSelfAsChild(Decorator* parent) { 
-		parent->getChildren().push_back_unique(this);
-	}
+using namespace std;
+namespace DataStructures {
+	class Decorator {
+		friend Decorator;
+		Decorator* parent;
+		CircularDynamicList<Decorator*> children;
 
-	//remove self from parent's children
-	inline void removeFromParent() {
-		CircularDynamicList<Decorator*> gotChildren = parent->getChildren();
-		CircularDynamicList<Decorator*>::Iterator iter = gotChildren.find(this);
-		gotChildren.erase(iter);
-	}
-
-	//remove self from children's parents
-	inline void removeFromChildren() {
-		CircularDynamicList<Decorator*>::Iterator iter;
-		Decorator* d;
-		for (iter = children.begin(); iter != children.end(); iter++) {
-			d = *iter;
-			d->setParent(nullptr);
+		//adds self as child to other decorator
+		inline void addSelfAsChild(Decorator* parent) {
+			parent->getChildren().push_back_unique(this);
+			cout << "added self as child of " << parent->name << endl;
 		}
-	}
 
-public:	
-	virtual ~Decorator() {
-		//remove self as parent's child
-		parent->removeFromParent();
+		//remove self from parent's children
+		inline void removeFromParent() {
+			CircularDynamicList<Decorator*> gotChildren = parent->getChildren();
+			CircularDynamicList<Decorator*>::Iterator iter = gotChildren.find(this);
+			gotChildren.erase(iter);
+			cout << "removed self as child from " << parent->name << endl;
+		}
 
-		//remove self as children's parents
-		removeFromChildren();
-	}
+		//remove self from children's parents
+		inline void removeFromChildren() {
+			CircularDynamicList<Decorator*>::Iterator iter;
+			Decorator* d;
+			for (iter = children.begin(); iter != children.end(); iter++) {
+				d = *iter;
+				d->setParent(nullptr);
+			}
+		}
 
-	//parent getter
-	Decorator* getParent(){
-		return parent;
-	}
+	public:
+		//temporary for testing
+		string name;
+		Decorator(string name_) {
+			name = name_;
+			cout << name << endl;
+		}
 
-	//child getter
-	CircularDynamicList<Decorator*> getChildren() {
-		return children;
-	}
+		virtual ~Decorator() {
+			//remove self as parent's child
+			removeFromParent();
 
-	//parent setter
-	inline void setParent(Decorator* p){
-		cout << "Set parent" << endl;
-		parent = p;
+			//remove self as children's parents
+			removeFromChildren();
+		}
 
-		addSelfAsChild(p);
-	}
+		//parent getter
+		Decorator* getParent() {
+			return parent;
+		}
 
-	//parent
-	inline void removeParent() {
-		cout << "Removed parent" << endl;
-		removeFromParent();
-		parent = nullptr;
-	}
+		//child getter
+		CircularDynamicList<Decorator*> getChildren() {
+			return children;
+		}
 
-	//TODO: prevent duplicates being added to children
-	inline void addChild(Decorator* d) {
-		cout << "Added child" << endl;
-		children.push_back(d);
-		d->setParent(this);
-	}
+		//parent setter
+		inline void setParent(Decorator* parent_) {
+			cout << "Set parent" << endl;
+			parent = parent_;
 
-	inline void removeChild(Decorator* d) {
-		cout << "set parent" << endl;
-		d->setParent(nullptr);
-		CircularDynamicList<Decorator*>::Iterator iter = children.find(this);
-		children.erase(iter);
-	}
+			addSelfAsChild(parent_);
+		}
 
-	//test if addresses are the same
-	bool operator== (const Decorator& rhs) const {
-		return this == &rhs;
-	}
-};
+		//parent
+		inline void removeParent() {
+			cout << "Removed parent" << endl;
+			removeFromParent();
+			parent = nullptr;
+		}
+
+		//TODO: prevent duplicates being added to children
+		inline void addChild(Decorator* d) {
+			cout << "Added child" << endl;
+			children.push_back(d);
+			d->setParent(this);
+		}
+
+		inline void removeChild(Decorator* child) {
+			//cout << "set parent" << endl;
+			child->setParent(nullptr);
+			CircularDynamicList<Decorator*>::Iterator iter = children.find(this);
+			children.erase(iter);
+		}
+
+		//test if addresses are the same
+		bool operator== (const Decorator& rhs) const {
+			return this == &rhs;
+		}
+	};
+}

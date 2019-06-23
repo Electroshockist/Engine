@@ -2,8 +2,6 @@
 #ifndef GLUTWINDOW_H
 #define GLUTWINDOW_H
 
-#include <string>
-
 #include "AWindow.h"
 #include "MouseAdapter.h"
 

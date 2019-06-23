@@ -5,6 +5,8 @@
 #include <iostream>
 
 #include "GlutWindow.h"
+#include "SDLWindow.h"
+
 #ifdef _DEBUG
 #include "Test.h"
 #endif
@@ -13,24 +15,26 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
 	#ifdef _DEBUG
-	Test a = Test("one");
-	Test b = Test("two");
+	Decorator a = Decorator("one");
+	Decorator b = Decorator("two");
 
 	a.addChild(&b); 
 
 	//Test* c = dynamic_cast<Test*>(b.getParent());
-	cout << "a name: " << dynamic_cast<Test*>(b.getParent())->name << endl;
+	Decorator* c = b.getParent();
+	cout << "a name: " << c->name << endl;
 	#endif // DEBUG
 
 	GlutWindow *w = new GlutWindow("Test", 500, 500, 1080, 720);
+	SDLWindow *ws = new SDLWindow("Testes", 200, 200, 1080, 720);
 
-	w->print();
+
+	//w->print();
 
 	w->addEventListener(MouseAdapter::MOUSE_PRESSED);
 	w->addEventListener(MouseAdapter::MOUSE_MOVED);
 
 	w->draw();
-
 	delete w;
 	return 0;
 }
