@@ -504,7 +504,7 @@ namespace  MATH {
 	//	typename T //real type
 	//	//typename = typename std::enable_if<std::is_arithmetic<T>::value, T>::type
 	//>
-	class VMath;
+	class VectorMath;
 
 	///  T x,y,z; came from vector as the normal to the surface + distance to the surface (d) 
 	//template<

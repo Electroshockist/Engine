@@ -8,12 +8,12 @@ using namespace std;
 
 struct AWindow {
 	//Title
-	virtual void setTitle(string n) = 0;
+	virtual void setTitle(string t) = 0;
 	virtual string getTitle() = 0;
 
 	//Position
 	///position can only be set initially, therefore there are no setters for position
-	MATH::Vector2 getPosition() {
+	virtual MATH::Vector2 getPosition() {
 		return  MATH::Vector2(getX(), getY());
 	};
 
@@ -22,7 +22,7 @@ struct AWindow {
 
 	//Size
 	///Size can only be set initially, therefore there are no setters for size
-	MATH::Vector2 getDimensions() {
+	virtual MATH::Vector2 getDimensions() {
 		return  MATH::Vector2(getWidth(), getHeight());
 	};
 

@@ -31,6 +31,15 @@
     <Filter Include="Header Files\Test">
       <UniqueIdentifier>{250fdb25-5064-4fc4-84b2-51bf7ad6d5e5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Data Structures">
+      <UniqueIdentifier>{167831f1-8a5f-43e6-9988-9002ad1371fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows">
+      <UniqueIdentifier>{d8134e94-852f-467e-bfe3-976965918e9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Math">
+      <UniqueIdentifier>{279ea482-94bf-488d-80f1-1442d7f59b3e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -41,9 +50,6 @@
     </ClInclude>
     <ClInclude Include="AEvent.h">
       <Filter>Header Files\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="VMath.h">
-      <Filter>Header Files\Math</Filter>
     </ClInclude>
     <ClInclude Include="MathPrimitives.h">
       <Filter>Header Files\Math</Filter>
@@ -72,19 +78,34 @@
     <ClInclude Include="DataManager.h">
       <Filter>Header Files\Resource</Filter>
     </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>Header Files\Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorMath.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="SDLWindow.h">
+      <Filter>Header Files\Windows</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="VMath.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="List.cpp">
+      <Filter>Source Files\Data Structures</Filter>
+    </ClCompile>
     <ClCompile Include="GlutWindow.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="SDLWindow.cpp">
+      <Filter>Source Files\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="VectorMath.cpp">
+      <Filter>Source Files\Math</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
