@@ -15,7 +15,7 @@ namespace MATH {
 	//	typename T //real type
 	//	//typename = typename std::enable_if<std::is_arithmetic<T>::value, T>::type
 	//>
-	class VMath {
+	class VectorMath {
 
 	public:
 		/// Calculate the dot product between Vector3s a & b 
@@ -53,7 +53,7 @@ namespace MATH {
 
 		///  Angle-Axis rotation
 		inline static Vector3 rotate(const Vector3 &n, float theta, const Vector3 &v) {
-			return v * cos(theta) + VMath::dot(v, n) * n * (1.0f - cos(theta)) + VMath::cross(n, v) * sin(theta);
+			return v * cos(theta) + VectorMath::dot(v, n) * n * (1.0f - cos(theta)) + VectorMath::cross(n, v) * sin(theta);
 		}
 
 		////////////////////////////////////////////////////////////////////////		

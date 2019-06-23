@@ -1,12 +1,12 @@
 #include "pch.h"
-#include "VMath.h"
+#include "VectorMath.h"
 #include <type_traits>
 using namespace MATH;
 
 //template<
 //	typename T //real type
 //>
-Vector3 VMath::reflect(const Vector3 &v, const Vector3 &n) {
+Vector3 VectorMath::reflect(const Vector3 &v, const Vector3 &n) {
 	Vector3 result;
 	float scalar = 2.0f * dot(v, n);
 	Vector3 temp = n * scalar;
@@ -17,7 +17,7 @@ Vector3 VMath::reflect(const Vector3 &v, const Vector3 &n) {
 //template<
 //	typename T //real type
 //>
-Vector3 VMath::reflect(const Vector3 &v, const Plane &p) {
+Vector3 VectorMath::reflect(const Vector3 &v, const Plane &p) {
 	Vector3 result;
 	float scalar = 2.0f * dot(v, p);
 	Vector3 temp = p * scalar;
@@ -26,7 +26,7 @@ Vector3 VMath::reflect(const Vector3 &v, const Plane &p) {
 }
 
 /***
-Vector3 VMath::reflect2(const Vector3 &v, const Plane &p){
+Vector3 VectorMath::reflect2(const Vector3 &v, const Plane &p){
 	Vector3 result;
 	float length  = mag(v);
 	Vector3 n = v / length;
@@ -41,7 +41,7 @@ Vector3 VMath::reflect2(const Vector3 &v, const Plane &p){
 //template<
 //	typename T //real type
 //>
-float VMath::distance(const Vector3 &a, const Vector3 &b) {
+float VectorMath::distance(const Vector3 &a, const Vector3 &b) {
 	Vector3 r = a - b;
 	return(mag(r));
 }
@@ -49,13 +49,13 @@ float VMath::distance(const Vector3 &a, const Vector3 &b) {
 //template<
 //	typename T //real type
 //>
-float VMath::distance(const Vector3 &v, const Plane &p) {
+float VectorMath::distance(const Vector3 &v, const Plane &p) {
 	return v.x*p.x + v.y*p.y + v.z*p.z - p.d;
 }
 
 //template<
 //	typename T //real type
 //>
-float VMath::distance(const Sphere &s, const Plane &p) {
+float VectorMath::distance(const Sphere &s, const Plane &p) {
 	return distance((Vector3)s, p) - s.r;
 }
