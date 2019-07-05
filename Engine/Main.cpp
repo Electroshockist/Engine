@@ -5,39 +5,37 @@
 #include <iostream>
 
 #include "GlutWindow.h"
-#include "SDLWindow.h"
+#include "SDLGLWindow.h"
 
 #ifdef _DEBUG
-#include "Test.h"
+#include "Event.h"
 #endif
 
 using namespace std;
 
+
+
+void debug() {
+#ifdef _DEBUG
+	Event e = Event();
+	Event::Listener l = Event::Listener(&e);
+
+	e.notify();
+
+
+#endif // DEBUG
+}
+
 int main(int argc, char *argv[]) {
-	#ifdef _DEBUG
-	Decorator a = Decorator("one");
-	Decorator b = Decorator("two");
+	debug();
+	SDLGLWindow *w = new SDLGLWindow("Testes", 200, 200, 1080, 720);
 
-	a.addChild(&b); 
-
-	//Test* c = dynamic_cast<Test*>(b.getParent());
-	Decorator* c = b.getParent();
-	cout << "a name: " << c->name << endl;
-	#endif // DEBUG
-
-	GlutWindow *w = new GlutWindow("Test", 500, 500, 1080, 720);
-	SDLWindow *ws = new SDLWindow("Testes", 200, 200, 1080, 720);
-
-
-	//w->print();
-
-	w->addEventListener(MouseAdapter::MOUSE_PRESSED);
-	w->addEventListener(MouseAdapter::MOUSE_MOVED);
-
-	w->draw();
+	getchar();
 	delete w;
 	return 0;
 }
+
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
