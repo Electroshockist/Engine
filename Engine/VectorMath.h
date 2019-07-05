@@ -8,6 +8,7 @@
 
 /// This is a library of Vector3 math routines. 
 #include "MathPrimitives.h"
+#include "Geometry.h"
 
 namespace MATH {
 

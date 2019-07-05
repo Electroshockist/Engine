@@ -2,6 +2,8 @@
 #define MATHPRIMITIVES_H
 #include <string> /// Used for passing exceptions 
 #include <type_traits>
+
+#include "Math.h"
 ///
 /// Vector3 definitions followed by Vector4 
 /// a Plane plus a Sphere is added at the end just for fun.
@@ -9,21 +11,6 @@
 ///
 
 namespace  MATH {
-
-	/// This is used in normalizing vectors. Dividing by zero is a well known
-	/// problem but dividing by nearly zero is also a problem. 1.0x10-7 is very
-	/// small in "float" percision. 
-#ifndef VERY_SMALL
-#define VERY_SMALL 1.0e-7f
-#endif
-
-#ifndef M_PI
-#define M_PI 3.14159265358979323846f
-#endif
-
-#ifndef DEGREES_TO_RADIANS
-#define DEGREES_TO_RADIANS (M_PI / 180.0f)
-#endif	
 
 	//template<
 	//	typename T //real type
@@ -177,7 +164,8 @@ namespace  MATH {
 
 		/// Just a little utility to populate a vector
 		inline void Load(float _x, float _y, float _z) {
-			x = _x; y = _y; z = _z;
+			Vector2::Load(_x, _y);
+			z = _z;
 		}
 
 		/// Here's a set of constructors
@@ -464,36 +452,11 @@ namespace  MATH {
 		}
 
 	};
-	typedef Vector4 Quaternion;
-
 	/// Ability to call Vector4 Quaternion
+	typedef Vector4 Quaternion;
 
 
 	/// Just some extra stuff for fun
-
-	///		A Sphere could be thought of as a just a center point (x,y,z) 
-	///		comes from Vector3 then just add a radius
-
-	//template<
-	//	typename T, //real type
-	//	typename = typename std::enable_if<std::is_arithmetic<T>::value, T>::type
-	//>
-	struct Sphere : public Vector3 {
-		float r;
-		Sphere(float s = 0.0f) { x = s; y = s; z = s; r = s; }
-
-		Sphere(float _x, float _y, float _z, float _r) {
-			x = _x; y = _y; z = _z; r = _r;
-		}
-
-		inline Sphere(const Sphere& v) {
-			x = v.x;  y = v.y;  z = v.z; r = v.r;
-		}
-
-		inline void print() {
-			printf("%f %f %f %f\n", x, y, z, r);
-		}
-	};
 
 
 	/// A solution to the circular dependency problem.  
@@ -505,65 +468,7 @@ namespace  MATH {
 	//	//typename = typename std::enable_if<std::is_arithmetic<T>::value, T>::type
 	//>
 	class VectorMath;
-
-	///  T x,y,z; came from vector as the normal to the surface + distance to the surface (d) 
-	//template<
-	//	typename T //real type
-	//	//typename = typename std::enable_if<std::is_arithmetic<T>::value, T>::type
-	//>
-	struct Plane : public Vector3 {
-		float d;
-
-		/// Here's a set of constructors
-		inline Plane(float _s = 0.0f) {
-			x = _s;
-			y = _s;
-			z = _s;
-			d = _s;
-		}
-		inline Plane(float _x, float _y, float _z, float _d) {
-			x = _x;
-			y = _y;
-			z = _z;
-			d = _d;
-		}
-
-		inline Plane(const Plane& v) {
-			x = v.x;
-			y = v.y;
-			z = v.z;
-			d = v.d;
-		}
-
-		/// This creates a normalized equation of a plane.
-		/// Important: See note 3.
-		inline Plane(const Vector3& v0, const Vector3& v1, const Vector3& v2) {
-			Vector3 a = v1 - v0;
-			Vector3 b = v2 - v0;
-			Vector3 n = Vector3(a.y * b.z - a.z * b.y, /// This is the cross product
-				a.z * b.x - a.x * b.z,
-				a.x * b.y - a.y * b.x);
-			float magnitude = float(sqrt(n.x * n.x + n.y * n.y + n.z * n.z)); /// normalize
-
-			Plane(x / magnitude, y / magnitude, z / magnitude, a.x * b.x + a.y * b.y + a.z * b.z);
-		}
-
-
-		/// Convert this plane into a normalized plane
-		inline void normalize() {
-			float a = sqrt(x*x + y * y + z * z);
-			x /= a;
-			y /= a;
-			z /= a;
-			d /= a;
-		}
-		inline void print() {
-			printf("%f %f %f %f\n", x, y, z, d);
-		}
-	};
-
 }
-
 #endif
 
 
