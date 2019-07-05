@@ -1,52 +1,52 @@
 #include "pch.h"
-#include "SDLWindow.h"
+#include "SDLGLWindow.h"
 
 
-SDLWindow::SDLWindow(string title, int X, int Y, int width, int height) {
+SDLGLWindow::SDLGLWindow(string title, int X, int Y, int width, int height) {
 
 	initSDL();
 	SDL_Event windowEvent;
 	window = SDL_CreateWindow(title.c_str(), X, Y, width, height, SDL_WINDOW_ALLOW_HIGHDPI);
 
 	if (window == NULL) {
-		cout << "SDLWindow creation failed: " << SDL_GetError() << endl;
+		cout << "SDLGLWindow creation failed: " << SDL_GetError() << endl;
 		return;
 	}
 }
 
-void SDLWindow::setTitle(string t) {
+void SDLGLWindow::setTitle(string t) {
 	SDL_SetWindowTitle(window, t.c_str());
 }
 
-string SDLWindow::getTitle() {
+string SDLGLWindow::getTitle() {
 	return SDL_GetWindowTitle(window);
 }
 
-int SDLWindow::getX()
+int SDLGLWindow::getX()
 {
 	return 0;
 }
 
-int SDLWindow::getY()
+int SDLGLWindow::getY()
 {
 	return 0;
 }
 
-MATH::Vector2 SDLWindow::getPosition() {
+MATH::Vector2 SDLGLWindow::getPosition() {
 	int *w = nullptr, *h = nullptr;
 	SDL_GetWindowSize(window, h, w);
 
 	return MATH::Vector2(*w, *h);
 }
 
-int SDLWindow::getWidth() {
+int SDLGLWindow::getWidth() {
 	int *h = nullptr, *w = nullptr;
 	SDL_GetWindowSize(window, h, w);
 
 	return *w;
 }
 
-int SDLWindow::getHeight() {
+int SDLGLWindow::getHeight() {
 	int *h = nullptr, *w = nullptr;
 	SDL_GetWindowSize(window, h, w);
 
@@ -54,16 +54,15 @@ int SDLWindow::getHeight() {
 }
 
 
-void SDLWindow::addEventListener(string event)
-{
+void SDLGLWindow::addEventListener(string event) {
 }
 
-SDLWindow::~SDLWindow() {
+SDLGLWindow::~SDLGLWindow() {
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 }
 
-int SDLWindow::initSDL() {
+int SDLGLWindow::initSDL() {
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
 		cout << "SDL could not initialize! SDL Error: " << SDL_GetError() << endl;
 	}

@@ -2,9 +2,9 @@
 #include "AWindow.h"
 #include "SDL\SDL.h"
 
-class SDLWindow : public AWindow {
+class SDLGLWindow : public AWindow {
 public:
-	SDLWindow(string title, int X, int Y, int width, int height);
+	SDLGLWindow(string title, int X, int Y, int width, int height);
 
 	//Title
 	void setTitle(string T) override;
@@ -22,10 +22,12 @@ public:
 
 	void addEventListener(string event) override;
 
-	~SDLWindow();
+	~SDLGLWindow();
+
+	SDL_Window *window = NULL;
 
 private:
-	SDL_Window *window = NULL;
 	int initSDL();
+	SDL_Event windowEvent;
 };
 
