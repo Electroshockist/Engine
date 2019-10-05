@@ -84,7 +84,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
@@ -160,55 +160,49 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="AEvent.h" />
-    <ClInclude Include="DataManager.h" />
-    <ClInclude Include="Decorator.h" />
-    <ClInclude Include="Event.h" />
-    <ClInclude Include="Geometry.h" />
-    <ClInclude Include="Geometry2D.h" />
-    <ClInclude Include="Geometry3D.h" />
-    <ClInclude Include="IRotatable.h" />
-    <ClInclude Include="IRotatable2D.h" />
-    <ClInclude Include="IRotatable3D.h" />
-    <ClInclude Include="ITransformable.h" />
-    <ClInclude Include="ITransformable2D.h" />
-    <ClInclude Include="ITransformable3D.h" />
-    <ClInclude Include="ITranslatable.h" />
-    <ClInclude Include="ITranslatable2D.h" />
-    <ClInclude Include="ITranslatable3D.h" />
-    <ClInclude Include="List.h" />
-    <ClInclude Include="Math.h" />
-    <ClInclude Include="MouseAdapter.h" />
-    <ClInclude Include="MouseEvent.h" />
-    <ClInclude Include="AWindow.h" />
-    <ClInclude Include="CircularDynamicList.h" />
-    <ClInclude Include="GlutWindow.h" />
-    <ClInclude Include="Input.h" />
-    <ClInclude Include="MathPrimitives.h" />
-    <ClInclude Include="pch.h" />
-    <ClInclude Include="SDLGLWindow.h" />
-    <ClInclude Include="Test.h" />
-    <ClInclude Include="VectorMath.h" />
+    <ClInclude Include="Engine\DataManager.h" />
+    <ClInclude Include="Engine\Data Structures\Decorator.h" />
+    <ClInclude Include="Engine\Data Structures\Events\AEvent.h" />
+    <ClInclude Include="Engine\Math\Geometry\Geometry.h" />
+    <ClInclude Include="Engine\Math\Geometry\Geometry2D.h" />
+    <ClInclude Include="Engine\Math\Geometry\Geometry3D.h" />
+    <ClInclude Include="Engine\Math\Transformation\IRotatable.h" />
+    <ClInclude Include="Engine\Math\Transformation\IRotatable2D.h" />
+    <ClInclude Include="Engine\Math\Transformation\IRotatable3D.h" />
+    <ClInclude Include="Engine\Math\Transformation\ITransformable.h" />
+    <ClInclude Include="Engine\Math\Transformation\ITransformable2D.h" />
+    <ClInclude Include="Engine\Math\Transformation\ITransformable3D.h" />
+    <ClInclude Include="Engine\Math\Transformation\ITranslatable.h" />
+    <ClInclude Include="Engine\Math\Transformation\ITranslatable2D.h" />
+    <ClInclude Include="Engine\Math\Transformation\ITranslatable3D.h" />
+    <ClInclude Include="Engine\Data Structures\List.h" />
+    <ClInclude Include="Engine\Math\Math.h" />
+    <ClInclude Include="Engine\Input\MouseAdapter.h" />
+    <ClInclude Include="Engine\Input\MouseEvent.h" />
+    <ClInclude Include="Engine\Window\AWindow.h" />
+    <ClInclude Include="Engine\Data Structures\CircularDynamicList.h" />
+    <ClInclude Include="Engine\Window\GlutWindow.h" />
+    <ClInclude Include="Engine\Input\Input.h" />
+    <ClInclude Include="Engine\Math\MathPrimitives.h" />
+    <ClInclude Include="Engine\Window\SDLGLWindow.h" />
+    <ClInclude Include="Engine\Test.h" />
+    <ClInclude Include="Engine\Math\VectorMath.h" />
+    <ClInclude Include="Engine\Data Structures\Events\ALisener.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Event.cpp" />
-    <ClCompile Include="GlutWindow.cpp" />
-    <ClCompile Include="IRotatable2D.cpp" />
-    <ClCompile Include="IRotatable3D.cpp" />
-    <ClCompile Include="ITransformable2D.cpp" />
-    <ClCompile Include="ITransformable3D.cpp" />
-    <ClCompile Include="ITranslatable2D.cpp" />
-    <ClCompile Include="ITranslatable3D.cpp" />
-    <ClCompile Include="List.cpp" />
-    <ClCompile Include="pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="SDLGLWindow.cpp" />
-    <ClCompile Include="VectorMath.cpp" />
+    <ClCompile Include="Engine\Data Structures\Events\AEvent.cpp" />
+    <ClCompile Include="Engine\Window\GlutWindow.cpp" />
+    <ClCompile Include="Engine\Math\Transformation\IRotatable2D.cpp" />
+    <ClCompile Include="Engine\Math\Transformation\IRotatable3D.cpp" />
+    <ClCompile Include="Engine\Math\Transformation\ITransformable2D.cpp" />
+    <ClCompile Include="Engine\Math\Transformation\ITransformable3D.cpp" />
+    <ClCompile Include="Engine\Math\Transformation\ITranslatable2D.cpp" />
+    <ClCompile Include="Engine\Math\Transformation\ITranslatable3D.cpp" />
+    <ClCompile Include="Engine\Data Structures\List.cpp" />
+    <ClCompile Include="Engine\Main.cpp" />
+    <ClCompile Include="Engine\Window\SDLGLWindow.cpp" />
+    <ClCompile Include="Engine\Math\VectorMath.cpp" />
+    <ClCompile Include="Engine\Data Structures\Events\ALisener.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

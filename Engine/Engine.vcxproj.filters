@@ -16,9 +16,6 @@
     <Filter Include="Header Files\Windows">
       <UniqueIdentifier>{d01278da-eca6-4481-b6ce-1c03c5e75f52}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Events">
-      <UniqueIdentifier>{754ca10b-fb72-4dad-b077-8c617ad290d9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Math">
       <UniqueIdentifier>{d198e904-c1db-4aa7-aee5-eb1951cd616e}</UniqueIdentifier>
     </Filter>
@@ -67,135 +64,135 @@
     <Filter Include="Header Files\Math\Geometry">
       <UniqueIdentifier>{20a55768-c79b-4a50-a715-5993e68f95cc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Data Structures\Events">
+      <UniqueIdentifier>{754ca10b-fb72-4dad-b077-8c617ad290d9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GlutWindow.h">
-      <Filter>Header Files\Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="AEvent.h">
-      <Filter>Header Files\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="MathPrimitives.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="AWindow.h">
-      <Filter>Header Files\Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="CircularDynamicList.h">
-      <Filter>Header Files\Data Structures</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
+    <ClInclude Include="Engine\DataManager.h">
       <Filter>Header Files\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="MouseEvent.h">
-      <Filter>Header Files\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="MouseAdapter.h">
-      <Filter>Header Files\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="Decorator.h">
-      <Filter>Header Files\Data Structures</Filter>
-    </ClInclude>
-    <ClInclude Include="Test.h">
+    <ClInclude Include="Engine\Test.h">
       <Filter>Header Files\Test</Filter>
     </ClInclude>
-    <ClInclude Include="DataManager.h">
-      <Filter>Header Files\Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="List.h">
+    <ClInclude Include="Engine\Data Structures\CircularDynamicList.h">
       <Filter>Header Files\Data Structures</Filter>
     </ClInclude>
-    <ClInclude Include="VectorMath.h">
+    <ClInclude Include="Engine\Data Structures\Events\AEvent.h">
+      <Filter>Header Files\Data Structures\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Data Structures\Events\ALisener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Data Structures\List.h">
+      <Filter>Header Files\Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\Math.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
-    <ClInclude Include="IRotatable2D.h">
-      <Filter>Header Files\Game Object\Transformations\2D</Filter>
-    </ClInclude>
-    <ClInclude Include="ITranslatable2D.h">
-      <Filter>Header Files\Game Object\Transformations\2D</Filter>
-    </ClInclude>
-    <ClInclude Include="ITranslatable.h">
-      <Filter>Header Files\Game Object\Transformations</Filter>
-    </ClInclude>
-    <ClInclude Include="IRotatable.h">
-      <Filter>Header Files\Game Object\Transformations</Filter>
-    </ClInclude>
-    <ClInclude Include="Event.h">
-      <Filter>Header Files\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="ITransformable2D.h">
-      <Filter>Header Files\Game Object\Transformations\2D</Filter>
-    </ClInclude>
-    <ClInclude Include="IRotatable3D.h">
-      <Filter>Header Files\Game Object\Transformations\3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Math.h">
+    <ClInclude Include="Engine\Math\MathPrimitives.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
-    <ClInclude Include="Geometry2D.h">
-      <Filter>Header Files\Math\Geometry</Filter>
+    <ClInclude Include="Engine\Math\VectorMath.h">
+      <Filter>Header Files\Math</Filter>
     </ClInclude>
-    <ClInclude Include="Geometry3D.h">
-      <Filter>Header Files\Math\Geometry</Filter>
+    <ClInclude Include="Engine\Math\Transformation\IRotatable.h">
+      <Filter>Header Files\Game Object\Transformations</Filter>
     </ClInclude>
-    <ClInclude Include="Geometry.h">
-      <Filter>Header Files\Math\Geometry</Filter>
+    <ClInclude Include="Engine\Math\Transformation\IRotatable2D.h">
+      <Filter>Header Files\Game Object\Transformations\2D</Filter>
     </ClInclude>
-    <ClInclude Include="ITranslatable3D.h">
+    <ClInclude Include="Engine\Math\Transformation\IRotatable3D.h">
       <Filter>Header Files\Game Object\Transformations\3D</Filter>
     </ClInclude>
-    <ClInclude Include="SDLGLWindow.h">
+    <ClInclude Include="Engine\Math\Transformation\ITransformable.h">
+      <Filter>Header Files\Game Object\Transformations</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\Transformation\ITransformable2D.h">
+      <Filter>Header Files\Game Object\Transformations\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\Transformation\ITransformable3D.h">
+      <Filter>Header Files\Game Object\Transformations\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\Transformation\ITranslatable.h">
+      <Filter>Header Files\Game Object\Transformations</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\Transformation\ITranslatable2D.h">
+      <Filter>Header Files\Game Object\Transformations\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\Transformation\ITranslatable3D.h">
+      <Filter>Header Files\Game Object\Transformations\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\Geometry\Geometry.h">
+      <Filter>Header Files\Math\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\Geometry\Geometry2D.h">
+      <Filter>Header Files\Math\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\Geometry\Geometry3D.h">
+      <Filter>Header Files\Math\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Data Structures\Decorator.h">
+      <Filter>Header Files\Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Input\Input.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Input\MouseAdapter.h">
+      <Filter>Header Files\Data Structures\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Input\MouseEvent.h">
+      <Filter>Header Files\Data Structures\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Window\AWindow.h">
       <Filter>Header Files\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="ITransformable3D.h">
-      <Filter>Header Files\Game Object\Transformations\3D</Filter>
+    <ClInclude Include="Engine\Window\SDLGLWindow.h">
+      <Filter>Header Files\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="ITransformable.h">
-      <Filter>Header Files\Game Object\Transformations</Filter>
+    <ClInclude Include="Engine\Window\GlutWindow.h">
+      <Filter>Header Files\Windows</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pch.cpp">
+    <ClCompile Include="Engine\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="Engine\Data Structures\Events\AEvent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="List.cpp">
+    <ClCompile Include="Engine\Data Structures\Events\ALisener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Data Structures\List.cpp">
       <Filter>Source Files\Data Structures</Filter>
     </ClCompile>
-    <ClCompile Include="GlutWindow.cpp">
-      <Filter>Source Files\Windows</Filter>
-    </ClCompile>
-    <ClCompile Include="VectorMath.cpp">
+    <ClCompile Include="Engine\Math\VectorMath.cpp">
       <Filter>Source Files\Math</Filter>
     </ClCompile>
-    <ClCompile Include="IRotatable2D.cpp">
+    <ClCompile Include="Engine\Math\Transformation\IRotatable2D.cpp">
       <Filter>Source Files\Game Object\Transformations\2D</Filter>
     </ClCompile>
-    <ClCompile Include="ITranslatable2D.cpp">
-      <Filter>Source Files\Game Object\Transformations\2D</Filter>
-    </ClCompile>
-    <ClCompile Include="ITransformable2D.cpp">
-      <Filter>Source Files\Game Object\Transformations\2D</Filter>
-    </ClCompile>
-    <ClCompile Include="IRotatable3D.cpp">
+    <ClCompile Include="Engine\Math\Transformation\IRotatable3D.cpp">
       <Filter>Source Files\Game Object\Transformations\3D</Filter>
     </ClCompile>
-    <ClCompile Include="SDLGLWindow.cpp">
+    <ClCompile Include="Engine\Math\Transformation\ITransformable2D.cpp">
+      <Filter>Source Files\Game Object\Transformations\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Math\Transformation\ITransformable3D.cpp">
+      <Filter>Source Files\Game Object\Transformations\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Math\Transformation\ITranslatable2D.cpp">
+      <Filter>Source Files\Game Object\Transformations\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Math\Transformation\ITranslatable3D.cpp">
+      <Filter>Source Files\Game Object\Transformations\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Window\SDLGLWindow.cpp">
       <Filter>Source Files\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="ITranslatable3D.cpp">
-      <Filter>Source Files\Game Object\Transformations\3D</Filter>
-    </ClCompile>
-    <ClCompile Include="ITransformable3D.cpp">
-      <Filter>Source Files\Game Object\Transformations\3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Event.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Engine\Window\GlutWindow.cpp">
+      <Filter>Source Files\Windows</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
