@@ -20,11 +20,11 @@ public:
 	int getWidth() override;
 	int getHeight() override;
 
-	void addEventListener(string event) override;
+	MATH::Vector2 getDimensions() override;
 
 	~SDLGLWindow();
 
-	SDL_Window *window = NULL;
+	SDL_Window *window;
 
 private:
 	int initSDL();

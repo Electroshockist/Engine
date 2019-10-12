@@ -13,23 +13,29 @@ struct AWindow {
 
 	//Position
 	///position can only be set initially, therefore there are no setters for position
+
+	//get window position
 	virtual MATH::Vector2 getPosition() {
 		return  MATH::Vector2(getX(), getY());
 	};
 
+	//get window X postition
 	virtual int getX() = 0;
+	//get window Y postition
 	virtual int getY() = 0;
 
 	//Size
 	///Size can only be set initially, therefore there are no setters for size
+
+	//get window size
 	virtual MATH::Vector2 getDimensions() {
 		return  MATH::Vector2(getWidth(), getHeight());
 	};
 
+	//get window hight
 	virtual int getWidth() = 0;
+	//get window width
 	virtual int getHeight() = 0;
-
-	virtual void addEventListener(string event) = 0;
 
 	virtual ~AWindow() {};
 

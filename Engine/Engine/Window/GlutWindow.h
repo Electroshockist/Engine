@@ -4,6 +4,7 @@
 #include "../Window/AWindow.h"
 #include "../Input/MouseAdapter.h"
 
+//Depreciated
 struct GlutWindow : public AWindow {
 	GlutWindow(string title, int X, int Y, int width, int height);
 
