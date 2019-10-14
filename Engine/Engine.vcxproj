@@ -163,6 +163,7 @@
     <ClInclude Include="Engine\DataManager.h" />
     <ClInclude Include="Engine\Data Structures\Decorator.h" />
     <ClInclude Include="Engine\Data Structures\Events\AEvent.h" />
+    <ClInclude Include="Engine\Debug\Debug.h" />
     <ClInclude Include="Engine\Math\Geometry\Geometry.h" />
     <ClInclude Include="Engine\Math\Geometry\Geometry2D.h" />
     <ClInclude Include="Engine\Math\Geometry\Geometry3D.h" />
@@ -191,6 +192,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Data Structures\Events\AEvent.cpp" />
+    <ClCompile Include="Engine\Debug\Debug.cpp" />
     <ClCompile Include="Engine\Window\GlutWindow.cpp" />
     <ClCompile Include="Engine\Math\Transformation\IRotatable2D.cpp" />
     <ClCompile Include="Engine\Math\Transformation\IRotatable3D.cpp" />

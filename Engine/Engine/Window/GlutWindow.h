@@ -9,10 +9,10 @@ struct GlutWindow : public AWindow {
 	GlutWindow(string title, int X, int Y, int width, int height);
 
 	//Implements functionality for mouse button click an mouse motion
-	void addEventListener(string event){
-		if (event == MouseEvent::MOUSE_PRESSED)
+	void addEventListener(string event) {
+		if(event == MouseEvent::MOUSE_PRESSED)
 			glutMouseFunc(&MouseAdapter::mouseClicked);
-		else if (event == MouseEvent::MOUSE_MOVED)
+		else if(event == MouseEvent::MOUSE_MOVED)
 			glutMotionFunc(&MouseAdapter::mouseMoved);
 	}
 
@@ -22,24 +22,13 @@ struct GlutWindow : public AWindow {
 	}
 
 	//Title
-	void setTitle(string n) override;
-	string getTitle() override;
-
-	//Position
-	int getX() override;
-	int getY() override;
-
-	//Size
-	int getWidth() override;
-	int getHeight() override;
+	void setTitle(string* n) override;
 
 	void print();
 
 	virtual ~GlutWindow() {}
 
 private:
-	string title;
-
 	//Initializes Display
 	//Optional Implementation
 	static void initDisplay() {

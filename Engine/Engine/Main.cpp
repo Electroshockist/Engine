@@ -6,7 +6,9 @@
 #include "Window\GlutWindow.h"
 #include "Window\SDLGLWindow.h"
 
+
 #ifdef _DEBUG
+#include "Debug\Debug.h"
 #endif
 
 using namespace std;
@@ -14,12 +16,13 @@ using namespace std;
 
 
 void debug() {
-
 }
 
 int main(int argc, char *argv[]) {
-#ifdef _DEBUG
+#ifdef _DEBUG	
+	Debug::setProjectPath(argv[0]);
 	debug();
+
 #endif // DEBUG
 
 	SDLGLWindow *w = new SDLGLWindow("Testes", 200, 200, 1080, 720);
