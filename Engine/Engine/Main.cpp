@@ -13,14 +13,13 @@
 
 using namespace std;
 
-
-
 void debug() {
 }
 
 int main(int argc, char *argv[]) {
-#ifdef _DEBUG	
 	Debug::setProjectPath(argv[0]);
+
+#ifdef _DEBUG	
 	debug();
 
 #endif // DEBUG
