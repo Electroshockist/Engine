@@ -119,7 +119,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -164,6 +164,7 @@
     <ClInclude Include="Engine\Data Structures\Decorator.h" />
     <ClInclude Include="Engine\Data Structures\Events\AEvent.h" />
     <ClInclude Include="Engine\Debug\Debug.h" />
+    <ClInclude Include="Engine\EngineMain.h" />
     <ClInclude Include="Engine\Math\Geometry\Geometry.h" />
     <ClInclude Include="Engine\Math\Geometry\Geometry2D.h" />
     <ClInclude Include="Engine\Math\Geometry\Geometry3D.h" />
@@ -193,6 +194,7 @@
   <ItemGroup>
     <ClCompile Include="Engine\Data Structures\Events\AEvent.cpp" />
     <ClCompile Include="Engine\Debug\Debug.cpp" />
+    <ClCompile Include="Engine\EngineMain.cpp" />
     <ClCompile Include="Engine\Window\GlutWindow.cpp" />
     <ClCompile Include="Engine\Math\Transformation\IRotatable2D.cpp" />
     <ClCompile Include="Engine\Math\Transformation\IRotatable3D.cpp" />
@@ -201,7 +203,7 @@
     <ClCompile Include="Engine\Math\Transformation\ITranslatable2D.cpp" />
     <ClCompile Include="Engine\Math\Transformation\ITranslatable3D.cpp" />
     <ClCompile Include="Engine\Data Structures\List.cpp" />
-    <ClCompile Include="Engine\Main.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Engine\Window\SDLGLWindow.cpp" />
     <ClCompile Include="Engine\Math\VectorMath.cpp" />
     <ClCompile Include="Engine\Data Structures\Events\ALisener.cpp" />

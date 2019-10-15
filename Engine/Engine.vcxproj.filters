@@ -156,11 +156,11 @@
     <ClInclude Include="Engine\Debug\Debug.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\EngineMain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Data Structures\Events\AEvent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -198,6 +198,12 @@
       <Filter>Source Files\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Debug\Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\EngineMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
