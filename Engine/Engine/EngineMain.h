@@ -1,7 +1,7 @@
 #ifndef ENGINEMAIN_H
 #define ENGINEMAIN_H
-#include "Window\GlutWindow.h"
-#include "Window\SDLGLWindow.h"
+#include "../Library/Window/GlutWindow.h"
+#include "../Library/Window/SDLGLWindow.h"
 struct EngineMain {
 	//delete constructors for singleton
 	EngineMain(const EngineMain&) = delete;

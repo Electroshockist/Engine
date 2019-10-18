@@ -2,7 +2,7 @@
 //
 
 #include "Engine\EngineMain.h"
-#include "Engine\Debug\Debug.h"
+#include "Library\Debug\Debug.h"
 
 #include <iostream>
 
