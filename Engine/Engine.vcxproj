@@ -189,9 +189,9 @@
     <ClInclude Include="Library\Window\SDLGLWindow.h" />
     <ClInclude Include="Library\Math\VectorMath.h" />
     <ClInclude Include="Library\Data Structures\Events\ALisener.h" />
+    <ClInclude Include="Library\Window\SDLWindow.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Library\Data Structures\Events\AEvent.cpp" />
     <ClCompile Include="Library\Debug\Debug.cpp" />
     <ClCompile Include="Engine\EngineMain.cpp" />
     <ClCompile Include="Library\Window\GlutWindow.cpp" />
@@ -206,6 +206,7 @@
     <ClCompile Include="Library\Window\SDLGLWindow.cpp" />
     <ClCompile Include="Library\Math\VectorMath.cpp" />
     <ClCompile Include="Library\Data Structures\Events\ALisener.cpp" />
+    <ClCompile Include="Library\Window\SDLWindow.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,3 +1,4 @@
+Engine/Debug/*.obj
 # Prerequisites
 *.d
 
@@ -5,7 +6,6 @@
 *.slo
 *.lo
 *.o
-*.obj
 
 # Precompiled Headers
 *.gch
@@ -28,3 +28,6 @@
 *.exe
 *.out
 *.app
+Debug/Engine.exe
+Debug/Engine.ilk
+Debug/Engine.pdb

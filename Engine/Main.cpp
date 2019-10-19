@@ -18,10 +18,11 @@ int main(int argc, char *argv[]) {
 #endif // DEBUG
 
 	int engineStatus = EngineMain::getInstance()->run(argc, argv);
+	getchar();
 	if(engineStatus != EXIT_SUCCESS) {
 		return engineStatus;
 	}
-	return EXIT_SUCCESS;
+	return 0;
 }
 
 

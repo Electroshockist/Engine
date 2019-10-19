@@ -156,6 +156,9 @@
     <ClInclude Include="Library\DataManager.h">
       <Filter>Header Files\Resource</Filter>
     </ClInclude>
+    <ClInclude Include="Library\Window\SDLWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -165,9 +168,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Library\Debug\Debug.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Library\Data Structures\Events\AEvent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Library\Data Structures\Events\ALisener.cpp">
@@ -202,6 +202,9 @@
     </ClCompile>
     <ClCompile Include="Library\Window\SDLGLWindow.cpp">
       <Filter>Source Files\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Window\SDLWindow.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,10 +1,14 @@
-#pragma once
+#ifndef SDLGLWINDOW_H
+#define SDLGLWINDOW_H
+
 #include "AWindow.h"
-#include "SDL\SDL.h"
+#include <SDL\SDL.h>
 
 class SDLGLWindow : public AWindow {
 public:
-	SDLGLWindow(string title, int X, int Y, int width, int height);
+	SDLGLWindow();
+
+	bool onCreate(string title, int X, int Y, int width, int height);
 
 	//Title
 	void setTitle(string* T) override;
@@ -12,9 +16,14 @@ public:
 	~SDLGLWindow();
 
 	SDL_Window *window;
+	SDL_GLContext context;
 
 private:
-	int initSDL();
-	SDL_Event windowEvent;
+	bool initSDL();
+	bool initGL();
+	void setAttributes(int major, int minor);
+	
+	void getInstalledOpenGLInfo(int *major, int *minor);
 };
 
+#endif // !SDLGLWINDOW_H

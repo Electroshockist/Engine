@@ -3,10 +3,21 @@
 
 #include <string>
 #include "..\Math\MathPrimitives.h"
+#include <iostream>
 
 using namespace std;
 
 struct AWindow {
+	AWindow() {}
+
+	inline void onCreate(string title, int x, int y, int width, int height) {		
+		this->title = &title;
+		this->x = &x;
+		this->y = &y;
+		this->width = &width;
+		this->height = &height;
+	}
+
 	//Title
 	virtual void setTitle(string* t) { title = t; };
 	inline string* getTitle() { return title; };
@@ -33,19 +44,19 @@ struct AWindow {
 	};
 
 	//get window hight
-	inline int* getWidth() { return w; };
+	inline int* getWidth() { return width; };
 	//get window width
-	inline int* getHeight() { return h; };
+	inline int* getHeight() { return height; };
 
 	virtual ~AWindow() {
-		delete title, x, y, w, h;
+		delete title, x, y, width, height;
 		title = nullptr;
-		x = y = w = h = nullptr;
+		x = y = width = height = nullptr;
+		std::cout << "delete please" << std::endl;
 	};
 
 private:
 	string* title;
-	int *x, *y, *w, *h;
-
+	int *x, *y, *width, *height;
 };
 #endif
