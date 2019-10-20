@@ -159,6 +159,12 @@
     <ClInclude Include="Library\Window\SDLWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Library\AScene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Math\Percentage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">

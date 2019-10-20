@@ -160,6 +160,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Library\AScene.h" />
     <ClInclude Include="Library\DataManager.h" />
     <ClInclude Include="Library\Data Structures\Decorator.h" />
     <ClInclude Include="Library\Data Structures\Events\AEvent.h" />
@@ -168,6 +169,7 @@
     <ClInclude Include="Library\Math\Geometry\Geometry.h" />
     <ClInclude Include="Library\Math\Geometry\Geometry2D.h" />
     <ClInclude Include="Library\Math\Geometry\Geometry3D.h" />
+    <ClInclude Include="Library\Math\Percentage.h" />
     <ClInclude Include="Library\Math\Transformation\IRotatable.h" />
     <ClInclude Include="Library\Math\Transformation\IRotatable2D.h" />
     <ClInclude Include="Library\Math\Transformation\IRotatable3D.h" />

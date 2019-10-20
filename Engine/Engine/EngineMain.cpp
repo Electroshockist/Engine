@@ -1,6 +1,6 @@
 #include "EngineMain.h"
 #include "../Library/Debug/Debug.h"
-#include <iostream>
+#include "../Library/Math/Percentage.h"
 
 std::unique_ptr<EngineMain> EngineMain::instance = nullptr;
 
@@ -8,7 +8,7 @@ EngineMain::EngineMain() {}
 
 EngineMain * EngineMain::getInstance() {
 	if(instance == nullptr) {
-		instance.reset(new EngineMain);		
+		instance.reset(new EngineMain);
 	}
 	return instance.get();
 }
@@ -18,12 +18,12 @@ int EngineMain::run(int argc, char * argv[]) {
 	if(!w->onCreate("Testes", 200, 200, 1080, 720)) {
 		return EXIT_FAILURE;
 	}
+	getchar();
 	return EXIT_SUCCESS;
 }
 
-EngineMain::~EngineMain() {	
-	//figure out why deleting 
-	AWindow* w2;
-	delete w2;
+EngineMain::~EngineMain() {
+	//figure out why deleting gives an error
+	delete w;
 	w = nullptr;
 }

@@ -1,23 +1,8 @@
 ﻿  EngineMain.cpp
-c:\users\erico\documents\code\engine\engine\library\window\awindow.h(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\erico\documents\code\engine\engine\library\window\awindow.h(43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\erico\documents\code\engine\engine\library\data structures\events\aevent.h(7): warning C4099: 'AEvent': type name first seen using 'class' now seen using 'struct'
-  c:\users\erico\documents\code\engine\engine\library\data structures\events\aevent.h(7): note: see declaration of 'AEvent'
-  GlutWindow.cpp
-c:\users\erico\documents\code\engine\engine\library\window\awindow.h(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\erico\documents\code\engine\engine\library\window\awindow.h(43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\erico\documents\code\engine\engine\library\data structures\events\aevent.h(7): warning C4099: 'AEvent': type name first seen using 'class' now seen using 'struct'
-  c:\users\erico\documents\code\engine\engine\library\data structures\events\aevent.h(7): note: see declaration of 'AEvent'
-  SDLGLWindow.cpp
-c:\users\erico\documents\code\engine\engine\library\window\awindow.h(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\erico\documents\code\engine\engine\library\window\awindow.h(43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  SDLWindow.cpp
-c:\users\erico\documents\code\engine\engine\library\window\awindow.h(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\erico\documents\code\engine\engine\library\window\awindow.h(43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Main.cpp
-c:\users\erico\documents\code\engine\engine\library\window\awindow.h(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\erico\documents\code\engine\engine\library\window\awindow.h(43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\erico\documents\code\engine\engine\library\data structures\events\aevent.h(7): warning C4099: 'AEvent': type name first seen using 'class' now seen using 'struct'
-  c:\users\erico\documents\code\engine\engine\library\data structures\events\aevent.h(7): note: see declaration of 'AEvent'
-  Generating Code...
-  Engine.vcxproj -> C:\Users\erico\Documents\Code\Engine\Debug\Engine.exe
+c:\users\erico\files\engine\engine\library\window\awindow.h(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\erico\files\engine\engine\library\window\awindow.h(43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\erico\files\engine\engine\library\data structures\events\aevent.h(7): warning C4099: 'AEvent': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\data structures\events\aevent.h(7): note: see declaration of 'AEvent'
+c:\users\erico\files\engine\engine\library\math\percentage.h(37): warning C4455: 'operator ""percent': literal suffix identifiers that do not start with an underscore are reserved
+c:\users\erico\files\engine\engine\library\math\percentage.h(42): warning C4455: 'operator ""p': literal suffix identifiers that do not start with an underscore are reserved
+  Engine.vcxproj -> C:\Users\erico\Files\Engine\Debug\Engine.exe

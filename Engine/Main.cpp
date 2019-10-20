@@ -7,22 +7,20 @@
 #include <iostream>
 
 using namespace std;
-
-void debug() {}
-
 int main(int argc, char *argv[]) {
 	Debug::setProjectPath(argv[0]);
 
-#ifdef _DEBUG	
-	debug();
-#endif // DEBUG
-
-	int engineStatus = EngineMain::getInstance()->run(argc, argv);
-	getchar();
-	if(engineStatus != EXIT_SUCCESS) {
-		return engineStatus;
+	//if in debug mode, run engine
+#ifdef _DEBUG
+	if(EngineMain::getInstance()->run(argc, argv) != EXIT_SUCCESS) {
+		return EXIT_FAILURE;
 	}
-	return 0;
+	return EXIT_SUCCESS;
+#endif // DEBUG
+#ifndef _DEBUG
+
+#endif // _DEBUG
+
 }
 
 
