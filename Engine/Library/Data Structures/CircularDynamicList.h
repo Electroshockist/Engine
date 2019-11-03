@@ -14,18 +14,15 @@ namespace DataStructures {
 
 			//Declare a pointer to the previous node
 			// Name the Node pointer prev
-			// INSERT CODE HERE
 			Node *prev;
 
 			// constructor
 			// Define the contructor for the node
 			Node(const T& v) {
 				// Initialize the node value to value parameter
-				// INSERT CODE HERE
 				value = v;
 
 				// Initialize the node's next and prev pointers to NULL
-				// INSERT CODE HERE
 				prev = next = NULL;
 
 			}
