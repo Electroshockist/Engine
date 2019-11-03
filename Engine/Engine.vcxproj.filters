@@ -162,7 +162,7 @@
     <ClInclude Include="Library\AScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Library\Math\Percentage.h">
+    <ClInclude Include="Library\Math\Units\Percentage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
