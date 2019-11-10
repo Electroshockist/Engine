@@ -72,9 +72,6 @@
     <ClInclude Include="Engine\EngineMain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Library\Debug\Debug.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Library\Data Structures\Events\AEvent.h">
       <Filter>Header Files\Data Structures\Events</Filter>
     </ClInclude>
@@ -165,15 +162,27 @@
     <ClInclude Include="Library\Math\Units\Percentage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Library\Graphics\Textures\ATexture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Graphics\Textures\TextureManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Debugging\Debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Graphics\Textures\GLTexture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Utilities\FilePathParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\EngineMain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Library\Debug\Debug.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Library\Data Structures\Events\ALisener.cpp">
@@ -210,6 +219,21 @@
       <Filter>Source Files\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Library\Window\SDLWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Graphics\Textures\ATexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Graphics\Textures\TextureManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Debugging\Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Graphics\Textures\GLTexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Utilities\FilePathParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

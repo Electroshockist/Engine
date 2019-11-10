@@ -1,5 +1,5 @@
 #include "SDLGLWindow.h"
-#include"../Debug/Debug.h"
+#include"../Debugging/Debug.h"
 
 #include <GLEW\glew.h>
 #include <SDL\SDL_opengl.h>

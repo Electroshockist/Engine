@@ -1,5 +1,5 @@
 #include "EngineMain.h"
-#include "../Library/Debug/Debug.h"
+#include "../Library/Debugging/Debug.h"
 
 std::unique_ptr<EngineMain> EngineMain::instance = nullptr;
 
