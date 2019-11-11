@@ -11,7 +11,7 @@ struct FilePathParser {
 		std::string path;
 		std::string relativePath;
 
-		File() {}
+		File() : name(""), extension(""), path(""), relativePath("") {}
 		File(std::string path, std::string name, std::string extension);
 
 	};
@@ -30,7 +30,7 @@ struct FilePathParser {
 	FilePathParser& operator=(const FilePathParser&) = delete;
 	FilePathParser& operator=(FilePathParser&&) = delete;
 
-private:	
+private:
 	static std::string projectPath;
 
 	std::string toLower(const std::string s);
