@@ -160,6 +160,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Library\Utilities\File.h" />
     <ClInclude Include="Library\Utilities\FilePathParser.h" />
     <ClInclude Include="Library\Graphics\Textures\GLTexture.h" />
     <ClInclude Include="Library\AScene.h" />
@@ -198,6 +199,7 @@
     <ClInclude Include="Library\Graphics\Textures\ATexture.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Library\Utilities\File.cpp" />
     <ClCompile Include="Library\Utilities\FilePathParser.cpp" />
     <ClCompile Include="Library\Graphics\Textures\GLTexture.cpp" />
     <ClCompile Include="Library\Debugging\Debug.cpp" />

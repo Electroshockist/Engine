@@ -21,11 +21,6 @@ public:
 	Debug& operator=(Debug&&) = delete;
 	Debug() = delete;
 
-	///for siplifying debugging
-	//only supply with main's argv[0]
-	static void setProjectPath(const std::string argv0);
-	static std::string getProjectPath();
-
 	static void debugInit();
 	static void debugInit(std::string& filename);
 	static void setSeverity(MessageType type);
@@ -42,7 +37,6 @@ private:
 
 	static MessageType currentSeverity;
 	static std::string outputileName;
-	static std::string projectPath;
 };
 #endif //DEBUG_H
 

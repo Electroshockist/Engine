@@ -6,37 +6,16 @@ using namespace std;
 
 string FilePathParser::projectPath = "";
 
-unique_ptr<FilePathParser> FilePathParser::instance = nullptr;
-
 void FilePathParser::setProjectPath(const string argv0) {
 	//find position of the word "Debug" in path
 	size_t pos = argv0.rfind("Debug");
 
 	//truncate at position
 	projectPath = argv0.substr(0, pos);
-
-
 }
 
-FilePathParser * FilePathParser::getInstance() {
-	if(instance == nullptr) {
-		instance.reset(new FilePathParser);
-	}
-	return instance.get();
-}
-
-//to implement
-std::string FilePathParser::getRelativePath(std::string path) {
-	std::string tempFullPath = toLower(path);
-	std::string tempProjectPath = projectPath;
-
-
-	bool match = false;
-	if(!match) {
-
-	}
-
-	return std::string();
+std::string FilePathParser::getProjectPath() {
+	return projectPath;
 }
 
 string FilePathParser::toLower(const string s) {
@@ -48,11 +27,4 @@ string FilePathParser::toLower(const string s) {
 	return temp;
 }
 
-FilePathParser::FilePathParser() {}
-
 FilePathParser::~FilePathParser() {}
-
-FilePathParser::File::File(string relativePath, string name, string extension) {
-	this->name = name;
-	this->relativePath = relativePath;
-}

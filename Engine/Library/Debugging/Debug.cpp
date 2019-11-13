@@ -1,11 +1,11 @@
 #include "Debug.h"
+#include "../Utilities/FilePathParser.h"
 #include <algorithm>
 
 using namespace std;
 
 string Debug::outputileName = "Game301Engine.log";
 MessageType Debug::currentSeverity = MessageType::TYPE_NONE;
-string Debug::projectPath = "";
 
 
 void Debug::debugInit() {
@@ -19,23 +19,6 @@ void Debug::debugInit() {
 void Debug::debugInit(string & filename) {
 	outputileName = filename;
 	Debug::debugInit();
-}
-
-void Debug::setProjectPath(const string argv0) {
-	//find position of the word "Debug" in path
-	size_t pos = argv0.rfind("Debug");
-
-	//truncate at position
-	projectPath = argv0.substr(0, pos);
-
-	// convert string to lower case
-	for_each(projectPath.begin(), projectPath.end(), [](char & c) {
-		c = ::tolower(c);
-	});
-}
-
-string Debug::getProjectPath() {
-	return projectPath;
 }
 
 void Debug::setSeverity(MessageType type) {
@@ -75,5 +58,5 @@ void Debug::log(const MessageType type, const string & message, const string & f
 string Debug::simplifyFileName(const string filename) {
 	//cout << "Project path:" <<  projectPath << endl << "File path:" << filename << endl << "Subtracted path:" << filename.substr(projectPath.size()) << "\n\n";
 	//truncate at position
-	return filename.substr(projectPath.size());
+	return filename.substr(FilePathParser::getProjectPath().size());
 }

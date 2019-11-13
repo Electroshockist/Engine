@@ -3,8 +3,10 @@
 
 #include "TextureManager.h"
 #include "../../Math/MathPrimitives.h"
+#include "../../Utilities/File.h"
 struct ATexture {
 	ATexture();
+	ATexture(const std::string& textureFileName);
 
 	inline MATH::Vector2 getSize() {
 		return size;
@@ -17,11 +19,15 @@ struct ATexture {
 	inline float getHeight() {
 		return size.y;
 	}
-	
-	virtual ~ATexture();
+
+	virtual ~ATexture() {
+		TextureManager::getInstance()->removeTexture(this);
+	}
 
 protected:
 	MATH::Vector2 size;
+
+	File file;
 
 };
 #endif // !ATEXTURE_H

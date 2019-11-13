@@ -177,6 +177,9 @@
     <ClInclude Include="Library\Utilities\FilePathParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Library\Utilities\File.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -234,6 +237,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Library\Utilities\FilePathParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Utilities\File.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

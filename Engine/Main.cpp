@@ -3,12 +3,13 @@
 
 #include "Engine\EngineMain.h"
 #include "Library\Debugging\Debug.h"
+#include "Library\Utilities\FilePathParser.h"
 
 #include <iostream>
 
 using namespace std;
 int main(int argc, char *argv[]) {
-	Debug::setProjectPath(argv[0]);
+	FilePathParser::setProjectPath(argv[0]);
 
 	//if in debug mode, run engine
 #ifdef _DEBUG

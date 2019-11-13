@@ -1,40 +1,6 @@
-﻿  FilePathParser.cpp
-  GLTexture.cpp
-  Debug.cpp
-  EngineMain.cpp
-c:\users\erico\documents\code\engine\engine\library\window\awindow.h(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\erico\documents\code\engine\engine\library\window\awindow.h(43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\erico\documents\code\engine\engine\library\data structures\events\aevent.h(7): warning C4099: 'AEvent': type name first seen using 'class' now seen using 'struct'
-  c:\users\erico\documents\code\engine\engine\library\data structures\events\aevent.h(7): note: see declaration of 'AEvent'
-  GlutWindow.cpp
-c:\users\erico\documents\code\engine\engine\library\window\awindow.h(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\erico\documents\code\engine\engine\library\window\awindow.h(43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\erico\documents\code\engine\engine\library\data structures\events\aevent.h(7): warning C4099: 'AEvent': type name first seen using 'class' now seen using 'struct'
-  c:\users\erico\documents\code\engine\engine\library\data structures\events\aevent.h(7): note: see declaration of 'AEvent'
-  IRotatable2D.cpp
-  IRotatable3D.cpp
-  ITransformable2D.cpp
-  ITransformable3D.cpp
-  ITranslatable2D.cpp
-  ITranslatable3D.cpp
-  List.cpp
-  Main.cpp
-c:\users\erico\documents\code\engine\engine\library\window\awindow.h(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\erico\documents\code\engine\engine\library\window\awindow.h(43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\erico\documents\code\engine\engine\library\data structures\events\aevent.h(7): warning C4099: 'AEvent': type name first seen using 'class' now seen using 'struct'
-  c:\users\erico\documents\code\engine\engine\library\data structures\events\aevent.h(7): note: see declaration of 'AEvent'
-  SDLGLWindow.cpp
-c:\users\erico\documents\code\engine\engine\library\window\awindow.h(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\erico\documents\code\engine\engine\library\window\awindow.h(43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  VectorMath.cpp
-  ALisener.cpp
-c:\users\erico\documents\code\engine\engine\library\data structures\events\aevent.h(7): warning C4099: 'AEvent': type name first seen using 'class' now seen using 'struct'
-  c:\users\erico\documents\code\engine\engine\library\data structures\events\aevent.h(7): note: see declaration of 'AEvent'
-  SDLWindow.cpp
-c:\users\erico\documents\code\engine\engine\library\window\awindow.h(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\erico\documents\code\engine\engine\library\window\awindow.h(43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  TextureManager.cpp
-  ATexture.cpp
-  Generating Code...
-  LINK : C:\Users\erico\Documents\Code\Engine\Debug\Engine.exe not found or not built by the last incremental link; performing full link
-  Engine.vcxproj -> C:\Users\erico\Documents\Code\Engine\Debug\Engine.exe
+﻿  EngineMain.cpp
+c:\users\erico\files\engine\engine\library\window\awindow.h(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\erico\files\engine\engine\library\window\awindow.h(43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\erico\files\engine\engine\library\data structures\events\aevent.h(7): warning C4099: 'AEvent': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\data structures\events\aevent.h(7): note: see declaration of 'AEvent'
+  Engine.vcxproj -> C:\Users\erico\Files\Engine\Debug\Engine.exe

@@ -16,7 +16,9 @@ struct TextureManager {
 	bool addUniqueTexture(ATexture* texture);
 	bool removeTexture(ATexture* texture);
 
-	ATexture* getTexture(std::string name);
+	ATexture* getTexture(const std::string & name);
+
+
 	std::string getTextureName(ATexture* texture);
 
 	//get singleton instance
