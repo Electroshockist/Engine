@@ -1,6 +1,5 @@
-﻿  EngineMain.cpp
-c:\users\erico\files\engine\engine\library\window\awindow.h(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\erico\files\engine\engine\library\window\awindow.h(43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\erico\files\engine\engine\library\data structures\events\aevent.h(7): warning C4099: 'AEvent': type name first seen using 'class' now seen using 'struct'
-  c:\users\erico\files\engine\engine\library\data structures\events\aevent.h(7): note: see declaration of 'AEvent'
-  Engine.vcxproj -> C:\Users\erico\Files\Engine\Debug\Engine.exe
+﻿  ATexture.cpp
+  GLTexture.cpp
+  TextureManager.cpp
+  Generating Code...
+  Engine.vcxproj -> C:\Users\erico\Documents\Files\Engine\Debug\Engine.exe

@@ -125,7 +125,7 @@ namespace  MATH {
 
 		inline Vector2& operator /= (const float s) {
 #ifdef _DEBUG  /// If in debug mode let's worry about divide by zero or nearly zero!!! 
-			if (std::fabs(s) < VERY_SMALL) {
+			if (fabs(s) < VERY_SMALL) {
 				std::string errorMsg("Divide by nearly zero! ");
 				throw errorMsg;
 			}
@@ -271,7 +271,7 @@ namespace  MATH {
 
 		inline Vector3& operator /= (const float s) {
 #ifdef _DEBUG  /// If in debug mode let's worry about divide by zero or nearly zero!!! 
-			if (std::fabs(s) < VERY_SMALL) {
+			if (fabs(s) < VERY_SMALL) {
 				std::string errorMsg("Divide by nearly zero! ");
 				throw errorMsg;
 			}
@@ -425,7 +425,7 @@ namespace  MATH {
 
 		inline Vector4& operator /= (const float s) {
 #ifdef _DEBUG  /// If in debug mode let's worry about divide by zero or nearly zero!!! 
-			if (std::fabs(s) < VERY_SMALL) {
+			if (fabs(s) < VERY_SMALL) {
 				std::string errorMsg("Divide by nearly zero! ");
 				throw errorMsg;
 			}

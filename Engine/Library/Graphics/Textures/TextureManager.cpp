@@ -2,6 +2,15 @@
 #include "ATexture.h"
 
 std::unique_ptr<TextureManager> TextureManager::managerInstance = nullptr;
+std::vector<ATexture*> TextureManager::textures = std::vector<ATexture*>();
+
+
+bool TextureManager::addUniqueTexture(ATexture* texture) {
+	for (int i = textures.size() - 1; i >= 0; i--) {
+		if()
+	}
+	return true;
+}
 
 bool TextureManager::removeTexture(ATexture * texture) {
 	return false;

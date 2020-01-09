@@ -2,7 +2,8 @@
 #define TEXTUREHANDLER_H
 
 #include <memory>
-#include <map>
+#include <vector>
+#include <string>
 
 struct ATexture;
 struct TextureManager {
@@ -13,13 +14,10 @@ struct TextureManager {
 	TextureManager& operator=(TextureManager&&) = delete;
 
 	//tries to add a unique texture, returns false if it already exists
-	bool addUniqueTexture(ATexture* texture);
+	ATexture* addUniqueTexture(ATexture* Texture);
 	bool removeTexture(ATexture* texture);
 
-	ATexture* getTexture(const std::string & name);
-
-
-	std::string getTextureName(ATexture* texture);
+	bool getTexture(const std::string & name);
 
 	//get singleton instance
 	static TextureManager* getInstance();
@@ -28,7 +26,7 @@ private:
 	//singleton instance pointer
 	static std::unique_ptr<TextureManager> managerInstance;
 	friend std::default_delete<TextureManager>;
-	static std::map<std::string, ATexture*> textures;
+	static std::vector<ATexture*> textures;
 
 	TextureManager();
 	~TextureManager();

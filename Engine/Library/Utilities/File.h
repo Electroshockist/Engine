@@ -11,6 +11,10 @@ struct File {
 	File(const std::string filePath);
 
 	~File();
+
+	std::string getFullPath() {
+		return directory + name + extension;
+	}
 };
 
 

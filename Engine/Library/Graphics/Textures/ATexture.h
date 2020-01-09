@@ -24,11 +24,14 @@ struct ATexture {
 		TextureManager::getInstance()->removeTexture(this);
 	}
 
+	inline File getFile(){
+		return file;
+	}
+
 protected:
 	MATH::Vector2 size;
 
 	File file;
-
 };
 #endif // !ATEXTURE_H
 

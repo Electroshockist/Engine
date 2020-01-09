@@ -5,6 +5,7 @@ using namespace std;
 File::File(string filePath) {
 	//find last instance of the character "/" in the filePath
 	size_t fileNamePos = filePath.rfind("/");
+	//TODO: find last period from end(for multiple extensions)
 	//find last instance of the character "." in the filePath
 	size_t extensionPos = filePath.rfind(".");
 
