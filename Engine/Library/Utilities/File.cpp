@@ -1,4 +1,5 @@
 #include "File.h"
+#include <assimp/Importer.hpp>
 
 using namespace std;
 
@@ -7,7 +8,7 @@ File::File(string filePath) {
 	size_t fileNamePos = filePath.rfind("/");
 	//TODO: find last period from end(for multiple extensions)
 	//find last instance of the character "." in the filePath
-	size_t extensionPos = filePath.rfind(".");
+	size_t extensionPos = filePath.find(".");
 
 	//cut at position	
 	directory = filePath.substr(0, fileNamePos + 1);
