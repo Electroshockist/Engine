@@ -12,7 +12,7 @@ struct File {
 
 	~File();
 
-	std::string getFullPath() {
+	std::string getFullPath() const {
 		return directory + name + extension;
 	}
 };

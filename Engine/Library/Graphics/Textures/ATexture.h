@@ -1,9 +1,9 @@
 #ifndef ATEXTURE_H
 #define ATEXTURE_H
 
-#include "TextureManager.h"
 #include "../../Math/MathPrimitives.h"
 #include "../../Utilities/File.h"
+
 struct ATexture {
 	ATexture();
 	ATexture(const std::string& textureFileName);
@@ -20,9 +20,7 @@ struct ATexture {
 		return size.y;
 	}
 
-	virtual ~ATexture() {
-		TextureManager::getInstance()->removeTexture(this);
-	}
+	virtual ~ATexture();
 
 	inline File getFile(){
 		return file;
