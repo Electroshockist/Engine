@@ -1,7 +1,7 @@
 #ifndef AMOUSEEVENT_H
 #define AMOUSEEVENT_H
 
-#include "../Data Structures/Events/AEvent.h"
+#include "../Data Structures/Events/Event.h"
 #include "Input.h"
 #include "../Math/MathPrimitives.h"
 

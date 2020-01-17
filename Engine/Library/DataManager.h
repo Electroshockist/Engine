@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 #include <map>
-#include "Data Structures\CircularDynamicList.h"
+#include <memory>
 
 struct DataManager {
 	//delete constructors for singleton
@@ -26,7 +26,7 @@ struct DataManager {
 
 private:
 	DataManager();
-	~DataManager();
+	~DataManager() {}
 
 	static std::unique_ptr<DataManager> instance;
 	friend std::default_delete<DataManager>;

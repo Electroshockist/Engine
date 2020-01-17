@@ -1,19 +1,25 @@
 #include "File.h"
-#include <assimp/Importer.hpp>
 
 using namespace std;
 
 File::File(string filePath) {
-	//find last instance of the character "/" in the filePath
-	size_t fileNamePos = filePath.rfind("/");
-	//TODO: find last period from end(for multiple extensions)
-	//find last instance of the character "." in the filePath
-	size_t extensionPos = filePath.find(".");
-
-	//cut at position	
-	directory = filePath.substr(0, fileNamePos + 1);
-	name = filePath.substr(fileNamePos + 1, extensionPos - fileNamePos - 1);
-	extension = filePath.substr(extensionPos);
+	setFile(filePath);
 }
 
 File::~File() {}
+
+void File::setFile(const std::string filePath) {
+	path = filePath;
+
+	//find last instance of the character "/" in the filePath
+	size_t fileNamePos = filePath.rfind("/");
+
+	//find first instance of the character "." from the last "/"
+	size_t extensionPos = filePath.find(".", fileNamePos);
+
+	//the directory is everything up to the last "/"
+	directory = filePath.substr(0, fileNamePos + 1);
+	//the name is everything after the last "/" and before the first.
+	name = filePath.substr(fileNamePos + 1, extensionPos - fileNamePos - 1);
+	extension = filePath.substr(extensionPos);
+}

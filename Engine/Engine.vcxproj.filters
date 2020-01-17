@@ -72,9 +72,6 @@
     <ClInclude Include="Engine\EngineMain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Library\Data Structures\Events\AEvent.h">
-      <Filter>Header Files\Data Structures\Events</Filter>
-    </ClInclude>
     <ClInclude Include="Library\Data Structures\Events\ALisener.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -180,6 +177,24 @@
     <ClInclude Include="Library\Utilities\File.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Library\Graphics\3D\Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Graphics\3D\Model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Data Structures\Events\Event.h">
+      <Filter>Header Files\Data Structures\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Graphics\Camera\ACamera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Graphics\AMaterial.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Graphics\Camera\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -240,6 +255,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Library\Utilities\File.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Graphics\3D\Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Graphics\3D\Model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Graphics\Camera\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

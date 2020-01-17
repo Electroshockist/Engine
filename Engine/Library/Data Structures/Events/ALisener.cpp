@@ -1,10 +1,10 @@
-#include "AEvent.h"
+#include "Event.h"
 
-AListener::AListener(AEvent * event) {
+AListener::AListener(Event * event) {
 	subscribe(event);
 }
 
-void AListener::subscribe(AEvent * event) {
+void AListener::subscribe(Event * event) {
 	subscribedEvent = event;
 	event->listeners.push_back(this);
 }
@@ -16,7 +16,6 @@ void AListener::unsubscribe() {
 		if (listeners->at(i) == this) {
 			listeners->erase(listeners->begin() + i);
 		}
-
 	}
 }
 

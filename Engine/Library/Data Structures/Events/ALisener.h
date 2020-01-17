@@ -4,15 +4,15 @@
 //Event listener
 struct AListener {
 	//The event that the listener is subscribed to
-	class AEvent* subscribedEvent;
+	class Event* subscribedEvent;
 
 	//AEvent is a friend so that only AEvent can call onNotify()
-	friend AEvent;
+	friend Event;
 
-	AListener(AEvent* event);
+	AListener(Event* event);
 
 	//subscribe to an event
-	void subscribe(AEvent* event);
+	void subscribe(Event* event);
 	//unsubscribe from current event
 	void unsubscribe();
 
@@ -20,7 +20,7 @@ struct AListener {
 
 protected:
 	//Called when a subscribed event calls its notify() function
-	virtual void onNotify() {};
+	virtual void onNotify() = 0;
 };
 
 #endif //!LISTENER_H

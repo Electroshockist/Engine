@@ -1,6 +1,7 @@
 #ifndef FILEPATHPARSER
 #define FILEPATHPARSER
 
+#include <glm/glm.hpp>
 #include <string>
 
 struct FilePathParser {
