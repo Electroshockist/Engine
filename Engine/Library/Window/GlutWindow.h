@@ -9,29 +9,29 @@ struct GlutWindow : public AWindow {
 	GlutWindow(string title, int X, int Y, int width, int height);
 
 	//Implements functionality for mouse button click an mouse motion
-	void addEventListener(string event) {
+	void AddEventListener(string event) {
 		if(event == MouseEvent::MOUSE_PRESSED)
-			glutMouseFunc(&MouseAdapter::mouseClicked);
+			glutMouseFunc(&MouseAdapter::MouseClicked);
 		else if(event == MouseEvent::MOUSE_MOVED)
-			glutMotionFunc(&MouseAdapter::mouseMoved);
+			glutMotionFunc(&MouseAdapter::MouseMoved);
 	}
 
 	//Starts OpenGL Window
-	void draw() {
+	void Draw() {
 		glutMainLoop();
 	}
 
 	//Title
-	void setTitle(string* n) override;
+	void SetTitle(string* n) override;
 
-	void print();
+	void Print();
 
 	virtual ~GlutWindow() {}
 
 private:
 	//Initializes Display
 	//Optional Implementation
-	static void initDisplay() {
+	static void InitDisplay() {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glutSwapBuffers();
 	}

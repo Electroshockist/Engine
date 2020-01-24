@@ -1,15 +1,15 @@
 #include "Event.h"
 
 AListener::AListener(Event * event) {
-	subscribe(event);
+	Subscribe(event);
 }
 
-void AListener::subscribe(Event * event) {
+void AListener::Subscribe(Event * event) {
 	subscribedEvent = event;
 	event->listeners.push_back(this);
 }
 
-void AListener::unsubscribe() {
+void AListener::Unsubscribe() {
 	std::vector<AListener*>* listeners = &subscribedEvent->listeners;
 
 	for (size_t i = 0; i < listeners->size(); i++) {
@@ -20,5 +20,5 @@ void AListener::unsubscribe() {
 }
 
 AListener::~AListener() {
-	unsubscribe();
+	Unsubscribe();
 }

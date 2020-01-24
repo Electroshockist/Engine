@@ -10,7 +10,7 @@ using namespace std;
 struct AWindow {
 	AWindow() {}
 
-	inline void onCreate(string title, int x, int y, int width, int height) {		
+	inline void OnCreate(string title, int x, int y, int width, int height) {		
 		this->title = &title;
 		this->x = &x;
 		this->y = &y;
@@ -19,34 +19,34 @@ struct AWindow {
 	}
 
 	//Title
-	virtual void setTitle(string* t) { title = t; };
-	inline string* getTitle() { return title; };
+	virtual void SetTitle(string* t) { title = t; };
+	inline string* GetTitle() { return title; };
 
 	//Position
 	///position can only be set initially, therefore there are no setters for position
 
 	//get window position
-	virtual MATH::Vector2 getPosition() {
-		return  MATH::Vector2(*getX(), *getY());
+	virtual MATH::Vector2 GetPosition() {
+		return  MATH::Vector2(*GetX(), *GetY());
 	};
 
 	//get window X postition
-	inline int* getX() { return x; };
+	inline int* GetX() { return x; };
 	//get window Y postition
-	inline int* getY() { return y; };
+	inline int* GetY() { return y; };
 
 	//Size
 	///Size can only be set initially, therefore there are no setters for size
 
 	//get window size
-	virtual MATH::Vector2 getDimensions() {
-		return  MATH::Vector2(*getWidth(), *getHeight());
+	virtual MATH::Vector2 GetDimensions() {
+		return  MATH::Vector2(*GetWidth(), *GetHeight());
 	};
 
 	//get window hight
-	inline int* getWidth() { return width; };
+	inline int* GetWidth() { return width; };
 	//get window width
-	inline int* getHeight() { return height; };
+	inline int* GetHeight() { return height; };
 
 	virtual ~AWindow() {
 		delete title, x, y, width, height;

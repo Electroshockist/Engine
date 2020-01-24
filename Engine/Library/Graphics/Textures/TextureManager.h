@@ -14,13 +14,13 @@ struct TextureManager {
 	TextureManager& operator=(TextureManager&&) = delete;
 
 	//tries to add a unique texture, returns false if it already exists
-	bool addUniqueTexture(ATexture* Texture);
-	bool removeTexture(ATexture* texture);
+	bool AddUniqueTexture(ATexture* Texture);
+	bool RemoveTexture(ATexture* texture);
 
-	bool getTexture(const std::string & name);
+	bool GetTexture(const std::string & name);
 
 	//get singleton instance
-	static TextureManager* getInstance();
+	static TextureManager* GetInstance();
 
 private:
 	//singleton instance pointer
@@ -29,7 +29,7 @@ private:
 
 	static std::vector<ATexture*> textures;
 
-	bool compareTexture(ATexture* texture1, ATexture* texture2);
+	bool CompareTexture(ATexture* texture1, ATexture* texture2);
 
 	TextureManager();
 	~TextureManager();

@@ -7,10 +7,10 @@
 
 SDLGLWindow::SDLGLWindow() :window(nullptr) {}
 
-bool SDLGLWindow::onCreate(string title, int x, int y, int width, int height) {
-	AWindow::onCreate(title, x, y, width, height);
+bool SDLGLWindow::OnCreate(string title, int x, int y, int width, int height) {
+	AWindow::OnCreate(title, x, y, width, height);
 
-	if(!initSDL()) {
+	if(!InitSDL()) {
 		return false;
 	}
 
@@ -23,8 +23,8 @@ bool SDLGLWindow::onCreate(string title, int x, int y, int width, int height) {
 	return true;
 }
 
-void SDLGLWindow::setTitle(string* title) {
-	AWindow::setTitle(title);
+void SDLGLWindow::SetTitle(string* title) {
+	AWindow::SetTitle(title);
 	SDL_SetWindowTitle(window, title->c_str());
 }
 
@@ -35,7 +35,7 @@ SDLGLWindow::~SDLGLWindow() {
 	AWindow::~AWindow();
 }
 
-bool SDLGLWindow::initSDL() {
+bool SDLGLWindow::InitSDL() {
 	if(SDL_Init(SDL_INIT_VIDEO) < 0) {
 		cout << "SDL could not initialize! SDL Error: " << SDL_GetError() << endl;
 		return false;
@@ -43,11 +43,11 @@ bool SDLGLWindow::initSDL() {
 	return true;
 }
 
-bool SDLGLWindow::initGL() {
+bool SDLGLWindow::InitGL() {
 	context = SDL_GL_CreateContext(window);
 	int major, minor;
-	getInstalledOpenGLInfo(&major,&minor);
-	setAttributes(major, minor);
+	GetInstalledOpenGLInfo(&major,&minor);
+	SetAttributes(major, minor);
 
 	/// Fire up the GL Extension Wrangler
 	GLenum err = glewInit();
@@ -56,8 +56,8 @@ bool SDLGLWindow::initGL() {
 		return false;
 	}
 
-	GLsizei w = *getWidth();
-	GLsizei h = *getHeight();
+	GLsizei w = *GetWidth();
+	GLsizei h = *GetHeight();
 
 	glEnable(GL_DEPTH_TEST);
 	glViewport(0, 0, w, h);
@@ -65,7 +65,7 @@ bool SDLGLWindow::initGL() {
 	return true;
 }
 
-void SDLGLWindow::setAttributes(int major, int minor) {
+void SDLGLWindow::SetAttributes(int major, int minor) {
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, major);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, minor);
@@ -76,7 +76,7 @@ void SDLGLWindow::setAttributes(int major, int minor) {
 	return;
 }
 
-void SDLGLWindow::getInstalledOpenGLInfo(int *major, int *minor) {
+void SDLGLWindow::GetInstalledOpenGLInfo(int *major, int *minor) {
 	/// You can to get some info regarding versions and manufacturer
 	const GLubyte *version = glGetString(GL_VERSION);
 	/// You can also get the version as ints	

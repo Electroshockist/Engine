@@ -20,19 +20,19 @@ namespace  MATH {
 	#endif
 
 	struct FloatSafe {
-		inline static float checkFloat(float f) {
+		inline static float CheckFloat(float f) {
 			if (abs(f) > VERY_SMALL) return f;
 			return 0;
 		}
 
 		//get absolute cos value and check if it's too small for a float to hold correctly
 		inline static float cos(float angle) {
-			return checkFloat(cos(angle));
+			return CheckFloat(cos(angle));
 		}
 
 		//get absolute sin value and check if it's too small for a float to hold correctly
 		inline static float sin(float angle) {
-			return checkFloat(sin(angle));
+			return CheckFloat(sin(angle));
 		}
 	};
 }

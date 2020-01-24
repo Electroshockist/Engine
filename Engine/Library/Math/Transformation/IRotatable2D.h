@@ -7,7 +7,7 @@
 struct IRotatable2D {
 	IRotatable2D(float rotation, MATH::Vector2  anchorPoint);
 
-	void rotate(float rotation);
+	void Rotate(float rotation);
 
 	float rotation = 0;
 

@@ -1,4 +1,7 @@
-#pragma once
+#ifndef GEOMETRY3D_H
+#define GEOMETRY3D_H
+
+
 #include "MathPrimitives.h"
 namespace MATH {
 	///		A Sphere could be thought of as a just a center point (x,y,z) 
@@ -20,7 +23,7 @@ namespace MATH {
 			x = v.x;  y = v.y;  z = v.z; r = v.r;
 		}
 
-		inline void print() {
+		inline void Print() {
 			printf("%f %f %f %f\n", x, y, z, r);
 		}
 	};
@@ -59,21 +62,21 @@ namespace MATH {
 			Vector3 n = Vector3(a.y * b.z - a.z * b.y, /// This is the cross product
 				a.z * b.x - a.x * b.z,
 				a.x * b.y - a.y * b.x);
-			float magnitude = float(sqrt(n.x * n.x + n.y * n.y + n.z * n.z)); /// normalize
+			float Magnitude = float(sqrt(n.x * n.x + n.y * n.y + n.z * n.z)); /// normalize
 
-			Plane(x / magnitude, y / magnitude, z / magnitude, a.x * b.x + a.y * b.y + a.z * b.z);
+			Plane(x / Magnitude, y / Magnitude, z / Magnitude, a.x * b.x + a.y * b.y + a.z * b.z);
 		}
 
 
 		/// Convert this plane into a normalized plane
-		inline void normalize() {
+		inline void Normalize() {
 			float a = sqrt(x*x + y * y + z * z);
 			x /= a;
 			y /= a;
 			z /= a;
 			d /= a;
 		}
-		inline void print() {
+		inline void Print() {
 			printf("%f %f %f %f\n", x, y, z, d);
 		}
 	};
@@ -97,8 +100,9 @@ namespace MATH {
 
 		// Where are we along the Ray? 
 		// Calculate position = start + dir * t
-		inline Vector3 currentPosition(float t) {
+		inline Vector3 CurrentPosition(float t) {
 			return (start + direction * t);
 		}
 	};
 }
+#endif // !GEOMETRY3D_H

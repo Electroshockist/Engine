@@ -26,26 +26,26 @@ void Debug::setSeverity(MessageType type) {
 }
 
 void Debug::info(const string & message, const string & filename, const int line) {
-	log(MessageType::TYPE_INFO, "Info: " + message, simplifyFileName(filename), line);
+	Log(MessageType::TYPE_INFO, "Info: " + message, simplifyFileName(filename), line);
 }
 
 void Debug::trace(const string & message, const string & filename, const int line) {
-	log(MessageType::TYPE_INFO, "Trace: " + message, simplifyFileName(filename), line);
+	Log(MessageType::TYPE_INFO, "Trace: " + message, simplifyFileName(filename), line);
 }
 
 void Debug::warning(const string & message, const string & filename, const int line) {
-	log(MessageType::TYPE_INFO, "Warning: " + message, simplifyFileName(filename), line);
+	Log(MessageType::TYPE_INFO, "Warning: " + message, simplifyFileName(filename), line);
 }
 
 void Debug::error(const string & message, const string & filename, const int line) {
-	log(MessageType::TYPE_INFO, "Error: " + message, simplifyFileName(filename), line);
+	Log(MessageType::TYPE_INFO, "Error: " + message, simplifyFileName(filename), line);
 }
 
 void Debug::fatalError(const string & message, const string & filename, const int line) {
-	log(MessageType::TYPE_INFO, "Fatal Error: " + message, simplifyFileName(filename), line);
+	Log(MessageType::TYPE_INFO, "Fatal Error: " + message, simplifyFileName(filename), line);
 }
 
-void Debug::log(const MessageType type, const string & message, const string & filename, const int line) {
+void Debug::Log(const MessageType type, const string & message, const string & filename, const int line) {
 	ofstream file;
 	file.open(outputileName, ios::app | ios::out);
 	if (type <= currentSeverity && currentSeverity > MessageType::TYPE_NONE) {

@@ -7,7 +7,7 @@ using namespace MATH;
 //>
 Vector3 VectorMath::reflect(const Vector3 &v, const Vector3 &n) {
 	Vector3 result;
-	float scalar = 2.0f * dot(v, n);
+	float scalar = 2.0f * Dot(v, n);
 	Vector3 temp = n * scalar;
 	result = temp - v;
 	return result;
@@ -18,7 +18,7 @@ Vector3 VectorMath::reflect(const Vector3 &v, const Vector3 &n) {
 //>
 Vector3 VectorMath::reflect(const Vector3 &v, const Plane &p) {
 	Vector3 result;
-	float scalar = 2.0f * dot(v, p);
+	float scalar = 2.0f * Dot(v, p);
 	Vector3 temp = p * scalar;
 	result = temp - v;
 	return result;
@@ -42,7 +42,7 @@ Vector3 VectorMath::reflect2(const Vector3 &v, const Plane &p){
 //>
 float VectorMath::distance(const Vector3 &a, const Vector3 &b) {
 	Vector3 r = a - b;
-	return(mag(r));
+	return(Mag(r));
 }
 
 //template<

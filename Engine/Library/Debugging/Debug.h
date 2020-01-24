@@ -32,7 +32,7 @@ public:
 	static void fatalError(const std::string& message, const std::string& filename, const int line);
 
 private:
-	static void log(const MessageType type, const std::string& message, const std::string& filename, const int line);
+	static void Log(const MessageType type, const std::string& message, const std::string& filename, const int line);
 	static std::string simplifyFileName(const std::string filename);
 
 	static MessageType currentSeverity;

@@ -11,7 +11,7 @@ class Model{
 	glm::vec3 position;
 	float angle;
 	glm::mat4 getTransform(glm::vec3 position, float angle, glm::vec3 rotation, glm::vec3 scale);
-	void loadModel();
+	void LoadModel();
 	std::vector<glm::mat4> modelInstances;
 	LoadObjModel *obj;
 	BoundingBox b;
@@ -19,18 +19,18 @@ class Model{
 public:
 	Model(const std::string &objPath, const std::string &matPath, GLuint shaderProgram);
 	~Model();
-	void addMesh(Mesh *mesh);
-	void render(Camera *camera);
-	void onDestroy();
-	int createInstance(glm::vec3 position, float angle, glm::vec3 rotation, glm::vec3 scale);
-	void updateInstance(int index, glm::vec3 position, float angle, glm::vec3 rotation, glm::vec3 scale);
+	void AddMesh(Mesh *mesh);
+	void Render(Camera *camera);
+	void OnDestroy();
+	int CreateInstance(glm::vec3 position, float angle, glm::vec3 rotation, glm::vec3 scale);
+	void UpdateInstance(int index, glm::vec3 position, float angle, glm::vec3 rotation, glm::vec3 scale);
 	glm::mat4 getTransform(int index) const;
 	BoundingBox getBoundingBox();
 
-	inline glm::vec3 getPosition(){
+	inline glm::vec3 GetPosition(){
 		return position;
 	}
 
-	GLuint getShaderProgram() const;
+	GLuint GetShaderProgram() const;
 };
 #endif // !MODEL_H

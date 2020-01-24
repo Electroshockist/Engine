@@ -10,5 +10,5 @@ ATexture::ATexture(const std::string & textureFileName) {
 }
 
 ATexture::~ATexture() {
-	TextureManager::getInstance()->removeTexture(this);
+	TextureManager::GetInstance()->RemoveTexture(this);
 }

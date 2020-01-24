@@ -64,7 +64,7 @@ void Mesh::Render(Camera *camera, std::vector<glm::mat4> &instances_){
 
 	glBindTexture(GL_TEXTURE_2D, subMesh.material.diffuseMap);
 
-	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(camera->getView()));
+	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(camera->GetView()));
 	glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(camera->getPerspective()));
 
 	glm::vec3 copyCamPos = camera->getPosition();

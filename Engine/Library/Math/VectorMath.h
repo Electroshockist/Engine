@@ -20,41 +20,41 @@ namespace MATH {
 
 	public:
 		/// Calculate the dot product between Vector3s a & b 
-		inline static float dot(const Vector3 &a, const Vector3 &b) {
+		inline static float Dot(const Vector3 &a, const Vector3 &b) {
 			return(a.x * b.x + a.y * b.y + a.z * b.z);
 		}
 
 		/// Calulate the cross product
-		inline static const Vector3 cross(const Vector3 &a, const Vector3 &b) {
+		inline static const Vector3 Cross(const Vector3 &a, const Vector3 &b) {
 			return Vector3(a.y * b.z - a.z * b.y,
 				a.z * b.x - a.x * b.z,
 				a.x * b.y - a.y * b.x);
 		}
 
 		/// Return a normalized Vector3
-		inline static Vector3 normalize(const Vector3 &a) {
-			float magnitude;
+		inline static Vector3 Normalize(const Vector3 &a) {
+			float Magnitude;
 			Vector3 result;
-			magnitude = float(sqrt(a.x * a.x + a.y * a.y + a.z * a.z));
+			Magnitude = float(sqrt(a.x * a.x + a.y * a.y + a.z * a.z));
 #ifdef _DEBUG  /// If in debug mode let's worry about divide by zero or nearly zero!!! 
-			if (magnitude < VERY_SMALL) {
+			if (Magnitude < VERY_SMALL) {
 				std::string errorMsg("Divide by nearly zero! ");
 				throw errorMsg;
 			}
 #endif
-			result.x = a.x / magnitude;
-			result.y = a.y / magnitude;
-			result.z = a.z / magnitude;
+			result.x = a.x / Magnitude;
+			result.y = a.y / Magnitude;
+			result.z = a.z / Magnitude;
 			return result;
 		}
 
-		inline static float mag(const Vector3 &a) {
+		inline static float Mag(const Vector3 &a) {
 			return(sqrt(a.x * a.x + a.y * a.y + a.z * a.z));
 		}
 
 		///  Angle-Axis rotation
-		inline static Vector3 rotate(const Vector3 &n, float theta, const Vector3 &v) {
-			return v * cos(theta) + VectorMath::dot(v, n) * n * (1.0f - cos(theta)) + VectorMath::cross(n, v) * sin(theta);
+		inline static Vector3 Rotate(const Vector3 &n, float theta, const Vector3 &v) {
+			return v * cos(theta) + VectorMath::Dot(v, n) * n * (1.0f - cos(theta)) + VectorMath::Cross(n, v) * sin(theta);
 		}
 
 		////////////////////////////////////////////////////////////////////////		

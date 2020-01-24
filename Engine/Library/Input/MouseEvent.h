@@ -23,7 +23,7 @@ public:
 		Input::Mouse::PosY.value = -1;
 	}
 
-	inline static Input::Button getState(int button, int glutState) {
+	inline static Input::Button GetState(int button, int glutState) {
 		bool state = (glutState == GLUT_DOWN ? true : false);
 
 		switch (button) {
@@ -42,7 +42,7 @@ public:
 		}
 	}
 
-	inline void setNewPos(int x, int y) {
+	inline void SetNewPos(int x, int y) {
 		Input::Mouse::PosX.value = x;
 		Input::Mouse::PosY.value = y;
 	}
@@ -59,7 +59,7 @@ public:
 		return Input::Mouse::Middle.state;
 	}
 
-	void reset() {
+	void Reset() {
 		Input::Mouse::Left.state = false;
 		Input::Mouse::Right.state = false;
 		Input::Mouse::Middle.state = false;

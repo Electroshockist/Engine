@@ -135,7 +135,7 @@ namespace  MATH {
 			return *this;
 		}
 
-		inline void print() {
+		inline void Print() {
 			printf("%f %f\n", x, y);
 		}
 

@@ -6,24 +6,24 @@
 
 struct ACamera{
 
-	inline void setPosition(glm::vec3 position){
+	inline void SetPosition(glm::vec3 position){
 		this->position = position;
 	}
 
-	inline void setRotation(float yaw, float pitch){
+	inline void SetRotation(float yaw, float pitch){
 		this->yaw = yaw;
 		this->pitch = pitch;
-		updateVectors();
+		UpdateVectors();
 	}
 
-	inline glm::mat4 getView() const{
+	inline glm::mat4 GetView() const{
 		return glm::lookAt(position, position + forwardVector, upVector);
 	}
 
-	virtual glm::mat4 getProjection() = 0;
+	virtual glm::mat4 GetProjection() = 0;
 
 protected:
-	virtual void onUpdateVectors(){}
+	virtual void OnUpdateVectors(){}
 
 private:
 	glm::vec3 position;
@@ -31,7 +31,7 @@ private:
 	glm::vec3 forwardVector, upVector, rightVector, worldUp;
 	glm::mat4 projection;
 
-	inline void updateVectors(){
+	inline void UpdateVectors(){
 		forwardVector.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
 		forwardVector.y = sin(glm::radians(pitch));
 		forwardVector.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
@@ -41,7 +41,7 @@ private:
 		rightVector = glm::normalize(glm::cross(forwardVector, worldUp));
 		upVector = glm::normalize(glm::cross(rightVector, forwardVector));
 
-		onUpdateVectors();
+		OnUpdateVectors();
 	}
 };
 #endif // !ACAMERA_H

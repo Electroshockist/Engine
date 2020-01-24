@@ -8,21 +8,21 @@ struct ATexture {
 	ATexture();
 	ATexture(const std::string& textureFileName);
 
-	inline MATH::Vector2 getSize() {
+	inline MATH::Vector2 GetSize() {
 		return size;
 	}
 
-	inline float getWidth() {
+	inline float GetWidth() {
 		return size.x;
 	}
 
-	inline float getHeight() {
+	inline float GetHeight() {
 		return size.y;
 	}
 
 	virtual ~ATexture();
 
-	inline File getFile(){
+	inline File GetFile(){
 		return file;
 	}
 

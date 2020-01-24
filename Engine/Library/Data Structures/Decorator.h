@@ -1,4 +1,7 @@
-#pragma once
+#ifndef DECORATOR_H
+#define DECORATOR_H
+
+
 #include "CircularDynamicList.h"
 
 using namespace std;
@@ -9,34 +12,34 @@ namespace DataStructures {
 		CircularDynamicList<Decorator*> children;
 
 		//adds self as child to other decorator
-		inline void addSelfAsChild(Decorator* parent) {
-			parent->getChildren().push_back_unique(this);
+		inline void AddSelfAsChild(Decorator* parent) {
+			parent->getChildren().Push_Back_Unique(this);
 		}
 
 		//remove self from parent's children
-		inline void removeFromParent() {
+		inline void RemoveFromParent() {
 			CircularDynamicList<Decorator*> gotChildren = parent->getChildren();
 			CircularDynamicList<Decorator*>::Iterator iter = gotChildren.find(this);
 			gotChildren.erase(iter);
 		}
 
 		//remove self from children's parents
-		inline void removeFromChildren() {
+		inline void RemoveFromChildren() {
 			CircularDynamicList<Decorator*>::Iterator iter;
 			Decorator* d;
 			for (iter = children.begin(); iter != children.end(); iter++) {
 				d = *iter;
-				d->setParent(nullptr);
+				d->SetParent(nullptr);
 			}
 		}
 
 	public:
 		virtual ~Decorator() {
 			//remove self as parent's child
-			removeFromParent();
+			RemoveFromParent();
 
 			//remove self as children's parents
-			removeFromChildren();
+			RemoveFromChildren();
 		}
 
 		//parent getter
@@ -50,27 +53,27 @@ namespace DataStructures {
 		}
 
 		//parent setter
-		inline void setParent(Decorator* parent_) {
+		inline void SetParent(Decorator* parent_) {
 			parent = parent_;
 
-			addSelfAsChild(parent_);
+			AddSelfAsChild(parent_);
 		}
 
 		//parent
-		inline void removeParent() {
-			removeFromParent();
+		inline void RemoveParent() {
+			RemoveFromParent();
 			parent = nullptr;
 		}
 
 		//TODO: prevent duplicates being added to children
-		inline void addChild(Decorator* d) {
-			children.push_back(d);
-			d->setParent(this);
+		inline void AddChild(Decorator* d) {
+			children.Push_Back(d);
+			d->SetParent(this);
 		}
 
-		inline void removeChild(Decorator* child) {
+		inline void RemoveChild(Decorator* child) {
 			//cout << "set parent" << endl;
-			child->setParent(nullptr);
+			child->SetParent(nullptr);
 			CircularDynamicList<Decorator*>::Iterator iter = children.find(this);
 			children.erase(iter);
 		}
@@ -81,3 +84,4 @@ namespace DataStructures {
 		}
 	};
 }
+#endif // !DECORATOR_H

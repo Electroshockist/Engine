@@ -8,9 +8,9 @@ struct Event {
 	friend AListener;
 	Event() {}
 	//Notifies all listeners in listeners list
-	inline void notify() {
+	inline void Notify() {
 		for(size_t i = 0; i < listeners.size(); i++) {
-			listeners.at(i)->onNotify();
+			listeners.at(i)->OnNotify();
 		}
 	}
 	virtual ~Event();

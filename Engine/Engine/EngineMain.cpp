@@ -12,9 +12,9 @@ EngineMain * EngineMain::getInstance() {
 	return instance.get();
 }
 
-int EngineMain::run(int argc, char * argv[]) {
+int EngineMain::Run(int argc, char * argv[]) {
 	w = new SDLGLWindow();
-	if(!w->onCreate("Testes", 200, 200, 1080, 720)) {
+	if(!w->OnCreate("Testes", 200, 200, 1080, 720)) {
 		return EXIT_FAILURE;
 	}
 	getchar();

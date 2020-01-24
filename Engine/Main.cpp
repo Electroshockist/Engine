@@ -9,11 +9,11 @@
 
 using namespace std;
 int main(int argc, char *argv[]) {
-	FilePathParser::setProjectPath(argv[0]);
+	FilePathParser::SetProjectPath(argv[0]);
 
 	//if in debug mode, run engine
 #ifdef _DEBUG
-	if(EngineMain::getInstance()->run(argc, argv) != EXIT_SUCCESS) {
+	if(EngineMain::getInstance()->Run(argc, argv) != EXIT_SUCCESS) {
 		return EXIT_FAILURE;
 	}
 	return EXIT_SUCCESS;

@@ -8,25 +8,25 @@ Model::Model(const std::string &objPath_, const std::string &matPath_, GLuint sh
 	obj = new LoadObjModel();
 
 	obj->loadModel(objPath_, matPath_);
-	this->loadModel();
+	this->LoadModel();
 }
 
 
 Model::~Model(){
-	onDestroy();
+	OnDestroy();
 }
 
-void Model::addMesh(Mesh *mesh_){
+void Model::AddMesh(Mesh *mesh_){
 	subMeshes.push_back(mesh_);
 }
 
-void Model::render(Camera *camera_){
+void Model::Render(Camera *camera_){
 	for(auto m : subMeshes){
 		m->Render(camera_, modelInstances);
 	}
 }
 
-void Model::onDestroy(){
+void Model::OnDestroy(){
 	if(subMeshes.size() > 0){
 		for(auto m : subMeshes){
 			delete m;
@@ -37,12 +37,12 @@ void Model::onDestroy(){
 	modelInstances.clear();
 }
 
-int Model::createInstance(glm::vec3 position_, float angle_, glm::vec3 rotation_, glm::vec3 scale_){
+int Model::CreateInstance(glm::vec3 position_, float angle_, glm::vec3 rotation_, glm::vec3 scale_){
 	modelInstances.push_back(getTransform(position_, angle_, rotation_, scale_));
 	return modelInstances.size() - 1;
 }
 
-void Model::updateInstance(int index_, glm::vec3 position_, float angle_, glm::vec3 rotation_, glm::vec3 scale_){
+void Model::UpdateInstance(int index_, glm::vec3 position_, float angle_, glm::vec3 rotation_, glm::vec3 scale_){
 	modelInstances[index_] = getTransform(position_, angle_, rotation_, scale_);
 
 }
@@ -55,11 +55,11 @@ BoundingBox Model::getBoundingBox(){
 	return b;
 }
 
-GLuint Model::getShaderProgram() const{
+GLuint Model::GetShaderProgram() const{
 	return shaderProgram;
 }
 
-void Model::loadModel(){
+void Model::LoadModel(){
 	b = obj->getBoundingBox();
 	for(int i = 0; i < obj->getSubMeshes().size(); i++){
 		subMeshes.push_back(new Mesh(obj->getSubMeshes()[i], shaderProgram));

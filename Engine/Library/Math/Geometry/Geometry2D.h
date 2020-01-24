@@ -1,4 +1,7 @@
-#pragma once
+#ifndef GEOMETRY2D_H
+#define GEOMETRY2D_H
+
+
 #include "../Transformation/ITransformable2D.h"
 
 namespace MATH {
@@ -23,3 +26,4 @@ namespace MATH {
 		float width;
 	};
 }
+#endif // !GEOMETRY2D_H
