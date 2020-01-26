@@ -2,10 +2,9 @@
 #define MESH_H
 
 #include <GLEW/glew.h>
-#include <vector>
-#include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "AMesh.h"
 #include "../../Graphics/MaterialHandler.h"
 #include "../Camera/Camera.h"
 
@@ -22,7 +21,7 @@ struct SubMesh{
 	Material material;
 };
 
-class Mesh{
+class Mesh : AMesh{
 	void GenerateBuffers();
 	GLuint VAO, VBO;
 	std::vector<Vertex> vertexList;
@@ -37,9 +36,7 @@ public:
 	Mesh(SubMesh submesh, GLuint shaderProgram);
 	~Mesh();
 
-	void Render(Camera *camera, std::vector<glm::mat4> &instance);
-	void OnDestroy();
-
+	void Render(ACamera *camera, std::vector<glm::mat4> &instance) override;
 };
 
 #endif // !MESH_H

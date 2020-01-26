@@ -2,8 +2,8 @@
 #define AWINDOW_H
 
 #include <string>
-#include "..\Math\MathPrimitives.h"
 #include <iostream>
+#include <glm/glm.hpp>
 
 using namespace std;
 
@@ -26,8 +26,8 @@ struct AWindow {
 	///position can only be set initially, therefore there are no setters for position
 
 	//get window position
-	virtual MATH::Vector2 GetPosition() {
-		return  MATH::Vector2(*GetX(), *GetY());
+	virtual glm::vec2 getPosition() {
+		return  glm::vec2(*getX(), *getY());
 	};
 
 	//get window X postition
@@ -39,8 +39,8 @@ struct AWindow {
 	///Size can only be set initially, therefore there are no setters for size
 
 	//get window size
-	virtual MATH::Vector2 GetDimensions() {
-		return  MATH::Vector2(*GetWidth(), *GetHeight());
+	virtual glm::vec2 getDimensions() {
+		return  glm::vec2(*getWidth(), *getHeight());
 	};
 
 	//get window hight

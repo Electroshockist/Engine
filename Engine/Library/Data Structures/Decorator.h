@@ -13,7 +13,7 @@ namespace DataStructures {
 
 		//adds self as child to other decorator
 		inline void AddSelfAsChild(Decorator* parent) {
-			parent->getChildren().Push_Back_Unique(this);
+			parent->getChildren().push_back_unique(this);
 		}
 
 		//remove self from parent's children
@@ -67,8 +67,8 @@ namespace DataStructures {
 
 		//TODO: prevent duplicates being added to children
 		inline void AddChild(Decorator* d) {
-			children.Push_Back(d);
 			d->SetParent(this);
+			children.push_back(d);
 		}
 
 		inline void RemoveChild(Decorator* child) {

@@ -1,10 +1,10 @@
 #ifndef ITRANSLATABLE_3D
 #define ITRANSLATABLE_3D
 
-#include "../MathPrimitives.h"
+#include <glm/glm.hpp>
 
 struct ITranslatable3D {
-	MATH::Vector3 position;
-	ITranslatable3D(MATH::Vector3 position);
+	glm::vec3 position;
+	ITranslatable3D(glm::vec3 position);
 };
 #endif //!ITRANSLATABLE_3D

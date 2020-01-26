@@ -1,10 +1,10 @@
 #ifndef ITRANSLATABLE2D_H
 #define ITRANSLATABLE2D_H
 
-#include "../MathPrimitives.h"
+#include <glm/glm.hpp>
 
 struct ITranslatable2D {
-	MATH::Vector2 position;
-	ITranslatable2D(MATH::Vector2 position);
+	glm::vec2 position;
+	ITranslatable2D(glm::vec2 position);
 };
 #endif // !ITRANSLATABLE2D_H

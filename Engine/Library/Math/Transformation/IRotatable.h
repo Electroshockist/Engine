@@ -6,11 +6,11 @@
 
 ///rotatable factory struct
 struct IRotatable {
-	static IRotatable2D rotatableFactory(float rotation, MATH::Vector2 anchorPoint) {
+	static IRotatable2D rotatableFactory(float rotation, glm::vec2 anchorPoint) {
 		return IRotatable2D(rotation, anchorPoint);
 	}
 
-	static IRotatable3D rotatableFactory(MATH::Vector3 rotation, MATH::Vector3 anchorPoint) {
+	static IRotatable3D rotatableFactory(glm::vec3 rotation, glm::vec3 anchorPoint) {
 		return IRotatable3D(rotation, anchorPoint);
 	}
 };

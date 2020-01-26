@@ -1,13 +1,13 @@
 #ifndef IROTATABLE_3D
 #define IROTATABLE_3D
 
-#include "../MathPrimitives.h"
+#include <glm/glm.hpp>
 struct IRotatable3D {
-	IRotatable3D(MATH::Vector3 rotation, MATH::Vector3 anchorPoint);
+	IRotatable3D(glm::vec3 rotation, glm::vec3 anchorPoint);
 	~IRotatable3D();
 
 private:
-	MATH::Quaternion rotationQuaternion;
+	glm::vec4 rotationQuaternion;
 };
 #endif //!IROTATABLE_3D
 

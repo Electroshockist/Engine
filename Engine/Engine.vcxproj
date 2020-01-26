@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -23,13 +23,13 @@
     <ProjectGuid>{ED10619F-A71D-4AD3-9A2B-540162932266}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Test</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -160,21 +160,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Library\GameObject.h" />
+    <ClInclude Include="Library\Graphics\3D\AMesh.h" />
     <ClInclude Include="Library\Graphics\Camera\Camera.h" />
     <ClInclude Include="Library\Graphics\AMaterial.h" />
     <ClInclude Include="Library\Graphics\Camera\ACamera.h" />
     <ClInclude Include="Library\Utilities\File.h" />
     <ClInclude Include="Library\Utilities\FilePathParser.h" />
     <ClInclude Include="Library\Graphics\Textures\GLTexture.h" />
-    <ClInclude Include="Library\AScene.h" />
+    <ClInclude Include="Library\Worlds\AWorld.h" />
     <ClInclude Include="Library\DataManager.h" />
     <ClInclude Include="Library\Data Structures\Decorator.h" />
     <ClInclude Include="Library\Data Structures\Events\Event.h" />
     <ClInclude Include="Library\Debugging\Debug.h" />
     <ClInclude Include="Engine\EngineMain.h" />
-    <ClInclude Include="Library\Math\Geometry\Geometry.h" />
-    <ClInclude Include="Library\Math\Geometry\Geometry2D.h" />
-    <ClInclude Include="Library\Math\Geometry\Geometry3D.h" />
     <ClInclude Include="Library\Math\Units\Percentage.h" />
     <ClInclude Include="Library\Math\Transformation\IRotatable.h" />
     <ClInclude Include="Library\Math\Transformation\IRotatable2D.h" />
@@ -186,16 +185,13 @@
     <ClInclude Include="Library\Math\Transformation\ITranslatable2D.h" />
     <ClInclude Include="Library\Math\Transformation\ITranslatable3D.h" />
     <ClInclude Include="Library\Data Structures\List.h" />
-    <ClInclude Include="Library\Math\Math.h" />
     <ClInclude Include="Library\Input\MouseAdapter.h" />
     <ClInclude Include="Library\Input\MouseEvent.h" />
     <ClInclude Include="Library\Window\AWindow.h" />
     <ClInclude Include="Library\Data Structures\CircularDynamicList.h" />
     <ClInclude Include="Library\Window\GlutWindow.h" />
     <ClInclude Include="Library\Input\Input.h" />
-    <ClInclude Include="Library\Math\MathPrimitives.h" />
     <ClInclude Include="Library\Window\SDLGLWindow.h" />
-    <ClInclude Include="Library\Math\VectorMath.h" />
     <ClInclude Include="Library\Data Structures\Events\ALisener.h" />
     <ClInclude Include="Library\Window\SDLWindow.h" />
     <ClInclude Include="Library\Graphics\Textures\TextureManager.h" />
@@ -220,7 +216,6 @@
     <ClCompile Include="Library\Data Structures\List.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Library\Window\SDLGLWindow.cpp" />
-    <ClCompile Include="Library\Math\VectorMath.cpp" />
     <ClCompile Include="Library\Data Structures\Events\ALisener.cpp" />
     <ClCompile Include="Library\Window\SDLWindow.cpp" />
     <ClCompile Include="Library\Graphics\Textures\TextureManager.cpp" />
