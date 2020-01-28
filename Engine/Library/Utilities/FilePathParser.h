@@ -1,12 +1,12 @@
-#ifndef FILEPATHPARSER
-#define FILEPATHPARSER
+#ifndef FILEPATHPARSER_H
+#define FILEPATHPARSER_H
 
 #include <glm/glm.hpp>
 #include <string>
 
 struct FilePathParser {
 	//only supply with main's argv[0]
-	static void setProjectPath(const std::string argv0);
+	static void SetProjectPath(const std::string argv0);
 
 	static std::string getProjectPath();
 
@@ -20,7 +20,7 @@ struct FilePathParser {
 private:
 	static std::string projectPath;
 
-	static std::string toLower(const std::string s);
+	static std::string ToLower(const std::string s);
 	~FilePathParser();
 
 };

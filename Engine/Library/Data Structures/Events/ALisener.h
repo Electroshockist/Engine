@@ -12,15 +12,15 @@ struct AListener {
 	AListener(Event* event);
 
 	//subscribe to an event
-	void subscribe(Event* event);
+	void Subscribe(Event* event);
 	//unsubscribe from current event
-	void unsubscribe();
+	void Unsubscribe();
 
 	virtual ~AListener();
 
 protected:
 	//Called when a subscribed event calls its notify() function
-	virtual void onNotify() = 0;
+	virtual void OnNotify() = 0;
 };
 
 #endif //!LISTENER_H

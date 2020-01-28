@@ -1,4 +1,7 @@
-#pragma once
+#ifndef LIST_H
+#define LIST_H
+
+
 namespace DataStructures {
 	class List
 	{
@@ -22,3 +25,4 @@ namespace DataStructures {
 	};
 
 }
+#endif // !LIST_H

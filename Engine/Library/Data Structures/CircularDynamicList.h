@@ -39,14 +39,14 @@ namespace DataStructures {
 
 		// destructor
 		~CircularDynamicList() {
-			clear();
+			Clear();
 		}
 
 		// remove all nodes
-		void clear() {
+		void Clear() {
 			// remove a node until empty
 			while (!empty())
-				pop_front();
+				Pop_Front();
 		}
 
 		// check for empty list
@@ -71,7 +71,7 @@ namespace DataStructures {
 		}
 
 		// insert a value at the beginning of the list
-		void push_front(const T& value) {
+		void Push_Front(const T& value) {
 			// create new node with value
 			Node *new_node = new Node(value);
 
@@ -92,7 +92,7 @@ namespace DataStructures {
 		}
 
 		// insert a value at the end of the list
-		void push_back(const T& value)
+		void Push_Back(const T& value)
 		{
 			// create new node with value
 			Node *new_node = new Node(value);
@@ -113,21 +113,21 @@ namespace DataStructures {
 			++sz;
 		}
 
-		void push_back_unique(const T& value) {
+		void Push_Back_Unique(const T& value) {
 			if (!contains(value)) {
-				push_back(value);
+				Push_Back(value);
 			}
 		}
 
-		void push_front_unique(const T& value) {
+		void Push_Front_Unique(const T& value) {
 			if (!contains(value)) {
-				push_front(value);
+				Push_Front(value);
 			}
 		}
 
 		// remove first element from the list
 		// precondition: list is not empty
-		void pop_front()
+		void Pop_Front()
 		{
 			// save pointer to old head
 			Node *old_head = head;
@@ -150,7 +150,7 @@ namespace DataStructures {
 
 		// remove last element from the list
 		// precondition: list is not empty
-		void pop_back()
+		void Pop_Back()
 		{
 			// save old list tail
 			Node *old_tail = tail;
@@ -284,9 +284,9 @@ namespace DataStructures {
 			++pos;  // advance iterator
 
 			if (target == head)
-				pop_front();
+				Pop_Front();
 			else if (target == tail)
-				pop_back();
+				Pop_Back();
 			else {
 				// unlink target node
 				// INSERT CODE HERE
@@ -307,11 +307,11 @@ namespace DataStructures {
 		Iterator insert(Iterator pos, const T& value) {
 			if (pos == begin()) {
 				// insert new node before head
-				push_front(value);
+				Push_Front(value);
 				return head;
 			}
 			else if (pos == end()) {
-				push_back(value);
+				Push_Back(value);
 				return tail;
 			}
 			else {

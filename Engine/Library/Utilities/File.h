@@ -9,21 +9,21 @@ struct File{
 
 	~File();
 
-	void setFile(const std::string filePath);
+	void SetFile(const std::string filePath);
 
-	std::string getFullPath() const{
+	std::string GetFullPath() const{
 		return path;
 	}
 
-	std::string getName() const{
+	std::string GetName() const{
 		return name;
 	}
 
-	std::string getExtension() const{
+	std::string GetExtension() const{
 		return extension;
 	}
 
-	std::string getDirectory() const{
+	std::string GetDirectory() const{
 		return directory;
 	}
 

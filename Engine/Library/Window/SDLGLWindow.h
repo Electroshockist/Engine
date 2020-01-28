@@ -8,10 +8,10 @@ class SDLGLWindow : public AWindow {
 public:
 	SDLGLWindow();
 
-	bool onCreate(string title, int X, int Y, int width, int height);
+	bool OnCreate(string title, int X, int Y, int width, int height);
 
 	//Title
-	void setTitle(string* T) override;
+	void SetTitle(string* T) override;
 
 	~SDLGLWindow();
 
@@ -19,11 +19,11 @@ public:
 	SDL_GLContext context;
 
 private:
-	bool initSDL();
-	bool initGL();
-	void setAttributes(int major, int minor);
+	bool InitSDL();
+	bool InitGL();
+	void SetAttributes(int major, int minor);
 	
-	void getInstalledOpenGLInfo(int *major, int *minor);
+	void GetInstalledOpenGLInfo(int *major, int *minor);
 };
 
 #endif // !SDLGLWINDOW_H

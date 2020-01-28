@@ -93,15 +93,6 @@
     <ClInclude Include="Library\Input\MouseEvent.h">
       <Filter>Header Files\Data Structures\Events</Filter>
     </ClInclude>
-    <ClInclude Include="Library\Math\Geometry\Geometry.h">
-      <Filter>Header Files\Math\Geometry</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\Math\Geometry\Geometry2D.h">
-      <Filter>Header Files\Math\Geometry</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\Math\Geometry\Geometry3D.h">
-      <Filter>Header Files\Math\Geometry</Filter>
-    </ClInclude>
     <ClInclude Include="Library\Math\Transformation\IRotatable.h">
       <Filter>Header Files\Game Object\Transformations</Filter>
     </ClInclude>
@@ -129,15 +120,6 @@
     <ClInclude Include="Library\Math\Transformation\ITranslatable3D.h">
       <Filter>Header Files\Game Object\Transformations\3D</Filter>
     </ClInclude>
-    <ClInclude Include="Library\Math\Math.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\Math\MathPrimitives.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\Math\VectorMath.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
     <ClInclude Include="Library\Window\AWindow.h">
       <Filter>Header Files\Windows</Filter>
     </ClInclude>
@@ -151,9 +133,6 @@
       <Filter>Header Files\Resource</Filter>
     </ClInclude>
     <ClInclude Include="Library\Window\SDLWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\AScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Library\Math\Units\Percentage.h">
@@ -195,6 +174,15 @@
     <ClInclude Include="Library\Graphics\Materials\AMaterial.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Library\GameObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Graphics\3D\AMesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Worlds\AWorld.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -226,9 +214,6 @@
     </ClCompile>
     <ClCompile Include="Library\Math\Transformation\ITranslatable3D.cpp">
       <Filter>Source Files\Game Object\Transformations\3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Library\Math\VectorMath.cpp">
-      <Filter>Source Files\Math</Filter>
     </ClCompile>
     <ClCompile Include="Library\Window\GlutWindow.cpp">
       <Filter>Source Files\Windows</Filter>

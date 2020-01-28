@@ -30,7 +30,7 @@ struct Input {
 	struct Axis {
 		float value;
 
-		string getName() {
+		string GetName() {
 			return name;
 		}
 

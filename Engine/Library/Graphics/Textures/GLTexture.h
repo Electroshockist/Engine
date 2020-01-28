@@ -1,4 +1,7 @@
-#pragma once
+#ifndef GLTEXTURE_H
+#define GLTEXTURE_H
+
+
 #include "ATexture.h"
 #include "GLEW\glew.h"
 struct GLTexture : public ATexture {
@@ -9,3 +12,4 @@ private:
 	GLuint textureID;
 };
 
+#endif // !GLTEXTURE_H

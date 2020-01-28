@@ -1,9 +1,9 @@
 #include "IRotatable2D.h"
 
-IRotatable2D::IRotatable2D(float rotation, MATH::Vector2  anchorPoint) {
+IRotatable2D::IRotatable2D(float rotation, glm::vec2 anchorPoint) {
 	rotate(rotation);
 }
 
-void IRotatable2D::rotate(float rotation) {
+void IRotatable2D::Rotate(float rotation) {
 	this->rotation += rotation;
 }

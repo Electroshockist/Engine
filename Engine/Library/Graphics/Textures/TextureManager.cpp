@@ -12,7 +12,7 @@ std::vector<ATexture*> TextureManager::textures = std::vector<ATexture*>();
 //	return true;
 //}
 
-bool TextureManager::removeTexture(ATexture * texture) {
+bool TextureManager::RemoveTexture(ATexture * texture) {
 	return false;
 }
 
@@ -23,7 +23,7 @@ bool TextureManager::removeTexture(ATexture * texture) {
 //	return nullptr;
 //}
 
-TextureManager * TextureManager::getInstance() {
+TextureManager * TextureManager::GetInstance() {
 	if(managerInstance == nullptr) {
 		managerInstance.reset(new TextureManager);
 	}

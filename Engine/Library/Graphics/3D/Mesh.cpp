@@ -8,7 +8,11 @@ Mesh::Mesh(SubMesh subMesh_, GLuint shaderProgram_)
 }
 
 Mesh::~Mesh(){
-	OnDestroy();
+	glDeleteVertexArrays(1, &VAO);
+	glDeleteBuffers(1, &VBO);
+
+	subMesh.vertexList.clear();
+	subMesh.meshIndices.clear();
 }
 
 void Mesh::GenerateBuffers(){
@@ -58,7 +62,7 @@ void Mesh::GenerateBuffers(){
 	specLoc = glGetUniformLocation(shaderProgram, "material.specular");
 }
 
-void Mesh::Render(Camera *camera, std::vector<glm::mat4> &instances_){
+void Mesh::Render(ACamera *camera, std::vector<glm::mat4> &instances_){
 	glUniform1i(diffuseMapLoc, 0);
 	glActiveTexture(GL_TEXTURE0);
 
@@ -94,12 +98,4 @@ void Mesh::Render(Camera *camera, std::vector<glm::mat4> &instances_){
 	glBindVertexArray(0);
 
 	glBindTexture(GL_TEXTURE_2D, 0);
-}
-
-void Mesh::OnDestroy(){
-	glDeleteVertexArrays(1, &VAO);
-	glDeleteBuffers(1, &VBO);
-
-	subMesh.vertexList.clear();
-	subMesh.meshIndices.clear();
 }

@@ -3,12 +3,12 @@
 using namespace std;
 
 File::File(string filePath) {
-	setFile(filePath);
+	SetFile(filePath);
 }
 
 File::~File() {}
 
-void File::setFile(const std::string filePath) {
+void File::SetFile(const std::string filePath) {
 	path = filePath;
 
 	//find last instance of the character "/" in the filePath

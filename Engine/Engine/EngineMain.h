@@ -11,7 +11,7 @@ struct EngineMain {
 
 	static EngineMain* getInstance();
 
-	int run(int argc, char *argv[]);
+	int Run(int argc, char *argv[]);
 
 private:
 	EngineMain();
