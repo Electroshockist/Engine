@@ -165,6 +165,9 @@
     <ClInclude Include="Library\Graphics\Camera\Camera.h" />
     <ClInclude Include="Library\Graphics\Materials\AMaterial.h" />
     <ClInclude Include="Library\Graphics\Camera\ACamera.h" />
+    <ClInclude Include="Library\Graphics\Materials\Material.h" />
+    <ClInclude Include="Library\Graphics\Materials\MaterialHandler.h" />
+    <ClInclude Include="Library\Utilities\AManager.h" />
     <ClInclude Include="Library\Utilities\File.h" />
     <ClInclude Include="Library\Utilities\FilePathParser.h" />
     <ClInclude Include="Library\Graphics\Textures\GLTexture.h" />
@@ -201,6 +204,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Library\Graphics\Camera\Camera.cpp" />
+    <ClCompile Include="Library\Utilities\AManager.cpp" />
     <ClCompile Include="Library\Utilities\File.cpp" />
     <ClCompile Include="Library\Utilities\FilePathParser.cpp" />
     <ClCompile Include="Library\Graphics\Textures\GLTexture.cpp" />

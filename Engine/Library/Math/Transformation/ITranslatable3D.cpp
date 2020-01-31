@@ -1,5 +1,5 @@
 #include "ITranslatable3D.h"
 
-ITranslatable3D::ITranslatable3D(MATH::Vector3 position) {
+ITranslatable3D::ITranslatable3D(glm::vec3 position) {
 	this->position = position;
 }

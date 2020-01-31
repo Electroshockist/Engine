@@ -27,7 +27,7 @@ struct AWindow {
 
 	//get window position
 	virtual glm::vec2 getPosition() {
-		return  glm::vec2(*getX(), *getY());
+		return  glm::vec2(*GetX(), *GetY());
 	};
 
 	//get window X postition
@@ -40,7 +40,7 @@ struct AWindow {
 
 	//get window size
 	virtual glm::vec2 getDimensions() {
-		return  glm::vec2(*getWidth(), *getHeight());
+		return  glm::vec2(*GetWidth(), *GetHeight());
 	};
 
 	//get window hight

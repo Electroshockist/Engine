@@ -1,14 +1,15 @@
 #ifndef ATEXTURE_H
 #define ATEXTURE_H
 
-#include "../../Math/MathPrimitives.h"
+#include <glm/glm.hpp>
+
 #include "../../Utilities/File.h"
 
 struct ATexture {
 	ATexture();
 	ATexture(const std::string& textureFileName);
 
-	inline MATH::Vector2 GetSize() {
+	inline glm::vec2 GetSize() {
 		return size;
 	}
 
@@ -27,7 +28,7 @@ struct ATexture {
 	}
 
 protected:
-	MATH::Vector2 size;
+	glm::vec2 size;
 
 	File file;
 };

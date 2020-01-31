@@ -1,5 +1,7 @@
 #include "Mesh.h"
 
+#include <glm/gtc/type_ptr.hpp>
+
 Mesh::Mesh(SubMesh subMesh_, GLuint shaderProgram_)
 	: VAO(0), VBO(0), shaderProgram(0){
 	shaderProgram = shaderProgram_;

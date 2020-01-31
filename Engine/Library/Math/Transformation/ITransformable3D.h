@@ -5,7 +5,7 @@
 #include "IRotatable3D.h"
 
 struct ITransformable3D : public ITranslatable3D, public IRotatable3D {
-	ITransformable3D(MATH::Vector3 position, MATH::Vector3 rotation, MATH::Vector3 anchorPoint);
+	ITransformable3D(glm::vec3 position, glm::vec3 rotation, glm::vec3 anchorPoint);
 };
 #endif // !ITRANSFORMABLE3D_H
 

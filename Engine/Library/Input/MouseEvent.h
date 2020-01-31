@@ -3,15 +3,14 @@
 
 #include "../Data Structures/Events/Event.h"
 #include "Input.h"
-#include "../Math/MathPrimitives.h"
+
+#include <glm/glm.hpp>
 
 #include <string>
 
-using namespace MATH;
-
 class MouseEvent  {
 protected:
-	Vector2 oldPos;
+	glm::vec2 oldPos;
 
 public:
 	inline static string MOUSE_PRESSED = "mousePressed";
@@ -98,7 +97,7 @@ public:
 	}
 
 	void setOldPos(int x, int y) {
-		oldPos = Vector2(x, y);
+		oldPos = glm::vec2(x, y);
 	}
 
 	~MouseEvent() {}

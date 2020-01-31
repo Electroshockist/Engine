@@ -7,7 +7,6 @@
 #include "MouseEvent.h"
 
 using namespace std;
-using namespace MATH;
 
 class MouseAdapter {
 public:
@@ -24,7 +23,7 @@ public:
 		_mouse->SetNewPos(x, y);
 
 		//Print output similar to mine!
-		PrintOnButtonAction(tempButton.getName(), tempButton.state ? "Down" : "Up", Vector2(x, y));
+		PrintOnButtonAction(tempButton.getName(), tempButton.state ? "Down" : "Up", glm::vec2(x, y));
 	}
 
 	//Mouse Move Adapter Method
@@ -59,7 +58,7 @@ public:
 protected:
 	inline static MouseEvent* _mouse = new MouseEvent();
 
-	inline static void PrintOnButtonAction(string buttonName, string buttonState, Vector2 pos) {
+	inline static void PrintOnButtonAction(string buttonName, string buttonState, glm::vec2 pos) {
 		cout << buttonName << " " << buttonState << " at [" << pos.x << ", " << pos.y << "]" << endl;
 	}
 

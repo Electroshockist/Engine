@@ -1,33 +1,63 @@
-﻿  GLTexture.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Textures\ATexture.h(4,10): fatal error C1083: Cannot open include file: '../../Math/MathPrimitives.h': No such file or directory
-  EngineMain.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Window\AWindow.h(5,10): fatal error C1083: Cannot open include file: '..\Math\MathPrimitives.h': No such file or directory
-  GlutWindow.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Window\AWindow.h(5,10): fatal error C1083: Cannot open include file: '..\Math\MathPrimitives.h': No such file or directory
-  IRotatable2D.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Math\Transformation\IRotatable2D.h(4,10): fatal error C1083: Cannot open include file: '../MathPrimitives.h': No such file or directory
-  IRotatable3D.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Math\Transformation\IRotatable3D.h(4,10): fatal error C1083: Cannot open include file: '../MathPrimitives.h': No such file or directory
-  ITransformable2D.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Math\Transformation\ITranslatable2D.h(4,10): fatal error C1083: Cannot open include file: '../MathPrimitives.h': No such file or directory
-  ITransformable3D.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Math\Transformation\ITranslatable3D.h(4,10): fatal error C1083: Cannot open include file: '../MathPrimitives.h': No such file or directory
-  ITranslatable2D.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Math\Transformation\ITranslatable2D.h(4,10): fatal error C1083: Cannot open include file: '../MathPrimitives.h': No such file or directory
-  ITranslatable3D.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Math\Transformation\ITranslatable3D.h(4,10): fatal error C1083: Cannot open include file: '../MathPrimitives.h': No such file or directory
-  Main.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Window\AWindow.h(5,10): fatal error C1083: Cannot open include file: '..\Math\MathPrimitives.h': No such file or directory
-  SDLGLWindow.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Window\AWindow.h(5,10): fatal error C1083: Cannot open include file: '..\Math\MathPrimitives.h': No such file or directory
-  SDLWindow.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Window\AWindow.h(5,10): fatal error C1083: Cannot open include file: '..\Math\MathPrimitives.h': No such file or directory
-  TextureManager.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Textures\ATexture.h(4,10): fatal error C1083: Cannot open include file: '../../Math/MathPrimitives.h': No such file or directory
+﻿  TextureManager.cpp
   ATexture.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Textures\ATexture.h(4,10): fatal error C1083: Cannot open include file: '../../Math/MathPrimitives.h': No such file or directory
+c:\users\erico\files\engine\engine\library\utilities\amanager.h(41): error C2259: 'AManager<ATexture>': cannot instantiate abstract class
+  c:\users\erico\files\engine\engine\library\utilities\amanager.h(41): note: due to following members:
+  c:\users\erico\files\engine\engine\library\utilities\amanager.h(41): note: 'bool AManager<ATexture>::Add(T *)': is abstract
+          with
+          [
+              T=ATexture
+          ]
+  c:\users\erico\files\engine\engine\library\utilities\amanager.h(16): note: see declaration of 'AManager<ATexture>::Add'
+  c:\users\erico\files\engine\engine\library\utilities\amanager.h(41): note: 'bool AManager<ATexture>::IsImplemented(void)': is abstract
+  c:\users\erico\files\engine\engine\library\utilities\amanager.h(53): note: see declaration of 'AManager<ATexture>::IsImplemented'
+  c:\users\erico\files\engine\engine\library\utilities\amanager.h(39): note: while compiling class template member function 'AManager<ATexture> *AManager<ATexture>::GetInstance(void)'
+  c:\users\erico\files\engine\engine\library\graphics\textures\atexture.cpp(11): note: see reference to function template instantiation 'AManager<ATexture> *AManager<ATexture>::GetInstance(void)' being compiled
+  c:\users\erico\files\engine\engine\library\graphics\textures\texturemanager.h(10): note: see reference to class template instantiation 'AManager<ATexture>' being compiled
   Mesh.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Mesh.h(8,10): fatal error C1083: Cannot open include file: '../../Graphics/MaterialHandler.h': No such file or directory
+c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(7): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(7): note: see declaration of 'ACamera'
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(71): error C2039: 'diffuseMap': is not a member of 'AMaterial'
+  c:\users\erico\files\engine\engine\library\graphics\materials\amaterial.h(3): note: see declaration of 'AMaterial'
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(71): error C2660: 'glBindTexture': function does not take 1 arguments
+  c:\users\erico\files\engine\engine\dependancies\include\glew\glew.h(853): note: see declaration of 'glBindTexture'
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(73): error C2039: 'getView': is not a member of 'ACamera'
+  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(7): note: see declaration of 'ACamera'
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(73): error C2672: 'glm::value_ptr': no matching overloaded function found
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(73): error C2198: 'PFNGLUNIFORMMATRIX4FVPROC': too few arguments for call
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(74): error C2039: 'getPerspective': is not a member of 'ACamera'
+  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(7): note: see declaration of 'ACamera'
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(74): error C2672: 'glm::value_ptr': no matching overloaded function found
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(74): error C2198: 'PFNGLUNIFORMMATRIX4FVPROC': too few arguments for call
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(76): error C2039: 'getPosition': is not a member of 'ACamera'
+  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(7): note: see declaration of 'ACamera'
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(77): error C2039: 'getLightSources': is not a member of 'ACamera'
+  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(7): note: see declaration of 'ACamera'
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(78): error C2039: 'getLightSources': is not a member of 'ACamera'
+  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(7): note: see declaration of 'ACamera'
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(82): error C2039: 'getLightSources': is not a member of 'ACamera'
+  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(7): note: see declaration of 'ACamera'
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(82): error C2198: 'PFNGLUNIFORM1FPROC': too few arguments for call
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(83): error C2039: 'getLightSources': is not a member of 'ACamera'
+  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(7): note: see declaration of 'ACamera'
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(83): error C2198: 'PFNGLUNIFORM1FPROC': too few arguments for call
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(87): error C2039: 'shine': is not a member of 'AMaterial'
+  c:\users\erico\files\engine\engine\library\graphics\materials\amaterial.h(3): note: see declaration of 'AMaterial'
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(87): error C2198: 'PFNGLUNIFORM1FPROC': too few arguments for call
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(88): error C2039: 'transparency': is not a member of 'AMaterial'
+  c:\users\erico\files\engine\engine\library\graphics\materials\amaterial.h(3): note: see declaration of 'AMaterial'
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(88): error C2198: 'PFNGLUNIFORM1FPROC': too few arguments for call
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(89): error C2039: 'ambient': is not a member of 'AMaterial'
+  c:\users\erico\files\engine\engine\library\graphics\materials\amaterial.h(3): note: see declaration of 'AMaterial'
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(89): error C2198: 'PFNGLUNIFORM3FPROC': too few arguments for call
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(90): error C2039: 'diffuse': is not a member of 'AMaterial'
+  c:\users\erico\files\engine\engine\library\graphics\materials\amaterial.h(3): note: see declaration of 'AMaterial'
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(90): error C2198: 'PFNGLUNIFORM3FPROC': too few arguments for call
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(91): error C2039: 'specular': is not a member of 'AMaterial'
+  c:\users\erico\files\engine\engine\library\graphics\materials\amaterial.h(3): note: see declaration of 'AMaterial'
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(91): error C2198: 'PFNGLUNIFORM3FPROC': too few arguments for call
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(95): warning C4018: '<': signed/unsigned mismatch
   Model.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Mesh.h(8,10): fatal error C1083: Cannot open include file: '../../Graphics/MaterialHandler.h': No such file or directory
+c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(7): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(7): note: see declaration of 'ACamera'
+c:\users\erico\files\engine\engine\library\graphics\3d\model.h(5): fatal error C1083: Cannot open include file: 'LoadObjModel.h': No such file or directory
   Generating Code...

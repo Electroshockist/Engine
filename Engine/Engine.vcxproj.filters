@@ -183,6 +183,15 @@
     <ClInclude Include="Library\Worlds\AWorld.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Library\Graphics\Materials\MaterialHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Graphics\Materials\Material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Utilities\AManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -249,6 +258,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Library\Graphics\Camera\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Utilities\AManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

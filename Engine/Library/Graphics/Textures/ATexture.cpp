@@ -1,14 +1,12 @@
 #include "ATexture.h"
 #include "TextureManager.h"
 
-using namespace MATH;
-
-ATexture::ATexture() : size(Vector2()) {}
+ATexture::ATexture() : size(glm::vec2()) {}
 
 ATexture::ATexture(const std::string & textureFileName) {
 
 }
 
 ATexture::~ATexture() {
-	TextureManager::GetInstance()->RemoveTexture(this);
+	TextureManager::GetInstance()->Remove(this);
 }
