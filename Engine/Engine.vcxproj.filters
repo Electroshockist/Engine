@@ -123,9 +123,6 @@
     <ClInclude Include="Library\Window\AWindow.h">
       <Filter>Header Files\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="Library\Window\GlutWindow.h">
-      <Filter>Header Files\Windows</Filter>
-    </ClInclude>
     <ClInclude Include="Library\Window\SDLGLWindow.h">
       <Filter>Header Files\Windows</Filter>
     </ClInclude>
@@ -174,22 +171,19 @@
     <ClInclude Include="Library\Graphics\Materials\AMaterial.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Library\GameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Library\Graphics\3D\AMesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Library\Worlds\AWorld.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Library\Graphics\Materials\MaterialHandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Library\Graphics\Materials\Material.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Library\Utilities\AManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Graphics\Materials\MaterialManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -223,9 +217,6 @@
     </ClCompile>
     <ClCompile Include="Library\Math\Transformation\ITranslatable3D.cpp">
       <Filter>Source Files\Game Object\Transformations\3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Library\Window\GlutWindow.cpp">
-      <Filter>Source Files\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Library\Window\SDLGLWindow.cpp">
       <Filter>Source Files\Windows</Filter>

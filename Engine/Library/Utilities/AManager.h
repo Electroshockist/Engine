@@ -14,6 +14,12 @@ struct AManager{
 
 	//tries to add a unique item, returns false if it already exists
 	virtual bool Add(T* item) = 0;
+	bool Add(T* item, bool isUnique){
+		if(isUnique){
+			return Add(item);
+		}
+		
+	};
 
 	bool Remove(const std::string & name){
 		items.erase(name);
@@ -49,8 +55,6 @@ protected:
 	friend std::default_delete<AManager>;
 
 	std::vector<T*> items;
-
-	virtual bool IsImplemented() = 0;
 
 	AManager(){};
 	virtual ~AManager(){};

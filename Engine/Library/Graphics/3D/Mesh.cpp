@@ -92,7 +92,7 @@ void Mesh::Render(ACamera *camera, std::vector<glm::mat4> &instances_){
 
 	glBindVertexArray(VAO);
 
-	for(int i = 0; i < instances_.size(); i++){
+	for(size_t i = 0; i < instances_.size(); i++){
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(instances_[i]));
 		glDrawArrays(GL_TRIANGLES, 0, subMesh.vertexList.size());
 	}

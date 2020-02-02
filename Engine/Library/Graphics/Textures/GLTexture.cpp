@@ -1,7 +1,5 @@
 #include "GLTexture.h"
 
-
-
 GLTexture::GLTexture() {}
 
 

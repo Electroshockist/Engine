@@ -14,11 +14,6 @@ struct TextureManager : public AManager<ATexture>{
 	TextureManager& operator=(const TextureManager&) = delete;
 	TextureManager& operator=(TextureManager&&) = delete;
 
-protected:
-	bool IsImplemented() override{
-		return true;
-	}
-
 private:
 	TextureManager();
 	~TextureManager();

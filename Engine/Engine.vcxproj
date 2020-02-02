@@ -160,13 +160,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Library\GameObject.h" />
     <ClInclude Include="Library\Graphics\3D\AMesh.h" />
     <ClInclude Include="Library\Graphics\Camera\Camera.h" />
     <ClInclude Include="Library\Graphics\Materials\AMaterial.h" />
     <ClInclude Include="Library\Graphics\Camera\ACamera.h" />
     <ClInclude Include="Library\Graphics\Materials\Material.h" />
-    <ClInclude Include="Library\Graphics\Materials\MaterialHandler.h" />
+    <ClInclude Include="Library\Graphics\Materials\MaterialManager.h" />
     <ClInclude Include="Library\Utilities\AManager.h" />
     <ClInclude Include="Library\Utilities\File.h" />
     <ClInclude Include="Library\Utilities\FilePathParser.h" />
@@ -192,7 +191,6 @@
     <ClInclude Include="Library\Input\MouseEvent.h" />
     <ClInclude Include="Library\Window\AWindow.h" />
     <ClInclude Include="Library\Data Structures\CircularDynamicList.h" />
-    <ClInclude Include="Library\Window\GlutWindow.h" />
     <ClInclude Include="Library\Input\Input.h" />
     <ClInclude Include="Library\Window\SDLGLWindow.h" />
     <ClInclude Include="Library\Data Structures\Events\ALisener.h" />
@@ -210,7 +208,6 @@
     <ClCompile Include="Library\Graphics\Textures\GLTexture.cpp" />
     <ClCompile Include="Library\Debugging\Debug.cpp" />
     <ClCompile Include="Engine\EngineMain.cpp" />
-    <ClCompile Include="Library\Window\GlutWindow.cpp" />
     <ClCompile Include="Library\Math\Transformation\IRotatable2D.cpp" />
     <ClCompile Include="Library\Math\Transformation\IRotatable3D.cpp" />
     <ClCompile Include="Library\Math\Transformation\ITransformable2D.cpp" />

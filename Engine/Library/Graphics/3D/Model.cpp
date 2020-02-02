@@ -5,9 +5,9 @@ Model::Model(const std::string &objPath_, const std::string &matPath_, GLuint sh
 	: subMeshes(std::vector<Mesh *>()), shaderProgram(0), modelInstances(std::vector<glm::mat4>()){
 
 	shaderProgram = shaderProgram_;
-	obj = new LoadObjModel();
+	//obj = new LoadObjModel();
 
-	obj->loadModel(objPath_, matPath_);
+	//obj->loadModel(objPath_, matPath_);
 	this->LoadModel();
 }
 
