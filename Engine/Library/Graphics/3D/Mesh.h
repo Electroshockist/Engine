@@ -1,6 +1,9 @@
 #ifndef MESH_H
 #define MESH_H
 
+#include <vector>
+#include <map>
+
 #include <GLEW/glew.h>
 #include <glm/gtc/type_ptr.hpp>
 
@@ -24,13 +27,11 @@ struct SubMesh{
 class Mesh : AMesh{
 	void GenerateBuffers();
 	GLuint VAO, VBO;
-	std::vector<Vertex> vertexList;
 	GLuint shaderProgram;
 	GLuint modelLoc, viewLoc, projLoc;
 	GLuint viewPositionLoc, lightPosLoc, lightAmbientLoc, lightDiffuseLoc, lightColourLoc;
 	GLuint diffuseMapLoc, shineLoc, transparencyLoc, ambientLoc, diffuseLoc, specLoc;
 	SubMesh subMesh;
-
 
 public:
 	Mesh(SubMesh submesh, GLuint shaderProgram);

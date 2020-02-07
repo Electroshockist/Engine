@@ -68,7 +68,17 @@ void Mesh::Render(ACamera *camera, std::vector<glm::mat4> &instances_){
 	glUniform1i(diffuseMapLoc, 0);
 	glActiveTexture(GL_TEXTURE0);
 
-	glBindTexture(GL_TEXTURE_2D, subMesh.material.diffuseMap);
+	std::pair<int, void *> diffuse = subMesh.material.getParameter("diffuseMap");
+
+	switch(diffuse.first){
+		case 2:
+			dynamic_cast<glm::vec2>(diffuse.second);
+			glBindTexture(GL_TEXTURE_2D, );
+		default:
+			break;
+	}
+
+
 
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(camera->getView()));
 	glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(camera->getPerspective()));
