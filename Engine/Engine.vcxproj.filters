@@ -168,9 +168,6 @@
     <ClInclude Include="Library\Graphics\Camera\Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Library\Graphics\Materials\AMaterial.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Library\Graphics\3D\AMesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>

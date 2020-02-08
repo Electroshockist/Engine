@@ -162,7 +162,6 @@
   <ItemGroup>
     <ClInclude Include="Library\Graphics\3D\AMesh.h" />
     <ClInclude Include="Library\Graphics\Camera\Camera.h" />
-    <ClInclude Include="Library\Graphics\Materials\AMaterial.h" />
     <ClInclude Include="Library\Graphics\Camera\ACamera.h" />
     <ClInclude Include="Library\Graphics\Materials\Material.h" />
     <ClInclude Include="Library\Graphics\Materials\MaterialManager.h" />
