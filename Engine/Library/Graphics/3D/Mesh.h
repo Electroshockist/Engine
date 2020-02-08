@@ -8,7 +8,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "AMesh.h"
-#include "../../Graphics/Materials/AMaterial.h"
+#include "../../Graphics/Materials/Material.h"
 #include "../Camera/Camera.h"
 
 struct Vertex{
@@ -19,9 +19,11 @@ struct Vertex{
 };
 
 struct SubMesh{
+	SubMesh(){}
+
 	std::vector<Vertex> vertexList;
 	std::vector<int> meshIndices;
-	AMaterial material;
+	Material material;
 };
 
 class Mesh : AMesh{

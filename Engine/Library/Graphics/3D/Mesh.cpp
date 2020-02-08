@@ -2,6 +2,8 @@
 
 #include <glm/gtc/type_ptr.hpp>
 
+
+
 Mesh::Mesh(SubMesh subMesh_, GLuint shaderProgram_)
 	: VAO(0), VBO(0), shaderProgram(0){
 	shaderProgram = shaderProgram_;
@@ -68,16 +70,7 @@ void Mesh::Render(ACamera *camera, std::vector<glm::mat4> &instances_){
 	glUniform1i(diffuseMapLoc, 0);
 	glActiveTexture(GL_TEXTURE0);
 
-	std::pair<int, void *> diffuse = subMesh.material.getParameter("diffuseMap");
-
-	switch(diffuse.first){
-		case 2:
-			dynamic_cast<glm::vec2>(diffuse.second);
-			glBindTexture(GL_TEXTURE_2D, );
-		default:
-			break;
-	}
-
+	glBindTexture(GL_TEXTURE_2D, subMesh.material.getParameter("diffuse")->uint);
 
 
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(camera->getView()));

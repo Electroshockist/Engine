@@ -15,8 +15,8 @@ union Parameter{
 	glm::vec4 vec4;
 };
 
-class Material{
-
+struct Material{
+	Material(){}
 
 	Material(std::string name, Parameter parameter){
 		AddParameter(name, parameter);
