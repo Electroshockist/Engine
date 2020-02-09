@@ -40,6 +40,10 @@ public:
 	~Mesh();
 
 	void Render(ACamera *camera, std::vector<glm::mat4> &instance) override;
+
+	void SetupUniforms(){
+
+	}
 };
 
 #endif // !MESH_H

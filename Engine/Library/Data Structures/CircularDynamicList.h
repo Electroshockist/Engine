@@ -5,7 +5,7 @@
 namespace DataStructures {
 	template <typename T>
 	class CircularDynamicList {
-		typedef CircularDynamicList CCircularDynamicList;
+		typedef CircularDynamicList CDL;
 
 		// CircularDynamicList node
 		struct Node {

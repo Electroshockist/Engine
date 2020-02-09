@@ -81,9 +81,6 @@
     <ClInclude Include="Library\Data Structures\Decorator.h">
       <Filter>Header Files\Data Structures</Filter>
     </ClInclude>
-    <ClInclude Include="Library\Data Structures\List.h">
-      <Filter>Header Files\Data Structures</Filter>
-    </ClInclude>
     <ClInclude Include="Library\Input\Input.h">
       <Filter>Header Files\Resource</Filter>
     </ClInclude>
@@ -193,9 +190,6 @@
     </ClCompile>
     <ClCompile Include="Library\Data Structures\Events\ALisener.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Library\Data Structures\List.cpp">
-      <Filter>Source Files\Data Structures</Filter>
     </ClCompile>
     <ClCompile Include="Library\Math\Transformation\IRotatable2D.cpp">
       <Filter>Source Files\Game Object\Transformations\2D</Filter>
