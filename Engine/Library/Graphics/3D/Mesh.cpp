@@ -70,37 +70,46 @@ void Mesh::Render(ACamera *camera, std::vector<glm::mat4> &instances_){
 	glUniform1i(diffuseMapLoc, 0);
 	glActiveTexture(GL_TEXTURE0);
 
-	glBindTexture(GL_TEXTURE_2D, subMesh.material.getParameter("diffuse")->uint);
+	try{
+		GLuint diffuse = std::get<GLuint>(*subMesh.material.getParameter("diffuse"));
+
+		glBindTexture(GL_TEXTURE_2D, diffuse);
 
 
-	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(camera->getView()));
-	glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(camera->getPerspective()));
+		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(camera->getView()));
+		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(camera->getPerspective()));
 
-	glm::vec3 copyCamPos = camera->getPosition();
-	glm::vec3 copyLightPos = camera->getLightSources()[0]->GetPosition();
-	glm::vec3 copyLightColor = camera->getLightSources()[0]->GetColour();
+		glm::vec3 copyCamPos = camera->getPosition();
+		glm::vec3 copyLightPos = camera->getLightSources()[0]->GetPosition();
+		glm::vec3 copyLightColor = camera->getLightSources()[0]->GetColour();
 
-	glUniform3f(viewPositionLoc, copyCamPos.x, copyCamPos.y, copyCamPos.z);
-	glUniform3f(lightPosLoc, copyLightPos.x, copyLightPos.y, copyLightPos.z);
-	glUniform1f(lightAmbientLoc, camera->getLightSources()[0]->GetAmbientValue());
-	glUniform1f(lightDiffuseLoc, camera->getLightSources()[0]->GetDiffuseValue());
-	glUniform3f(lightColourLoc, copyLightColor.x, copyLightColor.y, copyLightColor.z);
+		glUniform3f(viewPositionLoc, copyCamPos.x, copyCamPos.y, copyCamPos.z);
+		glUniform3f(lightPosLoc, copyLightPos.x, copyLightPos.y, copyLightPos.z);
+		glUniform1f(lightAmbientLoc, camera->getLightSources()[0]->GetAmbientValue());
+		glUniform1f(lightDiffuseLoc, camera->getLightSources()[0]->GetDiffuseValue());
+		glUniform3f(lightColourLoc, copyLightColor.x, copyLightColor.y, copyLightColor.z);
 
-	//material
-	glUniform1f(shineLoc, subMesh.material.shine);
-	glUniform1f(transparencyLoc, subMesh.material.transparency);
-	glUniform3f(ambientLoc, subMesh.material.ambient.x, subMesh.material.ambient.y, subMesh.material.ambient.z);
-	glUniform3f(diffuseLoc, subMesh.material.diffuse.x, subMesh.material.diffuse.y, subMesh.material.diffuse.z);
-	glUniform3f(specLoc, subMesh.material.specular.x, subMesh.material.specular.y, subMesh.material.specular.z);
+		//material
+		glUniform1f(shineLoc, subMesh.material.shine);
+		glUniform1f(transparencyLoc, subMesh.material.transparency);
+		glUniform3f(ambientLoc, subMesh.material.ambient.x, subMesh.material.ambient.y, subMesh.material.ambient.z);
+		glUniform3f(diffuseLoc, subMesh.material.diffuse.x, subMesh.material.diffuse.y, subMesh.material.diffuse.z);
+		glUniform3f(specLoc, subMesh.material.specular.x, subMesh.material.specular.y, subMesh.material.specular.z);
 
-	glBindVertexArray(VAO);
+		glBindVertexArray(VAO);
 
-	for(size_t i = 0; i < instances_.size(); i++){
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(instances_[i]));
-		glDrawArrays(GL_TRIANGLES, 0, subMesh.vertexList.size());
+		for(size_t i = 0; i < instances_.size(); i++){
+			glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(instances_[i]));
+			glDrawArrays(GL_TRIANGLES, 0, subMesh.vertexList.size());
+		}
+
+		glBindVertexArray(0);
+
+		glBindTexture(GL_TEXTURE_2D, 0);
+
+	} catch(const std::bad_variant_access& e){
+		Debug::error("Improper variant cast at parameter with name." + e.what() + " This error should never occur.", __FILE__, __LINE__);
 	}
-
-	glBindVertexArray(0);
-
-	glBindTexture(GL_TEXTURE_2D, 0);
 }
+
+void Mesh::SetupUniforms(){}
