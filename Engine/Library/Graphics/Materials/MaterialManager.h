@@ -2,9 +2,9 @@
 #define MATERIALHANDLER_H
 
 #include "../../Utilities/AManager.h"
-#include "AMaterial.h"
+#include "Material.h"
 
-class MaterialManager:public AManager<AMaterial>{
+class MaterialManager:public AManager<Material>{
 public:
 	MaterialManager(){}
 
