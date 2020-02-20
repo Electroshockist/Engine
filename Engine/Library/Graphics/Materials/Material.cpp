@@ -7,12 +7,29 @@ void Material::setupParameter(const std::string name, ParameterPair &parameterPa
 		Parameter::Data &data = parameterPair.second.data;
 		unsigned int &location = parameterPair.first;
 
-		switch(data.index()){
-			case 0:
+		switch(type){
+			case Parameter::Type::EMPTY:
 				Debug::warning("Material parameter with name " + name + " is empty.", __FILE__, __LINE__);
 				break;
-			case 1:
+			case Parameter::Type::INT:
 				glUniform1i(location, std::get<int>(data));
+				break;
+			case Parameter::Type::INT2:
+				glm::vec<2, int> vec2i = std::get<glm::vec<2, int>>(data);
+				glUniform2i(location, vec2i.x, vec2i.y);
+				break;
+			case Parameter::Type::INT3:
+				glm::vec<3, int> vec3i = std::get<glm::vec<3, int>>(data);
+				glUniform3i(location, vec3i.x, vec3i.y, vec3i.z);
+				break;
+			case Parameter::Type::INT4:
+				glm::vec<4, int> vec3i = std::get<glm::vec<4, int>>(data);
+				glUniform3i(location, vec3i.x, vec3i.y, vec3i.z);
+				break;
+			case Parameter::Type::UINT:
+				glUniform1ui(location, std::get<GLuint>(data));
+				break;
+
 
 			default:
 				Debug::error("Material parameter with name " + name + " does not exist. This error should never occur.", __FILE__, __LINE__);
