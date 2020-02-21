@@ -1,7 +1,7 @@
 #include "Material.h"
 #include <GLEW/glew.h>
 
-void Material::setupParameter(const std::string name, ParameterPair &parameterPair){
+void Material::setupParameter(const std::string name, MaterialParameter & parameterPair){
 	try{
 		Parameter::Type type = parameterPair.second.getType();
 		Parameter::Data &data = parameterPair.second.data;
@@ -81,4 +81,4 @@ void Material::setupParameter(const std::string name, ParameterPair &parameterPa
 	}
 }
 
-void Material::setupParameter(const std::string name, ParameterPair &parameterPair){}
+void Material::setupParameter(const std::string name, MaterialParameter & parameterPair){}

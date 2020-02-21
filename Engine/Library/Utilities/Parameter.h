@@ -13,11 +13,9 @@ struct Parameter{
 		double, glm::vec<2, double>, glm::vec<3, double>, glm::vec<4, double>
 	> Data;
 
-	std::string name;
 	Data data;
 
-	Parameter(std::string name, Data data){
-		this->name = name;
+	Parameter(Data data){
 		this->data = data;
 	}
 

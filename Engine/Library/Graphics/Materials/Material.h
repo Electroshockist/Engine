@@ -7,8 +7,19 @@
 #include "../../Utilities/Parameter.h"
 #include "../../Debugging/Debug.h"
 
+struct MaterialParameter{
+	unsigned int location;
+	std::string nameInShader;
+	Parameter parameter;
+
+	MaterialParameter(unsigned int location, std::string nameInShader, Parameter parameter){
+		this->location = location;
+		this->nameInShader = nameInShader;
+		this->parameter = parameter;
+	}
+};
+
 struct Material{
-	typedef std::pair<unsigned int, Parameter> ParameterPair;
 
 	Material(){}
 
@@ -20,7 +31,7 @@ struct Material{
 		parameters[name] = std::pair<unsigned int, Parameter>(location, parameter);
 	}
 
-	ParameterPair *getParameterPair(std::string name){
+	MaterialParameter *getParameterPair(std::string name){
 		return &parameters.at(name);
 	}
 
@@ -36,9 +47,9 @@ struct Material{
 	}
 
 private:
-	typedef std::map<std::string, ParameterPair> Parameters;
+	typedef std::map<std::string, MaterialParameter> Parameters;
 	Parameters parameters;
 
-	void setupParameter(const std::string name, ParameterPair &parameterPair);
+	void setupParameter(const std::string name, MaterialParameter & parameterPair);
 };
 #endif // !MATERIAL_H

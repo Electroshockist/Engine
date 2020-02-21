@@ -1,1 +1,190 @@
-﻿
+﻿  Camera.cpp
+  Material.cpp
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.h(14,1): error C2059: syntax error: '}'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.h(14,1): error C2143: syntax error: missing ';' before '}'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.h(14,1): error C2238: unexpected token(s) preceding ';'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.cpp(45,43): warning C4244: 'argument': conversion from '_First' to 'GLfloat', possible loss of data
+          with
+          [
+              _First=unsigned int
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.cpp(49,41): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=glm::u32
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.cpp(49,32): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=glm::u32
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.cpp(53,50): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=glm::u32
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.cpp(53,41): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=glm::u32
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.cpp(53,32): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=glm::u32
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.cpp(57,59): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=glm::u32
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.cpp(57,50): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=glm::u32
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.cpp(57,41): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=glm::u32
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.cpp(57,32): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=glm::u32
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.cpp(84,84): error C2084: function 'void Material::setupParameter(const std::string,Material::ParameterPair &)' already has a body
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.cpp(4): message : see previous definition of 'setupParameter'
+  AManager.cpp
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(54,14): error C2039: 'unique_ptr': is not a member of 'std'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.24.28314\include\vector(24): message : see declaration of 'std'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(61): message : see reference to class template instantiation 'AManager<T>' being compiled
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(54,24): error C2143: syntax error: missing ';' before '<'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(54,1): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(54,1): error C2238: unexpected token(s) preceding ';'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(55,14): error C2039: 'default_delete': is not a member of 'std'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.24.28314\include\vector(24): message : see declaration of 'std'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(55,28): error C2143: syntax error: missing ';' before '<'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(55,1): error C2433: 'default_delete': 'friend' not permitted on data declarations
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(55,1): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(55,1): error C2238: unexpected token(s) preceding ';'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(46,6): error C3861: 'managerInstance': identifier not found
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(47,4): error C3861: 'managerInstance': identifier not found
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(49,10): error C3861: 'managerInstance': identifier not found
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.cpp(4,6): error C2039: 'unique_ptr': is not a member of 'std'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.24.28314\include\vector(24): message : see declaration of 'std'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.cpp(4,16): error C2988: unrecognizable template declaration/definition
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.cpp(4,16): error C2143: syntax error: missing ';' before '<'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.cpp(4,16): error C2059: syntax error: '<'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.cpp(4,26): error C2065: 'T': undeclared identifier
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.cpp(4,17): error C2923: 'AManager': 'T' is not a valid template type argument for parameter 'T'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.cpp(4,39): error C2065: 'T': undeclared identifier
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.cpp(4,30): error C2923: 'AManager': 'T' is not a valid template type argument for parameter 'T'
+  File.cpp
+  FilePathParser.cpp
+  GLTexture.cpp
+  Debug.cpp
+  EngineMain.cpp
+  IRotatable2D.cpp
+  IRotatable3D.cpp
+  ITransformable2D.cpp
+  ITransformable3D.cpp
+  ITranslatable2D.cpp
+  ITranslatable3D.cpp
+  Parameter.cpp
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\Parameter.h(16,7): error C2039: 'string': is not a member of 'std'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.24.28314\include\cmath(751): message : see declaration of 'std'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\Parameter.h(16,18): error C3646: 'name': unknown override specifier
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\Parameter.h(16,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\Parameter.h(19,17): error C2039: 'string': is not a member of 'std'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.24.28314\include\cmath(751): message : see declaration of 'std'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\Parameter.h(19,40): error C2061: syntax error: identifier 'string'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\Parameter.h(20,1): error C2039: 'name': is not a member of 'Parameter'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\Parameter.h(8): message : see declaration of 'Parameter'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\Parameter.h(20,16): error C2065: 'name': undeclared identifier
+  Main.cpp
+  SDLGLWindow.cpp
+  ALisener.cpp
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Data Structures\Events\Event.h(7,14): warning C4099: 'Event': type name first seen using 'class' now seen using 'struct'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Data Structures\Events\Event.h(7): message : see declaration of 'Event'
+  SDLWindow.cpp
+  TextureManager.cpp
+  Generating Code...
+  Compiling...
+  ATexture.cpp
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(47): error C2259: 'AManager<ATexture>': cannot instantiate abstract class
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Textures\TextureManager.h(10): message : see declaration of 'AManager<ATexture>'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(47): message : due to following members:
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(47): message : 'bool AManager<ATexture>::Add(T *)': is abstract
+          with
+          [
+              T=ATexture
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(16): message : see declaration of 'AManager<ATexture>::Add'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(45): message : while compiling class template member function 'AManager<ATexture> *AManager<ATexture>::GetInstance(void)'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Textures\ATexture.cpp(11): message : see reference to function template instantiation 'AManager<ATexture> *AManager<ATexture>::GetInstance(void)' being compiled
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Textures\TextureManager.h(10): message : see reference to class template instantiation 'AManager<ATexture>' being compiled
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(47,26): error C2259: 'AManager<ATexture>': cannot instantiate abstract class
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Textures\TextureManager.h(10): message : see declaration of 'AManager<ATexture>'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(47,26): message : due to following members:
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(47,26): message : 'bool AManager<ATexture>::Add(T *)': is abstract
+          with
+          [
+              T=ATexture
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Utilities\AManager.h(16): message : see declaration of 'AManager<ATexture>::Add'
+  Mesh.cpp
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.h(14,1): error C2059: syntax error: '}'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.h(14,1): error C2143: syntax error: missing ';' before '}'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.h(14,1): error C2238: unexpected token(s) preceding ';'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(7,15): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(7): message : see declaration of 'ACamera'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Mesh.cpp(83,75): error C2110: '+': cannot add two pointers
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Mesh.cpp(92,58): error C2065: 'camera': undeclared identifier
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Mesh.cpp(92,48): error C2672: 'glm::value_ptr': no matching overloaded function found
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Mesh.cpp(92,76): error C2198: 'PFNGLUNIFORMMATRIX4FVPROC': too few arguments for call
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Mesh.cpp(93,58): error C2065: 'camera': undeclared identifier
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Mesh.cpp(93,48): error C2672: 'glm::value_ptr': no matching overloaded function found
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Mesh.cpp(93,83): error C2198: 'PFNGLUNIFORMMATRIX4FVPROC': too few arguments for call
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Mesh.cpp(95,25): error C2065: 'camera': undeclared identifier
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Mesh.cpp(96,27): error C2065: 'camera': undeclared identifier
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Mesh.cpp(97,29): error C2065: 'camera': undeclared identifier
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Mesh.cpp(101,31): error C2065: 'camera': undeclared identifier
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Mesh.cpp(101,78): error C2198: 'PFNGLUNIFORM1FPROC': too few arguments for call
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Mesh.cpp(102,31): error C2065: 'camera': undeclared identifier
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Mesh.cpp(102,78): error C2198: 'PFNGLUNIFORM1FPROC': too few arguments for call
+  Model.cpp
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.h(14,1): error C2059: syntax error: '}'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.h(14,1): error C2143: syntax error: missing ';' before '}'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material.h(14,1): error C2238: unexpected token(s) preceding ';'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(7,15): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(7): message : see declaration of 'ACamera'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(23,36): error C2511: 'void Model::Render(Camera *)': overloaded member function not found in 'Model'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.h(7): message : see declaration of 'Model'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(24,15): error C2597: illegal reference to non-static member 'Model::subMeshes'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(24,24): error C3535: cannot deduce type for 'auto &&' from 'unknown'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(24,24): error C2440: 'initializing': cannot convert from 'unknown' to 'int &&'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(24,24): message : Reason: cannot convert from 'unknown' to 'int'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(24,24): message : There is no context in which this conversion is possible
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(24,24): error C3536: '<begin>$L0': cannot be used before it is initialized
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(24,24): error C3536: '<end>$L0': cannot be used before it is initialized
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(24,24): error C2100: illegal indirection
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(25,22): error C2597: illegal reference to non-static member 'Model::modelInstances'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(54,20): error C2039: 'getBoundingBox': is not a member of 'Model'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.h(7): message : see declaration of 'Model'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(54,34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(54,34): error C2146: syntax error: missing ';' before identifier 'getBoundingBox'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(54,36): error C2143: syntax error: missing ';' before '{'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(54,36): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(63,2): error C2065: 'b': undeclared identifier
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(63,6): error C2065: 'obj': undeclared identifier
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(64,21): error C2065: 'obj': undeclared identifier
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(65,32): error C2065: 'obj': undeclared identifier
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(65,70): error C2664: 'Mesh::Mesh(const Mesh &)': cannot convert argument 1 from 'GLuint' to 'const Mesh &'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(65,70): message : Reason: cannot convert from 'GLuint' to 'const Mesh'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(65,70): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Mesh.h(45,1): message : see declaration of 'Mesh::Mesh'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(67,9): error C2065: 'obj': undeclared identifier
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(67,12): error C2541: 'delete': cannot delete objects that are not pointers
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\Model.cpp(68,2): error C2065: 'obj': undeclared identifier
+  Generating Code...
