@@ -161,7 +161,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Library\Graphics\3D\AMesh.h" />
-    <ClInclude Include="Library\Graphics\Camera\Camera.h" />
+    <ClInclude Include="Library\Graphics\Camera\3D\ACamera3D.h" />
+    <ClInclude Include="Library\Graphics\Camera\3D\Camera.h" />
     <ClInclude Include="Library\Graphics\Camera\ACamera.h" />
     <ClInclude Include="Library\Graphics\Materials\Material.h" />
     <ClInclude Include="Library\Graphics\Materials\MaterialManager.h" />
@@ -200,7 +201,7 @@
     <ClInclude Include="Library\Graphics\3D\Model.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Library\Graphics\Camera\Camera.cpp" />
+    <ClCompile Include="Library\Graphics\Camera\3D\Camera.cpp" />
     <ClCompile Include="Library\Graphics\Materials\Material.cpp" />
     <ClCompile Include="Library\Utilities\AManager.cpp" />
     <ClCompile Include="Library\Utilities\File.cpp" />

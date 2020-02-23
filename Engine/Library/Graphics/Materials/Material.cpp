@@ -1,11 +1,11 @@
 #include "Material.h"
 #include <GLEW/glew.h>
 
-void Material::setupParameter(const std::string name, MaterialParameter & parameterPair){
+void Material::setupParameter(const std::string name, MaterialParameter & parameter){
 	try{
-		Parameter::Type type = parameterPair.second.getType();
-		Parameter::Data &data = parameterPair.second.data;
-		unsigned int &location = parameterPair.first;
+		Parameter::Type type = parameter.parameter.getType();
+		Parameter::Data &data = parameter.parameter.data;
+		unsigned int &location = parameter.location;
 
 		switch(type){
 			case Parameter::Type::EMPTY:
@@ -81,4 +81,4 @@ void Material::setupParameter(const std::string name, MaterialParameter & parame
 	}
 }
 
-void Material::setupParameter(const std::string name, MaterialParameter & parameterPair){}
+void Material::setupParameter(const std::string name, MaterialParameter & parameter){}

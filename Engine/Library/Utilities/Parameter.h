@@ -15,6 +15,8 @@ struct Parameter{
 
 	Data data;
 
+	Parameter(){}
+
 	Parameter(Data data){
 		this->data = data;
 	}

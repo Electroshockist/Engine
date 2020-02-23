@@ -23,15 +23,15 @@ struct Material{
 
 	Material(){}
 
-	Material(std::string name, unsigned int location, Parameter parameter){
-		AddParameter(name, location, parameter);
+	Material(std::string name, std::string nameInShader, unsigned int location, Parameter parameter){
+		AddParameter(name, nameInShader, location, parameter);
 	}
 
-	void AddParameter(std::string name, unsigned int location, Parameter parameter){
-		parameters[name] = std::pair<unsigned int, Parameter>(location, parameter);
+	void AddParameter(std::string name, std::string nameInShader, unsigned int location, Parameter parameter){
+		parameters[name] = MaterialParameter(location, nameInShader, parameter);
 	}
 
-	MaterialParameter *getParameterPair(std::string name){
+	MaterialParameter *getParameter(std::string name){
 		return &parameters.at(name);
 	}
 
@@ -50,6 +50,6 @@ private:
 	typedef std::map<std::string, MaterialParameter> Parameters;
 	Parameters parameters;
 
-	void setupParameter(const std::string name, MaterialParameter & parameterPair);
+	void setupParameter(const std::string name, MaterialParameter & parameter);
 };
 #endif // !MATERIAL_H

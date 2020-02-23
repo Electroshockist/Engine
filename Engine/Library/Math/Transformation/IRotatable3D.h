@@ -3,6 +3,7 @@
 
 #include <glm/glm.hpp>
 struct IRotatable3D {
+	IRotatable3D():rotationQuaternion(glm::vec4()){}
 	IRotatable3D(glm::vec3 rotation, glm::vec3 anchorPoint);
 	~IRotatable3D();
 
