@@ -51,21 +51,17 @@ glm::mat4 Model::getTransform(int index_) const{
 	return modelInstances[index_];
 }
 
-BoundingBox Model::getBoundingBox(){
-	return b;
-}
 
 GLuint Model::GetShaderProgram() const{
 	return shaderProgram;
 }
 
 void Model::LoadModel(){
-	b = obj->getBoundingBox();
-	for(int i = 0; i < obj->getSubMeshes().size(); i++){
-		subMeshes.push_back(new Mesh(obj->getSubMeshes()[i], shaderProgram));
-	}
-	delete obj;
-	obj = nullptr;
+	//for(int i = 0; i < obj->getSubMeshes().size(); i++){
+	//	subMeshes.push_back(new Mesh(obj->getSubMeshes()[i], shaderProgram));
+	//}
+	//delete obj;
+	//obj = nullptr;
 }
 
 glm::mat4 Model::getTransform(glm::vec3 position_, float angle_, glm::vec3 rotation_, glm::vec3 scale_){

@@ -1,6 +1,17 @@
 #include "Material.h"
 #include <GLEW/glew.h>
 
+void Material::setupParameters(){
+	if(parameters.empty()){
+		Debug::warning("No material parameters exist.", __FILE__, __LINE__);
+		return;
+	}
+
+	for(Parameters::iterator it = parameters.begin(); it != parameters.end(); it++){
+		setupParameter(it->first, it->second);
+	}
+}
+
 void Material::setupParameter(const std::string name, MaterialParameter & parameter){
 	try{
 		Parameter::Type type = parameter.parameter.getType();
@@ -80,5 +91,3 @@ void Material::setupParameter(const std::string name, MaterialParameter & parame
 		Debug::error("Improper variant cast at parameter with name" + name + "." + e.what() + " This error should never occur.", __FILE__, __LINE__);
 	}
 }
-
-void Material::setupParameter(const std::string name, MaterialParameter & parameter){}

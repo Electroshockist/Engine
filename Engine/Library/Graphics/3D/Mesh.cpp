@@ -63,11 +63,11 @@ void Mesh::GenerateBuffers(){
 	specLoc = glGetUniformLocation(shaderProgram, "material.specular");
 }
 
-void Mesh::Render(ACamera *camera, std::vector<glm::mat4> &instances_){
+void Mesh::Render(ACamera *c, std::vector<glm::mat4> &instances_){
 	glUniform1i(diffuseMapLoc, 0);
 	glActiveTexture(GL_TEXTURE0);
 
-	Camera *camera = dynamic_cast<Camera *>(camera);
+	Camera *camera = dynamic_cast<Camera *>(c);
 
 	if(camera == nullptr){
 		Debug::fatalError("Expected a 3D camera, but didn't find one.", __FILE__, __LINE__);
@@ -110,6 +110,6 @@ void Mesh::SetupUniforms(Camera *camera){
 
 		glBindVertexArray(VAO);
 	} catch(const std::bad_variant_access & e){
-		Debug::error("Improper variant cast at parameter with name." + e.what() + " This error should never occur.", __FILE__, __LINE__);
+		Debug::error("Improper variant cast at parameter with name." + std::string(e.what()) + " This error should never occur.", __FILE__, __LINE__);
 	}
 }

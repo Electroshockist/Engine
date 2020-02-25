@@ -9,7 +9,7 @@
 
 #include "AMesh.h"
 #include "../../Graphics/Materials/Material.h"
-#include "../Camera/Camera.h"
+#include "../Camera/3D/Camera.h"
 
 struct Vertex{
 	glm::vec3 position;

@@ -1,9 +1,10 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "ACamera.h"
+#include <glm/glm.hpp>
+#include "ACamera3D.h"
 //basic perspective camera
-class Camera : ACamera{
+class Camera : ACamera3D{
 	float fieldOfView;
 public:
 	glm::mat4 GetProjection(){

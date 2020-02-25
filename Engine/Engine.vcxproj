@@ -23,13 +23,13 @@
     <ProjectGuid>{ED10619F-A71D-4AD3-9A2B-540162932266}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Test</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.10240.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -161,18 +161,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Library\Graphics\3D\AMesh.h" />
+    <ClInclude Include="Library\Graphics\3D\ModelManager.h" />
     <ClInclude Include="Library\Graphics\Camera\3D\ACamera3D.h" />
     <ClInclude Include="Library\Graphics\Camera\3D\Camera.h" />
     <ClInclude Include="Library\Graphics\Camera\ACamera.h" />
     <ClInclude Include="Library\Graphics\Materials\Material.h" />
     <ClInclude Include="Library\Graphics\Materials\MaterialManager.h" />
-    <ClInclude Include="Library\Utilities\AManager.h" />
+    <ClInclude Include="Library\Utilities\Manager.h" />
     <ClInclude Include="Library\Utilities\File.h" />
     <ClInclude Include="Library\Utilities\FilePathParser.h" />
     <ClInclude Include="Library\Graphics\Textures\GLTexture.h" />
     <ClInclude Include="Library\Utilities\Parameter.h" />
     <ClInclude Include="Library\Worlds\AWorld.h" />
-    <ClInclude Include="Library\DataManager.h" />
     <ClInclude Include="Library\Data Structures\Decorator.h" />
     <ClInclude Include="Library\Data Structures\Events\Event.h" />
     <ClInclude Include="Library\Debugging\Debug.h" />
@@ -201,9 +201,9 @@
     <ClInclude Include="Library\Graphics\3D\Model.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Library\Graphics\3D\ModelManager.cpp" />
     <ClCompile Include="Library\Graphics\Camera\3D\Camera.cpp" />
     <ClCompile Include="Library\Graphics\Materials\Material.cpp" />
-    <ClCompile Include="Library\Utilities\AManager.cpp" />
     <ClCompile Include="Library\Utilities\File.cpp" />
     <ClCompile Include="Library\Utilities\FilePathParser.cpp" />
     <ClCompile Include="Library\Graphics\Textures\GLTexture.cpp" />

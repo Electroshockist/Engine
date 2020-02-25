@@ -35,16 +35,7 @@ struct Material{
 		return &parameters.at(name);
 	}
 
-	void setupParameters(){
-		if(parameters.empty()){
-			Debug::warning("No material parameters exist.", __FILE__, __LINE__);
-			return;
-		}
-
-		for(Parameters::iterator it = parameters.begin(); it != parameters.end(); it++){
-			setupParameter(it->first, it->second);
-		}
-	}
+	void setupParameters();
 
 private:
 	typedef std::map<std::string, MaterialParameter> Parameters;

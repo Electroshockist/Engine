@@ -1,22 +1,17 @@
 #include "TextureManager.h"
 #include "ATexture.h"
 
+std::unique_ptr<TextureManager> TextureManager::managerInstance = nullptr;
 
-//bool TextureManager::addUniqueTexture(ATexture* texture) {
-//	for (int i = textures.size() - 1; i >= 0; i--) {
-//		if()
-//	}
-//	return true;
-//}
-
-
-//ATexture * TextureManager::getTexture(const std::string & name) {
-//	if(textures.find(name) != textures.end()) {
-//		return textures[name];
-//	}
-//	return nullptr;
-//}
+//get singleton instance
+TextureManager * TextureManager::GetInstance(){
+	if(managerInstance == nullptr){
+		managerInstance.reset(new TextureManager());
+	}
+	return static_cast<TextureManager*>(managerInstance.get());
+}
 
 TextureManager::TextureManager() {}
 
 TextureManager::~TextureManager() {}
+
