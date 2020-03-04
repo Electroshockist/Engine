@@ -23,13 +23,13 @@
     <ProjectGuid>{ED10619F-A71D-4AD3-9A2B-540162932266}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Test</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.10240.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -98,7 +98,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)\Dependancies\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;glut32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;glew32.lib;assimp-vc141-mtd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;glew32.lib;assimp-vc141-mtd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <PerUserRedirection>true</PerUserRedirection>
     </Link>
   </ItemDefinitionGroup>
@@ -167,7 +167,7 @@
     <ClInclude Include="Library\Graphics\Camera\ACamera.h" />
     <ClInclude Include="Library\Graphics\Materials\Material.h" />
     <ClInclude Include="Library\Graphics\Materials\MaterialManager.h" />
-    <ClInclude Include="Library\Utilities\Manager.h" />
+    <ClInclude Include="Library\Graphics\3D\UniformParameter.h" />
     <ClInclude Include="Library\Utilities\File.h" />
     <ClInclude Include="Library\Utilities\FilePathParser.h" />
     <ClInclude Include="Library\Graphics\Textures\GLTexture.h" />
@@ -202,6 +202,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Library\Graphics\3D\ModelManager.cpp" />
+    <ClCompile Include="Library\Graphics\3D\UniformParameter.cpp" />
     <ClCompile Include="Library\Graphics\Camera\3D\Camera.cpp" />
     <ClCompile Include="Library\Graphics\Materials\Material.cpp" />
     <ClCompile Include="Library\Utilities\File.cpp" />

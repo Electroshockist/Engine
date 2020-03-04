@@ -1,10 +1,11 @@
 #ifndef MODELMANAGER_H
 #define MODELMANAGER_H
 
-#include "../../Utilities/Manager.h"
+#include <map>
+
 #include "Model.h"
 
-class ModelManager : public Manager<Model>{
+class ModelManager{
 public:
 	//delete copy constructors for singleton
 	ModelManager(const ModelManager&) = delete;
@@ -19,6 +20,8 @@ private:
 	//singleton instance pointer
 	static std::unique_ptr<ModelManager> managerInstance;
 	friend std::default_delete<ModelManager>;
+
+	std::map<std::string, Model> models;
 
 	ModelManager();
 

@@ -20,7 +20,7 @@ void Model::AddMesh(Mesh *mesh_){
 	subMeshes.push_back(mesh_);
 }
 
-void Model::Render(Camera *camera_){
+void Model::Render(ACamera *camera_){
 	for(auto m : subMeshes){
 		m->Render(camera_, modelInstances);
 	}

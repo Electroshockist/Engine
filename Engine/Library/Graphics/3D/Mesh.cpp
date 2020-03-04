@@ -45,22 +45,7 @@ void Mesh::GenerateBuffers(){
 	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-	modelLoc = glGetUniformLocation(shaderProgram, "model");
-	viewLoc = glGetUniformLocation(shaderProgram, "view");
-	projLoc = glGetUniformLocation(shaderProgram, "proj");
-
-	viewPositionLoc = glGetUniformLocation(shaderProgram, "cameraPos");
-	lightPosLoc = glGetUniformLocation(shaderProgram, "light.lightPos");
-	lightAmbientLoc = glGetUniformLocation(shaderProgram, "light.ambientValue");
-	lightDiffuseLoc = glGetUniformLocation(shaderProgram, "light.diffuseValue");
-	lightColourLoc = glGetUniformLocation(shaderProgram, "light.color");
-
-	diffuseMapLoc = glGetUniformLocation(shaderProgram, "material.diffuseMap");
-	shineLoc = glGetUniformLocation(shaderProgram, "material.shininess");
-	transparencyLoc = glGetUniformLocation(shaderProgram, "material.transparency");
-	ambientLoc = glGetUniformLocation(shaderProgram, "material.ambient");
-	diffuseLoc = glGetUniformLocation(shaderProgram, "material.diffuse");
-	specLoc = glGetUniformLocation(shaderProgram, "material.specular");
+	subMesh.material.SetupLocations();
 }
 
 void Mesh::Render(ACamera *c, std::vector<glm::mat4> &instances_){
@@ -89,24 +74,28 @@ void Mesh::Render(ACamera *c, std::vector<glm::mat4> &instances_){
 
 void Mesh::SetupUniforms(Camera *camera){
 	try{
-		GLuint diffuse = std::get<GLuint>(subMesh.material.getParameter("diffuse")->parameter.data);
+		GLuint diffuse = std::get<GLuint>(subMesh.material.GetParameter("diffuse")->parameter.data);
 		glBindTexture(GL_TEXTURE_2D, diffuse);
 
-		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(camera->getView()));
-		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(camera->getPerspective()));
+		//glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(camera->getView()));
+		//glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(camera->getPerspective()));
 
-		glm::vec3 copyCamPos = camera->getPosition();
-		glm::vec3 copyLightPos = camera->getLightSources()[0]->GetPosition();
-		glm::vec3 copyLightColor = camera->getLightSources()[0]->GetColour();
+		//glm::vec3 copyCamPos = camera->getPosition();
+		//glm::vec3 copyLightPos = camera->getLightSources()[0]->GetPosition();
+		//glm::vec3 copyLightColor = camera->getLightSources()[0]->GetColour();
 
-		glUniform3f(viewPositionLoc, copyCamPos.x, copyCamPos.y, copyCamPos.z);
-		glUniform3f(lightPosLoc, copyLightPos.x, copyLightPos.y, copyLightPos.z);
-		glUniform1f(lightAmbientLoc, camera->getLightSources()[0]->GetAmbientValue());
-		glUniform1f(lightDiffuseLoc, camera->getLightSources()[0]->GetDiffuseValue());
-		glUniform3f(lightColourLoc, copyLightColor.x, copyLightColor.y, copyLightColor.z);
+		//glUniform3f(viewPositionLoc, copyCamPos.x, copyCamPos.y, copyCamPos.z);
+		//glUniform3f(lightPosLoc, copyLightPos.x, copyLightPos.y, copyLightPos.z);
+		//glUniform1f(lightAmbientLoc, camera->getLightSources()[0]->GetAmbientValue());
+		//glUniform1f(lightDiffuseLoc, camera->getLightSources()[0]->GetDiffuseValue());
+		//glUniform3f(lightColourLoc, copyLightColor.x, copyLightColor.y, copyLightColor.z);
+
+
+		//camera
+		camera->SetupParameters();
 
 		//material
-		subMesh.material.setupParameters();
+		subMesh.material.SetupParameters();
 
 		glBindVertexArray(VAO);
 	} catch(const std::bad_variant_access & e){

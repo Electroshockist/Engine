@@ -4,10 +4,10 @@
 #include <vector>
 #include <memory>
 #include <string>
-#include "../../Utilities/Manager.h"
+#include <map>
 
 struct ATexture;
-struct TextureManager : public Manager<ATexture>{
+struct TextureManager{
 	//delete copy constructors for singleton
 	TextureManager(const TextureManager&) = delete;
 	TextureManager(TextureManager&&) = delete;
@@ -20,6 +20,9 @@ private:
 	//singleton instance pointer
 	static std::unique_ptr<TextureManager> managerInstance;
 	friend std::default_delete<TextureManager>;
+
+
+	std::map<std::string, ATexture> textures;
 
 	TextureManager();
 	~TextureManager();

@@ -1,17 +1,18 @@
 #ifndef MATERIALHANDLER_H
 #define MATERIALHANDLER_H
 
-#include "../../Utilities/AManager.h"
 #include "Material.h"
 
-class MaterialManager:public AManager<Material>{
+#include <map>
+
+class MaterialManager{
 public:
 	MaterialManager(){}
 
 	~MaterialManager(){}
 
 private:
-
+	std::map<std::string, Material> manager;
 };
 
 

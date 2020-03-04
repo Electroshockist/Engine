@@ -2,45 +2,34 @@
 #define MATERIAL_H
 
 #include <string>
-#include <map>
 
-#include "../../Utilities/Parameter.h"
+#include "../3D/UniformParameter.h"
 #include "../../Debugging/Debug.h"
-
-struct MaterialParameter{
-	unsigned int location;
-	std::string nameInShader;
-	Parameter parameter;
-
-	MaterialParameter(unsigned int location, std::string nameInShader, Parameter parameter){
-		this->location = location;
-		this->nameInShader = nameInShader;
-		this->parameter = parameter;
-	}
-};
 
 struct Material{
 
-	Material(){}
+	Material() : shaderProgram(0){}
 
-	Material(std::string name, std::string nameInShader, unsigned int location, Parameter parameter){
+	Material(unsigned int &shaderProgram, std::string name, char nameInShader[], unsigned int &location, Parameter parameter){
+		this->shaderProgram = shaderProgram;
 		AddParameter(name, nameInShader, location, parameter);
 	}
 
-	void AddParameter(std::string name, std::string nameInShader, unsigned int location, Parameter parameter){
-		parameters[name] = MaterialParameter(location, nameInShader, parameter);
+	void AddParameter(std::string name, char nameInShader[], unsigned int &location, Parameter parameter){
+		parameters[name] = UniformParameter(location, nameInShader, parameter);
 	}
 
-	MaterialParameter *getParameter(std::string name){
+	UniformParameter *GetParameter(std::string name){
 		return &parameters.at(name);
 	}
 
-	void setupParameters();
+	void SetupLocations();
+
+	void SetupParameters();
 
 private:
-	typedef std::map<std::string, MaterialParameter> Parameters;
-	Parameters parameters;
+	unsigned int shaderProgram;
 
-	void setupParameter(const std::string name, MaterialParameter & parameter);
+	Parameters parameters;
 };
 #endif // !MATERIAL_H

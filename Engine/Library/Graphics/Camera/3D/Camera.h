@@ -2,14 +2,19 @@
 #define CAMERA_H
 
 #include <glm/glm.hpp>
+
 #include "ACamera3D.h"
-//basic perspective camera
+#include "../../3D/UniformParameter.h"
+
+//basic opengl perspective camera
 class Camera : ACamera3D{
 	float fieldOfView;
+	Parameters parameters;
+
 public:
-	glm::mat4 GetProjection(){
-		return glm::mat4(0);
-	}
+	void SetupParameters();
+
+	glm::mat4 GetProjection();
 };
 
 #endif // !CAMERA_H
