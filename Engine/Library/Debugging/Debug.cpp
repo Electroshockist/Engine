@@ -4,7 +4,7 @@
 
 using namespace std;
 
-string Debug::outputileName = "Game301Engine.log";
+string Debug::outputileName = "ME Engine.log";
 MessageType Debug::currentSeverity = MessageType::TYPE_NONE;
 
 

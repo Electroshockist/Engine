@@ -5,29 +5,24 @@
 
 #include "../3D/UniformParameter.h"
 #include "../../Debugging/Debug.h"
+#include "../../Utilities/File.h"
 
 struct Material{
 
 	Material() : shaderProgram(0){}
 
-	Material(unsigned int &shaderProgram, std::string name, char nameInShader[], unsigned int &location, Parameter parameter){
-		this->shaderProgram = shaderProgram;
-		AddParameter(name, nameInShader, location, parameter);
-	}
+	Material(unsigned int &shaderProgram);
 
-	void AddParameter(std::string name, char nameInShader[], unsigned int &location, Parameter parameter){
-		parameters[name] = UniformParameter(location, nameInShader, parameter);
-	}
+	void AddParameter(std::string name, char nameInShader[], unsigned int &location, Parameter parameter);
 
-	UniformParameter *GetParameter(std::string name){
-		return &parameters.at(name);
-	}
+	UniformParameter *GetParameter(std::string name);
 
 	void SetupLocations();
 
 	void SetupParameters();
 
-private:
+	void Load(File file);
+
 	unsigned int shaderProgram;
 
 	Parameters parameters;

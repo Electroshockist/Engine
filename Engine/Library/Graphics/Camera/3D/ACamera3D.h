@@ -3,11 +3,11 @@
 
 #include "../ACamera.h"
 #include "../../../Math/Transformation/ITransformable3D.h"
-class ACamera3D : public ACamera, public ITransformable3D {
+class ACamera3D : public ACamera, public ITransformable3D{
 	glm::mat4 projection;
 	glm::mat4 view;
 public:
-	ACamera3D(){}
+	ACamera3D() : projection(glm::mat4()), view(glm::mat4()){}
 
 	~ACamera3D(){}
 };

@@ -68,8 +68,6 @@ void Mesh::Render(ACamera *c, std::vector<glm::mat4> &instances_){
 	glBindVertexArray(0);
 
 	glBindTexture(GL_TEXTURE_2D, 0);
-
-
 }
 
 void Mesh::SetupUniforms(Camera *camera){

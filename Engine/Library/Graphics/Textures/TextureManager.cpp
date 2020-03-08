@@ -6,9 +6,9 @@ std::unique_ptr<TextureManager> TextureManager::managerInstance = nullptr;
 //get singleton instance
 TextureManager * TextureManager::GetInstance(){
 	if(managerInstance == nullptr){
-		managerInstance.reset(new TextureManager());
+		managerInstance.reset(new TextureManager);
 	}
-	return static_cast<TextureManager*>(managerInstance.get());
+	return managerInstance.get();
 }
 
 TextureManager::TextureManager() {}
