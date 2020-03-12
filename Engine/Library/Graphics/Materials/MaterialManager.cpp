@@ -65,8 +65,12 @@ void MaterialManager::AddMaterial(File file){
 	}
 
 	if(m.diffuseMap != 0){
-		MaterialHandler::getInstance()->AddMaterial(matName, m);
+		AddMaterial(matName, m);
 	};
+}
+
+Material MaterialManager::getMaterial(File file){
+	return Material();
 }
 
 //get singleton instance

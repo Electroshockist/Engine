@@ -15,7 +15,7 @@ void Material::SetupParameters(){
 }
 
 void Material::Load(File file){
-	MaterialManager.
+	//MaterialManager::GetInstance().
 }
 
 Material::Material(unsigned int &shaderProgram){

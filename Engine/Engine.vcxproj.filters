@@ -81,15 +81,6 @@
     <ClInclude Include="Library\Data Structures\Decorator.h">
       <Filter>Header Files\Data Structures</Filter>
     </ClInclude>
-    <ClInclude Include="Library\Input\Input.h">
-      <Filter>Header Files\Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\Input\MouseAdapter.h">
-      <Filter>Header Files\Data Structures\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\Input\MouseEvent.h">
-      <Filter>Header Files\Data Structures\Events</Filter>
-    </ClInclude>
     <ClInclude Include="Library\Math\Transformation\IRotatable.h">
       <Filter>Header Files\Game Object\Transformations</Filter>
     </ClInclude>
@@ -124,9 +115,6 @@
       <Filter>Header Files\Windows</Filter>
     </ClInclude>
     <ClInclude Include="Library\Window\SDLWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\Math\Units\Percentage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Library\Graphics\Textures\ATexture.h">

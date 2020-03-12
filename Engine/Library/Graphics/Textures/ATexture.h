@@ -7,7 +7,7 @@
 
 struct ATexture {
 	ATexture();
-	ATexture(const std::string& textureFileName);
+	ATexture(const File textureFile);
 
 	inline glm::vec2 GetSize() {
 		return size;
@@ -26,6 +26,8 @@ struct ATexture {
 	inline File GetFile(){
 		return file;
 	}
+
+	virtual bool LoadTexture(const File file) = 0;
 
 protected:
 	glm::vec2 size;

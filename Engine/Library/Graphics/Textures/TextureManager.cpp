@@ -1,5 +1,4 @@
 #include "TextureManager.h"
-#include "ATexture.h"
 
 std::unique_ptr<TextureManager> TextureManager::managerInstance = nullptr;
 
@@ -10,6 +9,16 @@ TextureManager * TextureManager::GetInstance(){
 	}
 	return managerInstance.get();
 }
+
+
+
+//ATexture *TextureManager::GetTexture(const File file){
+//	return nullptr;
+//}
+//
+//void TextureManager::Remove(ATexture *texture){
+//	textures.erase(texture->GetFile());
+//}
 
 TextureManager::TextureManager() {}
 

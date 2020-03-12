@@ -1,1 +1,39 @@
-﻿  Engine.vcxproj -> C:\Users\erico\Documents\Files\Engine\Debug\Engine.exe
+﻿  Material.cpp
+  MaterialManager.cpp
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(17,6): error C2228: left of '.diffuseMap' must have class/struct/union
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(17,6): message : type is 'Material *'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(17,6): message : did you intend to use '->' instead?
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(22,19): error C3861: 'LoadTexture': identifier not found
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(26,39): error C2079: 'v' uses undefined class 'std::basic_istringstream<char,std::char_traits<char>,std::allocator<char>>'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(26,40): error C2440: 'initializing': cannot convert from 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' to 'int'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(26,24): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(32,39): error C2079: 'v' uses undefined class 'std::basic_istringstream<char,std::char_traits<char>,std::allocator<char>>'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(32,40): error C2440: 'initializing': cannot convert from 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' to 'int'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(32,24): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(38,39): error C2079: 'v' uses undefined class 'std::basic_istringstream<char,std::char_traits<char>,std::allocator<char>>'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(38,40): error C2440: 'initializing': cannot convert from 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' to 'int'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(38,24): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(42,11): error C2297: '>>': illegal, right operand has type 'double'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(42,16): error C2297: '>>': illegal, right operand has type 'double'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(42,20): error C2297: '>>': illegal, right operand has type 'double'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(42,16): warning C4552: '>>': result of expression not used
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(48,39): error C2079: 'v' uses undefined class 'std::basic_istringstream<char,std::char_traits<char>,std::allocator<char>>'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(48,40): error C2440: 'initializing': cannot convert from 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' to 'int'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(48,24): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(52,11): error C2297: '>>': illegal, right operand has type 'double'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(52,16): error C2297: '>>': illegal, right operand has type 'double'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(52,20): error C2297: '>>': illegal, right operand has type 'double'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(52,16): warning C4552: '>>': result of expression not used
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(58,39): error C2079: 'v' uses undefined class 'std::basic_istringstream<char,std::char_traits<char>,std::allocator<char>>'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(58,40): error C2440: 'initializing': cannot convert from 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' to 'int'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(58,24): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(62,11): error C2297: '>>': illegal, right operand has type 'double'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(62,16): error C2297: '>>': illegal, right operand has type 'double'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(62,20): error C2297: '>>': illegal, right operand has type 'double'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(62,16): warning C4552: '>>': result of expression not used
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(68,25): error C2660: 'MaterialManager::AddMaterial': function does not take 2 arguments
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(5,23): message : see declaration of 'MaterialManager::AddMaterial'
+  Model.cpp
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(3,15): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(3): message : see declaration of 'ACamera'
+  Generating Code...

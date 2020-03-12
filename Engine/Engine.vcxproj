@@ -177,7 +177,6 @@
     <ClInclude Include="Library\Data Structures\Events\Event.h" />
     <ClInclude Include="Library\Debugging\Debug.h" />
     <ClInclude Include="Engine\EngineMain.h" />
-    <ClInclude Include="Library\Math\Units\Percentage.h" />
     <ClInclude Include="Library\Math\Transformation\IRotatable.h" />
     <ClInclude Include="Library\Math\Transformation\IRotatable2D.h" />
     <ClInclude Include="Library\Math\Transformation\IRotatable3D.h" />
@@ -187,11 +186,8 @@
     <ClInclude Include="Library\Math\Transformation\ITranslatable.h" />
     <ClInclude Include="Library\Math\Transformation\ITranslatable2D.h" />
     <ClInclude Include="Library\Math\Transformation\ITranslatable3D.h" />
-    <ClInclude Include="Library\Input\MouseAdapter.h" />
-    <ClInclude Include="Library\Input\MouseEvent.h" />
     <ClInclude Include="Library\Window\AWindow.h" />
     <ClInclude Include="Library\Data Structures\CircularDynamicList.h" />
-    <ClInclude Include="Library\Input\Input.h" />
     <ClInclude Include="Library\Window\SDLGLWindow.h" />
     <ClInclude Include="Library\Data Structures\Events\ALisener.h" />
     <ClInclude Include="Library\Window\SDLWindow.h" />
