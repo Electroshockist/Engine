@@ -31,3 +31,5 @@ Engine/Debug/*.obj
 Debug/Engine.exe
 Debug/Engine.ilk
 Debug/Engine.pdb
+
+*.ipch

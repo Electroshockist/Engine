@@ -1,4 +1,59 @@
-﻿  Material.cpp
+﻿  ModelManager.cpp
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(3,15): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(3): message : see declaration of 'ACamera'
+  UniformParameter.cpp
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParameter.cpp(55,43): warning C4244: 'argument': conversion from '_First' to 'GLfloat', possible loss of data
+          with
+          [
+              _First=unsigned int
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParameter.cpp(59,41): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=glm::u32
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParameter.cpp(59,32): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=glm::u32
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParameter.cpp(63,50): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=glm::u32
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParameter.cpp(63,41): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=glm::u32
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParameter.cpp(63,32): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=glm::u32
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParameter.cpp(67,59): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=glm::u32
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParameter.cpp(67,50): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=glm::u32
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParameter.cpp(67,41): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=glm::u32
+          ]
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParameter.cpp(67,32): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=glm::u32
+          ]
+  Camera.cpp
+  Material.cpp
   MaterialManager.cpp
 C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(17,6): error C2228: left of '.diffuseMap' must have class/struct/union
 C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(17,6): message : type is 'Material *'
@@ -33,6 +88,33 @@ C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\Material
 C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(62,16): warning C4552: '>>': result of expression not used
 C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(68,25): error C2660: 'MaterialManager::AddMaterial': function does not take 2 arguments
 C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(5,23): message : see declaration of 'MaterialManager::AddMaterial'
+  File.cpp
+  FilePathParser.cpp
+  GLTexture.cpp
+  Debug.cpp
+  EngineMain.cpp
+  IRotatable2D.cpp
+  IRotatable3D.cpp
+  ITransformable2D.cpp
+  ITransformable3D.cpp
+  ITranslatable2D.cpp
+  ITranslatable3D.cpp
+  Parameter.cpp
+  Main.cpp
+  SDLGLWindow.cpp
+  ALisener.cpp
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Data Structures\Events\Event.h(7,14): warning C4099: 'Event': type name first seen using 'class' now seen using 'struct'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Data Structures\Events\Event.h(7): message : see declaration of 'Event'
+  Generating Code...
+  Compiling...
+  SDLWindow.cpp
+  TextureManager.cpp
+  ATexture.cpp
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Textures\ATexture.cpp(9,39): error C2039: 'Remove': is not a member of 'TextureManager'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Textures\TextureManager.h(17): message : see declaration of 'TextureManager'
+  Mesh.cpp
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(3,15): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(3): message : see declaration of 'ACamera'
   Model.cpp
 C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(3,15): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
 C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(3): message : see declaration of 'ACamera'

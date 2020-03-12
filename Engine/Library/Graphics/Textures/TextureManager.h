@@ -23,8 +23,9 @@ struct TextureManager{
 
 	static TextureManager* GetInstance();
 
-	unsigned int GetTexture();
-
+	const unsigned int GetTexture(const std::string& name);
+	unsigned int LoadTexture(std::string file);
+	void CreateTexture(const std::string &name, const std::string &file);
 
 	//ATexture* GetTexture(const File file);
 	//void Remove(ATexture *Texture);
