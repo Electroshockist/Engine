@@ -2,8 +2,7 @@
 #define ACAMERA3D_H
 
 #include "../ACamera.h"
-#include "../../../Math/Transformation/ITransformable3D.h"
-class ACamera3D : public ACamera, public ITransformable3D{
+class ACamera3D : public ACamera{
 	glm::mat4 projection;
 	glm::mat4 view;
 public:

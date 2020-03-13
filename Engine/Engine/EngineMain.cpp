@@ -3,25 +3,36 @@
 
 std::unique_ptr<EngineMain> EngineMain::instance = nullptr;
 
-EngineMain::EngineMain() {}
+EngineMain::EngineMain() : w(nullptr){}
 
-EngineMain * EngineMain::getInstance() {
-	if(instance == nullptr) {
+EngineMain *EngineMain::getInstance(){
+	if(instance == nullptr){
 		instance.reset(new EngineMain);
 	}
 	return instance.get();
 }
 
-int EngineMain::Run(int argc, char * argv[]) {
+bool EngineMain::OnCreate(){
 	w = new SDLGLWindow();
-	if(!w->OnCreate("Testes", 200, 200, 1080, 720)) {
-		return EXIT_FAILURE;
+	if(!w->OnCreate("Testes", 200, 200, 1080, 720)){
+		Debug::fatalError("Failed to create window", __FILE__, __LINE__);
+		return false;
 	}
-	getchar();
-	return EXIT_SUCCESS;
+	if(!world.OnCreate()){
+		Debug::fatalError("Failed to create world", __FILE__, __LINE__);
+		return false;
+	}
+
+	return true;
 }
 
-EngineMain::~EngineMain() {
+bool EngineMain::Run(int argc, char *argv[]){
+	if(!world.Update(1)){};
+	getchar();
+	return true;
+}
+
+EngineMain::~EngineMain(){
 	//figure out why deleting gives an error
 	delete w;
 	w = nullptr;

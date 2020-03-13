@@ -19,8 +19,6 @@ struct Vertex{
 };
 
 struct SubMesh{
-	SubMesh(){}
-
 	std::vector<Vertex> vertexList;
 	std::vector<int> meshIndices;
 	Material material;

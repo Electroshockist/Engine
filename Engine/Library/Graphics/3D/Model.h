@@ -14,6 +14,7 @@ class Model{
 	std::vector<glm::mat4> modelInstances;
 
 public:
+	Model(){};
 	Model(const std::string &objPath, const std::string &matPath, GLuint shaderProgram);
 	~Model();
 	void AddMesh(Mesh *mesh);

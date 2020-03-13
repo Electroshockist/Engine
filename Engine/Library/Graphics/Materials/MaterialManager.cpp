@@ -9,24 +9,25 @@
 
 std::unique_ptr<MaterialManager> MaterialManager::managerInstance = nullptr;
 
-void MaterialManager::AddMaterial(File file){
+void MaterialManager::AddMaterial(std::string name){
 
-	std::ifstream in(file.GetFullPath().c_str(), std::ios::in);
+	std::ifstream in(name.c_str(), std::ios::in);
 	if(!in){
-		Debug::error("Cannot open MTL file " + file.GetFullPath(), __FILE__, __LINE__);
+		Debug::error("Cannot open MTL file " + name, __FILE__, __LINE__);
 		return;
 	}
-	Material m = Material();
+	Material* m = new Material();
 	std::string matName = "";
 	std::string line;
 	//while(std::getline(in, line)){
 	//	if(line.substr(0, 7) == "newmtl "){
-	//		if(m.diffuseMap != 0){
-	//			materials[file] = m;
-	//			m = Material();
+	//		if(std::get<int>(m->GetParameter("diffuseMap")->parameter.data) != 0){
+	//			materials[name] = m;
+	//			m = new Material();
 	//		}
 	//		matName = line.substr(7);
 	//		m.diffuseMap = TextureManager::GetInstance()->LoadTexture(matName);
+	//		m->GetParameter("diffuseMap")->parameter.data = TextureManager::GetInstance()->LoadTexture(matName);
 	//	}
 	//	//Shine
 	//	if(line.substr(0, 4) == "	Ns "){
@@ -72,11 +73,15 @@ void MaterialManager::AddMaterial(File file){
 	//}
 
 	//if(m.diffuseMap != 0){
-	//	AddMaterial(matName, m);
+	//	materials[matName] = m;
 	//};
 }
 
-Material MaterialManager::getMaterial(File file){
+const Material MaterialManager::GetMaterial(std::string name){
+	if(materials.find(name) != materials.end()){
+		return *materials[name];
+	}
+	Debug::warning("Could not find texture with name " + name, __FILE__, __LINE__);
 	return Material();
 }
 

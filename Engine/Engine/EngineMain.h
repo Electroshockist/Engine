@@ -1,6 +1,10 @@
 #ifndef ENGINEMAIN_H
 #define ENGINEMAIN_H
+
 #include "../Library/Window/SDLGLWindow.h"
+
+#include "World1.h"
+
 struct EngineMain {
 	//delete constructors for singleton
 	EngineMain(const EngineMain&) = delete;
@@ -10,7 +14,9 @@ struct EngineMain {
 
 	static EngineMain* getInstance();
 
-	int Run(int argc, char *argv[]);
+	bool OnCreate();
+
+	bool Run(int argc, char *argv[]);
 
 private:
 	EngineMain();
@@ -20,6 +26,8 @@ private:
 	friend std::default_delete<EngineMain>;
 	
 	SDLGLWindow *w;
+
+	World1 world;
 };
 
 #endif // !ENGINEMAIN_H
