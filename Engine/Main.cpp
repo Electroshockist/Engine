@@ -13,14 +13,15 @@ int main(int argc, char *argv[]) {
 
 	//if in debug mode, run engine
 #ifdef _DEBUG
-	if(!EngineMain::getInstance()->OnCreate()){
+	if(!EngineMain::getInstance()->OnCreate(argc, argv)){
 		return EXIT_FAILURE;
 	}
 
-	if(EngineMain::getInstance()->Run(argc, argv) != EXIT_SUCCESS) {
+	if(!EngineMain::getInstance()->Run()) {
 		return EXIT_FAILURE;
 	}
 	return EXIT_SUCCESS;
+	
 #endif // DEBUG
 
 }

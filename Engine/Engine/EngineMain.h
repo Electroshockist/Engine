@@ -14,9 +14,9 @@ struct EngineMain {
 
 	static EngineMain* getInstance();
 
-	bool OnCreate();
+	bool OnCreate(int argc, char *argv[]);
 
-	bool Run(int argc, char *argv[]);
+	bool Run();
 
 private:
 	EngineMain();

@@ -1,53 +1,26 @@
-﻿  ModelManager.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(3,15): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(3): message : see declaration of 'ACamera'
+﻿  World1.cpp
+c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): note: see declaration of 'ACamera'
+  ModelLoader.cpp
+c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): note: see declaration of 'ACamera'
   UniformParameter.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParameter.cpp(55,43): warning C4244: 'argument': conversion from '_First' to 'GLfloat', possible loss of data
+c:\users\erico\files\engine\engine\library\graphics\3d\uniformparameter.cpp(55): warning C4244: 'argument': conversion from '_First' to 'GLfloat', possible loss of data
           with
           [
               _First=unsigned int
           ]
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParameter.cpp(59,41): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+c:\users\erico\files\engine\engine\library\graphics\3d\uniformparameter.cpp(59): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
           with
           [
               T=glm::u32
           ]
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParameter.cpp(59,32): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+c:\users\erico\files\engine\engine\library\graphics\3d\uniformparameter.cpp(63): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
           with
           [
               T=glm::u32
           ]
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParameter.cpp(63,50): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
-          with
-          [
-              T=glm::u32
-          ]
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParameter.cpp(63,41): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
-          with
-          [
-              T=glm::u32
-          ]
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParameter.cpp(63,32): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
-          with
-          [
-              T=glm::u32
-          ]
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParameter.cpp(67,59): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
-          with
-          [
-              T=glm::u32
-          ]
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParameter.cpp(67,50): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
-          with
-          [
-              T=glm::u32
-          ]
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParameter.cpp(67,41): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
-          with
-          [
-              T=glm::u32
-          ]
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParameter.cpp(67,32): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
+c:\users\erico\files\engine\engine\library\graphics\3d\uniformparameter.cpp(67): warning C4244: 'argument': conversion from 'T' to 'GLfloat', possible loss of data
           with
           [
               T=glm::u32
@@ -55,67 +28,29 @@ C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\3D\UniformParamete
   Camera.cpp
   Material.cpp
   MaterialManager.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(17,6): error C2228: left of '.diffuseMap' must have class/struct/union
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(17,6): message : type is 'Material *'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(17,6): message : did you intend to use '->' instead?
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(22,19): error C3861: 'LoadTexture': identifier not found
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(26,39): error C2079: 'v' uses undefined class 'std::basic_istringstream<char,std::char_traits<char>,std::allocator<char>>'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(26,40): error C2440: 'initializing': cannot convert from 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' to 'int'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(26,24): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(32,39): error C2079: 'v' uses undefined class 'std::basic_istringstream<char,std::char_traits<char>,std::allocator<char>>'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(32,40): error C2440: 'initializing': cannot convert from 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' to 'int'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(32,24): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(38,39): error C2079: 'v' uses undefined class 'std::basic_istringstream<char,std::char_traits<char>,std::allocator<char>>'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(38,40): error C2440: 'initializing': cannot convert from 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' to 'int'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(38,24): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(42,11): error C2297: '>>': illegal, right operand has type 'double'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(42,16): error C2297: '>>': illegal, right operand has type 'double'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(42,20): error C2297: '>>': illegal, right operand has type 'double'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(42,16): warning C4552: '>>': result of expression not used
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(48,39): error C2079: 'v' uses undefined class 'std::basic_istringstream<char,std::char_traits<char>,std::allocator<char>>'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(48,40): error C2440: 'initializing': cannot convert from 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' to 'int'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(48,24): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(52,11): error C2297: '>>': illegal, right operand has type 'double'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(52,16): error C2297: '>>': illegal, right operand has type 'double'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(52,20): error C2297: '>>': illegal, right operand has type 'double'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(52,16): warning C4552: '>>': result of expression not used
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(58,39): error C2079: 'v' uses undefined class 'std::basic_istringstream<char,std::char_traits<char>,std::allocator<char>>'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(58,40): error C2440: 'initializing': cannot convert from 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' to 'int'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(58,24): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(62,11): error C2297: '>>': illegal, right operand has type 'double'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(62,16): error C2297: '>>': illegal, right operand has type 'double'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(62,20): error C2297: '>>': illegal, right operand has type 'double'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(62,16): warning C4552: '>>': result of expression not used
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(68,25): error C2660: 'MaterialManager::AddMaterial': function does not take 2 arguments
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Materials\MaterialManager.cpp(5,23): message : see declaration of 'MaterialManager::AddMaterial'
   File.cpp
   FilePathParser.cpp
   GLTexture.cpp
   Debug.cpp
   EngineMain.cpp
-  IRotatable2D.cpp
-  IRotatable3D.cpp
-  ITransformable2D.cpp
-  ITransformable3D.cpp
-  ITranslatable2D.cpp
-  ITranslatable3D.cpp
+c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): note: see declaration of 'ACamera'
   Parameter.cpp
   Main.cpp
+c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): note: see declaration of 'ACamera'
   SDLGLWindow.cpp
   ALisener.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Data Structures\Events\Event.h(7,14): warning C4099: 'Event': type name first seen using 'class' now seen using 'struct'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Data Structures\Events\Event.h(7): message : see declaration of 'Event'
-  Generating Code...
-  Compiling...
+c:\users\erico\files\engine\engine\library\data structures\events\event.h(7): warning C4099: 'Event': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\data structures\events\event.h(7): note: see declaration of 'Event'
   SDLWindow.cpp
   TextureManager.cpp
   ATexture.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Textures\ATexture.cpp(9,39): error C2039: 'Remove': is not a member of 'TextureManager'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Textures\TextureManager.h(17): message : see declaration of 'TextureManager'
   Mesh.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(3,15): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(3): message : see declaration of 'ACamera'
+c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): note: see declaration of 'ACamera'
   Model.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(3,15): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(3): message : see declaration of 'ACamera'
+c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): note: see declaration of 'ACamera'
   Generating Code...
+  Engine.vcxproj -> C:\Users\erico\Files\Engine\Debug\Engine.exe

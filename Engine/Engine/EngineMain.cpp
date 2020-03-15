@@ -12,7 +12,7 @@ EngineMain *EngineMain::getInstance(){
 	return instance.get();
 }
 
-bool EngineMain::OnCreate(){
+bool EngineMain::OnCreate(int argc, char *argv[]){
 	w = new SDLGLWindow();
 	if(!w->OnCreate("Testes", 200, 200, 1080, 720)){
 		Debug::fatalError("Failed to create window", __FILE__, __LINE__);
@@ -26,8 +26,10 @@ bool EngineMain::OnCreate(){
 	return true;
 }
 
-bool EngineMain::Run(int argc, char *argv[]){
-	if(!world.Update(1)){};
+bool EngineMain::Run(){
+	if(!world.Update(1)){
+		return false;
+	};
 	getchar();
 	return true;
 }
