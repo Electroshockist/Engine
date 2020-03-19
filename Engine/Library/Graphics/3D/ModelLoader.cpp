@@ -4,15 +4,9 @@
 
 #include "../Materials/MaterialManager.h"
 
+std::unique_ptr<ModelLoader> ModelLoader::instance = nullptr;
+
 Model *ModelLoader::LoadModel(std::string file){
-	std::vector<glm::vec3> vertices;
-	std::vector<glm::vec3> normals;
-	std::vector<glm::vec2> textureCoords;
-
-	std::vector<unsigned int> indices;
-	std::vector<unsigned int> normalIndices;
-	std::vector<unsigned int> textureIndices;
-
 	std::ifstream in(file.c_str(), std::ios::in);
 	if(!in){
 		Debug::error("Could not load Obj file " + file, __FILE__, __LINE__);
@@ -32,7 +26,7 @@ Model *ModelLoader::LoadModel(std::string file){
 		}
 
 		//normal data
-		if(line.substr(0, 3) == "vn "){
+		else if(line.substr(0, 3) == "vn "){
 			std::istringstream vn(line.substr(3));
 			glm::vec3 norm;
 			double x, y, z;
@@ -41,7 +35,7 @@ Model *ModelLoader::LoadModel(std::string file){
 			normals.push_back(norm);
 		}
 		//texture coodinate data
-		if(line.substr(0, 3) == "vt "){
+		else if(line.substr(0, 3) == "vt "){
 			std::istringstream vc(line.substr(3));
 			glm::vec2 tex;
 			double x, y;
@@ -50,7 +44,7 @@ Model *ModelLoader::LoadModel(std::string file){
 			textureCoords.push_back(tex);
 		}
 
-		if(line.substr(0, 2) == "f "){
+		else if(line.substr(0, 2) == "f "){
 			int vt, vt2, vt3, textIndex, textIndex2, textIndex3, normal, normal2, normal3;
 
 			char c;
@@ -85,21 +79,25 @@ Model *ModelLoader::LoadModel(std::string file){
 }
 
 void ModelLoader::PostProcessing(){
-	//for(size_t i = 0; i < indices.size(); i++){
-	//	Vertex vert;
-	//	vert.position = vertices[indices[i]];
-	//	vert.normal = normals[normalIndices[i]];
-	//	vert.texCoords = textureCoords[textureIndices[i]];
-	//	meshVertices.push_back(vert);
-	//}
-	//SubMesh mesh;
-	//mesh.vertexList = meshVertices;
-	//mesh.meshIndices = indices;
-	//mesh.material = material;
-	//meshes.push_back(mesh);
-	//indices.clear();
-	//normalIndices.clear();
-	//textureIndices.clear();
-	//meshVertices.clear();
-	//material = Material();
+	for(size_t i = 0; i < indices.size(); i++){
+		Vertex vert;
+		vert.position = vertices[indices[i]];
+		vert.normal = normals[normalIndices[i]];
+		vert.texCoords = textureCoords[textureIndices[i]];
+		meshVertices.push_back(vert);
+	}
+	SubMesh mesh;
+	mesh.vertexList = meshVertices;
+	mesh.meshIndices = indices;
+	mesh.material = material;
+	meshes.push_back(mesh);
+	indices.clear();
+	normalIndices.clear();
+	textureIndices.clear();
+	meshVertices.clear();
+	material = Material();
+}
+
+ModelLoader * ModelLoader::GetInstance(){
+	return nullptr;
 }

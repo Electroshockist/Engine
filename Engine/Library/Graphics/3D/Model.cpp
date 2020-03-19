@@ -1,5 +1,6 @@
 #include "Model.h"
 #include <iostream>
+#include "ModelLoader.h"
 
 Model::Model(const std::string &objPath_, const std::string &matPath_, GLuint shaderProgram_)
 	: subMeshes(std::vector<Mesh *>()), shaderProgram(0), modelInstances(std::vector<glm::mat4>()){
@@ -56,10 +57,11 @@ GLuint Model::GetShaderProgram() const{
 	return shaderProgram;
 }
 
-void Model::LoadModel(){
-	//for(int i = 0; i < obj->getSubMeshes().size(); i++){
-	//	subMeshes.push_back(new Mesh(obj->getSubMeshes()[i], shaderProgram));
-	//}
+void Model::LoadModel(const std::string& path){
+	Model* m = ModelLoader::LoadModel(path);
+	for(int i = 0; i < obj->getSubMeshes().size(); i++){
+		subMeshes.push_back(new Mesh(obj->getSubMeshes()[i], shaderProgram));
+	}
 	//delete obj;
 	//obj = nullptr;
 }
