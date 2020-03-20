@@ -72,7 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\SDL2_mixer-2.0.4\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -98,8 +98,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)\Dependancies\lib;C:\SDL2_mixer-2.0.4\lib\x86</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;glew32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)\Dependancies\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2_mixer.lib;opengl32.lib;glu32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;glew32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <PerUserRedirection>true</PerUserRedirection>
     </Link>
   </ItemDefinitionGroup>
@@ -161,7 +161,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Library\Utilities\Audio.h" />
+    <ClInclude Include="Library\Audio\Audio.h" />
     <ClInclude Include="Engine\World1.h" />
     <ClInclude Include="Library\Graphics\3D\AMesh.h" />
     <ClInclude Include="Library\Graphics\3D\ModelLoader.h" />
@@ -171,7 +171,7 @@
     <ClInclude Include="Library\Graphics\Materials\Material.h" />
     <ClInclude Include="Library\Graphics\Materials\MaterialManager.h" />
     <ClInclude Include="Library\Graphics\3D\UniformParameter.h" />
-    <ClInclude Include="Library\Utilities\AudioManager.h" />
+    <ClInclude Include="Library\Audio\AudioManager.h" />
     <ClInclude Include="Library\Utilities\File.h" />
     <ClInclude Include="Library\Utilities\FilePathParser.h" />
     <ClInclude Include="Library\Graphics\Textures\GLTexture.h" />
@@ -192,14 +192,14 @@
     <ClInclude Include="Library\Graphics\3D\Model.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Library\Utilities\Audio.cpp" />
+    <ClCompile Include="Library\Audio\Audio.cpp" />
     <ClCompile Include="Engine\World1.cpp" />
+    <ClCompile Include="Library\Audio\AudioManager.cpp" />
     <ClCompile Include="Library\Graphics\3D\ModelLoader.cpp" />
     <ClCompile Include="Library\Graphics\3D\UniformParameter.cpp" />
     <ClCompile Include="Library\Graphics\Camera\3D\Camera.cpp" />
     <ClCompile Include="Library\Graphics\Materials\Material.cpp" />
     <ClCompile Include="Library\Graphics\Materials\MaterialManager.cpp" />
-    <ClCompile Include="Library\Utilities\AudioManager.cpp" />
     <ClCompile Include="Library\Utilities\File.cpp" />
     <ClCompile Include="Library\Utilities\FilePathParser.cpp" />
     <ClCompile Include="Library\Graphics\Textures\GLTexture.cpp" />
