@@ -23,13 +23,13 @@
     <ProjectGuid>{ED10619F-A71D-4AD3-9A2B-540162932266}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Test</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.10240.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -161,7 +161,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Library\Audio\Audio.h" />
+    <ClInclude Include="Library\Audio\AudioManager.h" />
     <ClInclude Include="Engine\World1.h" />
     <ClInclude Include="Library\Graphics\3D\AMesh.h" />
     <ClInclude Include="Library\Graphics\3D\ModelLoader.h" />
@@ -171,7 +171,7 @@
     <ClInclude Include="Library\Graphics\Materials\Material.h" />
     <ClInclude Include="Library\Graphics\Materials\MaterialManager.h" />
     <ClInclude Include="Library\Graphics\3D\UniformParameter.h" />
-    <ClInclude Include="Library\Audio\AudioManager.h" />
+    <ClInclude Include="Library\Audio\AudioPlayer.h" />
     <ClInclude Include="Library\Utilities\File.h" />
     <ClInclude Include="Library\Utilities\FilePathParser.h" />
     <ClInclude Include="Library\Graphics\Textures\GLTexture.h" />
@@ -192,9 +192,9 @@
     <ClInclude Include="Library\Graphics\3D\Model.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Library\Audio\Audio.cpp" />
-    <ClCompile Include="Engine\World1.cpp" />
     <ClCompile Include="Library\Audio\AudioManager.cpp" />
+    <ClCompile Include="Engine\World1.cpp" />
+    <ClCompile Include="Library\Audio\AudioPlayer.cpp" />
     <ClCompile Include="Library\Graphics\3D\ModelLoader.cpp" />
     <ClCompile Include="Library\Graphics\3D\UniformParameter.cpp" />
     <ClCompile Include="Library\Graphics\Camera\3D\Camera.cpp" />

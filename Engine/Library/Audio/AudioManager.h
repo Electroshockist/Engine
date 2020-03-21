@@ -1,29 +1,28 @@
-#ifndef AUDIOMANAGER_H
-#define AUDIOMANAGER_H
-#include "Audio.h"
+#ifndef AUDIO_H
+#define AUDIO_H
+#include <SDL/SDL_mixer.h>
+#include <map>
 #include <string>
+class AudioManager{
 
-class AudioManager {
-	static AudioManager* managerInstance;
+private:
+	std::map<std::string, Mix_Music*> mMusic;
+	std::map<std::string, Mix_Chunk*> mSFX;
+	static AudioManager* mgrInstance;
 
-	Audio* mAssetMgr;
-
-	AudioManager();
-	~AudioManager();
 
 public:
-
-	static AudioManager* Instance();
-	static void Release();
-
-	void PlaySFX(std::string filename, int loops = 0, int channel = 0);
-
-	void PlayMusic(std::string filename, int loops = -1);
-	void PauseMusic();
-	void ResumeMusic();
-
 	Mix_Music* GetMusic(std::string filename);
 	Mix_Chunk* GetSFX(std::string filename);
+
+	static AudioManager* Instance();
+
+private:
+	AudioManager();
+	~AudioManager(){};
+
 };
-#endif // !AUDIO_H
+
+
+#endif
 

@@ -150,7 +150,7 @@
     <ClInclude Include="Library\Graphics\3D\ModelLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Library\Audio\Audio.h">
+    <ClInclude Include="Library\Audio\AudioPlayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Library\Audio\AudioManager.h">
@@ -218,7 +218,7 @@
     <ClCompile Include="Library\Graphics\3D\ModelLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Library\Audio\Audio.cpp">
+    <ClCompile Include="Library\Audio\AudioPlayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Library\Audio\AudioManager.cpp">

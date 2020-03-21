@@ -1,56 +1,47 @@
 #include "AudioManager.h"
+#include <SDL\SDL_filesystem.h>
 
-AudioManager* AudioManager::managerInstance = nullptr;
+AudioManager* AudioManager::mgrInstance = NULL;
 
-AudioManager* AudioManager::Instance(){
-
-	if(managerInstance == NULL)
-		managerInstance = new AudioManager();
-
-	return managerInstance;
-}
-
-void AudioManager::Release(){
-
-	delete managerInstance;
-	managerInstance = NULL;
-
-}
+Mix_Music* AudioManager::GetMusic(std::string filename){
 
 
+	std::string fullpath = SDL_GetBasePath();
+	fullpath.append("Assets/" + filename);
 
-AudioManager::AudioManager(){
+	if (mMusic[fullpath] == nullptr) {
 
-	mAssetMgr = AudioManager::Instance();
-
-	if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096) < 0){
-
-		printf("Mixer Initialization Error: %s\n", Mix_GetError());
+		mMusic[fullpath] = Mix_LoadMUS(fullpath.c_str());
+		if (mMusic[fullpath] == NULL) {
+			printf("Music Loading Error: File-%s Error-%s", filename.c_str(), Mix_GetError());
+		}
+		return mMusic[fullpath];
 	}
 }
 
-AudioManager::~AudioManager(){
+Mix_Chunk* AudioManager::GetSFX(std::string filename)
+{
+	std::string fullpath = SDL_GetBasePath();
+	fullpath.append("Assets/" + filename);
 
-	mAssetMgr = NULL;
-	Mix_Quit();
+	if (mSFX[fullpath] == nullptr) {
+
+		mSFX[fullpath] = Mix_LoadWAV(fullpath.c_str());
+		if (mSFX[fullpath] == NULL) {
+			printf("SFX Loading Error: File-%s Error-%s", filename.c_str(), Mix_GetError());
+		}
+		return mSFX[fullpath];
+	}
 }
 
+AudioManager* AudioManager::Instance(){
 
-void AudioManager::PlayMusic(std::string filename, int loops){
+	if (mgrInstance == NULL) {
 
-	Mix_PlayChannel(mAssetMgr->GetMusic(filename), loops);
-}
+		mgrInstance = new AudioManager();
 
-void AudioManager::PauseMusic(){
-	if(Mix_PlayChannel() != 0)
-		Mix_PauseMusic();
-}
+	}
 
-void AudioManager::ResumeMusic(){
-	if(Mix_PausedMusic() != 0)
-		Mix_ResumeMusic();
-}
-
-void AudioManager::PlaySFX(std::string filename, int loops, int channel){
-	Mix_PlayChannel(channel, mAssetMgr->GetSFX(filename), loops);
+	return mgrInstance;
+	
 }
