@@ -2,13 +2,15 @@
 #define ACAMERA3D_H
 
 #include "../ACamera.h"
-class ACamera3D : public ACamera{
-	glm::mat4 projection;
-	glm::mat4 view;
-public:
+struct ACamera3D : public ACamera{
 	ACamera3D() : projection(glm::mat4()), view(glm::mat4()){}
 
-	~ACamera3D(){}
+	virtual ~ACamera3D(){}
+	virtual bool isImplemented() = 0;
+
+private:
+	glm::mat4 projection;
+	glm::mat4 view;
 };
 
 

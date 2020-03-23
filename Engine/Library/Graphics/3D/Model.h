@@ -5,17 +5,16 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 class Model{
-	std::vector<Mesh *> subMeshes;
+	std::vector<Mesh *> meshes;
 	GLuint shaderProgram;
 	glm::vec3 position;
 	float angle;
 	glm::mat4 getTransform(glm::vec3 position, float angle, glm::vec3 rotation, glm::vec3 scale);
-	void LoadModel(const std::string& path);
 	std::vector<glm::mat4> modelInstances;
 
 public:
 	Model(){};
-	Model(const std::string &objPath, const std::string &matPath, GLuint shaderProgram);
+	Model(GLuint shaderProgram);
 	~Model();
 	void AddMesh(Mesh *mesh);
 	void Render(ACamera *camera);

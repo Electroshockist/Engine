@@ -2,6 +2,7 @@
 #define ENGINEMAIN_H
 
 #include "../Library/Window/SDLGLWindow.h"
+#include "../Library/Timer/Timer.h"
 
 #include "World1.h"
 
@@ -18,6 +19,9 @@ struct EngineMain {
 
 	bool Run();
 
+	bool Update(const float deltaTime);
+	bool Render();
+
 private:
 	EngineMain();
 	~EngineMain();
@@ -28,6 +32,10 @@ private:
 	SDLGLWindow *w;
 
 	World1 world;
+	Timer timer;
+
+	bool isRunning;
+	unsigned int fps;
 };
 
 #endif // !ENGINEMAIN_H

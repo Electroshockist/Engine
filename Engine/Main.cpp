@@ -2,28 +2,34 @@
 //
 
 #include "Engine\EngineMain.h"
-#include "Library\Debugging\Debug.h"
+#include "Library/LibraryMain.h"
 #include "Library\Utilities\FilePathParser.h"
 
 #include <iostream>
 
 using namespace std;
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[]){
 	FilePathParser::SetProjectPath(argv[0]);
 
 	//if in debug mode, run engine
-#ifdef _DEBUG
+	#ifdef _DEBUG
 	if(!EngineMain::getInstance()->OnCreate(argc, argv)){
 		return EXIT_FAILURE;
 	}
 
-	if(!EngineMain::getInstance()->Run()) {
+	if(!EngineMain::getInstance()->Run()){
 		return EXIT_FAILURE;
 	}
-	return EXIT_SUCCESS;
-	
-#endif // DEBUG
+	#endif // DEBUG
 
+	//if(!LibraryMain::getInstance()->OnCreate(argc, argv)){
+	//	return EXIT_FAILURE;
+	//}
+
+	//if(!LibraryMain::getInstance()->Run()){
+	//	return EXIT_FAILURE;
+	//}
+	return EXIT_SUCCESS;
 }
 
 

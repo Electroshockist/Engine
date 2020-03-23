@@ -14,10 +14,12 @@ struct ModelLoader{
 
 	static ModelLoader *GetInstance();
 
-	Model* LoadModel(std::string file);
+	Model LoadModel(std::string file, unsigned int shaderProgram);
 	void PostProcessing();
 
 private:
+	ModelLoader(){}
+
 	//singleton instance pointer
 	static std::unique_ptr<ModelLoader> instance;
 	friend std::default_delete<ModelLoader>;

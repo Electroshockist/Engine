@@ -2,40 +2,35 @@
 #include <iostream>
 #include "ModelLoader.h"
 
-Model::Model(const std::string &objPath_, const std::string &matPath_, GLuint shaderProgram_)
-	: subMeshes(std::vector<Mesh *>()), shaderProgram(0), modelInstances(std::vector<glm::mat4>()){
+Model::Model(GLuint shaderProgram_)
+	: meshes(std::vector<Mesh *>()), shaderProgram(0), modelInstances(std::vector<glm::mat4>()){
 
 	shaderProgram = shaderProgram_;
 	//obj = new LoadObjModel();
 
 	//obj->loadModel(objPath_, matPath_);
-	this->LoadModel();
+	//this->LoadModel();
 }
-
 
 Model::~Model(){
-	OnDestroy();
-}
-
-void Model::AddMesh(Mesh *mesh_){
-	subMeshes.push_back(mesh_);
-}
-
-void Model::Render(ACamera *camera_){
-	for(auto m : subMeshes){
-		m->Render(camera_, modelInstances);
-	}
-}
-
-void Model::OnDestroy(){
-	if(subMeshes.size() > 0){
-		for(auto m : subMeshes){
+	if(meshes.size() > 0){
+		for(auto m : meshes){
 			delete m;
 			m = nullptr;
 		}
-		subMeshes.clear();
+		meshes.clear();
 	}
 	modelInstances.clear();
+}
+
+void Model::AddMesh(Mesh *mesh_){
+	meshes.push_back(mesh_);
+}
+
+void Model::Render(ACamera *camera_){
+	for(auto m : meshes){
+		m->Render(camera_, modelInstances);
+	}
 }
 
 int Model::CreateInstance(glm::vec3 position_, float angle_, glm::vec3 rotation_, glm::vec3 scale_){
@@ -55,15 +50,6 @@ glm::mat4 Model::getTransform(int index_) const{
 
 GLuint Model::GetShaderProgram() const{
 	return shaderProgram;
-}
-
-void Model::LoadModel(const std::string& path){
-	Model* m = ModelLoader::LoadModel(path);
-	for(int i = 0; i < obj->getSubMeshes().size(); i++){
-		subMeshes.push_back(new Mesh(obj->getSubMeshes()[i], shaderProgram));
-	}
-	//delete obj;
-	//obj = nullptr;
 }
 
 glm::mat4 Model::getTransform(glm::vec3 position_, float angle_, glm::vec3 rotation_, glm::vec3 scale_){

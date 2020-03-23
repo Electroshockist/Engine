@@ -7,14 +7,14 @@
 #include "../../3D/UniformParameter.h"
 
 //basic opengl perspective camera
-class Camera : ACamera3D{
+struct Camera : ACamera3D{
+	void SetupParameters();
+	glm::mat4 GetProjection();
+
+	bool isImplemented() override;
+private:
 	float fieldOfView;
 	Parameters parameters;
-
-public:
-	void SetupParameters();
-
-	glm::mat4 GetProjection();
 };
 
 #endif // !CAMERA_H

@@ -3,13 +3,19 @@
 
 #include "../Library/Worlds/AWorld.h"
 #include "../Library/Graphics/3D/Model.h"
+#include "../Library/Graphics/Camera/3D/Camera.h"
+
 struct World1 : public AWorld {
 
 	Model m;
+	Camera* c;
 
 	World1(){}
 
-	~World1(){}
+	~World1(){
+		delete c;
+		c = nullptr;
+	}
 
 	// Inherited via AWorld
 	virtual bool OnCreate() override;

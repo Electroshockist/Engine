@@ -1,35 +1,23 @@
-﻿  AudioManager.cpp
-c:\users\erico\files\engine\engine\library\audio\audiomanager.cpp(24): error C2039: 'Instance': is not a member of 'Audio'
-  c:\users\erico\files\engine\engine\library\audio\audio.h(6): note: see declaration of 'Audio'
-c:\users\erico\files\engine\engine\library\audio\audiomanager.cpp(41): warning C4003: not enough arguments for function-like macro invocation 'Mix_PlayChannel'
-c:\users\erico\files\engine\engine\library\audio\audiomanager.cpp(41): error C2039: 'GetMusic': is not a member of 'AudioManager'
-  c:\users\erico\files\engine\engine\library\audio\audiomanager.h(6): note: see declaration of 'AudioManager'
-c:\users\erico\files\engine\engine\library\audio\audiomanager.cpp(41): error C2059: syntax error: ','
-c:\users\erico\files\engine\engine\library\audio\audiomanager.cpp(45): warning C4003: not enough arguments for function-like macro invocation 'Mix_PlayChannel'
-c:\users\erico\files\engine\engine\library\audio\audiomanager.cpp(45): error C2143: syntax error: missing ')' before ','
-c:\users\erico\files\engine\engine\library\audio\audiomanager.cpp(45): error C2660: 'Mix_PlayChannelTimed': function does not take 0 arguments
-  c:\users\erico\files\engine\engine\dependancies\include\sdl\sdl_mixer.h(552): note: see declaration of 'Mix_PlayChannelTimed'
-c:\users\erico\files\engine\engine\library\audio\audiomanager.cpp(45): error C2059: syntax error: ','
-c:\users\erico\files\engine\engine\library\audio\audiomanager.cpp(45): error C2059: syntax error: ')'
-c:\users\erico\files\engine\engine\library\audio\audiomanager.cpp(59): error C2039: 'GetSFX': is not a member of 'AudioManager'
-  c:\users\erico\files\engine\engine\library\audio\audiomanager.h(6): note: see declaration of 'AudioManager'
-c:\users\erico\files\engine\engine\library\audio\audiomanager.cpp(59): error C2660: 'Mix_PlayChannelTimed': function does not take 3 arguments
-  c:\users\erico\files\engine\engine\dependancies\include\sdl\sdl_mixer.h(552): note: see declaration of 'Mix_PlayChannelTimed'
+﻿  ShaderManager.cpp
+  World1.cpp
+c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): note: see declaration of 'ACamera'
   ModelLoader.cpp
 c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
   c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): note: see declaration of 'ACamera'
-c:\users\erico\files\engine\engine\library\graphics\3d\modelloader.cpp(92): error C2065: 'material': undeclared identifier
-c:\users\erico\files\engine\engine\library\graphics\3d\modelloader.cpp(98): error C2065: 'material': undeclared identifier
+c:\users\erico\files\engine\engine\library\graphics\3d\modelloader.cpp(80): warning C4018: '<': signed/unsigned mismatch
+  Camera.cpp
+  EngineMain.cpp
+c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): note: see declaration of 'ACamera'
+  Main.cpp
+c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): note: see declaration of 'ACamera'
+  Mesh.cpp
+c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): note: see declaration of 'ACamera'
   Model.cpp
 c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
   c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): note: see declaration of 'ACamera'
-c:\users\erico\files\engine\engine\library\graphics\3d\model.cpp(12): error C2660: 'Model::LoadModel': function does not take 0 arguments
-  c:\users\erico\files\engine\engine\library\graphics\3d\model.h(13): note: see declaration of 'Model::LoadModel'
-c:\users\erico\files\engine\engine\library\graphics\3d\model.cpp(61): error C2352: 'ModelLoader::LoadModel': illegal call of non-static member function
-  c:\users\erico\files\engine\engine\library\graphics\3d\modelloader.h(17): note: see declaration of 'ModelLoader::LoadModel'
-c:\users\erico\files\engine\engine\library\graphics\3d\model.cpp(62): error C2065: 'obj': undeclared identifier
-c:\users\erico\files\engine\engine\library\graphics\3d\model.cpp(63): error C2065: 'obj': undeclared identifier
-c:\users\erico\files\engine\engine\library\graphics\3d\model.cpp(63): error C2664: 'Mesh::Mesh(const Mesh &)': cannot convert argument 1 from 'GLuint' to 'const Mesh &'
-  c:\users\erico\files\engine\engine\library\graphics\3d\model.cpp(63): note: Reason: cannot convert from 'GLuint' to 'const Mesh'
-  c:\users\erico\files\engine\engine\library\graphics\3d\model.cpp(63): note: No constructor could take the source type, or constructor overload resolution was ambiguous
   Generating Code...
+  Engine.vcxproj -> C:\Users\erico\Files\Engine\Debug\Engine.exe

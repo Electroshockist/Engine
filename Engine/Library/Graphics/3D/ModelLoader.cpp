@@ -6,11 +6,11 @@
 
 std::unique_ptr<ModelLoader> ModelLoader::instance = nullptr;
 
-Model *ModelLoader::LoadModel(std::string file){
+Model ModelLoader::LoadModel(std::string file, unsigned int shaderProgram){
 	std::ifstream in(file.c_str(), std::ios::in);
 	if(!in){
 		Debug::error("Could not load Obj file " + file, __FILE__, __LINE__);
-		return nullptr;
+		return Model();
 	}
 	std::string line;
 	while(std::getline(in, line)){
@@ -66,7 +66,7 @@ Model *ModelLoader::LoadModel(std::string file){
 
 		}
 
-		//new material (new mesh)
+		//new material (new subMesh)
 		else if(line.substr(0, 7) == "usemtl "){
 			if(indices.size() > 0){
 				PostProcessing();
@@ -75,10 +75,18 @@ Model *ModelLoader::LoadModel(std::string file){
 		}
 	}
 	PostProcessing();
-	return nullptr;
+
+	Model m;
+	for(int i = 0; i < meshes.size(); i++){
+		m.AddMesh(new Mesh(meshes[i], shaderProgram));
+	}
+	return m;
 }
 
 void ModelLoader::PostProcessing(){
+
+
+	Material material = Material();
 	for(size_t i = 0; i < indices.size(); i++){
 		Vertex vert;
 		vert.position = vertices[indices[i]];
@@ -86,18 +94,20 @@ void ModelLoader::PostProcessing(){
 		vert.texCoords = textureCoords[textureIndices[i]];
 		meshVertices.push_back(vert);
 	}
-	SubMesh mesh;
-	mesh.vertexList = meshVertices;
-	mesh.meshIndices = indices;
-	mesh.material = material;
-	meshes.push_back(mesh);
+	SubMesh subMesh;
+	subMesh.vertexList = meshVertices;
+	subMesh.meshIndices = indices;
+	subMesh.material = material;
+	meshes.push_back(subMesh);
 	indices.clear();
 	normalIndices.clear();
 	textureIndices.clear();
 	meshVertices.clear();
-	material = Material();
 }
 
 ModelLoader * ModelLoader::GetInstance(){
+	if(instance == nullptr){
+		instance.reset(new ModelLoader);
+	}
 	return nullptr;
 }

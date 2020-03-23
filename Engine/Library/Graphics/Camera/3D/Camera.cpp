@@ -16,3 +16,7 @@ void Camera::SetupParameters(){
 glm::mat4 Camera::GetProjection(){
 	return glm::mat4();
 }
+
+bool Camera::isImplemented(){
+	return true;
+}

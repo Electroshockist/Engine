@@ -35,13 +35,9 @@ Mix_Chunk* AudioManager::GetSFX(std::string filename)
 }
 
 AudioManager* AudioManager::Instance(){
-
 	if (mgrInstance == NULL) {
-
 		mgrInstance = new AudioManager();
-
 	}
 
-	return mgrInstance;
-	
+	return mgrInstance;	
 }
