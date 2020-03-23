@@ -1,23 +1,4 @@
-﻿  ShaderManager.cpp
-  World1.cpp
-c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
-  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): note: see declaration of 'ACamera'
-  ModelLoader.cpp
-c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
-  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): note: see declaration of 'ACamera'
-c:\users\erico\files\engine\engine\library\graphics\3d\modelloader.cpp(80): warning C4018: '<': signed/unsigned mismatch
-  Camera.cpp
-  EngineMain.cpp
-c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
-  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): note: see declaration of 'ACamera'
-  Main.cpp
-c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
-  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): note: see declaration of 'ACamera'
-  Mesh.cpp
-c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
-  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): note: see declaration of 'ACamera'
-  Model.cpp
-c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
-  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(3): note: see declaration of 'ACamera'
-  Generating Code...
-  Engine.vcxproj -> C:\Users\erico\Files\Engine\Debug\Engine.exe
+﻿  Model.cpp
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(3,15): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
+C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(3): message : see declaration of 'ACamera'
+  Engine.vcxproj -> C:\Users\erico\Documents\Files\Engine\Debug\Engine.exe

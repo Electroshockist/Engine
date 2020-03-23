@@ -1,5 +1,5 @@
-#ifndef MATERIALHANDLER_H
-#define MATERIALHANDLER_H
+#ifndef MATERIALMANAGER_H
+#define MATERIALMANAGER_H
 
 #include "Material.h"
 
@@ -10,9 +10,9 @@ struct MaterialManager{
 
 	~MaterialManager(){}
 
-	void AddMaterial(std::string name);
+	Material *LoadMaterial(std::string file);
 
-	const Material GetMaterial(std::string file);
+	Material *GetMaterial(std::string file);
 
 	//delete copy constructors for singleton
 	MaterialManager(const MaterialManager &) = delete;
@@ -27,9 +27,9 @@ private:
 	static std::unique_ptr<MaterialManager> managerInstance;
 	friend std::default_delete<MaterialManager>;
 
-	std::map<std::string, Material*> materials;
+	std::map<std::string, Material *> materials;
 };
 
 
-#endif // !MATERIALHANDLER_H
+#endif // !MATERIALMANAGER_H
 

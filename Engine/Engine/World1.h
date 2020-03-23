@@ -5,12 +5,12 @@
 #include "../Library/Graphics/3D/Model.h"
 #include "../Library/Graphics/Camera/3D/Camera.h"
 
-struct World1 : public AWorld {
+struct World1 : public AWorld{
 
 	Model m;
-	Camera* c;
+	Camera *c;
 
-	World1(){}
+	World1() : c(nullptr){}
 
 	~World1(){
 		delete c;

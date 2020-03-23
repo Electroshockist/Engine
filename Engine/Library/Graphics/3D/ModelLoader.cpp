@@ -6,7 +6,8 @@
 
 std::unique_ptr<ModelLoader> ModelLoader::instance = nullptr;
 
-Model ModelLoader::LoadModel(std::string file, unsigned int shaderProgram){
+Model ModelLoader::LoadModel(const std::string &file, const std::string &matName, unsigned int shaderProgram){
+	MaterialManager::GetInstance()->LoadMaterial(matName);
 	std::ifstream in(file.c_str(), std::ios::in);
 	if(!in){
 		Debug::error("Could not load Obj file " + file, __FILE__, __LINE__);
@@ -71,7 +72,7 @@ Model ModelLoader::LoadModel(std::string file, unsigned int shaderProgram){
 			if(indices.size() > 0){
 				PostProcessing();
 			}
-			MaterialManager::GetInstance()->GetMaterial(line.substr(7));
+			material = MaterialManager::GetInstance()->GetMaterial(line.substr(7));
 		}
 	}
 	PostProcessing();
@@ -85,8 +86,6 @@ Model ModelLoader::LoadModel(std::string file, unsigned int shaderProgram){
 
 void ModelLoader::PostProcessing(){
 
-
-	Material material = Material();
 	for(size_t i = 0; i < indices.size(); i++){
 		Vertex vert;
 		vert.position = vertices[indices[i]];
@@ -109,5 +108,5 @@ ModelLoader * ModelLoader::GetInstance(){
 	if(instance == nullptr){
 		instance.reset(new ModelLoader);
 	}
-	return nullptr;
+	return instance.get();
 }

@@ -45,7 +45,7 @@ void Mesh::GenerateBuffers(){
 	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-	subMesh.material.SetupLocations();
+	subMesh.material->SetupLocations();
 }
 
 void Mesh::Render(ACamera *c, std::vector<glm::mat4> &instances_){
@@ -72,7 +72,7 @@ void Mesh::Render(ACamera *c, std::vector<glm::mat4> &instances_){
 
 void Mesh::SetupUniforms(Camera *camera){
 	try{
-		GLuint diffuse = std::get<GLuint>(subMesh.material.GetParameter("diffuse")->parameter.data);
+		GLuint diffuse = std::get<GLuint>(subMesh.material->GetParameter("diffuse")->parameter.data);
 		glBindTexture(GL_TEXTURE_2D, diffuse);
 
 		//glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(camera->getView()));
@@ -93,7 +93,7 @@ void Mesh::SetupUniforms(Camera *camera){
 		camera->SetupParameters();
 
 		//material
-		subMesh.material.SetupParameters();
+		subMesh.material->SetupParameters();
 
 		glBindVertexArray(VAO);
 	} catch(const std::bad_variant_access & e){

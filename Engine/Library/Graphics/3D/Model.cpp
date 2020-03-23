@@ -14,10 +14,10 @@ Model::Model(GLuint shaderProgram_)
 
 Model::~Model(){
 	if(meshes.size() > 0){
-		for(auto m : meshes){
-			delete m;
-			m = nullptr;
-		}
+		//for(auto m : meshes){
+		//	delete m;
+		//	m = nullptr;
+		//}
 		meshes.clear();
 	}
 	modelInstances.clear();

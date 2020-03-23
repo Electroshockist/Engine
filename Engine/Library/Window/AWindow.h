@@ -8,7 +8,7 @@
 using namespace std;
 
 struct AWindow {
-	AWindow() {}
+	AWindow() :title(nullptr), x(nullptr), y(nullptr), width(nullptr), height(nullptr) {}
 
 	inline void OnCreate(string title, int x, int y, int width, int height) {		
 		this->title = &title;

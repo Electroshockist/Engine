@@ -7,16 +7,16 @@
 #include "../../Utilities/Parameter.h"
 
 struct UniformParameter{
-	unsigned int location;
-	char *nameInShader;
-	Parameter parameter;
 
 	UniformParameter();
-	UniformParameter(unsigned int &location, char nameInShader[], Parameter parameter);
+	UniformParameter(unsigned int shaderProgram, std::string nameInShader, Parameter parameter);
 
 	void Setup(std::string name);
-
 	~UniformParameter();
+
+	Parameter parameter;
+	std::string nameInShader;
+	int location;
 };
 
 typedef std::map<std::string, UniformParameter> Parameters;

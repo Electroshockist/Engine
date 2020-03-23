@@ -14,7 +14,8 @@ struct ModelLoader{
 
 	static ModelLoader *GetInstance();
 
-	Model LoadModel(std::string file, unsigned int shaderProgram);
+	Model LoadModel(const std::string& file, const std::string &matName, unsigned int shaderProgram);
+	Material LoadMaterial();
 	void PostProcessing();
 
 private:
@@ -33,7 +34,7 @@ private:
 
 	std::vector<SubMesh> meshes;
 
-	
+	Material* material;
 };
 
 

@@ -14,16 +14,8 @@ void Material::SetupParameters(){
 	}
 }
 
-void Material::Load(File file){
-	//MaterialManager::GetInstance().
-}
-
-Material::Material(unsigned int &shaderProgram){
-	this->shaderProgram = shaderProgram;
-}
-
-void Material::AddParameter(std::string name, char nameInShader[], unsigned int &location, Parameter parameter){
-	parameters[name] = UniformParameter(location, nameInShader, parameter);
+void Material::AddParameter(std::string name, std::string nameInShader, Parameter parameter){
+	parameters[name] = UniformParameter(shaderProgram, nameInShader, parameter);
 }
 
 UniformParameter *Material::GetParameter(std::string name){
@@ -31,8 +23,8 @@ UniformParameter *Material::GetParameter(std::string name){
 }
 
 void Material::SetupLocations(){
-	Parameters::iterator it;
-	for(it = parameters.begin(); it != parameters.end(); it++){
-		it->second.location = glGetUniformLocation(shaderProgram, it->second.nameInShader);
-	}
+	//Parameters::iterator it;
+	//for(it = parameters.begin(); it != parameters.end(); it++){
+	//	it->second.location = glGetUniformLocation(shaderProgram, it->second.nameInShader.c_str());
+	//}
 }

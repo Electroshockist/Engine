@@ -21,10 +21,10 @@ struct Vertex{
 struct SubMesh{
 	std::vector<Vertex> vertexList;
 	std::vector<int> meshIndices;
-	Material material;
+	Material* material;
 };
 
-class Mesh : AMesh{
+class Mesh : public AMesh{
 	void GenerateBuffers();
 	GLuint VAO, VBO;
 	GLuint shaderProgram;

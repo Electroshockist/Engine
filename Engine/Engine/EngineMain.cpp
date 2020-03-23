@@ -28,8 +28,8 @@ bool EngineMain::OnCreate(int argc, char *argv[]){
 	timer.Start();
 
 	ShaderManager::getInstance()->createProgram("basicShader",
-												"Engine/Shaders/vertexShader.glsl",
-												"Engine/Shaders/fragmentShader.glsl"
+												"./Resources/Shaders/vertexShader.glsl",
+												"./Resources/Shaders/fragmentShader.glsl"
 	);
 
 	return isRunning = true;

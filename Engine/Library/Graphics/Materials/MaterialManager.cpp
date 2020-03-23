@@ -6,83 +6,102 @@
 
 #include "../../Debugging/Debug.h"
 
+using namespace std;
 
-std::unique_ptr<MaterialManager> MaterialManager::managerInstance = nullptr;
+unique_ptr<MaterialManager> MaterialManager::managerInstance = nullptr;
 
-void MaterialManager::AddMaterial(std::string name){
-
-	std::ifstream in(name.c_str(), std::ios::in);
-	if(!in){
-		Debug::error("Cannot open MTL file " + name, __FILE__, __LINE__);
-		return;
+Material *MaterialManager::LoadMaterial(string file){
+	//if material already exists, return it directly
+	Material *m = GetMaterial(file);
+	if(m != nullptr){
+		return m;
 	}
-	Material* m = new Material();
-	std::string matName = "";
-	std::string line;
-	//while(std::getline(in, line)){
-	//	if(line.substr(0, 7) == "newmtl "){
-	//		if(std::get<int>(m->GetParameter("diffuseMap")->parameter.data) != 0){
-	//			materials[name] = m;
-	//			m = new Material();
-	//		}
-	//		matName = line.substr(7);
-	//		m.diffuseMap = TextureManager::GetInstance()->LoadTexture(matName);
-	//		m->GetParameter("diffuseMap")->parameter.data = TextureManager::GetInstance()->LoadTexture(matName);
-	//	}
-	//	//Shine
-	//	if(line.substr(0, 4) == "	Ns "){
-	//		std::istringstream v(line.substr(4));
-	//		v >> m.shine;
-	//	}
 
-	//	//Transparency
-	//	if(line.substr(0, 3) == "	d "){
-	//		std::istringstream v(line.substr(3));
-	//		v >> m.transparency;
-	//	}
+	m = new Material();
+	m->AddParameter("diffuseMap", "diffuseMap", Parameter(0u));
+	m->AddParameter("transparency", "transparency", Parameter(0.0f));
+	m->AddParameter("shine", "shine", Parameter(0.0f));
+	m->AddParameter("ambient", "ambient", Parameter(glm::vec3(1.0f)));
+	m->AddParameter("diffuse", "diffuse", Parameter(glm::vec3(1.0f)));
+	m->AddParameter("specular", "specular", Parameter(glm::vec3()));
 
-	//	//Ambient
-	//	if(line.substr(0, 4) == "	Ka "){
-	//		std::istringstream v(line.substr(4));
+	//otherwise load material
+	ifstream in(file.c_str(), ios::in);
+	if(!in){
+		Debug::error("Cannot open MTL file " + file, __FILE__, __LINE__);
+		return nullptr;
+	}
+	string matName = "";
+	string line;
 
-	//		double x, y, z;
+	//shortform
+	#define GetData(name) m->GetParameter(name)->parameter.data
 
-	//		v >> x >> y >> z;
-	//		m.ambient = glm::vec3(x, y, z);
-	//	}
+	while(getline(in, line)){
+		if(line.substr(0, 7) == "newmtl "){
+			if(get<unsigned int>(GetData("diffuseMap")) != 0){
+				materials[file] = m;
+				m = nullptr;
+			}
+			matName = line.substr(7);
+			GetData("diffuseMap") = Parameter::Data(TextureManager::GetInstance()->LoadTexture(matName));
+		}
+		//Shine
+		if(line.substr(0, 4) == "	Ns "){
+			istringstream v(line.substr(4));
+			v >> get<float>(GetData("shine"));
+		}
 
-	//	//Diffuse
-	//	if(line.substr(0, 4) == "	Kd "){
-	//		std::istringstream v(line.substr(4));
+		//Transparency
+		if(line.substr(0, 3) == "	d "){
+			istringstream v(line.substr(3));
+			v >> get<float>(GetData("transparency"));
+		}
 
-	//		double x, y, z;
+		//Ambient
+		if(line.substr(0, 4) == "	Ka "){
+			istringstream v(line.substr(4));
 
-	//		v >> x >> y >> z;
-	//		m.diffuse = glm::vec3(x, y, z);
-	//	}
+			double x, y, z;
 
-	//	//Specular
-	//	if(line.substr(0, 4) == "	Ks "){
-	//		std::istringstream v(line.substr(4));
+			v >> x >> y >> z;
+			get<glm::vec3>(GetData("ambient")) = glm::vec3(x, y, z);
+		}
 
-	//		double x, y, z;
+		//Diffuse
+		if(line.substr(0, 4) == "	Kd "){
+			istringstream v(line.substr(4));
 
-	//		v >> x >> y >> z;
-	//		m.specular = glm::vec3(x, y, z);
-	//	}
-	//}
+			double x, y, z;
 
-	//if(m.diffuseMap != 0){
-	//	materials[matName] = m;
-	//};
+			v >> x >> y >> z;
+			get<glm::vec3>(GetData("diffuse")) = glm::vec3(x, y, z);
+		}
+
+		//Specular
+		if(line.substr(0, 4) == "	Ks "){
+			istringstream v(line.substr(4));
+
+			double x, y, z;
+
+			v >> x >> y >> z;
+			get<glm::vec3>(GetData("specular")) = glm::vec3(x, y, z);
+		}
+	}
+
+	if(get<unsigned int>(GetData("diffuseMap")) != 0){
+		materials[matName] = m;
+	};
+	return m;
+	#undef GetData(name)
 }
 
-const Material MaterialManager::GetMaterial(std::string name){
+Material *MaterialManager::GetMaterial(string name){
 	if(materials.find(name) != materials.end()){
-		return *materials[name];
+		return materials[name];
 	}
 	Debug::warning("Could not find texture with name " + name, __FILE__, __LINE__);
-	return Material();
+	return nullptr;
 }
 
 //get singleton instance

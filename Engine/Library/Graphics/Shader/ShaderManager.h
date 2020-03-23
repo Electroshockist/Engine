@@ -30,8 +30,6 @@ public:
 	ShaderManager(ShaderManager&&) = delete;
 	ShaderManager& operator=(const ShaderManager&) = delete;
 	ShaderManager& operator=(ShaderManager&&) = delete;
-
-	void onDestroy();
 	void createProgram(const std::string& shaderName,
 					   const std::string& vertexShaderFileName,
 					   const std::string& fragmentShaderFileName);

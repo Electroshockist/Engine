@@ -8,11 +8,7 @@ std::map<std::string, GLuint> ShaderManager::programs = std::map<std::string, GL
 ShaderManager::ShaderManager() {}
 
 ShaderManager::~ShaderManager() {
-	//onDestroy();
-}
-
-void ShaderManager::onDestroy() {
-	for(auto index : programs) {
+	for(auto index : programs){
 		glDeleteProgram(index.second);
 	}
 	programs.clear();
@@ -62,7 +58,7 @@ ShaderManager * ShaderManager::getInstance() {
 	if(shaderInstance.get() == nullptr) {
 		shaderInstance.reset(new ShaderManager());
 	}
-	return nullptr;
+	return shaderInstance.get();
 }
 
 void ShaderManager::createProgram(const std::string & shaderName, const std::string & vertexShaderFileName, const std::string & fragmentShaderFileName) {
