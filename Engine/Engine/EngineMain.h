@@ -22,14 +22,14 @@ struct EngineMain {
 	bool Update(const float deltaTime);
 	bool Render();
 
+	SDLGLWindow *w;
+
 private:
 	EngineMain();
 	~EngineMain();
 
 	static std::unique_ptr<EngineMain> instance;
 	friend std::default_delete<EngineMain>;
-	
-	SDLGLWindow *w;
 
 	World1 world;
 	Timer timer;

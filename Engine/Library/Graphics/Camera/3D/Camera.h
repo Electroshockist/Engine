@@ -15,10 +15,15 @@ struct Camera : ACamera3D{
 	float nearPlane, farPlane;
 	glm::vec3 forwardVector, upVector, rightVector, worldUp;
 	void updateCameraVectors();
+	void SetupParameters();
+
+	class AWindow *w;
 
 public:
-	Camera();
+	Camera(AWindow* w);
 	~Camera();
+
+	Parameters parameters;
 
 	void setPosition(glm::vec3 position);
 	void setRotation(float yaw, float pitch);

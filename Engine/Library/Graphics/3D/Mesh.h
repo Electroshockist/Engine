@@ -37,9 +37,11 @@ public:
 	Mesh(SubMesh submesh, GLuint shaderProgram);
 	~Mesh();
 
-	void Render(ACamera *camera, std::vector<glm::mat4> &instance) override;
+	void Render(ACamera *camera, std::vector<glm::mat4> &instance) ;
 
 	void SetupUniforms(Camera* camera);
+
+	Camera* c;
 };
 
 #endif // !MESH_H

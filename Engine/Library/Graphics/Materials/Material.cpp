@@ -23,8 +23,8 @@ UniformParameter *Material::GetParameter(std::string name){
 }
 
 void Material::SetupLocations(){
-	//Parameters::iterator it;
-	//for(it = parameters.begin(); it != parameters.end(); it++){
-	//	it->second.location = glGetUniformLocation(shaderProgram, it->second.nameInShader.c_str());
-	//}
+	Parameters::iterator it;
+	for(it = parameters.begin(); it != parameters.end(); it++){
+		it->second.location = glGetUniformLocation(shaderProgram, it->second.nameInShader.c_str());
+	}
 }
