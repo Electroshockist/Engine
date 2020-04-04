@@ -1,4 +1,2 @@
-﻿  Model.cpp
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(3,15): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
-C:\Users\erico\Documents\Files\Engine\Engine\Library\Graphics\Camera\ACamera.h(3): message : see declaration of 'ACamera'
-  Engine.vcxproj -> C:\Users\erico\Documents\Files\Engine\Debug\Engine.exe
+﻿  Material.cpp
+  Engine.vcxproj -> C:\Users\erico\Files\Engine\Debug\Engine.exe

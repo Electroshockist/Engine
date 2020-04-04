@@ -8,7 +8,7 @@ struct GLTexture : public ATexture {
 	GLTexture();
 	~GLTexture();
 
-	bool LoadTexture(const File file) override;
+	//bool LoadTexture(const File file) override;
 
 private:
 	GLuint textureID;

@@ -11,7 +11,7 @@ public:
 	bool OnCreate(string title, int X, int Y, int width, int height);
 
 	//Title
-	void SetTitle(string* T) override;
+	void SetTitle(const string tile) override;
 
 	~SDLGLWindow();
 

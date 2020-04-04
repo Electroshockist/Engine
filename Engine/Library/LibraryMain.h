@@ -10,7 +10,7 @@ struct LibraryMain{
 	LibraryMain& operator=(const LibraryMain&) = delete;
 	LibraryMain& operator=(LibraryMain&&) = delete;
 
-	static LibraryMain* getInstance();
+	static LibraryMain* GetInstance();
 
 	bool OnCreate(int argc, char *argv[]);
 

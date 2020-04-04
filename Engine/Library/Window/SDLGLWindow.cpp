@@ -21,13 +21,12 @@ bool SDLGLWindow::OnCreate(string title, int x, int y, int width, int height){
 
 	if(!InitGL()) return false;
 
-
 	return true;
 }
 
-void SDLGLWindow::SetTitle(string *title){
+void SDLGLWindow::SetTitle(const string title){
 	AWindow::SetTitle(title);
-	SDL_SetWindowTitle(window, title->c_str());
+	SDL_SetWindowTitle(window, title.c_str());
 }
 
 SDLGLWindow::~SDLGLWindow(){
@@ -58,11 +57,8 @@ bool SDLGLWindow::InitGL(){
 		return false;
 	}
 
-	GLsizei w = *GetWidth();
-	GLsizei h = *GetHeight();
-
 	glEnable(GL_DEPTH_TEST);
-	glViewport(0, 0, w, h);
+	glViewport(0, 0, GetHeight(), GetWidth());
 	return true;
 }
 

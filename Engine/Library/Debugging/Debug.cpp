@@ -49,6 +49,7 @@ void Debug::Log(const MessageType type, const string & message, const string & f
 	ofstream file;
 	file.open(outputileName, ios::app | ios::out);
 	if (type <= currentSeverity && currentSeverity > MessageType::TYPE_NONE) {
+		std::cout << message << "\nin " << filename << " on line " << line << endl;
 		file << message << "\nin " << filename << " on line " << line << endl;
 	}
 	file.flush();

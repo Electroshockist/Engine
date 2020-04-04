@@ -1,12 +1,13 @@
 #include "EngineMain.h"
 #include "../Library/Debugging/Debug.h"
 #include "../Library/Graphics/Shader/ShaderManager.h"
+#include "../Library/Data Structures/Events/EventListener.h"
 
 std::unique_ptr<EngineMain> EngineMain::instance = nullptr;
 
 EngineMain::EngineMain() : w(nullptr), isRunning(false), fps(120){}
 
-EngineMain *EngineMain::getInstance(){
+EngineMain *EngineMain::GetInstance(){
 	if(instance == nullptr){
 		instance.reset(new EngineMain);
 	}
@@ -20,6 +21,11 @@ bool EngineMain::OnCreate(int argc, char *argv[]){
 		return false;
 	}
 
+	ShaderManager::GetInstance()->createProgram("basicShader",
+												"./Resources/Shaders/vertexShader.glsl",
+												"./Resources/Shaders/fragmentShader.glsl"
+	);
+
 	if(!world.OnCreate()){
 		Debug::fatalError("Failed to create world", __FILE__, __LINE__);
 		return false;
@@ -27,16 +33,13 @@ bool EngineMain::OnCreate(int argc, char *argv[]){
 
 	timer.Start();
 
-	ShaderManager::getInstance()->createProgram("basicShader",
-												"./Resources/Shaders/vertexShader.glsl",
-												"./Resources/Shaders/fragmentShader.glsl"
-	);
 
 	return isRunning = true;
 }
 
 bool EngineMain::Run(){
 	while(isRunning){
+		EventListener::update();
 		timer.UpdateFrameTicks();
 
 		//if update or render returns error, return false
@@ -59,6 +62,20 @@ bool EngineMain::Render(){
 	int returnValue = world.Render();
 	SDL_GL_SwapWindow(w->window);
 	return returnValue;
+}
+
+void EngineMain::notifyMousePressed(int mouseX, int mouseY){}
+
+void EngineMain::notifyMouseReleased(int mouseX, int mouseY, int buttonType){}
+
+void EngineMain::notifyMouseMove(int mouseX, int mouseY){
+	world.OnMouseMove(mouseX, mouseY);
+}
+
+void EngineMain::notifyMouseScroll(int scroll){}
+
+void EngineMain::Exit(){
+	isRunning = false;
 }
 
 EngineMain::~EngineMain(){

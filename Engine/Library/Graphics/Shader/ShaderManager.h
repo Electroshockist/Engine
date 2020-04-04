@@ -35,7 +35,7 @@ public:
 					   const std::string& fragmentShaderFileName);
 	static const GLuint getShader(const std::string & shaderName);
 
-	static ShaderManager* getInstance();
+	static ShaderManager* GetInstance();
 };
 
 #endif //SHADERHANDLER_H

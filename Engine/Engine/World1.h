@@ -5,22 +5,23 @@
 #include "../Library/Graphics/3D/Model.h"
 #include "../Library/Graphics/Camera/3D/Camera.h"
 
-struct World1 : public AWorld{
+struct World1 : public AWorld {
+	Model * model;
+	Camera *camera;
 
-	Model m;
-	Camera *c;
-
-	World1() : c(nullptr){}
+	World1() : camera(nullptr), model(nullptr){}
 
 	~World1(){
-		delete c;
-		c = nullptr;
+		delete camera;
+		camera = nullptr;
 	}
 
 	// Inherited via AWorld
 	virtual bool OnCreate() override;
 	virtual bool Update(const float deltaTime_) override;
 	virtual bool Render() override;
+
+	void OnMouseMove(int x, int y);
 };
 
 

@@ -13,7 +13,7 @@ struct EngineMain {
 	EngineMain& operator=(const EngineMain&) = delete;
 	EngineMain& operator=(EngineMain&&) = delete;
 
-	static EngineMain* getInstance();
+	static EngineMain* GetInstance();
 
 	bool OnCreate(int argc, char *argv[]);
 
@@ -21,6 +21,13 @@ struct EngineMain {
 
 	bool Update(const float deltaTime);
 	bool Render();
+
+	void notifyMousePressed(int mouseX, int mouseY);
+	void notifyMouseReleased(int mouseX, int mouseY, int buttonType);
+	void notifyMouseMove(int mouseX, int mouseY);
+	void notifyMouseScroll(int scroll);
+
+	void Exit();
 
 	SDLGLWindow *w;
 

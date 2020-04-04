@@ -21,8 +21,8 @@ std::string FilePathParser::getProjectPath() {
 string FilePathParser::ToLower(const string s) {
 	string temp = s;
 	// convert string to lower case
-	for_each(temp.begin(), temp.end(), [](char & c) {
-		c = ::tolower(c);
+	for_each(temp.begin(), temp.end(), [](char & camera) {
+		camera = ::tolower(camera);
 	});
 	return temp;
 }

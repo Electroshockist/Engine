@@ -5,7 +5,7 @@ LibraryMain::LibraryMain(){}
 
 LibraryMain::~LibraryMain(){}
 
-LibraryMain * LibraryMain::getInstance(){
+LibraryMain * LibraryMain::GetInstance(){
 	if(instance == nullptr){
 		instance.reset(new LibraryMain);
 	}

@@ -1,15 +1,57 @@
+//#ifndef MESH_H
+//#define MESH_H
+//
+//#include <vector>
+//#include <map>
+//
+//#include <GLEW/glew.h>
+//#include <glm/gtc/type_ptr.hpp>
+//
+//#include "AMesh.h"
+//#include "../../Graphics/Materials/Material.h"
+//#include "../Camera/3D/Camera.h"
+//#include "UniformParameter.h"
+//
+//struct Vertex{
+//	glm::vec3 position;
+//	glm::vec3 normal;
+//	glm::vec2 texCoords;
+//	glm::vec3 colour;
+//};
+//
+//struct SubMesh{
+//	std::vector<Vertex> vertexList;
+//	std::vector<int> meshIndices;
+//	Material* material;
+//};
+//
+//class Mesh{
+//	void GenerateBuffers();
+//	GLuint VAO, VBO;
+//	GLuint shaderProgram;
+//	GLuint modelLoc, viewLoc, projLoc;
+//	SubMesh subMesh;
+//
+//public:
+//	Mesh(SubMesh submesh, GLuint shaderProgram);
+//	~Mesh();
+//
+//	void Render(Camera* camera, std::vector<glm::mat4> &instance);
+//
+//	void SetupUniforms(Camera* camera);
+//};
+//
+//#endif // !MESH_H
 #ifndef MESH_H
 #define MESH_H
 
-#include <vector>
-#include <map>
-
 #include <GLEW/glew.h>
+#include <vector>
+#include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "AMesh.h"
-#include "../../Graphics/Materials/Material.h"
-#include "../Camera/3D/Camera.h"
+#include "../../Graphics/Materials/MaterialManager.h"
+#include "../../Graphics/Camera/3D/Camera.h"
 
 struct Vertex{
 	glm::vec3 position;
@@ -21,10 +63,10 @@ struct Vertex{
 struct SubMesh{
 	std::vector<Vertex> vertexList;
 	std::vector<int> meshIndices;
-	Material* material;
+	Material material;
 };
 
-class Mesh : public AMesh{
+class Mesh{
 	void GenerateBuffers();
 	GLuint VAO, VBO;
 	GLuint shaderProgram;
@@ -37,11 +79,8 @@ public:
 	Mesh(SubMesh submesh, GLuint shaderProgram);
 	~Mesh();
 
-	void Render(ACamera *camera, std::vector<glm::mat4> &instance) ;
-
-	void SetupUniforms(Camera* camera);
-
-	Camera* c;
+	void Render(Camera* camera, std::vector<glm::mat4> &instance);
+	void OnDestroy();
 };
 
 #endif // !MESH_H
