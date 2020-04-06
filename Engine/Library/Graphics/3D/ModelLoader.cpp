@@ -136,11 +136,11 @@ void ModelLoader::OnDestroy(){
 	meshes.clear();
 }
 
-void ModelLoader::loadModel(const std::string & fileName){
+bool ModelLoader::loadModel(const std::string & fileName){
 	std::ifstream in(fileName.c_str(), std::ios::in);
 	if(!in){
 		Debug::error("Could not load Obj file " + fileName, __FILE__, __LINE__);
-		return;
+		return false;
 	}
 	std::string line;
 	while(std::getline(in, line)){
@@ -205,11 +205,12 @@ void ModelLoader::loadModel(const std::string & fileName){
 		}
 	}
 	PostProcessing();
+	return true;
 }
 
-void ModelLoader::loadModel(const std::string & fileName, const std::string & matName){
+bool ModelLoader::loadModel(const std::string & fileName, const std::string & matName){
 	LoadMaterialLibrary(matName);
-	loadModel(fileName);
+	return loadModel(fileName);
 }
 
 int ModelLoader::loadTexture(std::string file){

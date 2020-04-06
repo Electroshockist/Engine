@@ -67,6 +67,9 @@ struct SubMesh{
 };
 
 class Mesh{
+
+protected:
+	Mesh(){}
 	void GenerateBuffers();
 	GLuint VAO, VBO;
 	GLuint shaderProgram;

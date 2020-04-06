@@ -1,11 +1,4 @@
 #include "MaterialManager.h"
-//#include <sstream>
-//
-//#include "../Textures/TextureManager.h"
-//
-//#include "../../Debugging/Debug.h"
-//
-//using namespace std;
 //
 //unique_ptr<MaterialManager> MaterialManager::managerInstance = nullptr;
 //
@@ -102,21 +95,15 @@
 //	Debug::warning("Could not find texture with name " + name, __FILE__, __LINE__);
 //	return nullptr;
 //}
-//
-//
-//MaterialManager *MaterialManager::GetInstance(){
-//	if(managerInstance == nullptr){
-//		managerInstance.reset(new MaterialManager);
-//	}
-//	return managerInstance.get();
-//}
 
 #include <iostream>
 
 #include "../../Debugging/Debug.h"
 
-std::unique_ptr<MaterialManager> MaterialManager::instance = nullptr;
-std::map<std::string, Material> MaterialManager::materials = std::map<std::string, Material>();
+using namespace std;
+
+unique_ptr<MaterialManager> MaterialManager::instance = nullptr;
+map<string, Material> MaterialManager::materials = map<string, Material>();
 
 MaterialManager::MaterialManager(){}
 
@@ -127,14 +114,11 @@ MaterialManager::~MaterialManager(){
 	}
 }
 
-void MaterialManager::AddMaterial(const std::string & name, Material mat){
+void MaterialManager::AddMaterial(const string & name, Material mat){
 	materials[name] = mat;
 }
 
-const Material MaterialManager::GetMaterial(const std::string & name){
-	for(auto const&[key, val] : materials){
-		std::cout << name << " == " << key << " " << (name == key ? "true" : "false") << std::endl;
-	}
+const Material MaterialManager::GetMaterial(const string & name){
 	if(materials.find(name) != materials.end()){
 		return materials[name];
 	}

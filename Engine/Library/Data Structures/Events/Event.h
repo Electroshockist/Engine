@@ -13,7 +13,7 @@ struct Event {
 			listeners.at(i)->OnNotify();
 		}
 	}
-	virtual ~Event();
+	virtual ~Event(){};
 
 private:
 	//Stores a list of listeners to notify when notify() is called

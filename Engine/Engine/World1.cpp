@@ -1,8 +1,9 @@
 #include "World1.h"
 #include "../Library/Graphics/3D/ModelLoader.h"
-#include "../Library/Graphics/Shader/ShaderManager.h"
+#include "../Library/Graphics/Shaders/ShaderManager.h"
 #include "../Library/Effects/LightSource.h"
-#include "../Library/Data Structures/Events/MouseEventListener.h"
+#include "../Library/Data Structures/Events/Mouse/MouseEventHandler.h"
+#include "../Library/Graphics/3D/SkyBox.h"
 #include "EngineMain.h"
 
 bool World1::OnCreate(){
@@ -46,7 +47,7 @@ bool World1::Render(){
 
 void World1::OnMouseMove(int x, int y){
 	if(camera){
-		camera->processMouseMovement(MouseEventListener::GetMouseOffset().x,
-									 MouseEventListener::GetMouseOffset().y);
+		camera->processMouseMovement(MouseEventHandler::GetMouseOffset().x,
+									 MouseEventHandler::GetMouseOffset().y);
 	}
 }

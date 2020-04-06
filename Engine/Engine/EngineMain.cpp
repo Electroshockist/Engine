@@ -1,7 +1,6 @@
 #include "EngineMain.h"
 #include "../Library/Debugging/Debug.h"
-#include "../Library/Graphics/Shader/ShaderManager.h"
-#include "../Library/Data Structures/Events/EventListener.h"
+#include "../Library/Graphics/Shaders/ShaderManager.h"
 
 std::unique_ptr<EngineMain> EngineMain::instance = nullptr;
 
@@ -26,6 +25,20 @@ bool EngineMain::OnCreate(int argc, char *argv[]){
 												"./Resources/Shaders/fragmentShader.glsl"
 	);
 
+	ShaderManager::GetInstance()->createProgram("noiseShader",
+												"./Resources/Shaders/noiseVert.glsl",
+												"./Resources/Shaders/noiseFrag.glsl"
+	);
+	ShaderManager::GetInstance()->createProgram("skyShader",
+												"./Resources/Shaders/skyVert.glsl",
+												"./Resources/Shaders/skyFrag.glsl"
+	);
+
+	mousePress.Subscribe(&MouseEventHandler::mousePress);
+	mouseRelease.Subscribe(&MouseEventHandler::mouseRelease);
+	mouseMove.Subscribe(&MouseEventHandler::mouseMove);
+	mouseScroll.Subscribe(&MouseEventHandler::mouseScroll);
+
 	if(!world.OnCreate()){
 		Debug::fatalError("Failed to create world", __FILE__, __LINE__);
 		return false;
@@ -39,7 +52,7 @@ bool EngineMain::OnCreate(int argc, char *argv[]){
 
 bool EngineMain::Run(){
 	while(isRunning){
-		EventListener::update();
+		SDLEventListener::Update();
 		timer.UpdateFrameTicks();
 
 		//if update or render returns error, return false
@@ -64,7 +77,7 @@ bool EngineMain::Render(){
 	return returnValue;
 }
 
-void EngineMain::notifyMousePressed(int mouseX, int mouseY){}
+void EngineMain::notifyMousePressed(int mouseX, int mouseY, int buttonType){}
 
 void EngineMain::notifyMouseReleased(int mouseX, int mouseY, int buttonType){}
 

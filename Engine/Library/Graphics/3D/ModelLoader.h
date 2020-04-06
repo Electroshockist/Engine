@@ -51,8 +51,8 @@ struct ModelLoader{
 	~ModelLoader();
 
 	void OnDestroy();
-	void loadModel(const std::string& fileName);
-	void loadModel(const std::string& fileName, const std::string& matName);
+	bool loadModel(const std::string& fileName);
+	bool loadModel(const std::string& fileName, const std::string& matName);
 	int loadTexture(std::string file);
 	std::vector<Vertex> getVerts();
 	std::vector<int> getIndices();

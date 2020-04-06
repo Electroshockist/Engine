@@ -3,6 +3,8 @@
 
 //Event listener
 struct AListener {
+	AListener(){}
+
 	//The event that the listener is subscribed to
 	class Event* subscribedEvent;
 

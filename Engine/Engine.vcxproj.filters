@@ -162,16 +162,19 @@
     <ClInclude Include="Library\LibraryMain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Library\Graphics\Shader\ShaderManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Library\Effects\LightSource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Library\Data Structures\Events\EventListener.h">
+    <ClInclude Include="Library\Data Structures\Events\SDLEventListener.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Library\Data Structures\Events\MouseEventListener.h">
+    <ClInclude Include="Library\Data Structures\Events\Mouse\MouseEventHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Graphics\3D\SkyBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Graphics\Shaders\ShaderManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -248,16 +251,22 @@
     <ClCompile Include="Library\LibraryMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Library\Graphics\Shader\ShaderManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Library\Effects\LightSource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Library\Data Structures\Events\EventListener.cpp">
+    <ClCompile Include="Library\Math\Noise.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Library\Data Structures\Events\MouseEventListener.cpp">
+    <ClCompile Include="Library\Data Structures\Events\SDLEventListener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Data Structures\Events\Mouse\MouseEventHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Graphics\3D\SkyBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Graphics\Shaders\ShaderManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
