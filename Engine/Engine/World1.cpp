@@ -1,4 +1,7 @@
 #include "World1.h"
+
+#include <glm/gtc/type_ptr.hpp>
+
 #include "../Library/Graphics/3D/ModelLoader.h"
 #include "../Library/Graphics/Shaders/ShaderManager.h"
 #include "../Library/Effects/LightSource.h"
@@ -14,12 +17,15 @@ bool World1::OnCreate(){
 	glm::vec3 scale = glm::vec3(1.0f);
 	int modelInstance = model->createInstance(position, angle, rotation, scale);
 	camera = new Camera();
-	camera->setPosition(glm::vec3(0, 0, 10));
-	camera->addLightSources(new LightSource(glm::vec3(5.0f, 10.0f, 5.0f), 1.0f, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f)));
+	camera->SetPosition(glm::vec3(0, 0, 10));
+	camera->AddLightSources(new LightSource(glm::vec3(5.0f, 10.0f, 5.0f), 1.0f, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f)));
+
+	skybox = new SkyBox();
+	skybox->onCreate();
 	//m = ModelLoader::GetInstance()->LoadModel("./Resources/Models/Dice.obj","./Resources/Materials/Dice.mtl", ShaderManager::GetInstance()->getShader("basicShader"));
 	//m.CreateInstance(glm::vec3(), 0, glm::vec3(), glm::vec3());
 	//camera = new Camera(/*EngineMain::GetInstance()->w*/);
-	//camera->setPosition(glm::vec3(0, 10, 0));
+	//camera->SetPosition(glm::vec3(0, 10, 0));
 	//m.SetCamera(camera);
 
 	//LightSource l = LightSource(glm::vec3(5.0f, 10.0f, 5.0f), 1.0f, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f));
@@ -40,14 +46,17 @@ bool World1::Update(const float deltaTime_){
 }
 
 bool World1::Render(){
+	skybox->Render(camera);
 	glUseProgram(ShaderManager::getShader("basicShader"));
 	model->render(camera);
+
+	glUseProgram(0);
 	return true;
 }
 
 void World1::OnMouseMove(int x, int y){
 	if(camera){
-		camera->processMouseMovement(MouseEventHandler::GetMouseOffset().x,
+		camera->ProcessMouseMovement(MouseEventHandler::GetMouseOffset().x,
 									 MouseEventHandler::GetMouseOffset().y);
 	}
 }

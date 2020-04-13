@@ -105,7 +105,6 @@ int Model::createInstance(glm::vec3 position_, float angle_, glm::vec3 rotation_
 
 void Model::updateInstance(int index_, glm::vec3 position_, float angle_, glm::vec3 rotation_, glm::vec3 scale_){
 	modelInstances[index_] = getTransform(position_, angle_, rotation_, scale_);
-
 }
 
 glm::mat4 Model::getTransform(int index_) const{

@@ -29,6 +29,7 @@ bool EngineMain::OnCreate(int argc, char *argv[]){
 												"./Resources/Shaders/noiseVert.glsl",
 												"./Resources/Shaders/noiseFrag.glsl"
 	);
+
 	ShaderManager::GetInstance()->createProgram("skyShader",
 												"./Resources/Shaders/skyVert.glsl",
 												"./Resources/Shaders/skyFrag.glsl"

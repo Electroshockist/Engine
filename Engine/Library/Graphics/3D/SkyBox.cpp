@@ -1,22 +1,54 @@
 #include "SkyBox.h"
 
+#include <GLEW/glew.h>
 #include <glm/gtc/type_ptr.hpp>
 #include <SDL/SDL_image.h>
 
-#include "ModelLoader.h"
-#include "Mesh.h"
 #include "../Shaders/ShaderManager.h"
 
-SkyBox::SkyBox(){}
+glm::mat4 SkyBox::getTransform(float angle, glm::vec3 rotation){
+	glm::mat4 tModel;
+	glm::mat4 rModel;
+	glm::mat4 sModel;
 
+	tModel = glm::translate(glm::mat4(1), glm::vec3());
+	rModel = glm::rotate(glm::mat4(1), angle, rotation);
+	sModel = glm::scale(glm::mat4(1), glm::vec3(1));
+
+	glm::mat4 model = tModel * rModel * sModel;
+	return model;
+}
+
+void SkyBox::loadModel(){
+	subMesh = obj->getSubMeshes()[0];
+	GenerateBuffers();
+
+	delete obj;
+	obj = nullptr;
+}
 
 SkyBox::~SkyBox(){}
 
 bool SkyBox::onCreate(){
-	glGenTextures(1, &textureID);
-	glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
+	shaderProgram = ShaderManager::getShader("skyShader");
+	obj = new ModelLoader();
 
-	LoadTextures("CN Tower/posx.jpg", "CN Tower/negx.jpg", "CN Tower/posy.jpg", "CN Tower/negy.jpg", "CN Tower/posz.jpg", "CN Tower/negz.jpg");
+	obj->loadModel("./Resources/Models/cube.obj");
+	this->loadModel();
+
+	createInstance(angle, glm::vec3(0,1,0));
+
+	////////////////
+
+	glGenTextures(1, &subMesh.material.diffuseMap);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, subMesh.material.diffuseMap);
+
+	LoadTextures("./Resources/Textures/CN Tower/posx.jpg",
+				 "./Resources/Textures/CN Tower/negx.jpg",
+				 "./Resources/Textures/CN Tower/posy.jpg",
+				 "./Resources/Textures/CN Tower/negy.jpg",
+				 "./Resources/Textures/CN Tower/posz.jpg",
+				 "./Resources/Textures/CN Tower/negz.jpg");
 
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -27,53 +59,7 @@ bool SkyBox::onCreate(){
 	//unbind texture
 	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 
-	ModelLoader m;
-
-	if(!m.loadModel("cube.obj")){
-		return false;
-	}
-
-	shaderID = ShaderManager::getShader("skyShader");
-	subMesh = m.getSubMeshes()[0];
-
-	//mesh = new Mesh(, ModelLoader::vertices, ModelLoader::normals, ModelLoader::uvCoords);
-	
-	for (auto& vert : subMesh.vertexList){
-		vertices.push_back(&vert.position);
-	}
-
-	//skybox VAO
-	glGenVertexArrays(1, &VAO);
-	glGenBuffers(1, &VAO);
-	glBindVertexArray(VAO);
-	glBindBuffer(GL_ARRAY_BUFFER, VAO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), &vertices, GL_STATIC_DRAW);
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-
-	modelMatrixID = glGetUniformLocation(shaderID, "modelMatrix");
-
 	return true;
-}
-
-void SkyBox::onDestroy(){}
-
-void SkyBox::Render() const{
-
-	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
-	glEnable(GL_DEPTH_TEST);
-
-	glDepthMask(GL_FALSE);
-	glUniformMatrix4fv(modelMatrixID, 1, GL_FALSE, glm::value_ptr(modelMatrix));
-
-	glUseProgram(shaderID);
-
-	glBindVertexArray(VAO);
-	glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
-	Render();
-	glDepthMask(GL_TRUE);
-
-	glUseProgram(shaderID);
 }
 
 bool SkyBox::LoadTextures(const char * posX, const char * negX, const char * posY, const char * negY, const char * posZ, const char * negZ){
@@ -131,4 +117,69 @@ bool SkyBox::LoadTextures(const char * posX, const char * negX, const char * pos
 	SDL_FreeSurface(textureSurface);
 
 	return true;
+}
+
+void SkyBox::createInstance(float angle, glm::vec3 rotation){
+	modelInstance = getTransform(angle, rotation);
+}
+
+void SkyBox::GenerateBuffers(){
+	glGenVertexArrays(1, &VAO);
+	glGenBuffers(1, &VBO);
+
+	glBindVertexArray(VAO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+
+	glBufferData(GL_ARRAY_BUFFER, subMesh.vertexList.size() * sizeof(Vertex), &subMesh.vertexList[0], GL_STATIC_DRAW);
+
+	//POSITION
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), static_cast<GLvoid*>(0));
+
+	//NORMAL
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)(offsetof(Vertex, normal)));
+
+	//TEXTURE
+	glEnableVertexAttribArray(2);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)(offsetof(Vertex, texCoords)));
+
+	//COLOR
+	glEnableVertexAttribArray(3);
+	glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)(offsetof(Vertex, colour)));
+
+	glBindVertexArray(0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+	modelLoc = glGetUniformLocation(shaderProgram, "model");
+	projLoc = glGetUniformLocation(shaderProgram, "proj");
+}
+
+void SkyBox::Render(Camera* camera){
+	glUseProgram(shaderProgram);
+
+	glDisable(GL_DEPTH_TEST);
+	glDisable(GL_CULL_FACE);
+
+	glBindTexture(GL_TEXTURE_CUBE_MAP, subMesh.material.diffuseMap);
+
+	RenderMesh(camera);
+
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
+
+	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+
+	glUseProgram(0);
+}
+
+void SkyBox::RenderMesh(Camera * camera){
+	glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(camera->GetPerspective()));
+	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(modelInstance));
+	
+	glBindVertexArray(VAO);
+
+	glDrawArrays(GL_TRIANGLES, 0, subMesh.vertexList.size());
+
+	glBindVertexArray(0);
 }

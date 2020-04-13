@@ -61,7 +61,7 @@ public:
 	void updateInstance(int index, glm::vec3 position, float angle, glm::vec3 rotation, glm::vec3 scale);
 	glm::mat4 getTransform(int index) const;
 
-	inline glm::vec3 getPosition(){
+	inline glm::vec3 GetPosition(){
 		return position;
 	}
 

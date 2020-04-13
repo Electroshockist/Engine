@@ -52,6 +52,7 @@ GLuint ShaderManager::createShader(GLenum shaderType, const std::string & source
 		Debug::error("Shader " + shaderName + " failed to compile. " + errorLog, __FILE__, __LINE__);
 		std::cout << "Shader " << shaderName << " failed to compile:\n" << errorLog << std::endl;
 	}
+
 	return shader;
 }
 
@@ -90,6 +91,30 @@ void ShaderManager::createProgram(const std::string & shaderName, const std::str
 	programs[shaderName] = program;
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
+
+	int count;
+	glGetProgramiv(program, GL_ACTIVE_UNIFORMS, &count);
+
+	std::cout << shaderName << " has " << count << " active uniforms" << std::endl;
+
+	int maxUniformNameLength;
+	glGetProgramiv(program, GL_ACTIVE_UNIFORM_MAX_LENGTH, &maxUniformNameLength);
+
+	char* name = (char*)malloc(sizeof(char) * maxUniformNameLength);
+
+	GLsizei actualLen;
+	GLint size;
+	GLenum type;
+
+	for(size_t i = 0; i < count; i++){
+		glGetActiveUniform(program, i, maxUniformNameLength, &actualLen, &size, &type, name);
+		const unsigned int loc = glGetUniformLocation(program, name);
+
+		std::string uniformName = name;
+
+		printf("\"%s\" loc:%d\n", uniformName.c_str(), loc);
+	}
+	std::cout << std::endl;
 }
 
 const GLuint ShaderManager::getShader(const std::string & shaderName){

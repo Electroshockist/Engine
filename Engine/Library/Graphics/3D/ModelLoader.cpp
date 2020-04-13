@@ -256,7 +256,6 @@ void ModelLoader::PostProcessing(){
 
 void ModelLoader::LoadMaterial(const std::string & fileName){
 	material = MaterialManager::GetInstance()->GetMaterial(fileName);
-
 }
 
 void ModelLoader::LoadMaterialLibrary(const std::string & matName){

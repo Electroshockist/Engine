@@ -68,7 +68,7 @@
 //		glBindTexture(GL_TEXTURE_2D, diffuse);
 //
 //		//TODO: replace with 
-//		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(camera->getView()));
+//		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(camera->GetView()));
 //		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(camera->getPerspective()));
 //
 //		modelLoc = glGetUniformLocation(shaderProgram, "model");
@@ -86,6 +86,7 @@
 //		Debug::error("Improper variant cast at parameter with name." + std::string(e.what()) + " This error should never occur.", __FILE__, __LINE__);
 //	}
 //}
+
 #include "Mesh.h"
 
 Mesh::Mesh(SubMesh subMesh_, GLuint shaderProgram_)
@@ -152,17 +153,17 @@ void Mesh::Render(Camera* camera, std::vector<glm::mat4> &instances_){
 
 	glBindTexture(GL_TEXTURE_2D, subMesh.material.diffuseMap);
 
-	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(camera->getView()));
-	glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(camera->getPerspective()));
+	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(camera->GetView()));
+	glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(camera->GetPerspective()));
 
-	glm::vec3 copyCamPos = camera->getPosition();
-	glm::vec3 copyLightPos = camera->getLightSources()[0]->GetPosition();
-	glm::vec3 copyLightColor = camera->getLightSources()[0]->GetColour();
+	glm::vec3 copyCamPos = camera->GetPosition();
+	glm::vec3 copyLightPos = camera->GetLightSources()[0]->GetPosition();
+	glm::vec3 copyLightColor = camera->GetLightSources()[0]->GetColour();
 
 	glUniform3f(viewPositionLoc, copyCamPos.x, copyCamPos.y, copyCamPos.z);
 	glUniform3f(lightPosLoc, copyLightPos.x, copyLightPos.y, copyLightPos.z);
-	glUniform1f(lightAmbientLoc, camera->getLightSources()[0]->GetAmbientValue());
-	glUniform1f(lightDiffuseLoc, camera->getLightSources()[0]->GetDiffuseValue());
+	glUniform1f(lightAmbientLoc, camera->GetLightSources()[0]->GetAmbientValue());
+	glUniform1f(lightDiffuseLoc, camera->GetLightSources()[0]->GetDiffuseValue());
 	glUniform3f(lightColourLoc, copyLightColor.x, copyLightColor.y, copyLightColor.z);
 
 	//material

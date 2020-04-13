@@ -46,6 +46,7 @@ bool SDLGLWindow::InitSDL(){
 
 bool SDLGLWindow::InitGL(){
 	context = SDL_GL_CreateContext(window);
+
 	int major, minor;
 	GetInstalledOpenGLInfo(&major, &minor);
 	SetAttributes(major, minor);
@@ -58,7 +59,8 @@ bool SDLGLWindow::InitGL(){
 	}
 
 	glEnable(GL_DEPTH_TEST);
-	glViewport(0, 0, GetHeight(), GetWidth());
+
+	glViewport(0, 0, GetWidth(), GetHeight());
 	return true;
 }
 
@@ -87,5 +89,8 @@ void SDLGLWindow::GetInstalledOpenGLInfo(int *major, int *minor){
 	std::cout << "Graphics card name " << renderer << std::endl;
 	glGetIntegerv(GL_MAJOR_VERSION, major);
 	glGetIntegerv(GL_MINOR_VERSION, minor);
+
+	std::cout << std::endl;
+
 	return;
 }

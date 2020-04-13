@@ -14,7 +14,7 @@
 //	float yaw, pitch;
 //	float nearPlane, farPlane;
 //	glm::vec3 forwardVector, upVector, rightVector, worldUp;
-//	void updateCameraVectors();
+//	void UpdateCameraVectors();
 //	void SetupParameters();
 //
 //	class AWindow *w;
@@ -25,19 +25,19 @@
 //
 //	Parameters parameters;
 //
-//	void setPosition(glm::vec3 position);
-//	void setRotation(float yaw, float pitch);
-//	glm::mat4 getView() const;
-//	const glm::mat4 getPerspective();
-//	const glm::mat4 getOrthographic();
+//	void SetPosition(glm::vec3 position);
+//	void SetRotation(float yaw, float pitch);
+//	glm::mat4 GetView() const;
+//	const glm::mat4 GetPerspective();
+//	const glm::mat4 GetOrthographic();
 //
-//	void processMouseMovement(float xOffset, float yOffset);
-//	void processMouseZoom(int y);
+//	void ProcessMouseMovement(float xOffset, float yOffset);
+//	void ProcessMouseZoom(int y);
 //
 //
-//	glm::vec3 getPosition() const;
+//	glm::vec3 GetPosition() const;
 //
-//	glm::vec2 getClippingPlanes() const;
+//	glm::vec2 GetClippingPlanes() const;
 //};
 //
 //#endif // !CAMERA_H
@@ -100,38 +100,40 @@ public:
 };
 
 class Camera{
+	friend class SkyBox;
 	glm::vec3 position;
 	glm::mat4 perspective, orthographic;
 	float fieldOfView;
 	float yaw, pitch;
 	float nearPlane, farPlane;
 	glm::vec3 forwardVector, upVector, rightVector, worldUp;
-	void updateCameraVectors();
 	std::vector<LightSource*> lightSources;
 
 	Frustum frustum;
+
+	void UpdateCameraVectors();
 
 public:
 	Camera();
 	~Camera();
 
-	void setPosition(glm::vec3 position);
-	void setRotation(float yaw, float pitch);
-	glm::mat4 getView() const;
-	const glm::mat4 getPerspective();
-	const glm::mat4 getOrthographic();
+	void SetPosition(glm::vec3 position);
+	void SetRotation(float yaw, float pitch);
+	glm::mat4 GetView() const;
+	const glm::mat4 GetPerspective();
+	const glm::mat4 GetOrthographic();
 
-	void processMouseMovement(float xOffset, float yOffset);
-	void processMouseZoom(int y);
+	void ProcessMouseMovement(float xOffset, float yOffset);
+	void ProcessMouseZoom(int y);
 
-	Frustum getFrustum() const;
+	Frustum GetFrustum() const;
 
-	void addLightSources(LightSource* light);
-	std::vector<LightSource*> getLightSources();
+	void AddLightSources(LightSource* light);
+	std::vector<LightSource*> GetLightSources();
 
-	glm::vec3 getPosition() const;
+	glm::vec3 GetPosition() const;
 
-	glm::vec2 getClippingPlanes() const;
+	glm::vec2 GetClippingPlanes() const;
 };
 #endif // !CAMERA_H
 
