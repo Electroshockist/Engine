@@ -5,11 +5,13 @@
 #include "../Library/Graphics/3D/Model.h"
 #include "../Library/Graphics/Camera/3D/Camera.h"
 #include "../Library/Graphics/3D/SkyBox.h"
+#include "../Library/Effects/Particle.h"
 
 struct World1 : public AWorld {
 	Model * model;
 	Camera *camera;
 	SkyBox* skybox;
+	ParticleGenerator p;
 
 	World1() : camera(nullptr), model(nullptr), skybox(nullptr){}
 

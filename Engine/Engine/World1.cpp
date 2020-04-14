@@ -19,7 +19,7 @@ bool World1::OnCreate(){
 	camera = new Camera();
 	camera->SetPosition(glm::vec3(0, 0, 10));
 	camera->AddLightSources(new LightSource(glm::vec3(5.0f, 10.0f, 5.0f), 1.0f, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f)));
-
+	//p = ParticleGenerator()
 	skybox = new SkyBox();
 	skybox->onCreate();
 	//m = ModelLoader::GetInstance()->LoadModel("./Resources/Models/Dice.obj","./Resources/Materials/Dice.mtl", ShaderManager::GetInstance()->getShader("basicShader"));

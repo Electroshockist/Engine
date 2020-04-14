@@ -1,45 +1,46 @@
 #include "Particle.h"
 
-//ParticleGenerator::ParticleGenerator(GLuint amount)
-//	: shader(shader), texture(texture), amount(amount){
-//	this->init();
-//}
-//
-//void ParticleGenerator::Update(GLfloat dt, GLuint newParticles, glm::vec2 offset){
-//	// Add new particles 
-//	for(GLuint i = 0; i < newParticles; ++i){
-//		int unusedParticle = this->firstUnusedParticle();
-//		this->respawnParticle(this->particles[unusedParticle], object, offset);
-//	}
-//	// Update all particles
-//	for(GLuint i = 0; i < this->amount; ++i){
-//		Particle& p = this->particles[i];
-//		p.Life -= dt; // reduce life
-//		if(p.Life > 0.0f){	// particle is alive, thus update
-//			p.Position -= p.Velocity * dt;
-//			p.Color.a -= dt * 2.5;
-//		}
-//	}
-//}
+ParticleGenerator::ParticleGenerator(Shader shader, Texture2D texture, GLuint amount)
+	: shader(shader), texture(texture), amount(amount){
+	this->init();
+}
+
+void ParticleGenerator::Update(GLfloat dt, glm::vec3 position, glm::vec3 velocity,GLuint newParticles, glm::vec3 offset)
+{
+	// Add new particles 
+	for (GLuint i = 0; i < newParticles; ++i) {
+		int unusedParticle = this->firstUnusedParticle();
+		this->respawnParticle(this->particles[unusedParticle], position, offset);
+	}
+	// Update all particles
+	for (GLuint i = 0; i < this->amount; ++i) {
+		Particle& p = this->particles[i];
+		p.Life -= dt; // reduce life
+		if (p.Life > 0.0f) {	// particle is alive, thus update
+			p.Position -= p.Velocity * dt;
+			p.Color.a -= dt * 2.5;
+		}
+	}
+}
 
 //// Render all particles
-//void ParticleGenerator::Draw(){
-//	// Use additive blending to give it a 'glow' effect
-//	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-//	this->shader.Use();
-//	for(Particle particle : this->particles){
-//		if(particle.Life > 0.0f){
-//			this->shader.SetVector2f("offset", particle.Position);
-//			this->shader.SetVector4f("color", particle.Color);
-//			this->texture.Bind();
-//			glBindVertexArray(this->VAO);
-//			glDrawArrays(GL_TRIANGLES, 0, 6);
-//			glBindVertexArray(0);
-//		}
-//	}
-//	// Don't forget to reset to default blending mode
-//	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-//}
+void ParticleGenerator::Draw(){
+	// Use additive blending to give it a 'glow' effect
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+	this->shader.Use();
+	for(Particle particle : this->particles){
+		if(particle.Life > 0.0f){
+			this->shader.SetVector2f("offset", particle.Position);
+			this->shader.SetVector4f("color", particle.Color);
+			this->texture.Bind();
+			glBindVertexArray(this->VAO);
+			glDrawArrays(GL_TRIANGLES, 0, 6);
+			glBindVertexArray(0);
+		}
+	}
+	// Don't forget to reset to default blending mode
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+}
 
 void ParticleGenerator::init(){
 	// Set up mesh and attribute properties
@@ -94,11 +95,11 @@ GLuint ParticleGenerator::firstUnusedParticle(){
 	return 0;
 }
 
-//void ParticleGenerator::respawnParticle(ParticleGenerator& particle, GameObject& object, glm::vec2 offset){
-//	GLfloat random = ((rand() % 100) - 50) / 10.0f;
-//	GLfloat rColor = 0.5 + ((rand() % 100) / 100.0f);
-//	particle.Position = object.Position + random + offset;
-//	particle.Color = glm::vec4(rColor, rColor, rColor, 1.0f);
-//	particle.Life = 1.0f;
-//	particle.Velocity = object.Velocity * 0.1f;
-//}
+void ParticleGenerator::respawnParticle(Particle& particle, glm::vec3 position, glm::vec3 velocity ,glm::vec3 offset){
+	GLfloat random = ((rand() % 100) - 50) / 10.0f;
+	GLfloat rColor = 0.5 + ((rand() % 100) / 100.0f);
+	particle.Position = position + random + offset;
+	particle.Color = glm::vec4(rColor, rColor, rColor, 1.0f);
+	particle.Life = 1.0f;
+	particle.Velocity = velocity;
+}
