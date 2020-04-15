@@ -6,7 +6,7 @@
 
 #include "ModelLoader.h"
 
-class SkyBox {
+class SkyBox{
 	void GenerateBuffers();
 	void RenderMesh(Camera* camera);
 
@@ -19,11 +19,12 @@ class SkyBox {
 	void loadModel();
 	glm::mat4 modelInstance;
 
+	glm::vec3 rotation; 
 	float angle;
 
 	ModelLoader* obj;
 public:
-	SkyBox(){}
+	SkyBox() : modelInstance(glm::mat4(1)){}
 	~SkyBox();
 	bool onCreate();
 
@@ -33,6 +34,8 @@ public:
 
 	void createInstance(float angle, glm::vec3 rotation);
 	inline GLuint getShaderProgram() const{ return shaderProgram; }
+
+	void onMouseMove(int x, int y);
 
 };
 #endif // !SKYBOX_H

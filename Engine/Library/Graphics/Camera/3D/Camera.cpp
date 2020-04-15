@@ -126,6 +126,11 @@ void Camera::UpdateCameraVectors(){
 	rightVector = glm::normalize(glm::cross(forwardVector, worldUp));
 	upVector = glm::normalize(glm::cross(rightVector, forwardVector));
 
+
+	//Rotate(yaw, glm::vec3(0, 1, 0));
+	//Rotate(pitch, glm::vec3(1, 0, 0));
+	//Rotate(yaw, glm::vec3(0, 1, 0));
+
 	frustum.updateMatrix(GetPerspective(), GetView());
 }
 
@@ -151,8 +156,8 @@ void Camera::SetRotation(float yaw, float pitch){
 	UpdateCameraVectors();
 }
 
-glm::mat4 Camera::GetView() const{
-	auto view = glm::lookAt(position, position + forwardVector, upVector);
+glm::mat4 Camera::GetView(){
+	auto view =/* GetTranslationmatrix() * GetRotationmatrix();*/glm::lookAt(position, position + forwardVector, upVector);
 	return view;
 }
 
@@ -167,6 +172,24 @@ const glm::mat4 Camera::GetOrthographic(){
 	const glm::vec2 & d = EngineMain::GetInstance()->w->getDimensions();
 	orthographic = glm::ortho(0.0f, d.x, 0.0f, d.y, -1.0f, 1.0f);
 	return orthographic;
+}
+
+void Camera::Translate(glm::vec3 translate){
+	translation = glm::translate(translation, translate);
+	frustum.updateMatrix(GetPerspective(), GetView());
+}
+
+void Camera::Rotate(float angle, glm::vec3 axis){
+	rotation = glm::rotate(rotation, angle, axis);
+	frustum.updateMatrix(GetPerspective(), GetView());
+}
+
+glm::mat4 Camera::GetRotationmatrix() const{
+	return rotation;
+}
+
+glm::mat4 Camera::GetTranslationmatrix() const{
+	return translation;
 }
 
 void Camera::ProcessMouseMovement(float xOffset, float yOffset){
@@ -218,65 +241,4 @@ glm::vec3 Camera::GetPosition() const{
 
 glm::vec2 Camera::GetClippingPlanes() const{
 	return glm::vec2(nearPlane, farPlane);
-}
-
-Frustum::~Frustum(){}
-
-bool Frustum::isInView(const glm::vec3& point){
-	int sum = 0;
-	for(auto plane : planes){
-		sum += (int)classifyPoint(plane, point);
-	}
-
-	return sum == 6;
-}
-
-
-void Frustum::updateMatrix(glm::mat4 projMatrix, glm::mat4 viewMatrix){
-
-	glm::mat4 matrix = projMatrix * viewMatrix;
-
-	//Right clipping plane
-	planes[Right].x = matrix[0][3] - matrix[0][0];
-	planes[Right].y = matrix[1][3] - matrix[1][0];
-	planes[Right].z = matrix[2][3] - matrix[2][0];
-	planes[Right].w = matrix[3][3] - matrix[3][0];
-
-	//Left clipping plane
-	planes[Left].x = matrix[0][3] + matrix[0][0];
-	planes[Left].y = matrix[1][3] + matrix[1][0];
-	planes[Left].z = matrix[2][3] + matrix[2][0];
-	planes[Left].w = matrix[3][3] + matrix[3][0];
-
-	//Bottom clipping plane
-	planes[Bottom].x = matrix[0][3] + matrix[0][1];
-	planes[Bottom].y = matrix[1][3] + matrix[1][1];
-	planes[Bottom].z = matrix[2][3] + matrix[2][1];
-	planes[Bottom].w = matrix[3][3] + matrix[3][1];
-
-	//Top clipping plane
-	planes[Top].x = matrix[0][3] - matrix[0][1];
-	planes[Top].y = matrix[1][3] - matrix[1][1];
-	planes[Top].z = matrix[2][3] - matrix[2][1];
-	planes[Top].w = matrix[3][3] - matrix[3][1];
-
-	//Near clipping plane
-	planes[Near].x = matrix[0][3] - matrix[0][2];
-	planes[Near].y = matrix[1][3] - matrix[1][2];
-	planes[Near].z = matrix[2][3] - matrix[2][2];
-	planes[Near].w = matrix[3][3] - matrix[3][2];
-
-	//Far clipping plane
-	planes[Far].x = matrix[0][3] + matrix[0][2];
-	planes[Far].y = matrix[1][3] + matrix[1][2];
-	planes[Far].z = matrix[2][3] + matrix[2][2];
-	planes[Far].w = matrix[3][3] + matrix[3][2];
-
-	//Normalize planes
-	normalizePlane(planes[Left]);
-	normalizePlane(planes[Right]);
-	normalizePlane(planes[Top]);
-	normalizePlane(planes[Bottom]);
-	normalizePlane(planes[Near]);
-	normalizePlane(planes[Far]);
 }

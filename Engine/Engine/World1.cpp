@@ -7,6 +7,7 @@
 #include "../Library/Effects/LightSource.h"
 #include "../Library/Data Structures/Events/Mouse/MouseEventHandler.h"
 #include "../Library/Graphics/3D/SkyBox.h"
+#include "../Library/Effects/Particle.h"
 #include "EngineMain.h"
 
 bool World1::OnCreate(){
@@ -19,7 +20,14 @@ bool World1::OnCreate(){
 	camera = new Camera();
 	camera->SetPosition(glm::vec3(0, 0, 10));
 	camera->AddLightSources(new LightSource(glm::vec3(5.0f, 10.0f, 5.0f), 1.0f, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f)));
-	//p = ParticleGenerator()
+
+	Shader s = Shader();
+	s.Compile("./Resources/Shaders/particleVert.glsl", "./Resources/Shaders/particleFrag.glsl");
+	Texture2D t = Texture2D();
+	//unsigned char* c = ;
+	//t.Generate(20, 20, "");
+	p = new ParticleGenerator(s, t, 20);
+
 	skybox = new SkyBox();
 	skybox->onCreate();
 	//m = ModelLoader::GetInstance()->LoadModel("./Resources/Models/Dice.obj","./Resources/Materials/Dice.mtl", ShaderManager::GetInstance()->getShader("basicShader"));
@@ -42,6 +50,7 @@ bool World1::OnCreate(){
 }
 
 bool World1::Update(const float deltaTime_){
+	p->Update(deltaTime_, glm::vec3(0, 2, 0), glm::vec3(0, 2, 0), 20, glm::vec3(2));
 	return true;
 }
 
@@ -49,6 +58,8 @@ bool World1::Render(){
 	skybox->Render(camera);
 	glUseProgram(ShaderManager::getShader("basicShader"));
 	model->render(camera);
+
+	p->Draw();
 
 	glUseProgram(0);
 	return true;
@@ -58,5 +69,10 @@ void World1::OnMouseMove(int x, int y){
 	if(camera){
 		camera->ProcessMouseMovement(MouseEventHandler::GetMouseOffset().x,
 									 MouseEventHandler::GetMouseOffset().y);
+	}
+
+	if(skybox){
+		skybox->onMouseMove(MouseEventHandler::GetMouseOffset().x,
+							MouseEventHandler::GetMouseOffset().y);
 	}
 }

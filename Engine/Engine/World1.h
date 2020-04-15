@@ -11,7 +11,7 @@ struct World1 : public AWorld {
 	Model * model;
 	Camera *camera;
 	SkyBox* skybox;
-	ParticleGenerator p;
+	ParticleGenerator* p;
 
 	World1() : camera(nullptr), model(nullptr), skybox(nullptr){}
 

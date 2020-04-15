@@ -7,16 +7,7 @@
 #include "../Shaders/ShaderManager.h"
 
 glm::mat4 SkyBox::getTransform(float angle, glm::vec3 rotation){
-	glm::mat4 tModel;
-	glm::mat4 rModel;
-	glm::mat4 sModel;
-
-	tModel = glm::translate(glm::mat4(1), glm::vec3());
-	rModel = glm::rotate(glm::mat4(1), angle, rotation);
-	sModel = glm::scale(glm::mat4(1), glm::vec3(1));
-
-	glm::mat4 model = tModel * rModel * sModel;
-	return model;
+	return glm::rotate(modelInstance, angle, rotation);
 }
 
 void SkyBox::loadModel(){
@@ -35,10 +26,6 @@ bool SkyBox::onCreate(){
 
 	obj->loadModel("./Resources/Models/cube.obj");
 	this->loadModel();
-
-	createInstance(angle, glm::vec3(0,1,0));
-
-	////////////////
 
 	glGenTextures(1, &subMesh.material.diffuseMap);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, subMesh.material.diffuseMap);
@@ -123,6 +110,10 @@ void SkyBox::createInstance(float angle, glm::vec3 rotation){
 	modelInstance = getTransform(angle, rotation);
 }
 
+void SkyBox::onMouseMove(int x, int y){
+
+}
+
 void SkyBox::GenerateBuffers(){
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
@@ -176,7 +167,7 @@ void SkyBox::Render(Camera* camera){
 void SkyBox::RenderMesh(Camera * camera){
 	glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(camera->GetPerspective()));
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(modelInstance));
-	
+
 	glBindVertexArray(VAO);
 
 	glDrawArrays(GL_TRIANGLES, 0, subMesh.vertexList.size());
