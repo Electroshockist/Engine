@@ -12,11 +12,23 @@
 
 bool World1::OnCreate(){
 	model = new Model("./Resources/Models/Dice.obj", "./Resources/Materials/Dice.mtl", ShaderManager::GetInstance()->getShader("basicShader"));
+	model2 = new Model("./Resources/Models/Dice.obj", "./Resources/Materials/Dice.mtl", ShaderManager::GetInstance()->getShader("noiseShader"));
+	
+	normalMatrix = model2.
 	glm::vec3 position = glm::vec3(-3.0, -4.0, 0.0);
+	glm::vec3 position2 = glm::vec3(-5.0, -2.0, 0.0);
+
 	float angle = 0.0f;
+	float angle2 = 0.0f;
+
 	glm::vec3 rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+	glm::vec3 rotation2 = glm::vec3(0.0f, 1.0f, 0.0f);
 	glm::vec3 scale = glm::vec3(1.0f);
+	glm::vec3 scale2 = glm::vec3(2.0f);
+
 	int modelInstance = model->createInstance(position, angle, rotation, scale);
+	int modelInstance2 = model2->createInstance(position2, angle2, rotation2, scale2);
+
 	camera = new Camera();
 	camera->SetPosition(glm::vec3(0, 0, 10));
 	camera->AddLightSources(new LightSource(glm::vec3(5.0f, 10.0f, 5.0f), 1.0f, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f)));
@@ -56,8 +68,12 @@ bool World1::Update(const float deltaTime_){
 
 bool World1::Render(){
 	skybox->Render(camera);
+
 	glUseProgram(ShaderManager::getShader("basicShader"));
 	model->render(camera);
+
+	glUseProgram(ShaderManager::getShader("noiseShader"));
+	model2->render(camera);
 
 	p->Draw();
 

@@ -138,7 +138,6 @@ void Mesh::GenerateBuffers(){
 	lightDiffuseLoc = glGetUniformLocation(shaderProgram, "light.diffuseValue");
 	lightColourLoc = glGetUniformLocation(shaderProgram, "light.color");
 
-
 	diffuseMapLoc = glGetUniformLocation(shaderProgram, "material.diffuseMap");
 	shineLoc = glGetUniformLocation(shaderProgram, "material.shininess");
 	transparencyLoc = glGetUniformLocation(shaderProgram, "material.transparency");

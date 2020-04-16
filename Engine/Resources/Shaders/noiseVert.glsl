@@ -7,9 +7,9 @@ out vec3 Normal;
 out vec3 Position;
 out vec4 Offset;
 
-uniform mat4 modelMatrix;
-uniform mat4 viewMatrix;
-uniform mat4 projectionMatrix;
+uniform mat4 model;
+uniform mat4 view;
+uniform mat4 proj;
 uniform mat4 normalMatrix;
 uniform vec3 lightPos;
 uniform float time;
@@ -27,7 +27,7 @@ void main() {
 	
 	vec3 p = aPos + randN;
 	
-    Normal = mat3(transpose(inverse(modelMatrix))) * aNormal;
-    Position = vec3(modelMatrix * vec4(p, 1.0));
-    gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(p, 1.0);
+    Normal = mat3(transpose(inverse(model))) * aNormal;
+    Position = vec3(model * vec4(p, 1.0));
+    gl_Position = proj * view * model * vec4(p, 1.0);
 }

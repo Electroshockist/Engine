@@ -8,12 +8,14 @@
 #include "../Library/Effects/Particle.h"
 
 struct World1 : public AWorld {
-	Model * model;
+	Model * model, *model2;
 	Camera *camera;
 	SkyBox* skybox;
 	ParticleGenerator* p;
 
-	World1() : camera(nullptr), model(nullptr), skybox(nullptr){}
+	glm::mat3 normalMatrix;
+
+	World1() : camera(nullptr), model(nullptr), model2(nullptr),p(nullptr),skybox(nullptr){}
 
 	~World1(){
 		delete camera;
