@@ -1,5 +1,5 @@
-#ifndef PARAMETER
-#define PARAMETER
+#ifndef PARAMETER_H
+#define PARAMETER_H
 
 #include <variant>
 
