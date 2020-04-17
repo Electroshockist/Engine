@@ -34,6 +34,10 @@ bool EngineMain::OnCreate(int argc, char *argv[]){
 												"./Resources/Shaders/skyVert.glsl",
 												"./Resources/Shaders/skyFrag.glsl"
 	);
+	ShaderManager::GetInstance()->createProgram("particleShader",
+												"./Resources/Shaders/particleVert.glsl",
+												"./Resources/Shaders/particleFrag.glsl"
+	);
 
 	mousePress.Subscribe(&MouseEventHandler::mousePress);
 	mouseRelease.Subscribe(&MouseEventHandler::mouseRelease);
@@ -86,7 +90,9 @@ void EngineMain::notifyMouseMove(int mouseX, int mouseY){
 	world.OnMouseMove(mouseX, mouseY);
 }
 
-void EngineMain::notifyMouseScroll(int scroll){}
+void EngineMain::notifyMouseScroll(int scroll){
+	world.OnMouseZoom(scroll);
+}
 
 void EngineMain::Exit(){
 	isRunning = false;

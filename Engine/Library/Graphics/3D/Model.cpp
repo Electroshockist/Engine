@@ -111,6 +111,10 @@ glm::mat4 Model::getTransform(int index_) const{
 	return modelInstances[index_];
 }
 
+std::vector<glm::mat4> Model::getInstances() const{
+	return modelInstances;
+}
+
 GLuint Model::getShaderProgram() const{
 	return shaderProgram;
 }

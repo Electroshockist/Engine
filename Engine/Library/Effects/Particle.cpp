@@ -1,22 +1,35 @@
 #include "Particle.h"
 
-ParticleGenerator::ParticleGenerator(Shader shader, Texture2D texture, GLuint amount)
-	: shader(shader), texture(texture), amount(amount){
+#include "../Graphics/Textures/TextureManager.h"
+
+ParticleGenerator::ParticleGenerator(GLuint shader, std::string textureFile, GLuint amount)
+	: shader(shader), amount(amount){
+
+	auto loadTexture = [](std::string file){
+		GLuint currentTexture = TextureManager::GetInstance()->GetTexture(file);
+		if(currentTexture == 0){
+			TextureManager::GetInstance()->CreateTexture(file, "Resources/Textures/" + file + ".jpg");
+			currentTexture = TextureManager::GetInstance()->GetTexture(file);
+		}
+		return currentTexture;
+	};
+
+	texture = loadTexture(textureFile);
+
 	this->init();
 }
 
-void ParticleGenerator::Update(GLfloat dt, glm::vec3 position, glm::vec3 velocity,GLuint newParticles, glm::vec3 offset)
-{
+void ParticleGenerator::Update(GLfloat dt, glm::vec3 position, glm::vec3 velocity, GLuint newParticles, glm::vec3 offset){
 	// Add new particles 
-	for (GLuint i = 0; i < newParticles; ++i) {
+	for(GLuint i = 0; i < newParticles; ++i){
 		int unusedParticle = this->firstUnusedParticle();
 		this->respawnParticle(this->particles[unusedParticle], position, offset);
 	}
 	// Update all particles
-	for (GLuint i = 0; i < this->amount; ++i) {
+	for(GLuint i = 0; i < this->amount; ++i){
 		Particle& p = this->particles[i];
 		p.Life -= dt; // reduce life
-		if (p.Life > 0.0f) {	// particle is alive, thus update
+		if(p.Life > 0.0f){	// particle is alive, thus update
 			p.Position -= p.Velocity * dt;
 			p.Color.a -= dt * 2.5;
 		}
@@ -27,12 +40,19 @@ void ParticleGenerator::Update(GLfloat dt, glm::vec3 position, glm::vec3 velocit
 void ParticleGenerator::Draw(){
 	// Use additive blending to give it a 'glow' effect
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-	this->shader.Use();
+	glUseProgram(shader);
 	for(Particle particle : this->particles){
 		if(particle.Life > 0.0f){
-			this->shader.SetVector2f("offset", particle.Position);
-			this->shader.SetVector4f("color", particle.Color);
-			this->texture.Bind();
+			glUniform1i(glGetUniformLocation(shader, "material.diffuseMap"), 0);
+			glActiveTexture(GL_TEXTURE0);
+
+			glBindTexture(GL_TEXTURE_2D, texture);
+
+			glUniform2f(glGetUniformLocation(shader, "offset"), particle.Position.x, particle.Position.y);
+			glUniform4f(glGetUniformLocation(shader, "color"), particle.Color.x, particle.Color.y, particle.Color.z, particle.Color.w);
+
+			//cleanup
+			glBindTexture(GL_TEXTURE_2D, 0);
 			glBindVertexArray(this->VAO);
 			glDrawArrays(GL_TRIANGLES, 0, 6);
 			glBindVertexArray(0);
@@ -95,7 +115,7 @@ GLuint ParticleGenerator::firstUnusedParticle(){
 	return 0;
 }
 
-void ParticleGenerator::respawnParticle(Particle& particle, glm::vec3 position, glm::vec3 velocity ,glm::vec3 offset){
+void ParticleGenerator::respawnParticle(Particle& particle, glm::vec3 position, glm::vec3 velocity, glm::vec3 offset){
 	GLfloat random = ((rand() % 100) - 50) / 10.0f;
 	GLfloat rColor = 0.5 + ((rand() % 100) / 100.0f);
 	particle.Position = position + random + offset;

@@ -6,8 +6,9 @@
 #include "../Library/Graphics/Camera/3D/Camera.h"
 #include "../Library/Graphics/3D/SkyBox.h"
 #include "../Library/Effects/Particle.h"
+GLuint CreateNoise3D();
 
-struct World1 : public AWorld {
+struct World1 : public AWorld{
 	Model * model, *model2;
 	Camera *camera;
 	SkyBox* skybox;
@@ -15,7 +16,7 @@ struct World1 : public AWorld {
 
 	glm::mat3 normalMatrix;
 
-	World1() : camera(nullptr), model(nullptr), model2(nullptr),p(nullptr),skybox(nullptr){}
+	World1() : camera(nullptr), model(nullptr), model2(nullptr), p(nullptr), skybox(nullptr), elapsedTime(0){}
 
 	~World1(){
 		delete camera;
@@ -28,6 +29,9 @@ struct World1 : public AWorld {
 	virtual bool Render() override;
 
 	void OnMouseMove(int x, int y);
+	void OnMouseZoom(int zoom);
+private:
+	float elapsedTime;
 };
 
 

@@ -63,18 +63,17 @@ class Camera{
 	float fieldOfView;
 	float yaw, pitch;
 	float nearPlane, farPlane;
-	glm::vec3 forwardVector, upVector, rightVector, worldUp;
+	//glm::vec3 forwardVector, upVector, rightVector, worldUp;
 	std::vector<LightSource*> lightSources;
 
 	Frustum frustum;
-
-	void UpdateCameraVectors();
-
 public:
 	Camera();
 	~Camera();
 
-	void SetPosition(glm::vec3 position);
+	glm::vec2 sensitivity;
+
+	//void SetPosition(glm::vec3 position);
 	void SetRotation(float yaw, float pitch);
 	glm::mat4 GetView();
 	const glm::mat4 GetPerspective();
@@ -82,7 +81,9 @@ public:
 
 	void Translate(glm::vec3 translate);
 
-	void Rotate(float angle, glm::vec3 axis);
+	glm::vec3 GetForwardVector();
+
+	//void Rotate(float angle, glm::vec3 axis);
 
 	glm::mat4 GetRotationmatrix() const;
 	glm::mat4 GetTranslationmatrix() const;

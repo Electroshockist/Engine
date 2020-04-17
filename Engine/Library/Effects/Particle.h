@@ -20,7 +20,7 @@ struct Particle{
 
 struct ParticleGenerator{
 	//// Constructor
-	ParticleGenerator(Shader shader, Texture2D texture, GLuint amount);
+	ParticleGenerator(GLuint shader, std::string textureFile, GLuint amount);
 	//// Update all particles
 	void Update(GLfloat dt, glm::vec3 position, glm::vec3 velocity, GLuint newParticles, glm::vec3 offset);
 	// Render all particles
@@ -30,8 +30,8 @@ private:
 	std::vector<Particle> particles;
 	GLuint amount;
 	// Render state
-	Shader shader;
-	Texture2D texture;
+	GLuint shader;
+	GLuint texture;
 	GLuint VAO;
 	// Initializes buffer and vertex attributes
 	void init();

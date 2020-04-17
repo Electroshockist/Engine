@@ -11,10 +11,10 @@
 #include "EngineMain.h"
 
 bool World1::OnCreate(){
+	CreateNoise3D();
 	model = new Model("./Resources/Models/Dice.obj", "./Resources/Materials/Dice.mtl", ShaderManager::GetInstance()->getShader("basicShader"));
 	model2 = new Model("./Resources/Models/Dice.obj", "./Resources/Materials/Dice.mtl", ShaderManager::GetInstance()->getShader("noiseShader"));
 	
-	normalMatrix = model2.
 	glm::vec3 position = glm::vec3(-3.0, -4.0, 0.0);
 	glm::vec3 position2 = glm::vec3(-5.0, -2.0, 0.0);
 
@@ -29,16 +29,13 @@ bool World1::OnCreate(){
 	int modelInstance = model->createInstance(position, angle, rotation, scale);
 	int modelInstance2 = model2->createInstance(position2, angle2, rotation2, scale2);
 
+	normalMatrix = glm::mat4(model2->getInstances()[0]);
+
 	camera = new Camera();
-	camera->SetPosition(glm::vec3(0, 0, 10));
+	camera->Translate(glm::vec3(0, 0, 10));
 	camera->AddLightSources(new LightSource(glm::vec3(5.0f, 10.0f, 5.0f), 1.0f, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f)));
 
-	Shader s = Shader();
-	s.Compile("./Resources/Shaders/particleVert.glsl", "./Resources/Shaders/particleFrag.glsl");
-	Texture2D t = Texture2D();
-	//unsigned char* c = ;
-	//t.Generate(20, 20, "");
-	p = new ParticleGenerator(s, t, 20);
+	p = new ParticleGenerator(ShaderManager::GetInstance()->getShader("particleShader"), "Apple_Body", 20);
 
 	skybox = new SkyBox();
 	skybox->onCreate();
@@ -62,6 +59,7 @@ bool World1::OnCreate(){
 }
 
 bool World1::Update(const float deltaTime_){
+	elapsedTime += deltaTime_;
 	p->Update(deltaTime_, glm::vec3(0, 2, 0), glm::vec3(0, 2, 0), 20, glm::vec3(2));
 	return true;
 }
@@ -73,6 +71,10 @@ bool World1::Render(){
 	model->render(camera);
 
 	glUseProgram(ShaderManager::getShader("noiseShader"));
+	glUniformMatrix4fv(glGetUniformLocation(ShaderManager::getShader("noiseShader"), "normalMatrix"), 1, GL_FALSE, glm::value_ptr(normalMatrix));
+
+	glUniformMatrix3fv(glGetUniformLocation(ShaderManager::getShader("noiseShader"), "cameraPos"), 1, GL_FALSE, glm::value_ptr(camera->GetPosition()));
+	glUniform1f(glGetUniformLocation(ShaderManager::getShader("noiseShader"), "time"), elapsedTime);
 	model2->render(camera);
 
 	p->Draw();
@@ -90,5 +92,11 @@ void World1::OnMouseMove(int x, int y){
 	if(skybox){
 		skybox->onMouseMove(MouseEventHandler::GetMouseOffset().x,
 							MouseEventHandler::GetMouseOffset().y);
+	}
+}
+
+void World1::OnMouseZoom(int zoom){
+	if(camera){
+		camera->ProcessMouseZoom(zoom);
 	}
 }

@@ -166,7 +166,7 @@ void SkyBox::Render(Camera* camera){
 
 void SkyBox::RenderMesh(Camera * camera){
 	glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(camera->GetPerspective()));
-	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(modelInstance));
+	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(modelInstance * camera->GetRotationmatrix()));
 
 	glBindVertexArray(VAO);
 
