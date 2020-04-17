@@ -41,9 +41,10 @@
 #include "ModelLoader.h"
 #include <glm/gtc/matrix_transform.hpp>
 
+
 class Model{
 	std::vector<Mesh*> subMeshes;
-	GLuint shaderProgram;
+	Shader*  shaderProgram;
 	glm::vec3 position;
 	float angle;
 	glm::mat4 getTransform(glm::vec3 position, float angle, glm::vec3 rotation, glm::vec3 scale);
@@ -52,7 +53,7 @@ class Model{
 	ModelLoader* obj;
 
 public:
-	Model(const std::string& objPath, const std::string& matPath, GLuint shaderProgram);
+	Model(const std::string& objPath, const std::string& matPath, Shader * shaderProgram);
 	~Model();
 	void addMesh(Mesh* mesh);
 	void render(Camera* camera);
@@ -67,7 +68,7 @@ public:
 		return position;
 	}
 
-	GLuint getShaderProgram() const;
+	Shader * getShaderProgram() const;
 };
 #endif // !MODEL_H
 

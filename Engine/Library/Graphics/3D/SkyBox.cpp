@@ -142,12 +142,12 @@ void SkyBox::GenerateBuffers(){
 	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-	modelLoc = glGetUniformLocation(shaderProgram, "model");
-	projLoc = glGetUniformLocation(shaderProgram, "proj");
+	modelLoc = glGetUniformLocation(shaderProgram->GetID(), "model");
+	projLoc = glGetUniformLocation(shaderProgram->GetID(), "proj");
 }
 
 void SkyBox::Render(Camera* camera){
-	glUseProgram(shaderProgram);
+	glUseProgram(shaderProgram->GetID());
 
 	glDisable(GL_DEPTH_TEST);
 	glDisable(GL_CULL_FACE);

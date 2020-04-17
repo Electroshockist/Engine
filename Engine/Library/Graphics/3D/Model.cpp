@@ -64,7 +64,7 @@
 #include "Model.h"
 #include <iostream>
 
-Model::Model(const std::string& objPath_, const std::string& matPath_, GLuint shaderProgram_)
+Model::Model(const std::string& objPath_, const std::string& matPath_, Shader * shaderProgram_)
 	: subMeshes(std::vector<Mesh*>()), shaderProgram(0), modelInstances(std::vector<glm::mat4>()){
 	shaderProgram = shaderProgram_;
 	obj = new ModelLoader();
@@ -115,7 +115,7 @@ std::vector<glm::mat4> Model::getInstances() const{
 	return modelInstances;
 }
 
-GLuint Model::getShaderProgram() const{
+Shader * Model::getShaderProgram() const{
 	return shaderProgram;
 }
 

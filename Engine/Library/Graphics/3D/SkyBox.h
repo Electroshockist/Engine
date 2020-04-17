@@ -11,7 +11,7 @@ class SkyBox{
 	void RenderMesh(Camera* camera);
 
 	GLuint VAO, VBO;
-	GLuint shaderProgram;
+	Shader* shaderProgram;
 	GLuint modelLoc, projLoc;
 	SubMesh subMesh;
 
@@ -33,7 +33,7 @@ public:
 	void Render(Camera * camera);
 
 	void createInstance(float angle, glm::vec3 rotation);
-	inline GLuint getShaderProgram() const{ return shaderProgram; }
+	inline Shader* getShaderProgram() const{ return shaderProgram; }
 
 	void onMouseMove(int x, int y);
 

@@ -2,7 +2,7 @@
 
 std::unique_ptr<ShaderManager> ShaderManager::shaderInstance = nullptr;
 
-std::map<std::string, GLuint> ShaderManager::programs = std::map<std::string, GLuint>();
+std::map<std::string, Shader> ShaderManager::programs = std::map<std::string, Shader>();
 
 
 ShaderManager::ShaderManager(){}
@@ -10,7 +10,7 @@ ShaderManager::ShaderManager(){}
 ShaderManager::~ShaderManager(){
 	if(programs.size() != 0){
 		for(auto index : programs){
-			glDeleteProgram(index.second);
+			glDeleteProgram(index.second.GetID());
 		}
 		programs.clear();
 	}
@@ -69,36 +69,36 @@ void ShaderManager::createProgram(const std::string & shaderName, const std::str
 
 	GLuint vertexShader = createShader(GL_VERTEX_SHADER, vertexShaderCode, shaderName);
 	GLuint fragmentShader = createShader(GL_FRAGMENT_SHADER, fragmentShaderCode, shaderName);
-
+	Shader shader;
 	GLint linkResult = 0;
-	GLuint program = glCreateProgram();
-	glAttachShader(program, vertexShader);
-	glAttachShader(program, fragmentShader);
+	shader.ID = glCreateProgram();
+	glAttachShader(shader.ID, vertexShader);
+	glAttachShader(shader.ID, fragmentShader);
 
-	glLinkProgram(program);
+	glLinkProgram(shader.ID);
 
-	glGetProgramiv(program, GL_LINK_STATUS, &linkResult);
+	glGetProgramiv(shader.ID, GL_LINK_STATUS, &linkResult);
 
 	if(!linkResult){
 		GLint logLength = 0;
-		glGetProgramiv(program, GL_INFO_LOG_LENGTH, &logLength);
+		glGetProgramiv(shader.ID, GL_INFO_LOG_LENGTH, &logLength);
 		std::vector<char> programLog(logLength);
-		glGetProgramInfoLog(program, logLength, NULL, &programLog[0]);
+		glGetProgramInfoLog(shader.ID, logLength, NULL, &programLog[0]);
 		std::string logString(programLog.begin(), programLog.end());
 		Debug::error("Shader " + shaderName + " failed to link. " + programLog[0], __FILE__, __LINE__);
 		return;
 	}
-	programs[shaderName] = program;
+	programs[shaderName] = shader;
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
 
 	int count;
-	glGetProgramiv(program, GL_ACTIVE_UNIFORMS, &count);
+	glGetProgramiv(shader.ID, GL_ACTIVE_UNIFORMS, &count);
 
 	std::cout << shaderName << " has " << count << " active uniforms" << std::endl;
 
 	int maxUniformNameLength;
-	glGetProgramiv(program, GL_ACTIVE_UNIFORM_MAX_LENGTH, &maxUniformNameLength);
+	glGetProgramiv(shader.ID, GL_ACTIVE_UNIFORM_MAX_LENGTH, &maxUniformNameLength);
 
 	char* name = (char*)malloc(sizeof(char) * maxUniformNameLength);
 
@@ -107,8 +107,8 @@ void ShaderManager::createProgram(const std::string & shaderName, const std::str
 	GLenum type;
 
 	for(size_t i = 0; i < count; i++){
-		glGetActiveUniform(program, i, maxUniformNameLength, &actualLen, &size, &type, name);
-		const unsigned int loc = glGetUniformLocation(program, name);
+		glGetActiveUniform(shader.ID, i, maxUniformNameLength, &actualLen, &size, &type, name);
+		const unsigned int loc = glGetUniformLocation(shader.ID, name);
 
 		std::string uniformName = name;
 
@@ -117,9 +117,9 @@ void ShaderManager::createProgram(const std::string & shaderName, const std::str
 	std::cout << std::endl;
 }
 
-const GLuint ShaderManager::getShader(const std::string & shaderName){
+ Shader* ShaderManager::getShader(const std::string & shaderName){
 	if(programs.find(shaderName) != programs.end()){
-		return programs[shaderName];
+		return &programs[shaderName];
 	}
 	return 0;
 }

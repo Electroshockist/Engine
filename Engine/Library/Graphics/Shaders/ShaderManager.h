@@ -6,6 +6,7 @@
 #include <vector>
 #include <memory>
 #include <GLEW/glew.h>
+#include "Shader.h"
 
 #include "../../Debugging/Debug.h"
 
@@ -15,7 +16,7 @@ class ShaderManager{
 
 	static std::unique_ptr<ShaderManager> shaderInstance;
 	friend std::default_delete<ShaderManager>;
-	static std::map<std::string, GLuint> programs;
+	static std::map<std::string, Shader> programs;
 
 	std::string readShader(const std::string& fileName);
 
@@ -33,7 +34,7 @@ public:
 	void createProgram(const std::string& shaderName,
 					   const std::string& vertexShaderFileName,
 					   const std::string& fragmentShaderFileName);
-	static const GLuint getShader(const std::string & shaderName);
+	static Shader * getShader(const std::string & shaderName);
 
 	static ShaderManager* GetInstance();
 };

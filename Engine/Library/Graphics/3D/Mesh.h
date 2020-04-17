@@ -50,8 +50,10 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+
 #include "../../Graphics/Materials/MaterialManager.h"
 #include "../../Graphics/Camera/3D/Camera.h"
+#include "../Shaders/Shader.h"
 
 struct Vertex{
 	glm::vec3 position;
@@ -69,14 +71,14 @@ struct SubMesh{
 class Mesh{
 	void GenerateBuffers();
 	GLuint VAO, VBO;
-	GLuint shaderProgram;
+	Shader * shaderProgram;
 	GLuint modelLoc, viewLoc, projLoc;
 	GLuint viewPositionLoc, lightPosLoc, lightAmbientLoc, lightDiffuseLoc, lightColourLoc;
 	GLuint diffuseMapLoc, shineLoc, transparencyLoc, ambientLoc, diffuseLoc, specLoc;
 	SubMesh subMesh;
 
 public:
-	Mesh(SubMesh submesh, GLuint shaderProgram);
+	Mesh(SubMesh submesh, Shader * shaderProgram);
 	~Mesh();
 
 	void Render(Camera* camera, std::vector<glm::mat4> &instance);

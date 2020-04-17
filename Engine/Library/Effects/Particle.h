@@ -6,7 +6,7 @@
 
 #include <GLEW/glew.h>
 #include <glm/glm.hpp>
-#include "Shader.h"
+#include "../Graphics/Shaders/Shader.h"
 #include "Texture2D.h"
 
 // Represents a single particle and its state
@@ -20,7 +20,7 @@ struct Particle{
 
 struct ParticleGenerator{
 	//// Constructor
-	ParticleGenerator(GLuint shader, std::string textureFile, GLuint amount);
+	ParticleGenerator(Shader* shader, std::string textureFile, GLuint amount);
 	//// Update all particles
 	void Update(GLfloat dt, glm::vec3 position, glm::vec3 velocity, GLuint newParticles, glm::vec3 offset);
 	// Render all particles
@@ -30,7 +30,7 @@ private:
 	std::vector<Particle> particles;
 	GLuint amount;
 	// Render state
-	GLuint shader;
+	Shader* shader;
 	GLuint texture;
 	GLuint VAO;
 	// Initializes buffer and vertex attributes
