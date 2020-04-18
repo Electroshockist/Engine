@@ -73,12 +73,12 @@ private:
 
 	std::map<std::string, Type> contentMap;
 
-	std::map<std::string, float> floats;
-	std::map<std::string, int> ints;
-	std::map<std::string, glm::vec2> vec2s;
-	std::map<std::string, glm::vec3> vec3s;
-	std::map<std::string, glm::vec4> vec4s;
-	std::map<std::string, glm::mat4> mat4s;
+	std::map<std::string, std::pair<GLuint, float>> floats;
+	std::map<std::string,std::pair<GLuint,int>> ints;
+	std::map<std::string,std::pair<GLuint,glm::vec2>> vec2s;
+	std::map<std::string,std::pair<GLuint,glm::vec3>> vec3s;
+	std::map<std::string,std::pair<GLuint,glm::vec4>> vec4s;
+	std::map<std::string,std::pair<GLuint,glm::mat4>> mat4s;
 
 
 };
