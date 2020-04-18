@@ -63,6 +63,14 @@ private:
 				return "float";
 			case Type::INT:
 				return "int";
+			case Type::VEC2:
+				return "vec2";
+			case Type::VEC3:
+				return "vec3";
+			case Type::VEC4:
+				return "vec4";
+			case Type::MAT4:
+				return "mat4";
 			default:
 				return "error";
 		}

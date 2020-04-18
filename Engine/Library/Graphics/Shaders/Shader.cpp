@@ -82,32 +82,32 @@ void Shader::SetMatrix4(const GLchar* name, const glm::mat4& matrix, bool overwr
 }
 
 float* Shader::GetFloat(const GLchar * name){
-	if(Gettable(name, Type::FLOAT)) return &floats[name];
+	if(Gettable(name, Type::FLOAT)) return &floats[name].second;
 	return nullptr;
 }
 
 int * Shader::GetInteger(const GLchar * name){
-	if(Gettable(name, Type::INT)) return &ints[name];
+	if(Gettable(name, Type::INT)) return &ints[name].second;
 	return nullptr;
 }
 
 glm::vec2* Shader::GetVector2f(const GLchar* name){
-	if(Gettable(name, Type::VEC2)) return &vec2s[name];
+	if(Gettable(name, Type::VEC2)) return &vec2s[name].second;
 	return nullptr;
 }
 
 glm::vec3* Shader::GetVector3f(const GLchar* name){
-	if(Gettable(name, Type::VEC3)) return &vec3s[name];
+	if(Gettable(name, Type::VEC3)) return &vec3s[name].second;
 	return nullptr;
 }
 
 glm::vec4* Shader::GetVector4f(const GLchar* name){
-	if(Gettable(name, Type::VEC4)) return &vec4s[name];
+	if(Gettable(name, Type::VEC4)) return &vec4s[name].second;
 	return nullptr;
 }
 
 glm::mat4* Shader::GetMatrix4(const GLchar* name){
-	if(Gettable(name, Type::MAT4)) return &mat4s[name];
+	if(Gettable(name, Type::MAT4)) return &mat4s[name].second;
 	return nullptr;
 }
 
