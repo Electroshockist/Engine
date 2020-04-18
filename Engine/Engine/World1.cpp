@@ -65,16 +65,15 @@ bool World1::Update(const float deltaTime_){
 }
 
 bool World1::Render(){
-	skybox->Render(camera);
+	skybox->Render(camera);	
 
-	glUseProgram(ShaderManager::getShader("basicShader")->GetID());
 	model->render(camera);
 
-	glUseProgram(ShaderManager::getShader("noiseShader")->GetID());
-	glUniformMatrix4fv(glGetUniformLocation(ShaderManager::getShader("noiseShader")->GetID(), "normalMatrix"), 1, GL_FALSE, glm::value_ptr(normalMatrix));
+	Shader * shader = ShaderManager::getShader("noiseShader");
+	
+	shader->SetUniformData("cameraPos", camera->GetPosition());
+	shader->SetUniformData("time", elapsedTime);
 
-	glUniformMatrix3fv(glGetUniformLocation(ShaderManager::getShader("noiseShader")->GetID(), "cameraPos"), 1, GL_FALSE, glm::value_ptr(camera->GetPosition()));
-	glUniform1f(glGetUniformLocation(ShaderManager::getShader("noiseShader")->GetID(), "time"), elapsedTime);
 	model2->render(camera);
 
 	p->Draw();

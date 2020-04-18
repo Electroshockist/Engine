@@ -4,141 +4,94 @@
 
 #include "../../Debugging/Debug.h"
 
+#define SETUNIFORM(name, useShader)	if(useShader) this->Use(); Uniform * u = GetUniform(name); if(u == nullptr){ Debug::warning("The uniform " + std::string(name) + " does not exist in the shader \"" + this->name + "\".", __FILE__, __LINE__); return;}
+
 Shader& Shader::Use(){
 	glUseProgram(this->ID);
 	return *this;
 }
 
-void Shader::SetFloat(const GLchar* name, GLfloat value, bool overwrite, GLboolean useShader){
-	if(Settable(name, Type::FLOAT, overwrite)){
-		if(useShader)
-			this->Use();
-		glUniform1f(glGetUniformLocation(this->ID, name), value);
-	}
+void Shader::SetUniformData(const GLchar* name, GLfloat value, GLboolean useShader){
+	SETUNIFORM(name, useShader);
+	glUniform1f(u->location, value);
 }
 
-void Shader::SetInteger(const GLchar* name, GLint value, bool overwrite, GLboolean useShader){
-	if(Settable(name, Type::INT, overwrite)){
-		if(useShader)
-			this->Use();
-		glUniform1i(glGetUniformLocation(this->ID, name), value);
-	}
+void Shader::SetUniformData(const GLchar* name, GLint value, GLboolean useShader){
+	SETUNIFORM(name, useShader);
+	glUniform1i(u->location, value);
 }
 
-void Shader::SetVector2f(const GLchar* name, GLfloat x, GLfloat y, bool overwrite, GLboolean useShader){
-	if(Settable(name, Type::VEC2, overwrite)){
-		if(useShader)
-			this->Use();
-		glUniform2f(glGetUniformLocation(this->ID, name), x, y);
-	}
+void Shader::SetUniformData(const GLchar* name, GLfloat x, GLfloat y, GLboolean useShader){
+	SETUNIFORM(name, useShader);
+	glUniform2f(GetUniform(name)->location, x, y);
 }
 
-void Shader::SetVector2f(const GLchar* name, const glm::vec2& value, bool overwrite, GLboolean useShader){
-	if(Settable(name, Type::VEC2, overwrite)){
-		if(useShader)
-			this->Use();
-		glUniform2f(glGetUniformLocation(this->ID, name), value.x, value.y);
-	}
+void Shader::SetUniformData(const GLchar* name, const glm::vec2& value, GLboolean useShader){
+	SETUNIFORM(name, useShader);
+	glUniform2f(GetUniform(name)->location, value.x, value.y);
 }
 
-void Shader::SetVector3f(const GLchar* name, GLfloat x, GLfloat y, GLfloat z, bool overwrite, GLboolean useShader){
-	if(Settable(name, Type::VEC3, overwrite)){
-		if(useShader)
-			this->Use();
-		glUniform3f(glGetUniformLocation(this->ID, name), x, y, z);
-	}
+void Shader::SetUniformData(const GLchar* name, GLfloat x, GLfloat y, GLfloat z, GLboolean useShader){
+	SETUNIFORM(name, useShader);
+	glUniform3f(GetUniform(name)->location, x, y, z);
 }
 
-void Shader::SetVector3f(const GLchar* name, const glm::vec3& value, bool overwrite, GLboolean useShader){
-	if(Settable(name, Type::VEC3, overwrite)){
-		if(useShader)
-			this->Use();
-		glUniform3f(glGetUniformLocation(this->ID, name), value.x, value.y, value.z);
-	}
+void Shader::SetUniformData(const GLchar* name, const glm::vec3& value, GLboolean useShader){
+	SETUNIFORM(name, useShader);
+	glUniform3f(GetUniform(name)->location, value.x, value.y, value.z);
 }
 
-void Shader::SetVector4f(const GLchar* name, GLfloat x, GLfloat y, GLfloat z, GLfloat w, bool overwrite, GLboolean useShader){
-	if(Settable(name, Type::VEC4, overwrite)){
-		if(useShader)
-			this->Use();
-		glUniform4f(glGetUniformLocation(this->ID, name), x, y, z, w);
-	}
+void Shader::SetUniformData(const GLchar* name, GLfloat x, GLfloat y, GLfloat z, GLfloat w, GLboolean useShader){
+	SETUNIFORM(name, useShader);
+	glUniform4f(GetUniform(name)->location, x, y, z, w);
 }
 
-void Shader::SetVector4f(const GLchar* name, const glm::vec4& value, bool overwrite, GLboolean useShader){
-	if(Settable(name, Type::VEC4, overwrite)){
-		if(useShader)
-			this->Use();
-		glUniform4f(glGetUniformLocation(this->ID, name), value.x, value.y, value.z, value.w);
-	}
+void Shader::SetUniformData(const GLchar* name, const glm::vec4& value, GLboolean useShader){
+	SETUNIFORM(name, useShader);
+	glUniform4f(GetUniform(name)->location, value.x, value.y, value.z, value.w);
 }
 
-void Shader::SetMatrix4(const GLchar* name, const glm::mat4& matrix, bool overwrite, GLboolean useShader){
-	if(Settable(name, Type::MAT4, overwrite)){
-		if(useShader)
-			this->Use();
-		glUniformMatrix4fv(glGetUniformLocation(this->ID, name), 1, GL_FALSE, glm::value_ptr(matrix));
-	}
+void Shader::SetUniformData(const GLchar* name, const glm::mat4& matrix, GLboolean useShader){
+	SETUNIFORM(name, useShader);
+	glUniformMatrix4fv(GetUniform(name)->location, 1, GL_FALSE, glm::value_ptr(matrix));
 }
 
-float* Shader::GetFloat(const GLchar * name){
-	if(Gettable(name, Type::FLOAT)) return &floats[name].second;
-	return nullptr;
+void Shader::BindTexture(const GLchar * name, GLenum textureType, GLenum textureNum, GLuint data){
+	SetUniformData("material.diffuseMap", (int)GetTextureNum(textureNum));
+	glActiveTexture(textureNum);
+
+	glBindTexture(textureType, data);
 }
 
-int * Shader::GetInteger(const GLchar * name){
-	if(Gettable(name, Type::INT)) return &ints[name].second;
-	return nullptr;
+void Shader::CreateUniform(const GLchar* name){
+	//store the name and location of the uniform
+	Uniform u = Uniform(name);
+	u.location = glGetUniformLocation(ID, name);
+
+	uniforms.push_back(u);
 }
 
-glm::vec2* Shader::GetVector2f(const GLchar* name){
-	if(Gettable(name, Type::VEC2)) return &vec2s[name].second;
-	return nullptr;
-}
-
-glm::vec3* Shader::GetVector3f(const GLchar* name){
-	if(Gettable(name, Type::VEC3)) return &vec3s[name].second;
-	return nullptr;
-}
-
-glm::vec4* Shader::GetVector4f(const GLchar* name){
-	if(Gettable(name, Type::VEC4)) return &vec4s[name].second;
-	return nullptr;
-}
-
-glm::mat4* Shader::GetMatrix4(const GLchar* name){
-	if(Gettable(name, Type::MAT4)) return &mat4s[name].second;
-	return nullptr;
-}
-
-
-
-bool Shader::Gettable(std::string name, Type type){
-	//if item does not exist, it is not gettable
-	if(contentMap.find(name) == contentMap.end()){
-		Debug::warning("No uniform " + name + " exists.", __FILE__, __LINE__);
-		return false;
-	}
-	Type t = contentMap[name];
-
-	//if item is not of the desired type, it is not gettable
-	if(t != type){
-		Debug::warning("Uniform " + name + " is of type " + ToString(t) + " but was acessed as type " + ToString(type), __FILE__, __LINE__);
-		return false;
+bool Shader::ItemExists(std::string name){
+	for(Uniform u : uniforms){
+		if(u.name == name){
+			return true;
+		}
 	}
 
-	return true;
-}
-
-bool Shader::Settable(std::string name, Type type, bool overwrite){
-	//if item does not exist, return true
-	if(contentMap.find(name) == contentMap.end()) return true;
-
-	Type t = contentMap[name];
-
-	//if item is the same type as the desired item, allow the user to determine whether to overwrite it or not
-	if(t == type){
-		return overwrite;
-	}
 	return false;
 }
+
+Shader::Uniform * Shader::GetUniform(std::string name){
+	for(size_t i = 0; i < uniforms.size(); i++){
+		if(uniforms[i].name == name){
+			return &uniforms[i];
+		}
+	}
+	return nullptr;
+}
+
+GLuint Shader::GetTextureNum(GLenum textureNum){
+	//glenums are ordered contiguoisly, so treat GL_Texture as 0
+	return textureNum - GL_TEXTURE0;
+}
+

@@ -10,7 +10,7 @@ ShaderManager::ShaderManager(){}
 ShaderManager::~ShaderManager(){
 	if(programs.size() != 0){
 		for(auto index : programs){
-			glDeleteProgram(index.second.GetID());
+			glDeleteProgram(index.second.ID);
 		}
 		programs.clear();
 	}
@@ -79,6 +79,8 @@ void ShaderManager::createProgram(const std::string & shaderName, const std::str
 
 	glGetProgramiv(shader.ID, GL_LINK_STATUS, &linkResult);
 
+	shader.name = shaderName;
+
 	if(!linkResult){
 		GLint logLength = 0;
 		glGetProgramiv(shader.ID, GL_INFO_LOG_LENGTH, &logLength);
@@ -88,7 +90,6 @@ void ShaderManager::createProgram(const std::string & shaderName, const std::str
 		Debug::error("Shader " + shaderName + " failed to link. " + programLog[0], __FILE__, __LINE__);
 		return;
 	}
-	programs[shaderName] = shader;
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
 
@@ -113,7 +114,9 @@ void ShaderManager::createProgram(const std::string & shaderName, const std::str
 		std::string uniformName = name;
 
 		printf("\"%s\" loc:%d\n", uniformName.c_str(), loc);
+		shader.CreateUniform(name);
 	}
+	programs[shaderName] = shader;
 	std::cout << std::endl;
 }
 

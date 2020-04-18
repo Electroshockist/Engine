@@ -12,7 +12,6 @@ class SkyBox{
 
 	GLuint VAO, VBO;
 	Shader* shaderProgram;
-	GLuint modelLoc, projLoc;
 	SubMesh subMesh;
 
 	glm::mat4 getTransform(float angle, glm::vec3 rotation);

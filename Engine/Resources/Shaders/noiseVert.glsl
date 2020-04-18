@@ -10,7 +10,6 @@ out vec4 Offset;
 uniform mat4 model;
 uniform mat4 view;
 uniform mat4 proj;
-uniform mat4 normalMatrix;
 uniform vec3 lightPos;
 uniform float time;
 uniform sampler3D noise3D;

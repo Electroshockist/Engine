@@ -72,9 +72,6 @@ class Mesh{
 	void GenerateBuffers();
 	GLuint VAO, VBO;
 	Shader * shaderProgram;
-	GLuint modelLoc, viewLoc, projLoc;
-	GLuint viewPositionLoc, lightPosLoc, lightAmbientLoc, lightDiffuseLoc, lightColourLoc;
-	GLuint diffuseMapLoc, shineLoc, transparencyLoc, ambientLoc, diffuseLoc, specLoc;
 	SubMesh subMesh;
 
 public:

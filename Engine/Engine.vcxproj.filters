@@ -132,16 +132,10 @@
     <ClInclude Include="Library\Graphics\Materials\MaterialManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Library\Utilities\Parameter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Library\Graphics\Camera\3D\Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Library\Graphics\Camera\3D\ACamera3D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\Graphics\3D\UniformParameter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\World1.h">
@@ -230,16 +224,10 @@
     <ClCompile Include="Library\Graphics\3D\Model.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Library\Utilities\Parameter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Library\Graphics\Materials\Material.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Library\Graphics\Camera\3D\Camera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Library\Graphics\3D\UniformParameter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Library\Graphics\Materials\MaterialManager.cpp">

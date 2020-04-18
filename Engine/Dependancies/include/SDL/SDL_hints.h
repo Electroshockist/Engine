@@ -590,7 +590,7 @@ extern "C" {
  *  On QtWayland platforms, windows are rotated client-side to allow for custom
  *  transitions. In order to correctly position overlays (e.g. volume bar) and
  *  gestures (e.g. events view, close/minimize gestures), the system needs to
- *  know in which orientation the application is currently drawing its contents.
+ *  know in which orientation the application is currently drawing its uniforms.
  *
  *  This does not cause the window to be rotated or resized, the application
  *  needs to take care of drawing the content in the right orientation (the
@@ -684,7 +684,7 @@ extern "C" {
  *  privacy policy.
  *
  *  To setup a URL to an app's privacy policy, set SDL_HINT_WINRT_PRIVACY_POLICY_URL
- *  before calling any SDL_Init() functions.  The contents of the hint should
+ *  before calling any SDL_Init() functions.  The uniforms of the hint should
  *  be a valid URL.  For example, "http://www.example.com".
  *
  *  The default value is "", which will prevent SDL from adding a privacy policy
@@ -707,11 +707,11 @@ extern "C" {
  *  SDL provides code to add a link there, with its label text being set via the
  *  optional hint, SDL_HINT_WINRT_PRIVACY_POLICY_LABEL.
  *
- *  Please note that a privacy policy's contents are not set via this hint.  A separate
+ *  Please note that a privacy policy's uniforms are not set via this hint.  A separate
  *  hint, SDL_HINT_WINRT_PRIVACY_POLICY_URL, is used to link to the actual text of the
  *  policy.
  *
- *  The contents of this hint should be encoded as a UTF8 string.
+ *  The uniforms of this hint should be encoded as a UTF8 string.
  *
  *  The default value is "Privacy Policy".  This hint should only be set during app
  *  initialization, preferably before any calls to SDL_Init().
@@ -749,7 +749,7 @@ extern "C" {
  *  SDL registers its own back-button-press callback with the Windows Phone
  *  OS.  This callback will emit a pair of SDL key-press events (SDL_KEYDOWN
  *  and SDL_KEYUP), each with a scancode of SDL_SCANCODE_AC_BACK, after which
- *  it will check the contents of the hint, SDL_HINT_WINRT_HANDLE_BACK_BUTTON.
+ *  it will check the uniforms of the hint, SDL_HINT_WINRT_HANDLE_BACK_BUTTON.
  *  If the hint's value is set to "1", the back button event's Handled
  *  property will get set to 'true'.  If the hint's value is set to something
  *  else, or if it is unset, SDL will leave the event's Handled property

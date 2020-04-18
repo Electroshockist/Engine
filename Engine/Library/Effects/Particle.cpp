@@ -40,16 +40,16 @@ void ParticleGenerator::Update(GLfloat dt, glm::vec3 position, glm::vec3 velocit
 void ParticleGenerator::Draw(){
 	// Use additive blending to give it a 'glow' effect
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-	glUseProgram(shader->GetID());
+	shader->Use();
 	for(Particle particle : this->particles){
 		if(particle.Life > 0.0f){
-			glUniform1i(glGetUniformLocation(shader->GetID(), "material.diffuseMap"), 0);
+			shader->SetUniformData("material.diffuseMap", 0);
 			glActiveTexture(GL_TEXTURE0);
 
 			glBindTexture(GL_TEXTURE_2D, texture);
 
-			glUniform2f(glGetUniformLocation(shader->GetID(), "offset"), particle.Position.x, particle.Position.y);
-			glUniform4f(glGetUniformLocation(shader->GetID(), "color"), particle.Color.x, particle.Color.y, particle.Color.z, particle.Color.w);
+			shader->SetUniformData("offset", particle.Position.x, particle.Position.y);
+			shader->SetUniformData("color", particle.Color.x, particle.Color.y, particle.Color.z, particle.Color.w);
 
 			//cleanup
 			glBindTexture(GL_TEXTURE_2D, 0);

@@ -183,7 +183,7 @@ SDL_CreateThread(SDL_ThreadFunction fn, const char *name, void *data);
  *    http://stackoverflow.com/questions/149932/naming-conventions-for-threads
  *
  *   If a system imposes requirements, SDL will try to munge the string for
- *    it (truncate, etc), but the original string contents will be available
+ *    it (truncate, etc), but the original string uniforms will be available
  *    from SDL_GetThreadName().
  *
  *   The size (in bytes) of the new stack can be specified. Zero means "use

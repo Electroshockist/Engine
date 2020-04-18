@@ -111,71 +111,49 @@ void Mesh::GenerateBuffers(){
 
 	//POSITION
 	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), static_cast<GLvoid*>(0));
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), static_cast<void*>(0));
 
 	//NORMAL
 	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)(offsetof(Vertex, normal)));
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(offsetof(Vertex, normal)));
 
 	//TEXTURE
 	glEnableVertexAttribArray(2);
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)(offsetof(Vertex, texCoords)));
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(offsetof(Vertex, texCoords)));
 
 	//COLOR
 	glEnableVertexAttribArray(3);
-	glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)(offsetof(Vertex, colour)));
+	glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(offsetof(Vertex, colour)));
 
 	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-	modelLoc = glGetUniformLocation(shaderProgram->GetID(), "model");
-	viewLoc = glGetUniformLocation(shaderProgram->GetID(), "view");
-	projLoc = glGetUniformLocation(shaderProgram->GetID(), "proj");
-
-	viewPositionLoc = glGetUniformLocation(shaderProgram->GetID(), "cameraPos");
-	lightPosLoc = glGetUniformLocation(shaderProgram->GetID(), "light.lightPos");
-	lightAmbientLoc = glGetUniformLocation(shaderProgram->GetID(), "light.ambientValue");
-	lightDiffuseLoc = glGetUniformLocation(shaderProgram->GetID(), "light.diffuseValue");
-	lightColourLoc = glGetUniformLocation(shaderProgram->GetID(), "light.color");
-
-	diffuseMapLoc = glGetUniformLocation(shaderProgram->GetID(), "material.diffuseMap");
-	shineLoc = glGetUniformLocation(shaderProgram->GetID(), "material.shininess");
-	transparencyLoc = glGetUniformLocation(shaderProgram->GetID(), "material.transparency");
-	ambientLoc = glGetUniformLocation(shaderProgram->GetID(), "material.ambient");
-	diffuseLoc = glGetUniformLocation(shaderProgram->GetID(), "material.diffuse");
-	specLoc = glGetUniformLocation(shaderProgram->GetID(), "material.specular");
 }
 
 void Mesh::Render(Camera* camera, std::vector<glm::mat4> &instances_){
-	glUniform1i(diffuseMapLoc, 0);
-	glActiveTexture(GL_TEXTURE0);
+	shaderProgram->Use();
+	shaderProgram->BindTexture("material.diffuseMap", GL_TEXTURE_2D, GL_TEXTURE0, subMesh.material.diffuseMap);
 
-	glBindTexture(GL_TEXTURE_2D, subMesh.material.diffuseMap);
+	shaderProgram->SetUniformData("view", camera->GetView());
+	shaderProgram->SetUniformData("proj", camera->GetPerspective());
 
-	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(camera->GetView()));
-	glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(camera->GetPerspective()));
-
-	glm::vec3 copyCamPos = camera->GetPosition();
-	glm::vec3 copyLightPos = camera->GetLightSources()[0]->GetPosition();
-	glm::vec3 copyLightColor = camera->GetLightSources()[0]->GetColour();
-
-	glUniform3f(viewPositionLoc, copyCamPos.x, copyCamPos.y, copyCamPos.z);
-	glUniform3f(lightPosLoc, copyLightPos.x, copyLightPos.y, copyLightPos.z);
-	glUniform1f(lightAmbientLoc, camera->GetLightSources()[0]->GetAmbientValue());
-	glUniform1f(lightDiffuseLoc, camera->GetLightSources()[0]->GetDiffuseValue());
-	glUniform3f(lightColourLoc, copyLightColor.x, copyLightColor.y, copyLightColor.z);
+	//camera
+	shaderProgram->SetUniformData("cameraPos", camera->GetPosition());
+	shaderProgram->SetUniformData("light.lightPos", camera->GetLightSources()[0]->GetPosition());
+	shaderProgram->SetUniformData("light.color", camera->GetLightSources()[0]->GetColour());
+	shaderProgram->SetUniformData("material.ambient", camera->GetLightSources()[0]->GetAmbientValue());
+	shaderProgram->SetUniformData("material.diffuse", camera->GetLightSources()[0]->GetDiffuseValue());
 
 	//material
-	glUniform1f(shineLoc, subMesh.material.shine);
-	glUniform1f(transparencyLoc, subMesh.material.transparency);
-	glUniform3f(ambientLoc, subMesh.material.ambient.x, subMesh.material.ambient.y, subMesh.material.ambient.z);
-	glUniform3f(diffuseLoc, subMesh.material.diffuse.x, subMesh.material.diffuse.y, subMesh.material.diffuse.z);
-	glUniform3f(specLoc, subMesh.material.specular.x, subMesh.material.specular.y, subMesh.material.specular.z);
+	shaderProgram->SetUniformData("material.shininess", subMesh.material.shine);
+	shaderProgram->SetUniformData("material.transparency", subMesh.material.transparency);
+	shaderProgram->SetUniformData("material.ambient", subMesh.material.ambient);
+	shaderProgram->SetUniformData("material.diffuse", subMesh.material.diffuse);
+	shaderProgram->SetUniformData("material.specular", subMesh.material.specular);
 
 	glBindVertexArray(VAO);
 
 	for(int i = 0; i < instances_.size(); i++){
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(instances_[i]));
+		shaderProgram->SetUniformData("model", instances_[i]);
 		glDrawArrays(GL_TRIANGLES, 0, subMesh.vertexList.size());
 	}
 

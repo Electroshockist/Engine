@@ -7,40 +7,49 @@
 #include <glew/glew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <vector>
 
 
 struct Shader{
 	friend class ShaderManager;
+
+	struct Uniform{
+		std::string name;
+		GLuint location;
+
+		Uniform(std::string name){
+			this->name = name;
+			location = -1;
+		}
+	};
+
 	// Constructor
 	Shader(){}
-	//ID getter
 
-	inline const GLuint& GetID() const{
-		return ID;
+	~Shader(){
+		if(!uniforms.empty()) uniforms.clear();
 	}
+
+	//ID getter
+	//inline const GLuint& GetID() const{
+	//	return ID;
+	//}
+
 	// Sets the current shader as active
 	Shader& Use();
+
 	// Utility functions
-	void SetFloat(const GLchar* name, GLfloat value, bool overwrite = false, GLboolean useShader = false);
-	void SetInteger(const GLchar* name, GLint value, bool overwrite = false, GLboolean useShader = false);
-	void SetVector2f(const GLchar* name, GLfloat x, GLfloat y, bool overwrite = false, GLboolean useShader = false);
-	void SetVector2f(const GLchar* name, const glm::vec2& value, bool overwrite = false, GLboolean useShader = false);
-	void SetVector3f(const GLchar* name, GLfloat x, GLfloat y, GLfloat z, bool overwrite = false, GLboolean useShader = false);
-	void SetVector3f(const GLchar* name, const glm::vec3& value, bool overwrite = false, GLboolean useShader = false);
-	void SetVector4f(const GLchar* name, GLfloat x, GLfloat y, GLfloat z, GLfloat w, bool overwrite = false, GLboolean useShader = false);
-	void SetVector4f(const GLchar* name, const glm::vec4& value, bool overwrite = false, GLboolean useShader = false);
-	void SetMatrix4(const GLchar* name, const glm::mat4& matrix, bool overwrite = false, GLboolean useShader = false);
+	void SetUniformData(const GLchar* name, GLfloat value, GLboolean useShader = false);
+	void SetUniformData(const GLchar* name, GLint value, GLboolean useShader = false);
+	void SetUniformData(const GLchar* name, GLfloat x, GLfloat y, GLboolean useShader = false);
+	void SetUniformData(const GLchar* name, const glm::vec2& value,  GLboolean useShader = false);
+	void SetUniformData(const GLchar* name, GLfloat x, GLfloat y, GLfloat z,  GLboolean useShader = false);
+	void SetUniformData(const GLchar* name, const glm::vec3& value,  GLboolean useShader = false);
+	void SetUniformData(const GLchar* name, GLfloat x, GLfloat y, GLfloat z, GLfloat w,  GLboolean useShader = false);
+	void SetUniformData(const GLchar* name, const glm::vec4& value,  GLboolean useShader = false);
+	void SetUniformData(const GLchar* name, const glm::mat4& matrix,  GLboolean useShader = false);
 
-	float* GetFloat(const GLchar* name);
-	int* GetInteger(const GLchar* name);
-
-	glm::vec2 * GetVector2f(const GLchar* name);
-	
-	glm::vec3 * GetVector3f(const GLchar* name);
-	
-	glm::vec4 * GetVector4f(const GLchar* name);
-	
-	glm::mat4 * GetMatrix4(const GLchar* name);
+	void BindTexture(const GLchar* name, GLenum textureType, GLenum textureNum, GLuint data);
 
 private:
 	// ID
@@ -48,45 +57,17 @@ private:
 	//Name
 	std::string name;
 
-	enum class Type{
-		FLOAT,
-		INT,
-		VEC2,
-		VEC3,
-		VEC4,
-		MAT4
-	};
+	void CreateUniform(const GLchar* name);
 
-	inline std::string ToString(Type type){
-		switch(type){
-			case Type::FLOAT:
-				return "float";
-			case Type::INT:
-				return "int";
-			case Type::VEC2:
-				return "vec2";
-			case Type::VEC3:
-				return "vec3";
-			case Type::VEC4:
-				return "vec4";
-			case Type::MAT4:
-				return "mat4";
-			default:
-				return "error";
-		}
-	}
+	GLuint GetTextureNum(GLenum textureNum);
 
-	bool Gettable(std::string name, Type type);
-	bool Settable(std::string name, Type type, bool overwrite);
+	//helper methods
+	bool ItemExists(std::string name);
 
-	std::map<std::string, Type> contentMap;
+	Uniform * GetUniform(std::string name);
 
-	std::map<std::string, std::pair<GLuint, float>> floats;
-	std::map<std::string,std::pair<GLuint,int>> ints;
-	std::map<std::string,std::pair<GLuint,glm::vec2>> vec2s;
-	std::map<std::string,std::pair<GLuint,glm::vec3>> vec3s;
-	std::map<std::string,std::pair<GLuint,glm::vec4>> vec4s;
-	std::map<std::string,std::pair<GLuint,glm::mat4>> mat4s;
+	//name and location
+	std::vector<Uniform> uniforms;
 
 
 };

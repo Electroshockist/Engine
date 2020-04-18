@@ -76,7 +76,7 @@ extern DECLSPEC SDL_Window * SDLCALL SDL_CreateShapedWindow(const char *title,un
  */
 extern DECLSPEC SDL_bool SDLCALL SDL_IsShapedWindow(const SDL_Window *window);
 
-/** \brief An enum denoting the specific type of contents present in an SDL_WindowShapeParams union. */
+/** \brief An enum denoting the specific type of uniforms present in an SDL_WindowShapeParams union. */
 typedef enum {
     /** \brief The default mode, a binarized alpha cutoff of 1. */
     ShapeModeDefault,
@@ -97,7 +97,7 @@ typedef union {
     SDL_Color colorKey;
 } SDL_WindowShapeParams;
 
-/** \brief A struct that tags the SDL_WindowShapeParams union with an enum describing the type of its contents. */
+/** \brief A struct that tags the SDL_WindowShapeParams union with an enum describing the type of its uniforms. */
 typedef struct SDL_WindowShapeMode {
     /** \brief The mode of these window-shape parameters. */
     WindowShapeMode mode;

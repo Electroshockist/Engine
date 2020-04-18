@@ -255,7 +255,7 @@ extern DECLSPEC void SDLCALL Mix_ChannelFinished(void (SDLCALL *channel_finished
  *  the buffer of data to work upon. (len) is the size of (stream), and
  *  (udata) is a user-defined bit of data, which you pass as the last arg of
  *  Mix_RegisterEffect(), and is passed back unmolested to your callback.
- *  Your effect changes the contents of (stream) based on whatever parameters
+ *  Your effect changes the uniforms of (stream) based on whatever parameters
  *  are significant, or just leaves it be, if you prefer. You can do whatever
  *  you like to the buffer, though, and it will continue in its changed state
  *  down the mixing pipeline, through any other effect functions, then finally

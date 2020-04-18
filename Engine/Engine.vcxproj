@@ -176,12 +176,10 @@
     <ClInclude Include="Library\Graphics\Camera\ACamera.h" />
     <ClInclude Include="Library\Graphics\Materials\Material.h" />
     <ClInclude Include="Library\Graphics\Materials\MaterialManager.h" />
-    <ClInclude Include="Library\Graphics\3D\UniformParameter.h" />
     <ClInclude Include="Library\Audio\AudioPlayer.h" />
     <ClInclude Include="Library\Utilities\File.h" />
     <ClInclude Include="Library\Utilities\FilePathParser.h" />
     <ClInclude Include="Library\Graphics\Textures\GLTexture.h" />
-    <ClInclude Include="Library\Utilities\Parameter.h" />
     <ClInclude Include="Library\Worlds\AWorld.h" />
     <ClInclude Include="Library\Data Structures\Decorator.h" />
     <ClInclude Include="Library\Data Structures\Events\Event.h" />
@@ -213,7 +211,6 @@
     <ClCompile Include="Engine\World1.cpp" />
     <ClCompile Include="Library\Audio\AudioPlayer.cpp" />
     <ClCompile Include="Library\Graphics\3D\ModelLoader.cpp" />
-    <ClCompile Include="Library\Graphics\3D\UniformParameter.cpp" />
     <ClCompile Include="Library\Graphics\Camera\3D\Camera.cpp" />
     <ClCompile Include="Library\Graphics\Materials\Material.cpp" />
     <ClCompile Include="Library\Graphics\Materials\MaterialManager.cpp" />
@@ -223,7 +220,6 @@
     <ClCompile Include="Library\Graphics\Textures\GLTexture.cpp" />
     <ClCompile Include="Library\Debugging\Debug.cpp" />
     <ClCompile Include="Engine\EngineMain.cpp" />
-    <ClCompile Include="Library\Utilities\Parameter.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Library\Window\SDLGLWindow.cpp" />
     <ClCompile Include="Library\Data Structures\Events\ALisener.cpp" />
