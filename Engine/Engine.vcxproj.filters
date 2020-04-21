@@ -183,6 +183,9 @@
     <ClInclude Include="Library\Graphics\Shaders\Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Library\Math\Noise.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -275,10 +278,10 @@
     <ClCompile Include="Library\Graphics\Camera\3D\Frustum.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Library\Math\Noise.cpp">
+    <ClCompile Include="Library\Graphics\Shaders\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Library\Graphics\Shaders\Shader.cpp">
+    <ClCompile Include="Library\Math\Noise.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

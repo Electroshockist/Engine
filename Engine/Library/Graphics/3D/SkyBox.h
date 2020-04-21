@@ -36,6 +36,8 @@ public:
 
 	void onMouseMove(int x, int y);
 
+	SubMesh GetSubMesh()const;
+
 };
 #endif // !SKYBOX_H
 

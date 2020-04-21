@@ -6,13 +6,17 @@
 #include "../Library/Graphics/Camera/3D/Camera.h"
 #include "../Library/Graphics/3D/SkyBox.h"
 #include "../Library/Effects/Particle.h"
+
 GLuint CreateNoise3D();
+void DeleteNoise3D();
 
 struct World1 : public AWorld{
 	Model * model, *model2;
 	Camera *camera;
 	SkyBox* skybox;
 	ParticleGenerator* p;
+
+	int noiseID;
 
 	glm::mat3 normalMatrix;
 
@@ -21,6 +25,7 @@ struct World1 : public AWorld{
 	~World1(){
 		delete camera;
 		camera = nullptr;
+		DeleteNoise3D();
 	}
 
 	// Inherited via AWorld

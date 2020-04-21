@@ -199,6 +199,7 @@
     <ClInclude Include="Library\Effects\Particle.h" />
     <ClInclude Include="Library\Graphics\Shaders\Shader.h" />
     <ClInclude Include="Library\Effects\Texture2D.h" />
+    <ClInclude Include="Library\Math\Noise.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Library\Data Structures\Events\SDLEventListener.cpp" />
@@ -214,7 +215,6 @@
     <ClCompile Include="Library\Graphics\Camera\3D\Camera.cpp" />
     <ClCompile Include="Library\Graphics\Materials\Material.cpp" />
     <ClCompile Include="Library\Graphics\Materials\MaterialManager.cpp" />
-    <ClCompile Include="Library\Math\Noise.cpp" />
     <ClCompile Include="Library\Utilities\File.cpp" />
     <ClCompile Include="Library\Utilities\FilePathParser.cpp" />
     <ClCompile Include="Library\Graphics\Textures\GLTexture.cpp" />
@@ -233,6 +233,7 @@
     <ClCompile Include="Library\Effects\Particle.cpp" />
     <ClCompile Include="Library\Graphics\Shaders\Shader.cpp" />
     <ClCompile Include="Library\Effects\Texture2D.cpp" />
+    <ClCompile Include="Library\Math\Noise.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

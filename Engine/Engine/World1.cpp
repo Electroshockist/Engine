@@ -11,15 +11,15 @@
 #include "EngineMain.h"
 
 bool World1::OnCreate(){
-	CreateNoise3D();
+	noiseID = CreateNoise3D();
 	model = new Model("./Resources/Models/Dice.obj", "./Resources/Materials/Dice.mtl", ShaderManager::GetInstance()->getShader("basicShader"));
-	model2 = new Model("./Resources/Models/Dice.obj", "./Resources/Materials/Dice.mtl", ShaderManager::GetInstance()->getShader("noiseShader"));
+	model2 = new Model("./Resources/Models/skull.obj", "./Resources/Materials/Dice.mtl", ShaderManager::GetInstance()->getShader("noiseShader"));
 	
 	glm::vec3 position = glm::vec3(-3.0, -4.0, 0.0);
 	glm::vec3 position2 = glm::vec3(-5.0, -2.0, 0.0);
 
 	float angle = 0.0f;
-	float angle2 = 0.0f;
+	float angle2 = 90.0f;
 
 	glm::vec3 rotation = glm::vec3(0.0f, 1.0f, 0.0f);
 	glm::vec3 rotation2 = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -39,28 +39,13 @@ bool World1::OnCreate(){
 
 	skybox = new SkyBox();
 	skybox->onCreate();
-	//m = ModelLoader::GetInstance()->LoadModel("./Resources/Models/Dice.obj","./Resources/Materials/Dice.mtl", ShaderManager::GetInstance()->getShader("basicShader"));
-	//m.CreateInstance(glm::vec3(), 0, glm::vec3(), glm::vec3());
-	//camera = new Camera(/*EngineMain::GetInstance()->w*/);
-	//camera->SetPosition(glm::vec3(0, 10, 0));
-	//m.SetCamera(camera);
-
-	//LightSource l = LightSource(glm::vec3(5.0f, 10.0f, 5.0f), 1.0f, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f));
-
-	//glm::vec3 copyLightPos = l.GetPosition();
-	//glm::vec3 copyLightColor = l.GetColour();
-
-	//camera->parameters["light.lightPos"] = UniformParameter(ShaderManager::GetInstance()->getShader("basicShader"), "light.lightPos", Parameter(copyLightPos));
-	//camera->parameters["light.ambientValue"] = UniformParameter(ShaderManager::GetInstance()->getShader("basicShader"), "light.ambientValue", Parameter(l.GetAmbientValue()));
-	//camera->parameters["light.diffuseValue"] = UniformParameter(ShaderManager::GetInstance()->getShader("basicShader"), "light.diffuseValue", Parameter(l.GetDiffuseValue()));
-	//camera->parameters["light.color"] = UniformParameter(ShaderManager::GetInstance()->getShader("basicShader"), "light.color", Parameter(copyLightColor));
 
 	return true;
 }
 
 bool World1::Update(const float deltaTime_){
 	elapsedTime += deltaTime_;
-	p->Update(deltaTime_, glm::vec3(0, 2, 0), glm::vec3(0, 2, 0), 20, glm::vec3(2));
+	p->Update(deltaTime_, glm::vec3(5, 2, 5), glm::vec3(0, 2, 0), 20, glm::vec3(2));
 	return true;
 }
 
@@ -70,12 +55,23 @@ bool World1::Render(){
 	model->render(camera);
 
 	Shader * shader = ShaderManager::getShader("noiseShader");
-	
-	shader->SetUniformData("cameraPos", camera->GetPosition());
+	shader->Use();
+
+	glBindTexture(GL_TEXTURE_CUBE_MAP, skybox->GetSubMesh().material.diffuseMap);
+	shader->BindTexture("noise3D", GL_TEXTURE_3D, 1, noiseID);
 	shader->SetUniformData("time", elapsedTime);
+	shader->SetUniformData("lightPos", camera->GetLightSources()[0]->GetPosition());
+
+	shader->SetUniformData("noiseSpread", 0.25f);
+	shader->SetUniformData("noiseSpeed", 0.05f);
+	shader->SetUniformData("noiseHeight", 0.5f);
 
 	model2->render(camera);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+	glBindTexture(GL_TEXTURE_3D, 0);
 
+	shader = ShaderManager::getShader("particleShader");
+	shader->SetUniformData("projection", camera->GetPerspective());
 	p->Draw();
 
 	glUseProgram(0);

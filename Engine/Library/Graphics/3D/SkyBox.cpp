@@ -114,6 +114,10 @@ void SkyBox::onMouseMove(int x, int y){
 
 }
 
+SubMesh SkyBox::GetSubMesh() const{
+	return subMesh;
+}
+
 void SkyBox::GenerateBuffers(){
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);

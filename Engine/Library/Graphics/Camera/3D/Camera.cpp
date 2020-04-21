@@ -125,7 +125,7 @@ Camera::Camera() : sensitivity(glm::vec2(0.02)), rotation(glm::mat4(1)), transla
 	Translate(glm::vec3(0, 0, -10));
 
 	GetPerspective();
-	GetOrthographic();	
+	GetOrthographic();
 }
 
 Camera::~Camera(){}
@@ -204,9 +204,8 @@ void Camera::ProcessMouseMovement(float xOffset, float yOffset){
 }
 
 void Camera::ProcessMouseZoom(int y){
-	if(y < 0 || y>0){
-		position += static_cast<float>(y) * (GetForwardVector() * 2.0f);
-		Translate(position);
+	if(y < 0 || y > 0){
+		Translate(GetForwardVector() * (float)(2.0f * y));
 	}
 }
 

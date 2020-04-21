@@ -43,10 +43,7 @@ void ParticleGenerator::Draw(){
 	shader->Use();
 	for(Particle particle : this->particles){
 		if(particle.Life > 0.0f){
-			shader->SetUniformData("material.diffuseMap", 0);
-			glActiveTexture(GL_TEXTURE0);
-
-			glBindTexture(GL_TEXTURE_2D, texture);
+			shader->BindTexture("sprite", GL_TEXTURE_2D, 0, texture);
 
 			shader->SetUniformData("offset", particle.Position.x, particle.Position.y);
 			shader->SetUniformData("color", particle.Color.x, particle.Color.y, particle.Color.z, particle.Color.w);

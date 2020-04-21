@@ -3,61 +3,64 @@
 // Coherent noise function over 1, 2 or 3 dimensions
 // (copyright Ken Perlin)
 //
-#include <stdlib.h> 
+#include "Noise.h"
 #include <cmath>
-#include <GLEW/glew.h>
-#include <iostream>
 
-GLuint init3DNoiseTexture(int texSize, GLubyte* texPtr);
-void make3DNoiseTexture();
-
+/// Global variables - old c-stlye
+GLuint texture3D = 0;
 int Noise3DTexSize = 128;
 GLubyte* Noise3DTexPtr;
+int start;
+int B;
+int BM;
 
-#define MAXB 0x100
-#define N 0x1000
-#define NP 12   // 2^N
-#define NM 0xfff
 
-#define s_curve(t) ( t * t * (3. - 2. * t) )
-#define lerp(t, a, b) ( a + t * (b - a) )
-#define setup(i, b0, b1, r0, r1)\
-        t = vec[i] + N;\
-        b0 = ((int)t) & BM;\
-        b1 = (b0+1) & BM;\
-        r0 = t - (int)t;\
-        r1 = r0 - 1.;
-#define at2(rx, ry) ( rx * q[0] + ry * q[1] )
-#define at3(rx, ry, rz) ( rx * q[0] + ry * q[1] + rz * q[2] )
+GLuint CreateNoise3D(){
+	make3DNoiseTexture();
+	return init3DNoiseTexture(Noise3DTexSize, Noise3DTexPtr);
+}
+void DeleteNoise3D(){
+	glDeleteTextures(1, &texture3D);
+}
+GLuint init3DNoiseTexture(int texSize, GLubyte* texPtr){
+
+	glGenTextures(1, &texture3D);
+	glBindTexture(GL_TEXTURE_3D, texture3D);
+	glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_REPEAT);
+	glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA, texSize, texSize, texSize, 0, GL_RGBA, GL_UNSIGNED_BYTE, texPtr);
+	free(texPtr);
+	glBindTexture(GL_TEXTURE_3D, 0);
+	return(texture3D);
+}
+
+
 
 static void initNoise();
-
 static int p[MAXB + MAXB + 2];
 static double g3[MAXB + MAXB + 2][3];
 static double g2[MAXB + MAXB + 2][2];
 static double g1[MAXB + MAXB + 2];
 
-int start;
-int B;
-int BM;
 
-GLuint CreateNoise3D() {
-	make3DNoiseTexture();
-	return init3DNoiseTexture(Noise3DTexSize, Noise3DTexPtr);
-}
 
-void SetNoiseFrequency(int frequency) {
+
+
+void setNoiseFrequency(int frequency){
 	start = 1;
 	B = frequency;
 	BM = B - 1;
 }
 
-double noise1(double arg) {
+double noise1(double arg){
 	int bx0, bx1;
 	double rx0, rx1, sx, t, u, v, vec[1];
 
 	vec[0] = arg;
-	if(start) {
+	if(start){
 		start = 0;
 		initNoise();
 	}
@@ -71,12 +74,12 @@ double noise1(double arg) {
 	return(lerp(sx, u, v));
 }
 
-double noise2(double vec[2]) {
+double noise2(double vec[2]){
 	int bx0, bx1, by0, by1, b00, b10, b01, b11;
 	double rx0, rx1, ry0, ry1, *q, sx, sy, a, b, t, u, v;
 	int i, j;
 
-	if(start) {
+	if(start){
 		start = 0;
 		initNoise();
 	}
@@ -106,12 +109,12 @@ double noise2(double vec[2]) {
 	return lerp(sy, a, b);
 }
 
-double noise3(double vec[3]) {
+double noise3(double vec[3]){
 	int bx0, bx1, by0, by1, bz0, bz1, b00, b10, b01, b11;
 	double rx0, rx1, ry0, ry1, rz0, rz1, *q, sy, sz, a, b, c, d, t, u, v;
 	int i, j;
 
-	if(start) {
+	if(start){
 		start = 0;
 		initNoise();
 	}
@@ -155,7 +158,7 @@ double noise3(double vec[3]) {
 	return lerp(sz, c, d);
 }
 
-void normalize2(double v[2]) {
+void normalize2(double v[2]){
 	double s;
 
 	s = sqrt(v[0] * v[0] + v[1] * v[1]);
@@ -163,7 +166,7 @@ void normalize2(double v[2]) {
 	v[1] = v[1] / s;
 }
 
-void normalize3(double v[3]) {
+void normalize3(double v[3]){
 	double s;
 
 	s = sqrt(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]);
@@ -172,11 +175,11 @@ void normalize3(double v[3]) {
 	v[2] = v[2] / s;
 }
 
-void initNoise() {
+void initNoise(){
 	int i, j, k;
 
 	srand(30757);
-	for(i = 0; i < B; i++) {
+	for(i = 0; i < B; i++){
 		p[i] = i;
 		g1[i] = (double)((rand() % (B + B)) - B) / B;
 
@@ -189,13 +192,13 @@ void initNoise() {
 		normalize3(g3[i]);
 	}
 
-	while(--i) {
+	while(--i){
 		k = p[i];
 		p[i] = p[j = rand() % B];
 		p[j] = k;
 	}
 
-	for(i = 0; i < B + 2; i++) {
+	for(i = 0; i < B + 2; i++){
 		p[B + i] = p[i];
 		g1[B + i] = g1[i];
 		for(j = 0; j < 2; j++)
@@ -213,13 +216,13 @@ void initNoise() {
 // "beta" is the harmonic scaling/spacing, typically 2.
 //
 
-double PerlinNoise1D(double x, double alpha, double beta, int n) {
+double PerlinNoise1D(double x, double alpha, double beta, int n){
 	int i;
 	double val, sum = 0;
 	double p, scale = 1;
 
 	p = x;
-	for(i = 0; i < n; i++) {
+	for(i = 0; i < n; i++){
 		val = noise1(p);
 		sum += val / scale;
 		scale *= alpha;
@@ -228,14 +231,14 @@ double PerlinNoise1D(double x, double alpha, double beta, int n) {
 	return(sum);
 }
 
-double PerlinNoise2D(double x, double y, double alpha, double beta, int n) {
+double PerlinNoise2D(double x, double y, double alpha, double beta, int n){
 	int i;
 	double val, sum = 0;
 	double p[2], scale = 1;
 
 	p[0] = x;
 	p[1] = y;
-	for(i = 0; i < n; i++) {
+	for(i = 0; i < n; i++){
 		val = noise2(p);
 		sum += val / scale;
 		scale *= alpha;
@@ -245,7 +248,7 @@ double PerlinNoise2D(double x, double y, double alpha, double beta, int n) {
 	return(sum);
 }
 
-double PerlinNoise3D(double x, double y, double z, double alpha, double beta, int n) {
+double PerlinNoise3D(double x, double y, double z, double alpha, double beta, int n){
 	int i;
 	double val, sum = 0;
 	double p[3], scale = 1;
@@ -253,7 +256,7 @@ double PerlinNoise3D(double x, double y, double z, double alpha, double beta, in
 	p[0] = x;
 	p[1] = y;
 	p[2] = z;
-	for(i = 0; i < n; i++) {
+	for(i = 0; i < n; i++){
 		val = noise3(p);
 		sum += val / scale;
 		scale *= alpha;
@@ -264,9 +267,9 @@ double PerlinNoise3D(double x, double y, double z, double alpha, double beta, in
 	return(sum);
 }
 
-void make3DNoiseTexture() {
+void make3DNoiseTexture(){
 	int f, i, j, k, inc;
-	int startFrequency = 1; /// orig is 4
+	int startFrequency = 4;
 	int numOctaves = 4;
 	double ni[3];
 	double inci, incj, inck;
@@ -275,39 +278,21 @@ void make3DNoiseTexture() {
 	double amp = 0.5;
 
 	Noise3DTexPtr = (GLubyte*)malloc(Noise3DTexSize * Noise3DTexSize * Noise3DTexSize * 4);
-	for(f = 0, inc = 0; f < numOctaves; ++f, frequency *= 2, ++inc, amp *= 0.5) {
+	for(f = 0, inc = 0; f < numOctaves; ++f, frequency *= 2, ++inc, amp *= 0.5){
 
-		SetNoiseFrequency(frequency);
+		setNoiseFrequency(frequency);
 		ptr = Noise3DTexPtr;
 		ni[0] = ni[1] = ni[2] = 0;
 
 		inci = 1.0 / (Noise3DTexSize / frequency);
-		for(i = 0; i < Noise3DTexSize; ++i, ni[0] += inci) {
+		for(i = 0; i < Noise3DTexSize; ++i, ni[0] += inci){
 			incj = 1.0 / (Noise3DTexSize / frequency);
-			for(j = 0; j < Noise3DTexSize; ++j, ni[1] += incj) {
+			for(j = 0; j < Noise3DTexSize; ++j, ni[1] += incj){
 				inck = 1.0 / (Noise3DTexSize / frequency);
-				for(k = 0; k < Noise3DTexSize; ++k, ni[2] += inck, ptr += 4) {
+				for(k = 0; k < Noise3DTexSize; ++k, ni[2] += inck, ptr += 4)
 					*(ptr + inc) = (GLubyte)(((noise3(ni) + 1.0) * amp) * 128.0);
-				}
 			}
 		}
 	}
 }
 
-
-
-/// I added this to Ken's original work.  I creates the 3-D sampler - SSF
-GLuint init3DNoiseTexture(int texSize, GLubyte* texPtr) {
-	GLuint texture = NULL;
-	glGenTextures(1, &texture);
-	/*glBindTexture(GL_TEXTURE_3D, texture);*/
-	glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_REPEAT);
-	glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA, texSize, texSize, texSize, 0, GL_RGBA, GL_UNSIGNED_BYTE, texPtr);	
-	//glBindTexture(GL_TEXTURE_3D, 0);
-	free(texPtr);
-	return(texture);
-}
