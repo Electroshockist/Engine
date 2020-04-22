@@ -1,4 +1,44 @@
-﻿  World1.cpp
+﻿  EngineMain.cpp
+c:\users\erico\files\engine\engine\library\data structures\events\event.h(7): warning C4099: 'Event': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\data structures\events\event.h(7): note: see declaration of 'Event'
+c:\users\erico\files\engine\engine\library\data structures\events\mouse\mouseeventhandler.h(22): warning C4099: 'MouseEventHandler': type name first seen using 'struct' now seen using 'class'
+  c:\users\erico\files\engine\engine\library\data structures\events\mouse\mouseeventhandler.h(10): note: see declaration of 'MouseEventHandler'
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(33): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(34): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(35): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(36): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\engine\enginemain.h(53): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\engine\enginemain.h(61): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\engine\enginemain.h(69): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  World1.cpp
 c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(33): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
           with
           [
@@ -48,4 +88,266 @@ c:\users\erico\files\engine\engine\engine\world1.cpp(88): warning C4244: 'argume
           [
               T=float
           ]
+  MouseEventHandler.cpp
+c:\users\erico\files\engine\engine\library\data structures\events\event.h(7): warning C4099: 'Event': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\data structures\events\event.h(7): note: see declaration of 'Event'
+c:\users\erico\files\engine\engine\library\data structures\events\mouse\mouseeventhandler.h(22): warning C4099: 'MouseEventHandler': type name first seen using 'struct' now seen using 'class'
+  c:\users\erico\files\engine\engine\library\data structures\events\mouse\mouseeventhandler.h(10): note: see declaration of 'MouseEventHandler'
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(33): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(34): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(35): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(36): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\engine\enginemain.h(53): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\engine\enginemain.h(61): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\engine\enginemain.h(69): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  SDLEventListener.cpp
+c:\users\erico\files\engine\engine\library\data structures\events\event.h(7): warning C4099: 'Event': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\data structures\events\event.h(7): note: see declaration of 'Event'
+c:\users\erico\files\engine\engine\library\data structures\events\mouse\mouseeventhandler.h(22): warning C4099: 'MouseEventHandler': type name first seen using 'struct' now seen using 'class'
+  c:\users\erico\files\engine\engine\library\data structures\events\mouse\mouseeventhandler.h(10): note: see declaration of 'MouseEventHandler'
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(33): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(34): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(35): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(36): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\engine\enginemain.h(53): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\engine\enginemain.h(61): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\engine\enginemain.h(69): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Particle.cpp
+c:\users\erico\files\engine\engine\library\effects\particle.cpp(34): warning C4244: '-=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\effects\particle.cpp(117): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+  Mesh.cpp
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(33): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(34): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(35): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(36): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\3d\mesh.cpp(155): warning C4018: '<': signed/unsigned mismatch
+  Model.cpp
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(33): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(34): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(35): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(36): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\3d\model.cpp(123): warning C4018: '<': signed/unsigned mismatch
+  ModelLoader.cpp
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(33): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(34): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(35): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(36): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  SkyBox.cpp
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(33): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(34): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(35): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(36): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Camera.cpp
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(33): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(34): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(35): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(36): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\data structures\events\event.h(7): warning C4099: 'Event': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\data structures\events\event.h(7): note: see declaration of 'Event'
+c:\users\erico\files\engine\engine\library\data structures\events\mouse\mouseeventhandler.h(22): warning C4099: 'MouseEventHandler': type name first seen using 'struct' now seen using 'class'
+  c:\users\erico\files\engine\engine\library\data structures\events\mouse\mouseeventhandler.h(10): note: see declaration of 'MouseEventHandler'
+c:\users\erico\files\engine\engine\engine\enginemain.h(53): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\engine\enginemain.h(61): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\engine\enginemain.h(69): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\camera.cpp(123): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+  Shader.cpp
+  ShaderManager.cpp
+c:\users\erico\files\engine\engine\library\graphics\shaders\shadermanager.cpp(224): warning C4018: '<': signed/unsigned mismatch
+  Main.cpp
+c:\users\erico\files\engine\engine\library\data structures\events\event.h(7): warning C4099: 'Event': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\data structures\events\event.h(7): note: see declaration of 'Event'
+c:\users\erico\files\engine\engine\library\data structures\events\mouse\mouseeventhandler.h(22): warning C4099: 'MouseEventHandler': type name first seen using 'struct' now seen using 'class'
+  c:\users\erico\files\engine\engine\library\data structures\events\mouse\mouseeventhandler.h(10): note: see declaration of 'MouseEventHandler'
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(33): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(34): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(35): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(36): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\engine\enginemain.h(53): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\engine\enginemain.h(61): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\erico\files\engine\engine\engine\enginemain.h(69): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Generating Code...
   Engine.vcxproj -> C:\Users\erico\Files\Engine\Debug\Engine.exe

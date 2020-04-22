@@ -7,21 +7,11 @@
 #include <glew/glew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
-#include <vector>
+#include <map>
 
 
 struct Shader{
 	friend class ShaderManager;
-
-	struct Uniform{
-		std::string name;
-		GLuint location;
-
-		Uniform(std::string name){
-			this->name = name;
-			location = -1;
-		}
-	};
 
 	// Constructor
 	Shader(){}
@@ -31,9 +21,9 @@ struct Shader{
 	}
 
 	//ID getter
-	//inline const GLuint& GetID() const{
-	//	return ID;
-	//}
+	inline const GLuint& GetID() const{
+		return ID;
+	}
 
 	// Sets the current shader as active
 	Shader& Use();
@@ -64,10 +54,8 @@ private:
 	//helper methods
 	bool ItemExists(std::string name);
 
-	Uniform * GetUniform(std::string name);
-
 	//name and location
-	std::vector<Uniform> uniforms;
+	std::map<std::string, GLuint> uniforms;
 
 
 };
