@@ -69,7 +69,7 @@ void Shader::CreateUniform(const GLchar* name){
 	uniforms[name] = glGetUniformLocation(ID, name);
 }
 
-bool Shader::ItemExists(std::string name){
+bool Shader::ItemExists(std::string name) const{
 	return uniforms.find(name) != uniforms.end();
 }
 

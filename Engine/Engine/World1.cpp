@@ -15,8 +15,8 @@ bool World1::OnCreate(){
 	model = new Model("./Resources/Models/Dice.obj", "./Resources/Materials/Dice.mtl", ShaderManager::GetInstance()->getShader("basicShader"));
 	model2 = new Model("./Resources/Models/skull.obj", "./Resources/Materials/Dice.mtl", ShaderManager::GetInstance()->getShader("noiseShader"));
 	
-	glm::vec3 position = glm::vec3(-3.0, -4.0, 0.0);
-	glm::vec3 position2 = glm::vec3(-5.0, -2.0, 0.0);
+	glm::vec3 position = glm::vec3(3.0, -2.0, 0.0);
+	glm::vec3 position2 = glm::vec3(-10.0, 0.0, 0.0);
 
 	float angle = 0.0f;
 	float angle2 = 90.0f;
@@ -33,9 +33,9 @@ bool World1::OnCreate(){
 
 	camera = new Camera();
 	camera->Translate(glm::vec3(0, 0, 10));
-	camera->AddLightSources(new LightSource(glm::vec3(5.0f, 10.0f, 5.0f), 1.0f, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f)));
+	camera->AddLightSources(new LightSource(glm::vec3(5.0f, 2.0f, 5.0f), 1.0f, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f)));
 
-	p = new ParticleGenerator(ShaderManager::GetInstance()->getShader("particleShader"), "Apple_Body", 20);
+	p = new ParticleGenerator(ShaderManager::GetInstance()->getShader("particleShader"), "fire", 20);
 
 	skybox = new SkyBox();
 	skybox->onCreate();
@@ -45,7 +45,7 @@ bool World1::OnCreate(){
 
 bool World1::Update(const float deltaTime_){
 	elapsedTime += deltaTime_;
-	p->Update(deltaTime_, glm::vec3(5, 2, 5), glm::vec3(0, 2, 0), 20, glm::vec3(2));
+	p->Update(deltaTime_, glm::vec3(1, 2, 1), glm::vec3(0, 2, 0), 20, glm::vec3(2));
 	return true;
 }
 

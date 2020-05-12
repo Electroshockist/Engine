@@ -49,10 +49,10 @@ private:
 
 	void CreateUniform(const GLchar* name);
 
-	GLuint GetTextureNum(GLenum textureNum);
+	static GLuint GetTextureNum(GLenum textureNum);
 
 	//helper methods
-	bool ItemExists(std::string name);
+	bool ItemExists(std::string name) const;
 
 	//name and location
 	std::map<std::string, GLuint> uniforms;

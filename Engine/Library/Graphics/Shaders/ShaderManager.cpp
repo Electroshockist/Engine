@@ -56,7 +56,7 @@ GLuint ShaderManager::createShader(GLenum shaderType, const std::string & source
 	return shader;
 }
 
-std::string ShaderManager::toString(GLenum type) const{
+std::string ShaderManager::toString(GLenum type){
 	switch(type){
 		case GL_FLOAT:										return "float";
 		case GL_FLOAT_VEC2:									return "vec2";

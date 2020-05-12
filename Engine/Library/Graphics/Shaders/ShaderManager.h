@@ -25,7 +25,7 @@ class ShaderManager{
 						const std::string& shaderName
 	);
 
-	std::string toString(GLenum type) const;
+	static std::string toString(GLenum type);
 
 public:
 	//delete constructors for singleton

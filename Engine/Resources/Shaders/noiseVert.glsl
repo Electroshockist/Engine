@@ -11,6 +11,7 @@ uniform mat4 view;
 uniform mat4 proj;
 uniform vec3 lightPos;
 uniform float time;
+
 uniform float noiseSpread;
 uniform float noiseSpeed;
 uniform float noiseHeight;
