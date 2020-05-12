@@ -7,14 +7,7 @@
 class GameObject{
 
 public:
-
 	std::vector<AComponent> components;
-
-
-
-
-
-
 	GameObject();
 	~GameObject();
 };

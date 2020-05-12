@@ -8,7 +8,6 @@ const void SceneGraph::printChildren(BaseNode node, int& depth) const{
 
 	depth++;
 
-
 	for(auto const&[key, val] : node.children){
 		//make tabs for every child down you are
 		for(size_t i = 0; i < depth; i++){

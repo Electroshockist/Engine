@@ -1,14 +1,7 @@
 #ifndef ACOMPONENT_H
 #define ACOMPONENT_H
-
-
 class AComponent{
 public:
-
-	virtual ~AComponent() = 0;
-	 
-	
-
-	
+	virtual ~AComponent(){};
 };
 #endif // !ACOMPONENT_H
