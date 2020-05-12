@@ -2,8 +2,9 @@
 #define AUDIOMANAGER_H
 #include "AudioManager.h"
 #include <string>
+#include "../GameObject/AComponent.h"
 
-class AudioPlayer {
+class AudioPlayer: public AComponent {
 	static AudioPlayer* managerInstance;
 
 	AudioManager* mAssetMgr;

@@ -5,8 +5,9 @@
 #include <glm/glm.hpp>
 
 #include "ModelLoader.h"
+#include "../../GameObject/AComponent.h"
 
-class SkyBox{
+class SkyBox: public AComponent{
 	void GenerateBuffers();
 	void RenderMesh(Camera* camera);
 

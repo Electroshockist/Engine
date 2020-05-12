@@ -51,10 +51,11 @@
 
 #include "../../../Effects/LightSource.h"
 #include "Frustum.h"
+#include "../../../GameObject/AComponent.h"
 
 class Model;
 
-class Camera{
+class Camera: public AComponent{
 	friend class SkyBox;
 	glm::vec3 position;
 	glm::mat4 perspective, orthographic;

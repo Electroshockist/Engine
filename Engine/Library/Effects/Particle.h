@@ -8,6 +8,7 @@
 #include <glm/glm.hpp>
 #include "../Graphics/Shaders/Shader.h"
 #include "Texture2D.h"
+#include "../GameObject/AComponent.h"
 
 // Represents a single particle and its state
 struct Particle{
@@ -18,7 +19,7 @@ struct Particle{
 	Particle() : Position(0.0f), Velocity(0.0f), Color(1.0f), Life(0.0f){}
 };
 
-struct ParticleGenerator{
+struct ParticleGenerator: public AComponent{
 	//// Constructor
 	ParticleGenerator(Shader* shader, std::string textureFile, GLuint amount);
 	//// Update all particles
