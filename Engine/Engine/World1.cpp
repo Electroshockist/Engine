@@ -14,7 +14,7 @@ bool World1::OnCreate(){
 	noiseID = CreateNoise3D();
 	model = new Model("./Resources/Models/Dice.obj", "./Resources/Materials/Dice.mtl", ShaderManager::GetInstance()->getShader("basicShader"));
 	model2 = new Model("./Resources/Models/skull.obj", "./Resources/Materials/Dice.mtl", ShaderManager::GetInstance()->getShader("noiseShader"));
-	
+
 	glm::vec3 position = glm::vec3(3.0, -2.0, 0.0);
 	glm::vec3 position2 = glm::vec3(-10.0, 0.0, 0.0);
 
@@ -40,6 +40,20 @@ bool World1::OnCreate(){
 	skybox = new SkyBox();
 	skybox->onCreate();
 
+	SceneGraph::Node
+		*a = new SceneGraph::Node(),
+		*aa = new SceneGraph::Node(),
+		*aaa = new SceneGraph::Node(),
+		*b = new SceneGraph::Node();
+
+	a->AddChild("aa", aa);
+	aa->AddChild("aaa", aaa);
+
+	sceneGraph.root.AddChild("a", a);
+	sceneGraph.root.AddChild("b", b);
+
+	sceneGraph.printGraph();
+
 	return true;
 }
 
@@ -50,7 +64,7 @@ bool World1::Update(const float deltaTime_){
 }
 
 bool World1::Render(){
-	skybox->Render(camera);	
+	skybox->Render(camera);
 
 	model->render(camera);
 

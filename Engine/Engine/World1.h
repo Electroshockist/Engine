@@ -1,11 +1,12 @@
 #ifndef WORLD1_H
 #define WORLD1_H
 
-#include "../Library/Worlds/AWorld.h"
+#include "../Library/World/AWorld.h"
 #include "../Library/Graphics/3D/Model.h"
 #include "../Library/Graphics/Camera/3D/Camera.h"
 #include "../Library/Graphics/3D/SkyBox.h"
 #include "../Library/Effects/Particle.h"
+#include "../Library/Data Structures/SceneGraph.h"
 
 GLuint CreateNoise3D();
 void DeleteNoise3D();
@@ -15,6 +16,8 @@ struct World1 : public AWorld{
 	Camera *camera;
 	SkyBox* skybox;
 	ParticleGenerator* p;
+
+	SceneGraph sceneGraph;
 
 	int noiseID;
 

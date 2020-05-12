@@ -1,51 +1,7 @@
-﻿  World1.cpp
-c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(33): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(34): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(35): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(36): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\erico\files\engine\engine\library\data structures\events\event.h(7): warning C4099: 'Event': type name first seen using 'class' now seen using 'struct'
-  c:\users\erico\files\engine\engine\library\data structures\events\event.h(7): note: see declaration of 'Event'
-c:\users\erico\files\engine\engine\library\data structures\events\mouse\mouseeventhandler.h(22): warning C4099: 'MouseEventHandler': type name first seen using 'struct' now seen using 'class'
-  c:\users\erico\files\engine\engine\library\data structures\events\mouse\mouseeventhandler.h(10): note: see declaration of 'MouseEventHandler'
-c:\users\erico\files\engine\engine\engine\enginemain.h(53): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\erico\files\engine\engine\engine\enginemain.h(61): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\erico\files\engine\engine\engine\enginemain.h(69): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\erico\files\engine\engine\engine\world1.cpp(89): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\erico\files\engine\engine\engine\world1.cpp(88): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
+﻿  SceneGraph.cpp
+c:\users\erico\files\engine\engine\library\data structures\scenegraph.h(28): warning C4240: nonstandard extension used: access to 'SceneGraph::Node' now defined to be 'public', previously it was defined to be 'private'
+  c:\users\erico\files\engine\engine\library\data structures\scenegraph.h(11): note: see declaration of 'SceneGraph::Node'
+c:\users\erico\files\engine\engine\library\data structures\scenegraph.h(28): warning C4099: 'SceneGraph::Node': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\data structures\scenegraph.h(28): note: see declaration of 'SceneGraph::Node'
+c:\users\erico\files\engine\engine\library\data structures\scenegraph.cpp(14): warning C4018: '<': signed/unsigned mismatch
   Engine.vcxproj -> C:\Users\erico\Files\Engine\Debug\Engine.exe
