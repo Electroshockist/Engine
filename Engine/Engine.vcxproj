@@ -161,6 +161,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Library\GameObject\Component.h" />
+    <ClInclude Include="Library\GameObject\GameObject.h" />
     <ClInclude Include="Library\Data Structures\Events\SDLEventListener.h" />
     <ClInclude Include="Library\Data Structures\Events\Mouse\MouseEventHandler.h" />
     <ClInclude Include="Library\Effects\LightSource.h" />
@@ -200,8 +202,11 @@
     <ClInclude Include="Library\Graphics\Shaders\Shader.h" />
     <ClInclude Include="Library\Effects\Texture2D.h" />
     <ClInclude Include="Library\Math\Noise.h" />
+    <ClInclude Include="Library\Worlds\SceneGraph.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Library\GameObject\GameObject.cpp" />
+    <ClCompile Include="Library\Data Structures\Decorator.cpp" />
     <ClCompile Include="Library\Data Structures\Events\SDLEventListener.cpp" />
     <ClCompile Include="Library\Data Structures\Events\Mouse\MouseEventHandler.cpp" />
     <ClCompile Include="Library\Effects\LightSource.cpp" />
@@ -234,6 +239,7 @@
     <ClCompile Include="Library\Graphics\Shaders\Shader.cpp" />
     <ClCompile Include="Library\Effects\Texture2D.cpp" />
     <ClCompile Include="Library\Math\Noise.cpp" />
+    <ClCompile Include="Library\Worlds\SceneGraph.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
