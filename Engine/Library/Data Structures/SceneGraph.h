@@ -2,6 +2,7 @@
 #define SCENEGRAPH_H
 
 #include <map>
+#include <string>
 
 #include "../Data Structures/Decorator.h"
 #include "../GameObject/GameObject.h"

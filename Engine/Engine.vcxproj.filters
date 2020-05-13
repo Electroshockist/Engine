@@ -102,12 +102,6 @@
     <ClInclude Include="Library\Graphics\Textures\GLTexture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Library\Utilities\FilePathParser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\Utilities\File.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Library\Graphics\3D\Mesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -186,9 +180,6 @@
     <ClInclude Include="Library\Math\Noise.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Library\Worlds\SceneGraph.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Library\GameObject\GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -234,12 +225,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Library\Graphics\Textures\GLTexture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Library\Utilities\FilePathParser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Library\Utilities\File.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Library\Graphics\3D\Mesh.cpp">
@@ -303,9 +288,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Library\Math\Noise.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Library\Worlds\SceneGraph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Library\Data Structures\Decorator.cpp">
