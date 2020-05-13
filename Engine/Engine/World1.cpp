@@ -54,6 +54,8 @@ bool World1::OnCreate(){
 
 	sceneGraph.printGraph();
 
+	AudioPlayer::Instance()->PlayMusic("Audio/As_You_Wish_Field_Theme.mp3");
+
 	return true;
 }
 

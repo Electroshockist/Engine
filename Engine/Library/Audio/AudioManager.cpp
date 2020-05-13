@@ -1,13 +1,14 @@
 #include "AudioManager.h"
+
 #include <SDL\SDL_filesystem.h>
+
+#include "../Utility/FilePathParser.h"
 
 AudioManager* AudioManager::mgrInstance = NULL;
 
 Mix_Music* AudioManager::GetMusic(std::string filename){
-
-
-	std::string fullpath = SDL_GetBasePath();
-	fullpath.append("Assets/" + filename);
+	std::string fullpath = FilePathParser::GetResourcePath();
+	fullpath.append(filename);
 
 	if (mMusic[fullpath] == nullptr) {
 
@@ -22,7 +23,7 @@ Mix_Music* AudioManager::GetMusic(std::string filename){
 Mix_Chunk* AudioManager::GetSFX(std::string filename)
 {
 	std::string fullpath = SDL_GetBasePath();
-	fullpath.append("Assets/" + filename);
+	fullpath.append(filename);
 
 	if (mSFX[fullpath] == nullptr) {
 

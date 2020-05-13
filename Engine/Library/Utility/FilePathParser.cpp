@@ -1,28 +1,41 @@
 #include "FilePathParser.h"
-#include "../Debugging/Debug.h"
+
 #include <algorithm>
+#include <iostream>
+
+#include <SDL/SDL.h>
+
+#include "../Debugging/Debug.h"
+
 
 using namespace std;
 
-string FilePathParser::projectPath = "";
-
-void FilePathParser::SetProjectPath(const string argv0) {
+std::string FilePathParser::GetProjectPath(){
+	string path = SDL_GetBasePath();
 	//find position of the word "Debug" in path
-	size_t pos = argv0.rfind("Debug");
+	size_t pos = path.rfind("Debug");
 
 	//truncate at position
-	projectPath = argv0.substr(0, pos);
+	path = path.substr(0, pos);
+
+	return path;
 }
 
-std::string FilePathParser::getProjectPath() {
-	return projectPath;
+string FilePathParser::GetResourcePath(){
+	std::string path = GetProjectPath();
+
+	path.append("Engine/Resources/");
+
+	std::cout << path << std::endl;
+
+	return path;
 }
 
 string FilePathParser::ToLower(const string s) {
 	string temp = s;
 	// convert string to lower case
-	for_each(temp.begin(), temp.end(), [](char & camera) {
-		camera = ::tolower(camera);
+	for_each(temp.begin(), temp.end(), [](char & character) {
+		character = ::tolower(character);
 	});
 	return temp;
 }

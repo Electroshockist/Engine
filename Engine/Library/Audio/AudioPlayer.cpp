@@ -18,8 +18,6 @@ void AudioPlayer::Release(){
 
 }
 
-
-
 AudioPlayer::AudioPlayer(){
 
 	mAssetMgr = AudioManager::Instance();
@@ -31,14 +29,11 @@ AudioPlayer::AudioPlayer(){
 }
 
 AudioPlayer::~AudioPlayer(){
-
 	mAssetMgr = NULL;
 	Mix_Quit();
 }
 
-
 void AudioPlayer::PlayMusic(std::string filename, int loops){
-
 	Mix_PlayMusic(mAssetMgr->GetMusic(filename), loops);
 }
 

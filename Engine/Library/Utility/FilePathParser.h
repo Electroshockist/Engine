@@ -1,14 +1,9 @@
 #ifndef FILEPATHPARSER_H
 #define FILEPATHPARSER_H
 
-#include <glm/glm.hpp>
 #include <string>
 
-struct FilePathParser {
-	//only supply with main's argv[0]
-	static void SetProjectPath(const std::string argv0);
-
-	static std::string getProjectPath();
+struct FilePathParser{
 
 	//delete constructors for static class
 	FilePathParser() = delete;
@@ -17,8 +12,11 @@ struct FilePathParser {
 	FilePathParser& operator=(const FilePathParser&) = delete;
 	FilePathParser& operator=(FilePathParser&&) = delete;
 
+	static std::string GetProjectPath();
+
+	static std::string GetResourcePath();
+
 private:
-	static std::string projectPath;
 
 	static std::string ToLower(const std::string s);
 	~FilePathParser();

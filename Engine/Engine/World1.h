@@ -7,6 +7,7 @@
 #include "../Library/Graphics/3D/SkyBox.h"
 #include "../Library/Effects/Particle.h"
 #include "../Library/Data Structures/SceneGraph.h"
+#include "../Library/Audio/AudioPlayer.h"
 
 GLuint CreateNoise3D();
 void DeleteNoise3D();

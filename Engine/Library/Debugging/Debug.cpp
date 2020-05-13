@@ -59,5 +59,5 @@ void Debug::Log(const MessageType type, const string & message, const string & f
 string Debug::simplifyFileName(const string filename) {
 	//cout << "Project path:" <<  projectPath << endl << "File path:" << filename << endl << "Subtracted path:" << filename.substr(projectPath.size()) << "\n\n";
 	//truncate at position
-	return filename.substr(FilePathParser::getProjectPath().size());
+	return filename.substr(FilePathParser::GetProjectPath().size());
 }

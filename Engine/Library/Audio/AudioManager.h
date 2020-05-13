@@ -6,6 +6,7 @@
 class AudioManager{
 	std::map<std::string, Mix_Music*> mMusic;
 	std::map<std::string, Mix_Chunk*> mSFX;
+
 	static AudioManager* mgrInstance;
 
 	AudioManager(){}
