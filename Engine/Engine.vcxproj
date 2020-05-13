@@ -162,6 +162,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Font\FontManager.h" />
+    <ClInclude Include="Font\UILabel.h" />
     <ClInclude Include="Library\Data Structures\SceneGraph.h" />
     <ClInclude Include="Library\GameObject\AComponent.h" />
     <ClInclude Include="Library\GameObject\GameObject.h" />
