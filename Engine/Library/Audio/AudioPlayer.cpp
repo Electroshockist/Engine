@@ -4,7 +4,6 @@
 AudioPlayer* AudioPlayer::managerInstance = nullptr;
 
 AudioPlayer* AudioPlayer::Instance(){
-
 	if(managerInstance == NULL)
 		managerInstance = new AudioPlayer();
 
@@ -12,18 +11,15 @@ AudioPlayer* AudioPlayer::Instance(){
 }
 
 void AudioPlayer::Release(){
-
 	delete managerInstance;
 	managerInstance = NULL;
 
 }
 
 AudioPlayer::AudioPlayer(){
-
 	mAssetMgr = AudioManager::Instance();
 
 	if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096) < 0){
-
 		printf("Mixer Initialization Error: %s\n", Mix_GetError());
 	}
 }

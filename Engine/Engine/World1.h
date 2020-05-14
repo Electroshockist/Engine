@@ -13,7 +13,7 @@ GLuint CreateNoise3D();
 void DeleteNoise3D();
 
 struct World1 : public AWorld{
-	Model * model, *model2;
+	Model * model, *model2, *model3;
 	Camera *camera;
 	SkyBox* skybox;
 	ParticleGenerator* p;

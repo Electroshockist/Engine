@@ -4,7 +4,6 @@
 #include <string>
 
 struct FilePathParser{
-
 	//delete constructors for static class
 	FilePathParser() = delete;
 	FilePathParser(const FilePathParser&) = delete;
