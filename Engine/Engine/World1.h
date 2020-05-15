@@ -6,7 +6,8 @@
 #include "../Library/Graphics/Camera/3D/Camera.h"
 #include "../Library/Graphics/3D/SkyBox.h"
 #include "../Library/Effects/Particle.h"
-#include "../Library/Data Structures/SceneGraph.h"
+#include "../Library/Data Structures/Decorator.h"
+#include "../Library/GameObject/GameObject.h"
 #include "../Library/Audio/AudioPlayer.h"
 
 GLuint CreateNoise3D();
@@ -15,10 +16,10 @@ void DeleteNoise3D();
 struct World1 : public AWorld{
 	Model * model, *model2, *model3;
 	Camera *camera;
-	SkyBox* skybox;
-	ParticleGenerator* p;
+	SkyBox *skybox;
+	ParticleGenerator *p;
 
-	SceneGraph sceneGraph;
+	DataStructures::Decorator<GameObject> sceneGraph;
 
 	int noiseID;
 

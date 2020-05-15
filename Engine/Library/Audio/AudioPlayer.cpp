@@ -13,7 +13,6 @@ AudioPlayer* AudioPlayer::Instance(){
 void AudioPlayer::Release(){
 	delete managerInstance;
 	managerInstance = NULL;
-
 }
 
 AudioPlayer::AudioPlayer(){

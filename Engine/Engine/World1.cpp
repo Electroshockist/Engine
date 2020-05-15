@@ -10,6 +10,8 @@
 #include "../Library/Effects/Particle.h"
 #include "EngineMain.h"
 
+using namespace DataStructures;
+
 bool World1::OnCreate(){
 	noiseID = CreateNoise3D();
 	model = new Model("./Resources/Models/Dice.obj", "./Resources/Materials/Dice.mtl", ShaderManager::GetInstance()->getShader("basicShader"));
@@ -44,11 +46,11 @@ bool World1::OnCreate(){
 	skybox = new SkyBox();
 	skybox->onCreate();
 
-	SceneGraph::Node
-		*a = new SceneGraph::Node(),
-		*aa = new SceneGraph::Node(),
-		*aaa = new SceneGraph::Node(),
-		*b = new SceneGraph::Node();
+	Decorator<GameObject>::Node
+		*a = new Decorator<GameObject>::Node(),
+		*aa = new Decorator<GameObject>::Node(),
+		*aaa = new Decorator<GameObject>::Node(),
+		*b = new Decorator<GameObject>::Node();
 
 	a->AddChild("aa", aa);
 	aa->AddChild("aaa", aaa);

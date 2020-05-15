@@ -75,9 +75,6 @@
     <ClInclude Include="Library\Data Structures\Events\ALisener.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Library\Data Structures\CircularDynamicList.h">
-      <Filter>Header Files\Data Structures</Filter>
-    </ClInclude>
     <ClInclude Include="Library\Data Structures\Decorator.h">
       <Filter>Header Files\Data Structures</Filter>
     </ClInclude>
@@ -189,9 +186,6 @@
     <ClInclude Include="Library\World\AWorld.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Library\Data Structures\SceneGraph.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Library\Utility\File.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -300,9 +294,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Library\GameObject\GameObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Library\Data Structures\SceneGraph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Library\Utility\File.cpp">
