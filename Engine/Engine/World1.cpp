@@ -16,7 +16,7 @@ bool World1::OnCreate(){
 	noiseID = CreateNoise3D();
 	model = new Model("./Resources/Models/Dice.obj", "./Resources/Materials/Dice.mtl", ShaderManager::GetInstance()->getShader("basicShader"));
 	model2 = new Model("./Resources/Models/skull.obj", "./Resources/Materials/Dice.mtl", ShaderManager::GetInstance()->getShader("noiseShader"));
-	model3 = new Model("./Resources/Models/better_plane.obj", "./Resources/Models/Dice.mtl", ShaderManager::GetInstance()->getShader("noiseShader"));
+	model3 = new Model("./Resources/Models/Plane.obj", "./Resources/Models/Dice.mtl", ShaderManager::GetInstance()->getShader("noiseShader"));
 
 	glm::vec3 position = glm::vec3(3.0, -2.0, 0.0);
 	glm::vec3 position2 = glm::vec3(-10.0, 0.0, 0.0);
@@ -52,6 +52,9 @@ bool World1::OnCreate(){
 		*aaa = new Decorator<GameObject>::Node(),
 		*b = new Decorator<GameObject>::Node();
 
+	a->data = new GameObject();
+	a->data->components.push_back(model);
+
 	a->AddChild("aa", aa);
 	aa->AddChild("aaa", aaa);
 
@@ -60,7 +63,7 @@ bool World1::OnCreate(){
 
 	sceneGraph.printGraph();
 
-	AudioPlayer::Instance()->PlayMusic("Audio/As_You_Wish_Field_Theme.mp3");
+	//AudioPlayer::Instance()->PlayMusic("Audio/As_You_Wish_Field_Theme.mp3");
 
 	return true;
 }

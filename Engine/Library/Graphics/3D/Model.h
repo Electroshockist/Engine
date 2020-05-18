@@ -39,10 +39,11 @@
 
 #include "Mesh.h"
 #include "ModelLoader.h"
+#include "../../GameObject/AComponent.h"
 #include <glm/gtc/matrix_transform.hpp>
 
 
-class Model{
+class Model : public AComponent{
 	std::vector<Mesh*> subMeshes;
 	Shader*  shaderProgram;
 	glm::vec3 position;

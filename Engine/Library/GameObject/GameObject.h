@@ -4,10 +4,8 @@
 #include <vector>
 #include "AComponent.h"
 
-class GameObject{
-
-public:
-	std::vector<AComponent> components;
+struct GameObject{
+	std::vector<AComponent*> components;
 	GameObject();
 	~GameObject();
 };
