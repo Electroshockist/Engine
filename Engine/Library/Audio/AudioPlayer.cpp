@@ -32,6 +32,17 @@ void AudioPlayer::PlayMusic(std::string filename, int loops){
 	Mix_PlayMusic(mAssetMgr->GetMusic(filename), loops);
 }
 
+void AudioPlayer::MusicVolume(int volume){
+
+	Mix_VolumeMusic(volume);
+
+}
+
+void AudioPlayer::SFXVolume(int volume, int channel) {
+	Mix_Volume(channel, volume);
+
+}
+
 void AudioPlayer::PauseMusic(){
 	if(Mix_PlayingMusic() != 0)
 		Mix_PauseMusic();
