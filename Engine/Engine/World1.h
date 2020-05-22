@@ -40,6 +40,8 @@ struct World1 : public AWorld{
 
 	void OnMouseMove(int x, int y);
 	void OnMouseZoom(int zoom);
+	void OnMouseClicked(int mouseX, int mouseY, int buttonType);
+
 private:
 	float elapsedTime;
 };

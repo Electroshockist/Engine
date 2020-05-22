@@ -82,7 +82,9 @@ bool EngineMain::Render(){
 	return returnValue;
 }
 
-void EngineMain::notifyMousePressed(int mouseX, int mouseY, int buttonType){}
+void EngineMain::notifyMousePressed(int mouseX, int mouseY, int buttonType){
+	world.OnMouseClicked(mouseX, mouseY, buttonType);
+}
 
 void EngineMain::notifyMouseReleased(int mouseX, int mouseY, int buttonType){}
 

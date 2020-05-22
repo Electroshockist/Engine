@@ -22,7 +22,7 @@ Mix_Music* AudioManager::GetMusic(std::string filename){
 
 Mix_Chunk* AudioManager::GetSFX(std::string filename)
 {
-	std::string fullpath = SDL_GetBasePath();
+	std::string fullpath = FilePathParser::GetResourcePath();
 	fullpath.append(filename);
 
 	if (mSFX[fullpath] == nullptr) {

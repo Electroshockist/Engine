@@ -123,3 +123,12 @@ void World1::OnMouseZoom(int zoom){
 		camera->ProcessMouseZoom(zoom);
 	}
 }
+
+void World1::OnMouseClicked(int mouseX, int mouseY, int buttonType){
+
+	if (buttonType == 1) {
+		
+		AudioPlayer::Instance()->PlaySFX("Audio/Sword_Slash.mp3");
+	}
+
+}

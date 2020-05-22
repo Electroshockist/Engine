@@ -53,12 +53,12 @@ C:\Users\marco\OneDrive\Desktop\Engine\Engine\Engine\EngineMain.h(69,55): warnin
           [
               T=float
           ]
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Engine\World1.cpp(116,43): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Users\marco\OneDrive\Desktop\Engine\Engine\Engine\World1.cpp(117,43): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Engine\World1.cpp(115,58): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Users\marco\OneDrive\Desktop\Engine\Engine\Engine\World1.cpp(116,58): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
@@ -67,4 +67,6 @@ C:\Users\marco\OneDrive\Desktop\Engine\Engine\Library\Data Structures\Decorator.
 C:\Users\marco\OneDrive\Desktop\Engine\Engine\Library\Data Structures\Decorator.h(68): message : while compiling class template member function 'void DataStructures::Decorator<GameObject>::PrintChildren(DataStructures::Decorator<GameObject>::BaseNode,int &) const'
 C:\Users\marco\OneDrive\Desktop\Engine\Engine\Library\Data Structures\Decorator.h(23): message : see reference to function template instantiation 'void DataStructures::Decorator<GameObject>::PrintChildren(DataStructures::Decorator<GameObject>::BaseNode,int &) const' being compiled
 C:\Users\marco\OneDrive\Desktop\Engine\Engine\Library\World\AWorld.h(18): message : see reference to class template instantiation 'DataStructures::Decorator<GameObject>' being compiled
+  FilePathParser.cpp
+  Generating Code...
   Engine.vcxproj -> C:\Users\marco\OneDrive\Desktop\Engine\Debug\Engine.exe

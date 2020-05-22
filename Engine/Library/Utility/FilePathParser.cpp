@@ -26,8 +26,6 @@ string FilePathParser::GetResourcePath(){
 
 	path.append("Engine/Resources/");
 
-	std::cout << path << std::endl;
-
 	return path;
 }
 
