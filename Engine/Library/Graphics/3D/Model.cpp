@@ -81,12 +81,6 @@ void Model::addMesh(Mesh * mesh_){
 	subMeshes.push_back(mesh_);
 }
 
-void Model::render(Camera* camera_){
-	for(auto m : subMeshes){
-		m->Render(camera_, modelInstances);
-	}
-}
-
 void Model::onDestroy(){
 	if(subMeshes.size() > 0){
 		for(auto m : subMeshes){
@@ -117,6 +111,15 @@ std::vector<glm::mat4> Model::getInstances() const{
 
 Shader * Model::getShaderProgram() const{
 	return shaderProgram;
+}
+
+void Model::Render(ACamera * camera){
+	Camera* c = dynamic_cast<Camera*>(camera);
+	if(c != nullptr){
+		for(auto m : subMeshes){
+			m->Render(c, modelInstances);
+		}
+	}
 }
 
 void Model::loadModel(){

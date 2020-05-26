@@ -19,7 +19,7 @@ struct World1 : public AWorld{
 	SkyBox *skybox;
 	ParticleGenerator *p;
 
-	DataStructures::Decorator<GameObject> sceneGraph;
+	DataStructures::Decorator sceneGraph;
 
 	int noiseID;
 

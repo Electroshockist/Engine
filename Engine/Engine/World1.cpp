@@ -46,14 +46,16 @@ bool World1::OnCreate(){
 	skybox = new SkyBox();
 	skybox->onCreate();
 
-	Decorator<GameObject>::Node
-		*a = new Decorator<GameObject>::Node(),
-		*aa = new Decorator<GameObject>::Node(),
-		*aaa = new Decorator<GameObject>::Node(),
-		*b = new Decorator<GameObject>::Node();
+	Decorator::Node
+		*a = new Decorator::Node(),
+		*aa = new Decorator::Node(),
+		*aaa = new Decorator::Node(),
+		*b = new Decorator::Node();
 
-	a->data = new GameObject();
-	a->data->components.push_back(model);
+	GameObject * g = new GameObject();
+	g->addComponent(model);
+
+	a->data = g;
 
 	a->AddChild("aa", aa);
 	aa->AddChild("aaa", aaa);
@@ -61,7 +63,7 @@ bool World1::OnCreate(){
 	sceneGraph.root.AddChild("a", a);
 	sceneGraph.root.AddChild("b", b);
 
-	sceneGraph.printGraph();
+	sceneGraph.PrintGraph();
 
 	AudioPlayer::Instance()->PlayMusic("Audio/AK - Night Drive.mp3");
 	AudioPlayer::Instance()->MusicVolume(15);
@@ -79,7 +81,7 @@ bool World1::Update(const float deltaTime_){
 bool World1::Render(){
 	skybox->Render(camera);
 
-	model->render(camera);
+	model->Render(camera);
 
 	Shader * shader = ShaderManager::getShader("noiseShader");
 	shader->Use();
@@ -93,8 +95,8 @@ bool World1::Render(){
 	shader->SetUniformData("noiseSpeed", 0.05f);
 	shader->SetUniformData("noiseHeight", 0.5f);
 
-	model2->render(camera);
-	model3->render(camera);
+	model2->Render(camera);
+	model3->Render(camera);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 	glBindTexture(GL_TEXTURE_3D, 0);
 
@@ -128,8 +130,8 @@ void World1::OnMouseClicked(int mouseX, int mouseY, int buttonType){
 
 	if (buttonType == 1) {
 		
-		AudioPlayer::Instance()->PlaySFX("Audio/Sword_Slash.mp3", 0, 1);
-		cout << "Not working peepeepoopoo" << endl;
+		AudioPlayer::Instance()->PlaySFX("Audio/Sword_Slash.mp3",0,-1);
+		cout << "pppoopoo" << endl;
 	}
 
 }

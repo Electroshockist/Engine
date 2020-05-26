@@ -43,7 +43,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 
-class Model : public AComponent{
+class Model : public ARenderable{
 	std::vector<Mesh*> subMeshes;
 	Shader*  shaderProgram;
 	glm::vec3 position;
@@ -57,7 +57,6 @@ public:
 	Model(const std::string& objPath, const std::string& matPath, Shader * shaderProgram);
 	~Model();
 	void addMesh(Mesh* mesh);
-	void render(Camera* camera);
 	void onDestroy();
 	int createInstance(glm::vec3 position, float angle, glm::vec3 rotation, glm::vec3 scale);
 	void updateInstance(int index, glm::vec3 position, float angle, glm::vec3 rotation, glm::vec3 scale);
@@ -70,6 +69,9 @@ public:
 	}
 
 	Shader * getShaderProgram() const;
+
+	// Inherited via ARenderable
+	virtual void Render(ACamera * camera) override;
 };
 #endif // !MODEL_H
 
