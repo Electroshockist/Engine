@@ -180,9 +180,6 @@
     <ClInclude Include="Library\GameObject\GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Library\GameObject\AComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Library\World\AWorld.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -192,10 +189,13 @@
     <ClInclude Include="Library\Utility\FilePathParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Font\FontManager.h">
+    <ClInclude Include="Library\GameObject\AComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Font\UILabel.h">
+    <ClInclude Include="Library\Font\FontManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Font\UILabel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -302,7 +302,7 @@
     <ClCompile Include="Library\Utility\FilePathParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Font\FontManager.cpp">
+    <ClCompile Include="Library\Font\FontManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
