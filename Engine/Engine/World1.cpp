@@ -128,7 +128,8 @@ void World1::OnMouseClicked(int mouseX, int mouseY, int buttonType){
 
 	if (buttonType == 1) {
 		
-		AudioPlayer::Instance()->PlaySFX("Audio/Sword_Slash.mp3");
+		AudioPlayer::Instance()->PlaySFX("Audio/Sword_Slash.mp3", 0, 1);
+		cout << "Not working peepeepoopoo" << endl;
 	}
 
 }

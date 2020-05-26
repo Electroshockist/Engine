@@ -17,8 +17,9 @@ Mix_Music* AudioManager::GetMusic(std::string filename){
 		if (mMusic[fullpath] == NULL) {
 			Debug::error("Music Loading Error: File-" + filename + " Error-%s" + Mix_GetError(), __FILE__, __LINE__);
 		}
-		return mMusic[fullpath];
+		
 	}
+	return mMusic[fullpath];
 }
 
 Mix_Chunk* AudioManager::GetSFX(std::string filename)
@@ -32,8 +33,9 @@ Mix_Chunk* AudioManager::GetSFX(std::string filename)
 		if (mSFX[fullpath] == NULL) {
 			Debug::error("SFX Loading Error : File-" + filename + " Error-%s" + Mix_GetError(), __FILE__, __LINE__);
 		}
-		return mSFX[fullpath];
+		
 	}
+	return mSFX[fullpath];
 }
 
 AudioManager* AudioManager::Instance(){
