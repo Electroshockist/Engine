@@ -204,6 +204,7 @@
     <ClInclude Include="Library\Effects\Texture2D.h" />
     <ClInclude Include="Library\Math\Noise.h" />
     <ClInclude Include="Library\World\AWorld.h" />
+    <ClInclude Include="Library\Math\Randomizer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Library\Font\FontManager.cpp" />
@@ -241,6 +242,7 @@
     <ClCompile Include="Library\Graphics\Shaders\Shader.cpp" />
     <ClCompile Include="Library\Effects\Texture2D.cpp" />
     <ClCompile Include="Library\Math\Noise.cpp" />
+    <ClCompile Include="Library\Math\Randomizer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -8,6 +8,7 @@
 #include "../Library/Data Structures/Events/Mouse/MouseEventHandler.h"
 #include "../Library/Graphics/3D/SkyBox.h"
 #include "../Library/Effects/Particle.h"
+#include "../Library/GameObject/GameObject.h"
 #include "EngineMain.h"
 
 using namespace DataStructures;
@@ -41,7 +42,7 @@ bool World1::OnCreate(){
 	camera->Translate(glm::vec3(0, 0, 10));
 	camera->AddLightSources(new LightSource(glm::vec3(5.0f, 2.0f, 5.0f), 1.0f, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f)));
 
-	p = new ParticleGenerator(ShaderManager::GetInstance()->getShader("particleShader"), "fire", 20);
+	p = new ParticleGenerator("./Resources/Models/Dice.obj", "./Resources/Materials/Dice.mtl", 20, position2);
 
 	skybox = new SkyBox();
 	skybox->onCreate();
@@ -52,10 +53,10 @@ bool World1::OnCreate(){
 		*aaa = new Decorator::Node(),
 		*b = new Decorator::Node();
 
-	GameObject * g = new GameObject();
-	g->addComponent(model);
+	/*GameObject * g = new GameObject();
+	g->addComponent(model);*/
 
-	a->data = g;
+	//a->data = g;
 
 	a->AddChild("aa", aa);
 	aa->AddChild("aaa", aaa);
@@ -74,7 +75,7 @@ bool World1::OnCreate(){
 
 bool World1::Update(const float deltaTime_){
 	elapsedTime += deltaTime_;
-	p->Update(deltaTime_, glm::vec3(1, 2, 1), glm::vec3(0, 2, 0), 20, glm::vec3(2));
+	p->Update(deltaTime_);
 	return true;
 }
 
@@ -100,9 +101,8 @@ bool World1::Render(){
 	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 	glBindTexture(GL_TEXTURE_3D, 0);
 
-	shader = ShaderManager::getShader("particleShader");
-	shader->SetUniformData("projection", camera->GetPerspective());
-	p->Draw();
+
+	p->Render(camera);
 
 	glUseProgram(0);
 	return true;

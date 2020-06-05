@@ -51,29 +51,6 @@ void DataStructures::Decorator::BaseNode::AddChild(std::string name, Node * chil
 	children.insert(std::pair<std::string, Node *>(name, child_));
 }
 
-void DataStructures::Decorator::BaseNode::Update(){
-	//convert this to node from base node
-	Node* self = dynamic_cast<Node*>(this);
-
-	//if this is a node
-	if(self != nullptr){
-		//convert parent to node from base node
-		Node* p = dynamic_cast<Node*>(self->parent);
-		//if parent is a node
-		if(p != nullptr){
-			self->data->Update(p->data);
-		}
-	}
-
-	//breath first update children
-	for(auto it = children.begin(); it != children.end(); it++){
-		//convert child to node from base node
-		Node* n = dynamic_cast<Node*>(it->second);
-		//recurse per child
-		it->second->Update();
-	}
-}
-
 void DataStructures::Decorator::Node::SetParent(std::string name, BaseNode * parent_){
 	this->name = name;
 	parent_->children.insert(std::pair<std::string, Node *>(name, this));

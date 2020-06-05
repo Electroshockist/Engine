@@ -31,4 +31,12 @@ void GameObject::addComponent(AComponent * component){
 	}
 }
 
-void GameObject::Update(IDecoratable * parent){}
+void GameObject::Update(GameObject * parent, unsigned int deltaTime, ACamera * camera){
+	for(auto const& x : updatableComponents){
+		x->Update(deltaTime);
+	}
+
+	for(auto const& x : renderableComponents){
+		x->Render(camera);
+	}
+}

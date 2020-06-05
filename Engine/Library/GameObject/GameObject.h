@@ -2,10 +2,9 @@
 #define GAMEOBJECT_H
 
 #include <vector>
-#include "../Data Structures/Decorator.h"
 #include "AComponent.h"
 
-struct GameObject : public DataStructures::IDecoratable{
+struct GameObject{
 	GameObject();
 	~GameObject();
 
@@ -22,9 +21,9 @@ private:
 	std::vector<AComponent*> components;
 	std::vector<AUpdatable*> updatableComponents;
 	std::vector<ARenderable*> renderableComponents;
+	
+	void Update(GameObject * parent, unsigned int deltaTime, ACamera * camera) ;
 
-	// Inherited via IDecoratable
-	virtual void Update(IDecoratable * parent) override;
 };
 
 #endif // !GAMEOBJECT_H

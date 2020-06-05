@@ -7,10 +7,6 @@
 
 using namespace std;
 namespace DataStructures{
-	struct IDecoratable{
-		//Update
-		virtual void Update(IDecoratable* parent) = 0;
-	};
 
 	struct Decorator{
 		//forward declare child class
@@ -36,8 +32,6 @@ namespace DataStructures{
 				return name;
 			}
 
-			void Update();
-
 			virtual ~BaseNode(){};
 		private:
 			//allow Node to access these components
@@ -55,7 +49,7 @@ namespace DataStructures{
 
 	public:
 		struct Node : public BaseNode{
-			IDecoratable* data;
+			//class GameObject* data;
 
 			void SetParent(std::string name, BaseNode* parent_);
 
@@ -65,10 +59,10 @@ namespace DataStructures{
 			//allow BaseNode to access these components
 			friend BaseNode;
 			friend Decorator;
+
 			//all Nodes inherit from BaseNode
 			BaseNode* parent;
 		};
-
 
 		void PrintGraph() const;
 

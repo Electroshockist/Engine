@@ -5,10 +5,12 @@ struct AComponent{
 };
 
 struct AUpdatable : public AComponent{
+	AUpdatable* parent = nullptr;
 	virtual void Update(unsigned int deltaTime) = 0;
 };
 
 struct ARenderable : public AComponent{
+	ARenderable* parent = nullptr;
 	virtual void Render(class ACamera* camera) = 0;
 };
 #endif // !ACOMPONENT_H
