@@ -14,30 +14,43 @@
     // ParticleColor = color;
     // gl_Position = projection * vec4((vertex.xy * scale) + offset, 0.0, 1.0);
 // }
-#version 450 core
+
+#version 330 core
+
 layout (location = 0) in vec3 position;
 layout (location = 1) in vec3 normal;
-layout (location = 2) in vec3 texCoords;
-layout (location = 3) in vec3 colour;
+layout (location = 2) in vec2 texCoords;
+layout (location = 3) in vec4 color;
 
-out vec3 customColour;
+out vec3 Normal;
+out vec2 TexCoords;
+out vec3 FragPosition;
 
 uniform mat4 model;
 uniform mat4 view;
 uniform mat4 proj;
 
-uniform vec3 offset;
 uniform vec3 initialVelocity;
 uniform float gravityScale;
 uniform float elapsedTime;
 
-void main(){
-	const float gravity = 9.81;
+void main() {
 	
-	const float totalGravity = gravity * gravityScale;
+	Normal = mat3(inverse(transpose(model))) * normal;
+
+	TexCoords = texCoords;
 	
-	vec3 calculatedPos = (position + offset) + (initialVelocity*elapsedTime + (totalGravity * elapsedTime * elapsedTime)/2);
+	
+	
+
+	const float gravity = -9.81;
+	
+	vec3 totalGravity = vec3(0, gravity * gravityScale, 0);
+	
+	vec3 calculatedPos = position  + (initialVelocity * elapsedTime + (totalGravity * elapsedTime * elapsedTime)/2);
+	
+
+	FragPosition = vec3(model * vec4(calculatedPos, 1.0f));
 
 	gl_Position = proj * view * model * vec4(calculatedPos, 1.0f);
-	customColour = colour;
 }

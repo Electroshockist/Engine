@@ -29,15 +29,15 @@ struct Shader{
 	Shader& Use();
 
 	// Utility functions
-	void SetUniformData(const GLchar* name, GLfloat value, GLboolean useShader = false);
-	void SetUniformData(const GLchar* name, GLint value, GLboolean useShader = false);
-	void SetUniformData(const GLchar* name, GLfloat x, GLfloat y, GLboolean useShader = false);
-	void SetUniformData(const GLchar* name, const glm::vec2& value,  GLboolean useShader = false);
-	void SetUniformData(const GLchar* name, GLfloat x, GLfloat y, GLfloat z,  GLboolean useShader = false);
-	void SetUniformData(const GLchar* name, const glm::vec3& value,  GLboolean useShader = false);
-	void SetUniformData(const GLchar* name, GLfloat x, GLfloat y, GLfloat z, GLfloat w,  GLboolean useShader = false);
-	void SetUniformData(const GLchar* name, const glm::vec4& value,  GLboolean useShader = false);
-	void SetUniformData(const GLchar* name, const glm::mat4& matrix,  GLboolean useShader = false);
+	void SetUniformData(const GLchar* name, GLfloat value, bool performUniformCheck = true, bool useShader = false);
+	void SetUniformData(const GLchar* name, GLint value, bool performUniformCheck = true, bool useShader = false);
+	void SetUniformData(const GLchar* name, GLfloat x, GLfloat y, bool performUniformCheck = true, bool useShader = false);
+	void SetUniformData(const GLchar* name, const glm::vec2& value, bool performUniformCheck = true, bool useShader = false);
+	void SetUniformData(const GLchar* name, GLfloat x, GLfloat y, GLfloat z, bool performUniformCheck = true, bool useShader = false);
+	void SetUniformData(const GLchar* name, const glm::vec3& value, bool performUniformCheck = true, bool useShader = false);
+	void SetUniformData(const GLchar* name, GLfloat x, GLfloat y, GLfloat z, GLfloat w, bool performUniformCheck = true, bool useShader = false);
+	void SetUniformData(const GLchar* name, const glm::vec4& value, bool performUniformCheck = true, bool useShader = false);
+	void SetUniformData(const GLchar* name, const glm::mat4& matrix, bool performUniformCheck = true, bool useShader = false);
 
 	void BindTexture(const GLchar* name, GLenum textureType, GLenum textureNum, GLuint data);
 

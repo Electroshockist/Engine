@@ -16,11 +16,11 @@ using namespace DataStructures;
 bool World1::OnCreate(){
 	noiseID = CreateNoise3D();
 	model = new Model("./Resources/Models/Dice.obj", "./Resources/Materials/Dice.mtl", ShaderManager::GetInstance()->getShader("basicShader"));
-	model2 = new Model("./Resources/Models/skull.obj", "./Resources/Materials/Dice.mtl", ShaderManager::GetInstance()->getShader("noiseShader"));
+	model2 = new Model("./Resources/Models/skull.obj", "./Resources/Materials/Apple.mtl", ShaderManager::GetInstance()->getShader("noiseShader"));
 	model3 = new Model("./Resources/Models/Plane.obj", "./Resources/Models/Dice.mtl", ShaderManager::GetInstance()->getShader("noiseShader"));
 
 	glm::vec3 position = glm::vec3(3.0, -2.0, 0.0);
-	glm::vec3 position2 = glm::vec3(-10.0, 0.0, 0.0);
+	glm::vec3 position2 = glm::vec3(-5.0, 0.0, 0.0);
 	glm::vec3 position3 = glm::vec3(0.0, -4.0, 0.0);
 
 	float angle = 0.0f;
@@ -101,7 +101,6 @@ bool World1::Render(){
 	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 	glBindTexture(GL_TEXTURE_3D, 0);
 
-
 	p->Render(camera);
 
 	glUseProgram(0);
@@ -128,10 +127,8 @@ void World1::OnMouseZoom(int zoom){
 
 void World1::OnMouseClicked(int mouseX, int mouseY, int buttonType){
 
-	if (buttonType == 1) {
-		
+	if (buttonType == 1) {		
 		AudioPlayer::Instance()->PlaySFX("Audio/Sword_Slash.mp3",0,-1);
-		cout << "pppoopoo" << endl;
 	}
 
 }

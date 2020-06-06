@@ -25,6 +25,7 @@ ParticleGenerator::ParticleGenerator(const std::string& objPath_, const std::str
 
 	shader = ShaderManager::GetInstance()->getShader("basicShader");
 	model = new Model(objPath_, matPath_, shader);
+	model->createInstance(position + glm::vec3(0, 1, 0), 0, glm::vec3(), glm::vec3());
 
 	for(size_t i = 0; i < amount; i++){
 		particles.push_back(newParticle());
@@ -64,29 +65,27 @@ void ParticleGenerator::Render(Camera* c){
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 	shader->Use();
 
-	//each particle's base offset is the particle emmiter's position
-	shader->SetUniformData("offset", position);
-	shader->SetUniformData("gravityScale", gravityScale);
+	shader->SetUniformData("gravityScale", gravityScale, false);
 
-	int i = 0;
-	for(Particle& particle : this->particles){
-		//shader->BindTexture("sprite", GL_TEXTURE_2D, 0, texture);
-		std::cout << i++ << std::endl;
-		//shader->SetUniformData("projection", c->GetPerspective());
-		//shader->SetUniformData("offset", particle.Position.x, particle.Position.y);
-		//shader->SetUniformData("color", particle.Color.x, particle.Color.y, particle.Color.z, particle.Color.w);
+	shader->SetUniformData("elapsedTime", particles[0].aliveTime, false);
+	shader->SetUniformData("initialVelocity", particles[0].velocity, false);
 
-		shader->SetUniformData("elapsedTime", particle.aliveTime);
-		shader->SetUniformData("initialVelocity", particle.velocity);
+	model->Render(c);
 
-		model->Render(dynamic_cast<ACamera*>(c));
+	//for(Particle& particle : this->particles){
+	//	//shader->BindTexture("sprite", GL_TEXTURE_2D, 0, texture);
 
-		//cleanup
-		glBindTexture(GL_TEXTURE_2D, 0);
-		glBindVertexArray(this->VAO);
-		glDrawArrays(GL_QUADS, 0, 6);
-		glBindVertexArray(0);
-	}
+	//	//shader->SetUniformData("projection", c->GetPerspective());
+	//	//shader->SetUniformData("offset", particle.Position.x, particle.Position.y);
+	//	//shader->SetUniformData("color", particle.Color.x, particle.Color.y, particle.Color.z, particle.Color.w);
+	//}
+
+	//cleanup
+	glBindTexture(GL_TEXTURE_2D, 0);
+	glBindVertexArray(this->VAO);
+	glDrawArrays(GL_QUADS, 0, 6);
+	glBindVertexArray(0);
+
 	// Don't forget to reset to default blending mode
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }

@@ -11,49 +11,49 @@ Shader& Shader::Use(){
 	return *this;
 }
 
-void Shader::SetUniformData(const GLchar* name, GLfloat value, GLboolean useShader){
-	UNIFORMCHECKS(name, useShader);
+void Shader::SetUniformData(const GLchar* name, GLfloat value, bool performUniformCheck, bool useShader){
+	if(performUniformCheck) UNIFORMCHECKS(name, useShader);
 
 	glUniform1f(uniforms.at(name), value);
 }
 
-void Shader::SetUniformData(const GLchar* name, GLint value, GLboolean useShader){
-	UNIFORMCHECKS(name, useShader);
+void Shader::SetUniformData(const GLchar* name, GLint value, bool performUniformCheck, bool useShader){
+	if(performUniformCheck) UNIFORMCHECKS(name, useShader);
 	glUniform1i(uniforms.at(name), value);
 }
 
-void Shader::SetUniformData(const GLchar* name, GLfloat x, GLfloat y, GLboolean useShader){
-	UNIFORMCHECKS(name, useShader);
+void Shader::SetUniformData(const GLchar* name, GLfloat x, GLfloat y, bool performUniformCheck, bool useShader){
+	if(performUniformCheck) UNIFORMCHECKS(name, useShader);
 	glUniform2f(uniforms.at(name), x, y);
 }
 
-void Shader::SetUniformData(const GLchar* name, const glm::vec2& value, GLboolean useShader){
-	UNIFORMCHECKS(name, useShader);
+void Shader::SetUniformData(const GLchar* name, const glm::vec2& value, bool performUniformCheck, bool useShader){
+	if(performUniformCheck) UNIFORMCHECKS(name, useShader);
 	glUniform2f(uniforms.at(name), value.x, value.y);
 }
 
-void Shader::SetUniformData(const GLchar* name, GLfloat x, GLfloat y, GLfloat z, GLboolean useShader){
-	UNIFORMCHECKS(name, useShader);
+void Shader::SetUniformData(const GLchar* name, GLfloat x, GLfloat y, GLfloat z, bool performUniformCheck, bool useShader){
+	if(performUniformCheck) UNIFORMCHECKS(name, useShader);
 	glUniform3f(uniforms.at(name), x, y, z);
 }
 
-void Shader::SetUniformData(const GLchar* name, const glm::vec3& value, GLboolean useShader){
-	UNIFORMCHECKS(name, useShader);
+void Shader::SetUniformData(const GLchar* name, const glm::vec3& value, bool performUniformCheck, bool useShader){
+	if(performUniformCheck) UNIFORMCHECKS(name, useShader);
 	glUniform3f(uniforms.at(name), value.x, value.y, value.z);
 }
 
-void Shader::SetUniformData(const GLchar* name, GLfloat x, GLfloat y, GLfloat z, GLfloat w, GLboolean useShader){
-	UNIFORMCHECKS(name, useShader);
+void Shader::SetUniformData(const GLchar* name, GLfloat x, GLfloat y, GLfloat z, GLfloat w, bool performUniformCheck, bool useShader){
+	if(performUniformCheck) UNIFORMCHECKS(name, useShader);
 	glUniform4f(uniforms.at(name), x, y, z, w);
 }
 
-void Shader::SetUniformData(const GLchar* name, const glm::vec4& value, GLboolean useShader){
-	UNIFORMCHECKS(name, useShader);
+void Shader::SetUniformData(const GLchar* name, const glm::vec4& value, bool performUniformCheck, bool useShader){
+	if(performUniformCheck) UNIFORMCHECKS(name, useShader);
 	glUniform4f(uniforms.at(name), value.x, value.y, value.z, value.w);
 }
 
-void Shader::SetUniformData(const GLchar* name, const glm::mat4& matrix, GLboolean useShader){
-	UNIFORMCHECKS(name, useShader);
+void Shader::SetUniformData(const GLchar* name, const glm::mat4& matrix, bool performUniformCheck, bool useShader){
+	if(performUniformCheck) UNIFORMCHECKS(name, useShader);
 	glUniformMatrix4fv(uniforms.at(name), 1, GL_FALSE, glm::value_ptr(matrix));
 }
 

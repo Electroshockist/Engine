@@ -21,6 +21,6 @@ c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(36): war
           ]
 c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(4): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
   c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(4): note: see declaration of 'ACamera'
-c:\users\erico\files\engine\engine\library\effects\particle.cpp(153): warning C4244: 'argument': conversion from 'time_t' to 'const long', possible loss of data
-c:\users\erico\files\engine\engine\library\effects\particle.cpp(154): warning C4244: 'argument': conversion from 'time_t' to 'const long', possible loss of data
+c:\users\erico\files\engine\engine\library\effects\particle.cpp(148): warning C4244: 'argument': conversion from 'time_t' to 'const long', possible loss of data
+c:\users\erico\files\engine\engine\library\effects\particle.cpp(149): warning C4244: 'argument': conversion from 'time_t' to 'const long', possible loss of data
   Engine.vcxproj -> C:\Users\erico\Files\Engine\Debug\Engine.exe
