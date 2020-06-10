@@ -107,6 +107,7 @@ void Mesh::GenerateBuffers(){
 	glBindVertexArray(VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 
+	//tell the gpu where to draw each vertex, the size of each vertex, the list of vertices and how to draw it
 	glBufferData(GL_ARRAY_BUFFER, subMesh.vertexList.size() * sizeof(Vertex), &subMesh.vertexList[0], GL_STATIC_DRAW);
 
 	//POSITION
@@ -125,6 +126,7 @@ void Mesh::GenerateBuffers(){
 	glEnableVertexAttribArray(3);
 	glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(offsetof(Vertex, colour)));
 
+	//stop editing the VBO and VAO
 	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
@@ -154,8 +156,9 @@ void Mesh::Render(Camera* camera, std::vector<glm::mat4> &instances_){
 
 	for(int i = 0; i < instances_.size(); i++){
 		shaderProgram->SetUniformData("model", instances_[i]);
-		glDrawArrays(GL_TRIANGLES, 0, subMesh.vertexList.size());
 	}
+
+	glDrawArrays(GL_TRIANGLES, 0, subMesh.vertexList.size());
 
 	glBindVertexArray(0);
 

@@ -8,47 +8,40 @@
 #include <glm/glm.hpp>
 #include "../Graphics/Shaders/Shader.h"
 #include "../GameObject/AComponent.h"
-#include "../Graphics/3D/Model.h"
-#include "Texture2D.h"
+//#include "Texture2D.h"
 
 // Represents a single particle and its state
 struct Particle{
 	glm::vec3  velocity;
-	GLfloat aliveTime;	//time spent alive
-	GLfloat	totalLife;	//total time allowed to live
+	GLfloat	lifeTime;	//total time allowed to live
 
-	Particle() : velocity(0.0f), aliveTime(0.0f), totalLife(0.0f){}
+	Particle() : velocity(0.0f), lifeTime(0.0f){}
 };
 
-struct ParticleGenerator : public AComponent{
-	//// Constructor
-	ParticleGenerator(const std::string& objPath_, const std::string& matPath_, GLuint amount, glm::vec3 position = glm::vec3(), GLfloat gravityScale = 1.0f);
-	//// Update all particles
-	void Update(GLfloat deltaTime);
+struct ParticleGenerator: public AComponent{
+	// Constructor
+	ParticleGenerator(glm::vec3 position, GLuint amount, std::string texture);
+	//Destructor
+	~ParticleGenerator();
+
 	// Render all particles
-	void Render(class Camera* c);
+	void Render(class Camera* c, const float elapsedTime);
 
 	glm::vec3 position;
-	GLfloat gravityScale;
 private:
 	// State
 	std::vector<Particle> particles;
-
+	//amount of particles
 	GLuint amount;
 	// Render state
 	Shader* shader;
 	//GLuint texture;
-	GLuint VAO;
+	GLuint VAO, VBO;
+	//Texture
+	GLuint texture;
 
-	//Model
-	Model* model;
-
-	//// Initializes buffer and vertex attributes
-	//void init();
-	// Returns the first ParticleGenerator index that's currently unused e.g. Life <= 0.0f or 0 if no particle is currently inactive
-	GLuint firstUnusedParticle();
-
-	Particle newParticle();
+	Particle newParticle(const int offset = 0) const;
+	void GenerateBuffers();
 };
 
 #endif

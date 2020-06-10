@@ -50,7 +50,6 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-
 #include "../../Graphics/Materials/MaterialManager.h"
 #include "../../Graphics/Camera/3D/Camera.h"
 #include "../Shaders/Shader.h"

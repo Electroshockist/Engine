@@ -1,56 +1,49 @@
-// #version 330 core
-// layout (location = 0) in vec3 vertex; // vec3 position
+#version 450 core
 
-// out vec2 TexCoords;
-// out vec4 ParticleColor;
+layout (location = 0) in vec3 initialVelocity;
+layout (location = 1) in float lifetime;
 
-// uniform mat4 projection;
-// uniform vec2 offset;
-// uniform vec4 color;
+out vec3 Offset;
+out mat4 ParticleMat;
 
-// void main() {
-    // float scale = 10.0f;
-    // TexCoords = vertex.xy;
-    // ParticleColor = color;
-    // gl_Position = projection * vec4((vertex.xy * scale) + offset, 0.0, 1.0);
-// }
-
-#version 330 core
-
-layout (location = 0) in vec3 position;
-layout (location = 1) in vec3 normal;
-layout (location = 2) in vec2 texCoords;
-layout (location = 3) in vec4 color;
-
-out vec3 Normal;
-out vec2 TexCoords;
-out vec3 FragPosition;
-
-uniform mat4 model;
 uniform mat4 view;
 uniform mat4 proj;
 
-uniform vec3 initialVelocity;
-uniform float gravityScale;
+uniform vec3 position;
 uniform float elapsedTime;
 
+uniform sampler2D texture;
+
 void main() {
+	//set consts
+	const vec2[] particle_quad = {
+		vec2(-0.5f, -0.5f),
+		vec2(0.5f, -0.5f),
+		vec2(-0.5f, 0.5f),
+		vec2(0.5f, 0.5f)
+	};
 	
-	Normal = mat3(inverse(transpose(model))) * normal;
+	const mat4 totalView = view * proj;
+	
+	const vec3 cameraRight = vec3(totalView[0][0], totalView[1][0], totalView[2][0]);
+	const vec3 cameraUp = vec3(totalView[0][1], totalView[1][1], totalView[2][1]);	
+	
+	
+	//calculate particle position
+	float relativeTime = mod(elapsedTime, lifetime);
+	
+	Offset = initialVelocity * relativeTime;
+	
+	vec3 calculatedPos = position + Offset;	
+	
+	//calculate the particle quad in worldspace
+	ParticleMat = mat4(
+		vec4(calculatedPos + cameraRight * particle_quad[0].x + cameraUp * particle_quad[0].y, 0),
+		vec4(calculatedPos + cameraRight * particle_quad[1].x + cameraUp * particle_quad[1].y, 0),
+		vec4(calculatedPos + cameraRight * particle_quad[2].x + cameraUp * particle_quad[2].y, 0),
+		vec4(calculatedPos + cameraRight * particle_quad[3].x + cameraUp * particle_quad[3].y, 0),
+	);
+	
 
-	TexCoords = texCoords;
-	
-	
-	
-
-	const float gravity = -9.81;
-	
-	vec3 totalGravity = vec3(0, gravity * gravityScale, 0);
-	
-	vec3 calculatedPos = position  + (initialVelocity * elapsedTime + (totalGravity * elapsedTime * elapsedTime)/2);
-	
-
-	FragPosition = vec3(model * vec4(calculatedPos, 1.0f));
-
-	gl_Position = proj * view * model * vec4(calculatedPos, 1.0f);
+	gl_Position = totalView * vec4(calculatedPos, 1.0f);
 }

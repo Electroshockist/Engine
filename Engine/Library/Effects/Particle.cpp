@@ -7,148 +7,85 @@
 #include "../Graphics/Shaders/ShaderManager.h"
 #include "../Math/Randomizer.h"
 
-ParticleGenerator::ParticleGenerator(const std::string& objPath_, const std::string& matPath_, GLuint amount, glm::vec3 position, GLfloat gravityScale)
-	: amount(amount), position(position), gravityScale(gravityScale){
+ParticleGenerator::ParticleGenerator(glm::vec3 position, GLuint amount, std::string texture)
+	: amount(amount), position(position){
 
-	//auto loadTexture = [](std::string file){
-	//	GLuint currentTexture = TextureManager::GetInstance()->GetTexture(file);
-	//	if(currentTexture == 0){
-	//		TextureManager::GetInstance()->CreateTexture(file, "Resources/Textures/" + file + ".jpg");
-	//		currentTexture = TextureManager::GetInstance()->GetTexture(file);
-	//	}
-	//	return currentTexture;
-	//};
+	//set shader
+	shader = ShaderManager::GetInstance()->getShader("particleShader");
 
-	//texture = loadTexture(textureFile);
+	this->texture = TextureManager::GetInstance()->LoadTexture(texture);
 
-	//this->init();
-
-	shader = ShaderManager::GetInstance()->getShader("basicShader");
-	model = new Model(objPath_, matPath_, shader);
-	model->createInstance(position + glm::vec3(0, 1, 0), 0, glm::vec3(), glm::vec3());
-
+	//create particles
 	for(size_t i = 0; i < amount; i++){
-		particles.push_back(newParticle());
+		particles.push_back(newParticle(i));
 	}
+
+	GenerateBuffers();
 }
 
-void ParticleGenerator::Update(GLfloat deltaTime){
-
-	for(size_t i = 0; i < particles.size(); i++){
-		Particle& p = particles[i];
-		p.aliveTime += deltaTime;
-
-		//if particle needs to die, replace it with new random particle
-		if(p.aliveTime >= p.totalLife){
-			p = newParticle();
-		}
-	}
-	//// Add new particles 
-	//for(GLuint i = 0; i < newParticles; ++i){
-	//	int unusedParticle = this->firstUnusedParticle();
-	//	this->respawnParticle(this->particles[unusedParticle], position, offset);
-	//}
-	//// Update all particles
-	//for(GLuint i = 0; i < this->amount; ++i){
-	//	Particle& p = this->particles[i];
-	//	p.Life += dt; // reduce aliveTime
-	//	if(p.Life > 0.0f){	// particle is alive, thus update
-	//		p.Position -= p.Velocity * dt;
-	//		p.Color.a -= dt * 2.5;
-	//	}
-	//}
+ParticleGenerator::~ParticleGenerator(){
+	glDeleteVertexArrays(1, &VAO);
+	glDeleteBuffers(1, &VBO);
 }
 
-//// Render all particles
-void ParticleGenerator::Render(Camera* c){
-	// Use additive blending to give it a 'glow' effect
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+// Render all particles
+void ParticleGenerator::Render(Camera* c, const float elapsedTime){
 	shader->Use();
 
-	shader->SetUniformData("gravityScale", gravityScale, false);
+	shader->SetUniformData("view", c->GetView());
+	shader->SetUniformData("proj", c->GetPerspective());
+	shader->SetUniformData("position", position);
+	shader->SetUniformData("elapsedTime", elapsedTime);
 
-	shader->SetUniformData("elapsedTime", particles[0].aliveTime, false);
-	shader->SetUniformData("initialVelocity", particles[0].velocity, false);
+	//camera
+	shader->SetUniformData("cameraPos", c->GetPosition());
+	shader->SetUniformData("light.lightPos", c->GetLightSources()[0]->GetPosition());
+	shader->SetUniformData("light.color", c->GetLightSources()[0]->GetColour());
+	shader->SetUniformData("material.ambient", c->GetLightSources()[0]->GetAmbientValue());
+	shader->SetUniformData("material.diffuse", c->GetLightSources()[0]->GetDiffuseValue());
 
-	model->Render(c);
+	glBindVertexArray(VAO);
 
-	//for(Particle& particle : this->particles){
-	//	//shader->BindTexture("sprite", GL_TEXTURE_2D, 0, texture);
+	glDrawArrays(GL_TRIANGLES, 0, amount);
 
-	//	//shader->SetUniformData("projection", c->GetPerspective());
-	//	//shader->SetUniformData("offset", particle.Position.x, particle.Position.y);
-	//	//shader->SetUniformData("color", particle.Color.x, particle.Color.y, particle.Color.z, particle.Color.w);
-	//}
-
-	//cleanup
-	glBindTexture(GL_TEXTURE_2D, 0);
-	glBindVertexArray(this->VAO);
-	glDrawArrays(GL_QUADS, 0, 6);
 	glBindVertexArray(0);
 
-	// Don't forget to reset to default blending mode
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-//void ParticleGenerator::init(){
-//	// Set up mesh and attribute properties
-//	GLuint VBO;
-//	GLfloat particle_quad[] = {
-//		 -0.5f, -0.5f, 0.0f,
-//		 0.5f, -0.5f, 0.0f,
-//		 -0.5f, 0.5f, 0.0f,
-//		 0.5f, 0.5f, 0.0f,
-//	};
-//
-//	glGenVertexArrays(1, &this->VAO);
-//	glGenBuffers(1, &VBO);
-//	glBindVertexArray(this->VAO);
-//
-//	// Fill mesh buffer
-//	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-//	glBufferData(GL_ARRAY_BUFFER, sizeof(particle_quad), particle_quad, GL_STATIC_DRAW);
-//	// Set mesh attributes
-//	glEnableVertexAttribArray(0);
-//	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (GLvoid*)0);
-//	glBindVertexArray(0);
-//
-//	// Create this->amount default particle instances
-//	for(GLuint i = 0; i < this->amount; ++i)
-//		this->particles.push_back(Particle());
-//}
-
-
-GLuint ParticleGenerator::firstUnusedParticle(){
-	//// Stores the index of the last particle used (for quick access to next dead particle)
-	//GLuint lastUsedParticle = 0;
-	//// First search from last used particle, this will usually return almost instantly
-	//for(GLuint i = lastUsedParticle; i < this->amount; ++i){
-	//	if(this->particles[i].Life <= 0.0f){
-	//		lastUsedParticle = i;
-	//		return i;
-	//	}
-	//}
-	//// Otherwise, do a linear search
-	//for(GLuint i = 0; i < lastUsedParticle; ++i){
-	//	if(this->particles[i].Life <= 0.0f){
-	//		lastUsedParticle = i;
-	//		return i;
-	//	}
-	//}
-	//// All particles are taken, override the first one (note that if it repeatedly hits this case, more particles should be reserved)
-	//lastUsedParticle = 0;
-	return 0;
-}
-
-
-Particle ParticleGenerator::newParticle(){
+Particle ParticleGenerator::newParticle(const int offset) const{
 	Particle p;
-	GLuint i = 0;
+	GLuint i = offset;
 
 	#define R(i) Randomizer(time(nullptr) + i)
 	p.velocity = glm::vec3(R(i++).rand(-1.0f, 1.0f), R(i++).rand(1.0f, 3.0f), R(i++).rand(-1.0f, 1.0f));
-	p.totalLife = R(i++).rand(2.0f, 5.0f);
+	p.lifeTime = R(i++).rand(2.0f, 5.0f);
 	#undef R
 
 	return p;
+}
+
+void ParticleGenerator::GenerateBuffers(){
+	glGenVertexArrays(1, &VAO);
+	glGenBuffers(1, &VBO);
+
+	glBindVertexArray(VAO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+
+	//tell the gpu where to draw each vertex, the size of each vertex, the list of vertices and how to draw it
+	glBufferData(GL_ARRAY_BUFFER, amount * sizeof(Particle), &particles[0], GL_STATIC_DRAW);
+
+	//Initial Velocity
+	//the initial velocity is at the 0th vertex index in the gpu, is a vec3(float), each one is offset by the entire size of a particle and is the first item in a particle
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), static_cast<void*>(0));
+
+	//LifeTime
+	//the lifetime is at the 1st vertex index in the gpu, is a vec3(float), each one is offset by the entire size of a particle and is the variable called "lifetime"
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 1, GL_FLOAT, GL_FALSE, sizeof(Particle), (void*)(offsetof(Particle, lifeTime)));
+
+	//stop editing the VBO and VAO
+	glBindVertexArray(0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }

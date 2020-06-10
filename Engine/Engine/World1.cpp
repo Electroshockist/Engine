@@ -42,7 +42,7 @@ bool World1::OnCreate(){
 	camera->Translate(glm::vec3(0, 0, 10));
 	camera->AddLightSources(new LightSource(glm::vec3(5.0f, 2.0f, 5.0f), 1.0f, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f)));
 
-	p = new ParticleGenerator("./Resources/Models/Dice.obj", "./Resources/Materials/Dice.mtl", 20, position2);
+	p = new ParticleGenerator("./",position, 20);
 
 	skybox = new SkyBox();
 	skybox->onCreate();
@@ -67,24 +67,27 @@ bool World1::OnCreate(){
 	sceneGraph.PrintGraph();
 
 	AudioPlayer::Instance()->PlayMusic("Audio/AK - Night Drive.mp3");
-	AudioPlayer::Instance()->MusicVolume(15);
-	
+	AudioPlayer::Instance()->MusicVolume(15);	
 
 	return true;
 }
 
 bool World1::Update(const float deltaTime_){
 	elapsedTime += deltaTime_;
-	p->Update(deltaTime_);
 	return true;
 }
 
 bool World1::Render(){
 	skybox->Render(camera);
 
+	Shader * shader = model->getShaderProgram();
+	shader->SetUniformData("gravityScale", 1.0f, false);
+
+	shader->SetUniformData("elapsedTime", 3.0f, false);
+	shader->SetUniformData("initialVelocity", glm::vec3(0, 2, 0), false);
 	model->Render(camera);
 
-	Shader * shader = ShaderManager::getShader("noiseShader");
+	shader = ShaderManager::getShader("noiseShader");
 	shader->Use();
 
 	glBindTexture(GL_TEXTURE_CUBE_MAP, skybox->GetSubMesh().material.diffuseMap);
@@ -101,7 +104,7 @@ bool World1::Render(){
 	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 	glBindTexture(GL_TEXTURE_3D, 0);
 
-	p->Render(camera);
+	p->Render(camera, elapsedTime);
 
 	glUseProgram(0);
 	return true;
@@ -126,9 +129,7 @@ void World1::OnMouseZoom(int zoom){
 }
 
 void World1::OnMouseClicked(int mouseX, int mouseY, int buttonType){
-
 	if (buttonType == 1) {		
 		AudioPlayer::Instance()->PlaySFX("Audio/Sword_Slash.mp3",0,-1);
 	}
-
 }

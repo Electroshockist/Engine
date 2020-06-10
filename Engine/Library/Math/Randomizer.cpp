@@ -35,8 +35,6 @@ int Randomizer::rand(const int low, int high){
 	return int(rand(double(low), double(high)));
 }
 
-
-
 /// Based on the work of Stephen K. Park and Keith W. Miller
 float Randomizer::ran1(){
 	#define IA 16807		/// primitive root modulo M31 7^5
