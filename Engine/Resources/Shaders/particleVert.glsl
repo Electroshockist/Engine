@@ -41,7 +41,7 @@ void main() {
 		vec4(calculatedPos + cameraRight * particle_quad[0].x + cameraUp * particle_quad[0].y, 0),
 		vec4(calculatedPos + cameraRight * particle_quad[1].x + cameraUp * particle_quad[1].y, 0),
 		vec4(calculatedPos + cameraRight * particle_quad[2].x + cameraUp * particle_quad[2].y, 0),
-		vec4(calculatedPos + cameraRight * particle_quad[3].x + cameraUp * particle_quad[3].y, 0),
+		vec4(calculatedPos + cameraRight * particle_quad[3].x + cameraUp * particle_quad[3].y, 0)
 	);
 	
 

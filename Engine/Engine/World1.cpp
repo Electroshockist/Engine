@@ -42,7 +42,7 @@ bool World1::OnCreate(){
 	camera->Translate(glm::vec3(0, 0, 10));
 	camera->AddLightSources(new LightSource(glm::vec3(5.0f, 2.0f, 5.0f), 1.0f, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f)));
 
-	p = new ParticleGenerator("./",position, 20);
+	p = new ParticleGenerator(position, 20, "fire");
 
 	skybox = new SkyBox();
 	skybox->onCreate();
