@@ -19,7 +19,7 @@ bool World1::OnCreate(){
 	model2 = new Model("./Resources/Models/skull.obj", "./Resources/Materials/Apple.mtl", ShaderManager::GetInstance()->getShader("noiseShader"));
 	model3 = new Model("./Resources/Models/Plane.obj", "./Resources/Models/Dice.mtl", ShaderManager::GetInstance()->getShader("noiseShader"));
 
-	glm::vec3 position = glm::vec3(3.0, -2.0, 0.0);
+	glm::vec3 position = glm::vec3(0.0, -2.0, -5.0);
 	glm::vec3 position2 = glm::vec3(-5.0, 0.0, 0.0);
 	glm::vec3 position3 = glm::vec3(0.0, -4.0, 0.0);
 

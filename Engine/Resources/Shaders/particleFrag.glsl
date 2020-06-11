@@ -1,7 +1,7 @@
 #version 450 core
 
 in vec3 Offset;
-in vec3 ParticlePos;
+//in vec3 ParticleMat;
 
 out vec4 color;
 

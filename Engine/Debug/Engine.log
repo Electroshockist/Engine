@@ -1,70 +1,55 @@
 ﻿  World1.cpp
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Library\Data Structures\Decorator.h(51,15): warning C4099: 'DataStructures::Decorator::Node': type name first seen using 'class' now seen using 'struct'
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Library\Data Structures\Decorator.h(51): message : see declaration of 'DataStructures::Decorator::Node'
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Library\Graphics\Camera\3D\Frustum.h(33,1): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+c:\users\erico\files\engine\engine\library\data structures\decorator.h(51): warning C4099: 'DataStructures::Decorator::Node': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\data structures\decorator.h(51): note: see declaration of 'DataStructures::Decorator::Node'
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(33): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Library\Graphics\Camera\3D\Frustum.h(34,1): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(34): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Library\Graphics\Camera\3D\Frustum.h(35,1): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(35): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Library\Graphics\Camera\3D\Frustum.h(36,1): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+c:\users\erico\files\engine\engine\library\graphics\camera\3d\frustum.h(36): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Library\Graphics\Camera\ACamera.h(4,16): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Library\Graphics\Camera\ACamera.h(4): message : see declaration of 'ACamera'
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Library\Data Structures\Events\Event.h(7,14): warning C4099: 'Event': type name first seen using 'class' now seen using 'struct'
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Library\Data Structures\Events\Event.h(7): message : see declaration of 'Event'
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Library\Data Structures\Events\Mouse\MouseEventHandler.h(22,33): warning C4099: 'MouseEventHandler': type name first seen using 'struct' now seen using 'class'
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Library\Data Structures\Events\Mouse\MouseEventHandler.h(10): message : see declaration of 'MouseEventHandler'
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Engine\EngineMain.h(53,70): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(4): warning C4099: 'ACamera': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\graphics\camera\acamera.h(4): note: see declaration of 'ACamera'
+c:\users\erico\files\engine\engine\library\data structures\events\event.h(7): warning C4099: 'Event': type name first seen using 'class' now seen using 'struct'
+  c:\users\erico\files\engine\engine\library\data structures\events\event.h(7): note: see declaration of 'Event'
+c:\users\erico\files\engine\engine\library\data structures\events\mouse\mouseeventhandler.h(22): warning C4099: 'MouseEventHandler': type name first seen using 'struct' now seen using 'class'
+  c:\users\erico\files\engine\engine\library\data structures\events\mouse\mouseeventhandler.h(10): note: see declaration of 'MouseEventHandler'
+c:\users\erico\files\engine\engine\engine\enginemain.h(53): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Engine\EngineMain.h(53,58): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+c:\users\erico\files\engine\engine\engine\enginemain.h(61): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Engine\EngineMain.h(61,71): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+c:\users\erico\files\engine\engine\engine\enginemain.h(69): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Engine\EngineMain.h(61,59): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+c:\users\erico\files\engine\engine\engine\world1.cpp(121): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Engine\EngineMain.h(69,67): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+c:\users\erico\files\engine\engine\engine\world1.cpp(120): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Engine\EngineMain.h(69,55): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Engine\World1.cpp(121,43): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\marco\OneDrive\Desktop\Engine\Engine\Engine\World1.cpp(120,58): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-  Engine.vcxproj -> C:\Users\marco\OneDrive\Desktop\Engine\Debug\Engine.exe
+  Engine.vcxproj -> C:\Users\erico\Files\Engine\Debug\Engine.exe

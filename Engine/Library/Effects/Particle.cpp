@@ -13,7 +13,7 @@ ParticleGenerator::ParticleGenerator(glm::vec3 position, GLuint amount, std::str
 	//set shader
 	shader = ShaderManager::GetInstance()->getShader("particleShader");
 
-	this->texture = TextureManager::GetInstance()->LoadTexture(texture);
+	//this->texture = TextureManager::GetInstance()->LoadTexture(texture);
 
 	//create particles
 	for(size_t i = 0; i < amount; i++){
@@ -50,7 +50,7 @@ void ParticleGenerator::Render(Camera* c, const float elapsedTime){
 
 	glBindVertexArray(0);
 
-	glBindTexture(GL_TEXTURE_2D, 0);
+	//glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 Particle ParticleGenerator::newParticle(const int offset) const{
