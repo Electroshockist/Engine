@@ -47,25 +47,6 @@ bool World1::OnCreate(){
 	skybox = new SkyBox();
 	skybox->onCreate();
 
-	Decorator::Node
-		*a = new Decorator::Node(),
-		*aa = new Decorator::Node(),
-		*aaa = new Decorator::Node(),
-		*b = new Decorator::Node();
-
-	/*GameObject * g = new GameObject();
-	g->addComponent(model);*/
-
-	//a->data = g;
-
-	a->AddChild("aa", aa);
-	aa->AddChild("aaa", aaa);
-
-	sceneGraph.root.AddChild("a", a);
-	sceneGraph.root.AddChild("b", b);
-
-	sceneGraph.PrintGraph();
-
 	AudioPlayer::Instance()->PlayMusic("Audio/AK - Night Drive.mp3");
 	AudioPlayer::Instance()->MusicVolume(15);	
 

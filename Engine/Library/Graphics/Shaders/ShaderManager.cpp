@@ -201,7 +201,7 @@ void ShaderManager::createProgram(const std::string & shaderName, const std::str
 		std::vector<char> programLog(logLength);
 		glGetProgramInfoLog(shader.ID, logLength, NULL, &programLog[0]);
 		std::string logString(programLog.begin(), programLog.end());
-		Debug::error("Shader " + shaderName + " failed to link. " + programLog[0], __FILE__, __LINE__);
+		Debug::error("Shader " + shaderName + " failed to link. " + logString, __FILE__, __LINE__);
 		return;
 	}
 	glDeleteShader(vertexShader);

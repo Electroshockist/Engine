@@ -24,14 +24,14 @@ struct ParticleGenerator: public AComponent{
 	//Destructor
 	~ParticleGenerator();
 
-	// Render all particles
+	// Render all vertices
 	void Render(class Camera* c, const float elapsedTime);
 
 	glm::vec3 position;
 private:
 	// State
-	std::vector<Particle> particles;
-	//amount of particles
+	std::vector<Particle> vertices;
+	//amount of vertices
 	GLuint amount;
 	// Render state
 	Shader* shader;

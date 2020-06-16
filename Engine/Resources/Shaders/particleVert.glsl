@@ -3,49 +3,43 @@
 layout (location = 0) in vec3 initialVelocity;
 layout (location = 1) in float lifetime;
 
-out vec3 Offset;
-//out mat4 ParticleMat;
+out vec2 ParticleUV;
 
-uniform mat4 view;
-uniform mat4 proj;
+uniform mat4 cameraMat;
 
 uniform vec3 position;
 uniform float elapsedTime;
 
-//uniform sampler2D texture;
-
 //set consts
-// const vec2[] particle_quad = {
-	// vec2(-0.5f, -0.5f),
-	// vec2(0.5f, -0.5f),
-	// vec2(-0.5f, 0.5f),
-	// vec2(0.5f, 0.5f)
-// };
+const vec2[] particle_quad = {
+	vec2(-0.5f, -0.5f),
+	vec2(0.5f, -0.5f),
+	vec2(0.5f, 0.5f),
+	vec2(-0.5f, 0.5f)
 	
+};
 
-void main() {
+ const vec2[] particle_UV = {
+	vec2(0,1),
+	vec2(1,1),
+	vec2(1,0),
+	vec2(0,0)
+};
 
-	const mat4 totalView = proj * view;
+void main(){
+	uint particleID = uint(mod(gl_VertexID, 4));
+	ParticleUV = particle_UV[particleID];
 	
-	// const vec3 cameraRight = vec3(totalView[0][0], totalView[1][0], totalView[2][0]);
-	// const vec3 cameraUp = vec3(totalView[0][1], totalView[1][1], totalView[2][1]);	
-	
+	const vec3 cameraRight = vec3(cameraMat[0][0], cameraMat[1][0], cameraMat[2][0]);
+	const vec3 cameraUp = vec3(cameraMat[0][1], cameraMat[1][1], cameraMat[2][1]);	
 	
 	//calculate particle position
 	float relativeTime = mod(elapsedTime, lifetime);
+	vec3 displacement = initialVelocity * relativeTime;
+	vec3 calculatedPos = position + displacement;
 	
-	Offset = initialVelocity * relativeTime;
+	//calculate the particle quad in worldspace
+	vec3 particlePos = calculatedPos + cameraRight * particle_quad[particleID].x + cameraUp * particle_quad[particleID].y;
 	
-	vec3 calculatedPos = position + Offset;	
-	
-	// //calculate the particle quad in worldspace
-	// ParticleMat = mat4(
-		// vec4(calculatedPos + cameraRight * particle_quad[0].x + cameraUp * particle_quad[0].y, 0),
-		// vec4(calculatedPos + cameraRight * particle_quad[1].x + cameraUp * particle_quad[1].y, 0),
-		// vec4(calculatedPos + cameraRight * particle_quad[2].x + cameraUp * particle_quad[2].y, 0),
-		// vec4(calculatedPos + cameraRight * particle_quad[3].x + cameraUp * particle_quad[3].y, 0)
-	// );
-	
-
-	gl_Position =  totalView * vec4(calculatedPos, 1.0f);
+	gl_Position =  cameraMat * vec4(particlePos, 1.0f);
 }
