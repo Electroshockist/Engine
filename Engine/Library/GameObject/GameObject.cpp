@@ -4,7 +4,7 @@ GameObject::GameObject(){}
 
 GameObject::~GameObject(){}
 
-void GameObject::Update(unsigned int deltaTime){
+void GameObject::Update(const float deltaTime){
 	for(auto& updatable : updatableComponents){
 		updatable->Update(deltaTime);
 	}
@@ -31,12 +31,7 @@ void GameObject::addComponent(AComponent * component){
 	}
 }
 
-void GameObject::Update(GameObject * parent, unsigned int deltaTime, ACamera * camera){
-	for(auto const& x : updatableComponents){
-		x->Update(deltaTime);
-	}
-
-	for(auto const& x : renderableComponents){
-		x->Render(camera);
-	}
+void GameObject::Update(GameObject * parent, const float deltaTime, ACamera * camera){
+	Update(deltaTime);
+	Render(camera);
 }

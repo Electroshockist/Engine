@@ -6,7 +6,7 @@ struct AComponent{
 
 struct AUpdatable : public AComponent{
 	AUpdatable* parent = nullptr;
-	virtual void Update(unsigned int deltaTime) = 0;
+	virtual void Update(const float deltaTime) = 0;
 };
 
 struct ARenderable : public AComponent{

@@ -24,9 +24,6 @@ public:
 	void SFXVolume(int volume, int channel);
 	void PauseMusic();
 	void ResumeMusic();
-
-	Mix_Music* GetMusic(std::string filename);
-	Mix_Chunk* GetSFX(std::string filename);
 };
 #endif // !AUDIO_H
 

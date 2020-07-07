@@ -8,7 +8,7 @@ struct GameObject{
 	GameObject();
 	~GameObject();
 
-	void Update(unsigned int deltaTime);
+	void Update(const float deltaTime);
 	void Render(class ACamera* camera);
 
 	inline std::vector<AComponent*> getComponents() const{
@@ -22,8 +22,7 @@ private:
 	std::vector<AUpdatable*> updatableComponents;
 	std::vector<ARenderable*> renderableComponents;
 	
-	void Update(GameObject * parent, unsigned int deltaTime, ACamera * camera) ;
-
+	void Update(GameObject * parent, const float deltaTime, ACamera * camera);
 };
 
 #endif // !GAMEOBJECT_H
