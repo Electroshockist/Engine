@@ -42,7 +42,7 @@ bool World1::OnCreate(){
 	camera->Translate(glm::vec3(0, 0, 10));
 	camera->AddLightSources(new LightSource(glm::vec3(5.0f, 2.0f, 5.0f), 1.0f, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f)));
 
-	p = new ParticleGenerator(position, 20, "fire");
+	p = new ParticleGenerator(position, 20, "fire.png");
 
 	skybox = new SkyBox();
 	skybox->onCreate();
@@ -53,8 +53,8 @@ bool World1::OnCreate(){
 	return true;
 }
 
-bool World1::Update(const float deltaTime_){
-	elapsedTime += deltaTime_;
+bool World1::Update(const float deltaTime){
+	elapsedTime += deltaTime;
 	return true;
 }
 

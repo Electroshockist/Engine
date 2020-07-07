@@ -35,7 +35,7 @@ struct World1 : public AWorld{
 
 	// Inherited via AWorld
 	virtual bool OnCreate() override;
-	virtual bool Update(const float deltaTime_) override;
+	virtual bool Update(const float deltaTime) override;
 	virtual bool Render() override;
 
 	void OnMouseMove(int x, int y);
