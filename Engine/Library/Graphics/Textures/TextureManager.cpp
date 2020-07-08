@@ -17,7 +17,7 @@ TextureManager * TextureManager::GetInstance(){
 unsigned int TextureManager::LoadTexture(std::string file){
 	unsigned int currentTexture = GetTexture(file);
 	if(currentTexture == 0){
-		CreateTexture(file, "Resources/Textures/" + file + ".jpg");
+		CreateTexture(file, "Resources/Textures/" + file);
 		currentTexture = GetTexture(file);
 	}
 	return currentTexture;
@@ -31,6 +31,10 @@ void TextureManager::CreateTexture(const std::string &name, const std::string &f
 		surface = IMG_Load(file.c_str());
 	} catch(const std::exception e){
 		Debug::error("Failed to load texture " + file, __FILE__, __LINE__);
+		return;
+	}
+	if(surface == nullptr){
+		Debug::error("Texture " + file + " does not exist.", __FILE__, __LINE__);
 		return;
 	}
 	t.size.x = static_cast<float>(surface->w);
