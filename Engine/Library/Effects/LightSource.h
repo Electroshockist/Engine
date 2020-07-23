@@ -4,7 +4,6 @@
 #include <glm/glm.hpp>
 
 class LightSource {
-private:
 	glm::vec3 position;
 	float ambientValue;
 	float diffuseValue;

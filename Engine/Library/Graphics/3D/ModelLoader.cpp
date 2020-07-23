@@ -122,10 +122,10 @@
 ModelLoader::ModelLoader() : material(Material()){}
 
 ModelLoader::~ModelLoader(){
-	OnDestroy();
+	Destroy();
 }
 
-void ModelLoader::OnDestroy(){
+void ModelLoader::Destroy(){
 	vertices.clear();
 	normals.clear();
 	textureCoords.clear();

@@ -2,7 +2,18 @@
 
 GameObject::GameObject(){}
 
-GameObject::~GameObject(){}
+GameObject::~GameObject(){
+	if(components.size() > 0){
+		for(auto c : components){
+			delete c;
+			c = nullptr;
+		}
+		components.clear();
+		updatableComponents.clear();
+		renderableComponents.clear();
+	}
+
+}
 
 void GameObject::Update(const float deltaTime){
 	for(auto& updatable : updatableComponents){

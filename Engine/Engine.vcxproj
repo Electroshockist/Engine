@@ -35,7 +35,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -161,6 +161,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Library\Effects\Fabric.h" />
     <ClInclude Include="Library\Font\FontManager.h" />
     <ClInclude Include="Library\Font\UILabel.h" />
     <ClInclude Include="Library\GameObject\AComponent.h" />
@@ -173,7 +174,6 @@
     <ClInclude Include="Library\LibraryMain.h" />
     <ClInclude Include="Library\Audio\AudioManager.h" />
     <ClInclude Include="Engine\World1.h" />
-    <ClInclude Include="Library\Graphics\3D\AMesh.h" />
     <ClInclude Include="Library\Graphics\3D\ModelLoader.h" />
     <ClInclude Include="Library\Graphics\Camera\3D\ACamera3D.h" />
     <ClInclude Include="Library\Graphics\Camera\3D\Camera.h" />
@@ -207,9 +207,9 @@
     <ClInclude Include="Library\Math\Randomizer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Library\Effects\Fabric.cpp" />
     <ClCompile Include="Library\Font\FontManager.cpp" />
     <ClCompile Include="Library\GameObject\GameObject.cpp" />
-    <ClCompile Include="Library\Data Structures\Decorator.cpp" />
     <ClCompile Include="Library\Data Structures\Events\SDLEventListener.cpp" />
     <ClCompile Include="Library\Data Structures\Events\Mouse\MouseEventHandler.cpp" />
     <ClCompile Include="Library\Effects\LightSource.cpp" />

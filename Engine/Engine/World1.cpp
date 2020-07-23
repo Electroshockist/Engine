@@ -48,7 +48,7 @@ bool World1::OnCreate(){
 	skybox->onCreate();
 
 	AudioPlayer::Instance()->PlayMusic("Audio/AK - Night Drive.mp3");
-	AudioPlayer::Instance()->MusicVolume(15);	
+	AudioPlayer::Instance()->MusicVolume(15);
 
 	return true;
 }

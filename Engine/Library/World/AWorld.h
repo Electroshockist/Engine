@@ -15,6 +15,6 @@ struct AWorld{
 	virtual bool Render() = 0;
 
 protected:
-	DataStructures::Decorator sceneGraph;
+	DataStructures::Decorator<GameObject> sceneGraph;
 };
 #endif

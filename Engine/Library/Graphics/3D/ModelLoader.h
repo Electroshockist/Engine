@@ -50,7 +50,7 @@ struct ModelLoader{
 	ModelLoader();
 	~ModelLoader();
 
-	void OnDestroy();
+	void Destroy();
 	bool loadModel(const std::string& fileName);
 	bool loadModel(const std::string& fileName, const std::string& matName);
 	int loadTexture(std::string file);

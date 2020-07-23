@@ -9,17 +9,17 @@
 #include "../Library/Data Structures/Decorator.h"
 #include "../Library/GameObject/GameObject.h"
 #include "../Library/Audio/AudioPlayer.h"
+#include "../Library/Effects/Fabric.h"
 
 GLuint CreateNoise3D();
 void DeleteNoise3D();
 
 struct World1 : public AWorld{
 	Model * model, *model2, *model3;
+	Fabric::Fabric* f;
 	Camera *camera;
 	SkyBox *skybox;
 	ParticleGenerator *p;
-
-	DataStructures::Decorator sceneGraph;
 
 	int noiseID;
 
@@ -45,8 +45,5 @@ struct World1 : public AWorld{
 private:
 	float elapsedTime;
 };
-
-
-
 #endif // !WORLD1_H
 

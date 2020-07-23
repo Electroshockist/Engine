@@ -33,6 +33,9 @@ ParticleGenerator::~ParticleGenerator(){
 
 // Render all vertices
 void ParticleGenerator::Render(Camera* c, const float elapsedTime){
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 	shader->Use();
 
 	shader->BindTexture("image", GL_TEXTURE_2D, GL_TEXTURE0, texture);
