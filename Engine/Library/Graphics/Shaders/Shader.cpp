@@ -74,7 +74,7 @@ bool Shader::ItemExists(std::string name) const{
 }
 
 GLuint Shader::GetTextureNum(GLenum textureNum){
-	//glenums are ordered contiguoisly, so treat GL_TEXTURE0 as 0
+	//glenums are ordered contiguously, so treat GL_TEXTURE0 as 0
 	return textureNum - GL_TEXTURE0;
 }
 
