@@ -4,7 +4,6 @@
 #include <GLEW\glew.h>
 #include <SDL\SDL_opengl.h>
 
-
 SDLGLWindow::SDLGLWindow() : window(nullptr), context(nullptr){}
 
 bool SDLGLWindow::OnCreate(string title, int x, int y, int width, int height){
@@ -33,7 +32,6 @@ SDLGLWindow::~SDLGLWindow(){
 	SDL_GL_DeleteContext(context);
 	SDL_DestroyWindow(window);
 	window = nullptr;
-	AWindow::~AWindow();
 }
 
 bool SDLGLWindow::InitSDL(){

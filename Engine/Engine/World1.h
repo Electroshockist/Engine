@@ -11,6 +11,9 @@
 #include "../Library/Audio/AudioPlayer.h"
 #include "../Library/Effects/Fabric.h"
 
+#include "../../IMGUI/imgui_impl_sdl.h"
+#include "../../IMGUI/imgui_impl_opengl3.h"
+
 GLuint CreateNoise3D();
 void DeleteNoise3D();
 
@@ -31,6 +34,10 @@ struct World1 : public AWorld{
 		delete camera;
 		camera = nullptr;
 		DeleteNoise3D();
+
+		ImGui_ImplOpenGL3_Shutdown();
+		ImGui_ImplSDL2_Shutdown();
+		ImGui::DestroyContext();
 	}
 
 	// Inherited via AWorld
@@ -44,6 +51,10 @@ struct World1 : public AWorld{
 
 private:
 	float elapsedTime;
+
+	bool show_demo_window = true;
+	bool show_another_window = false;
+	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 };
 #endif // !WORLD1_H
 

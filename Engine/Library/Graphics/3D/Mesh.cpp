@@ -46,6 +46,11 @@ void Mesh::Render(Camera* camera, std::vector<glm::mat4> &instances_){
 	shaderProgram->Use();
 	shaderProgram->BindTexture("material.diffuseMap", GL_TEXTURE_2D, GL_TEXTURE0, subMesh.material.diffuseMap);
 
+	//for(size_t i = 0; i < uniforms.size(); i++){
+	//	UniformParameter* u = &uniforms[i];
+	//	shaderProgram->SetUniformData(u->name, u->value, u->type);
+	//}
+
 	shaderProgram->SetUniformData("view", camera->GetView());
 	shaderProgram->SetUniformData("proj", camera->GetPerspective());
 

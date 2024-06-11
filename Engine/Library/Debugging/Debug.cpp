@@ -1,6 +1,5 @@
 #include "Debug.h"
 #include "../Utility/FilePathParser.h"
-#include <algorithm>
 
 using namespace std;
 

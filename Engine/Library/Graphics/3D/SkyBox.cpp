@@ -167,7 +167,7 @@ void SkyBox::Render(Camera* camera){
 
 void SkyBox::RenderMesh(Camera * camera){
 	shaderProgram->SetUniformData("proj", camera->GetPerspective());
-	shaderProgram->SetUniformData("model", modelInstance * camera->GetRotationmatrix());
+	shaderProgram->SetUniformData("model", modelInstance * camera->GetRotationMatrix());
 	glBindVertexArray(VAO);
 
 	glDrawArrays(GL_TRIANGLES, 0, subMesh.vertexList.size());

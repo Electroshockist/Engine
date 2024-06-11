@@ -9,5 +9,5 @@ LibraryMain * LibraryMain::GetInstance(){
 	if(instance == nullptr){
 		instance.reset(new LibraryMain);
 	}
-	return nullptr;
+	return instance.get();
 }

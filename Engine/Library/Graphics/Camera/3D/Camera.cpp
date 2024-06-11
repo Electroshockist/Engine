@@ -137,7 +137,7 @@ void Camera::SetRotation(float yaw, float pitch){
 }
 
 glm::mat4 Camera::GetView(){
-	auto view = GetRotationmatrix() *  GetTranslationmatrix();
+	auto view = GetRotationMatrix() *  GetTranslationMatrix();
 
 	return view;
 }
@@ -171,11 +171,11 @@ glm::vec3 Camera::GetForwardVector(){
 //	frustum.updateMatrix(GetPerspective(), translation*rotation);
 //}
 
-glm::mat4 Camera::GetRotationmatrix() const{
+glm::mat4 Camera::GetRotationMatrix() const{
 	return rotation;
 }
 
-glm::mat4 Camera::GetTranslationmatrix() const{
+glm::mat4 Camera::GetTranslationMatrix() const{
 	return translation;
 }
 

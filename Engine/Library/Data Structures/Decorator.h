@@ -37,7 +37,7 @@ namespace DataStructures{
 			virtual ~BaseNode(){};
 		private:
 			//allow Node to access these components
-			friend Node;
+			friend Node<T>;
 			friend Decorator;
 			std::string name;
 			std::map<std::string, Node<T>*> children;

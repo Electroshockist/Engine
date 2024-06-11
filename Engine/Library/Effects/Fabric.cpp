@@ -3,4 +3,6 @@
 void Fabric::Fabric::Destroy(){
 }
 
-void Fabric::Fabric::Update(const float deltaTime){}
+void Fabric::Fabric::Update(const float deltaTime) {
+
+}

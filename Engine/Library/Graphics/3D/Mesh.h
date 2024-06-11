@@ -3,6 +3,7 @@
 
 #include <vector>
 
+#include "UniformParameter.h"
 #include "../../Graphics/Camera/3D/Camera.h"
 #include "../../Graphics/Materials/MaterialManager.h"
 #include "../Shaders/Shader.h"
@@ -27,6 +28,8 @@ class Mesh : public AComponent{
 	SubMesh subMesh;
 
 public:
+	std::vector<UniformParameter> uniforms;
+
 	Mesh(SubMesh submesh, Shader * shaderProgram);
 	~Mesh();
 

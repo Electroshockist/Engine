@@ -20,6 +20,7 @@ bool EngineMain::OnCreate(int argc, char *argv[]){
 		return false;
 	}
 
+
 	ShaderManager::GetInstance()->createProgram("basicShader",
 												"./Resources/Shaders/vertexShader.glsl",
 												"./Resources/Shaders/fragmentShader.glsl"

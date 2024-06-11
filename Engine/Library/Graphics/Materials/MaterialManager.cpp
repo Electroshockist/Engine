@@ -107,7 +107,6 @@ map<string, Material> MaterialManager::materials = map<string, Material>();
 
 MaterialManager::MaterialManager(){}
 
-
 MaterialManager::~MaterialManager(){
 	if(materials.size() > 0){
 		materials.clear();

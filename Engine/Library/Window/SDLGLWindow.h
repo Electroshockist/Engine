@@ -4,6 +4,8 @@
 #include "AWindow.h"
 #include <SDL\SDL.h>
 
+#include "../../IMGUI/imgui.h"
+
 class SDLGLWindow : public AWindow {
 public:
 	SDLGLWindow();

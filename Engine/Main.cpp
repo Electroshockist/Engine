@@ -9,6 +9,7 @@
 
 using namespace std;
 int main(int argc, char *argv[]){
+	//ImGui::Text("pppooopoo");
 
 	//if in debug mode, run engine
 	#ifdef _DEBUG

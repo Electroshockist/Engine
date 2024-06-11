@@ -45,7 +45,6 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <vector>
 
@@ -86,8 +85,8 @@ public:
 
 	//void Rotate(float angle, glm::vec3 axis);
 
-	glm::mat4 GetRotationmatrix() const;
-	glm::mat4 GetTranslationmatrix() const;
+	glm::mat4 GetRotationMatrix() const;
+	glm::mat4 GetTranslationMatrix() const;
 
 	void ProcessMouseMovement(float xOffset, float yOffset);
 	void ProcessMouseZoom(int y);
